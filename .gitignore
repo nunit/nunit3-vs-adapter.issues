@@ -328,3 +328,36 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+*.rsuser
+# Mono auto generated files
+mono_crash.*
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Ll]ogs/
+# NUnit
+nunit-*.xml
+*_h.h
+*_wpftmp.csproj
+# Coverlet is a free, cross platform Code Coverage Tool
+coverage*[.json, .xml, .info]
+# NuGet Symbol Packages
+*.snupkg
+*.appxbundle
+*.appxupload
+!?*.[Cc]ache/
+# Including strong name files can present a security risk
+*- [Bb]ackup.rdl
+*- [Bb]ackup ([0-9]).rdl
+*- [Bb]ackup ([0-9][0-9]).rdl
+# CodeRush personal settings
+.cr/personal
+# Azure Stream Analytics local run output
+# MFractors (Xamarin productivity tool) working folder
+# Local History for Visual Studio
+.localhistory/
+# BeatPulse healthcheck temp database
+healthchecksdb
+# Backup folder for Package Reference Convert tool in Visual Studio 2017
+MigrationBackup/
+# Ionide (cross platform F# VS Code tools) working folder
+.ionide/

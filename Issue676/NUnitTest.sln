@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTest", "NUnitTest.csproj", "{959931CF-EE40-4524-B1ED-43D3DA6AA6E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1DE8BD40-7661-4C0D-9D88-3D341DEADD30}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{959931CF-EE40-4524-B1ED-43D3DA6AA6E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{959931CF-EE40-4524-B1ED-43D3DA6AA6E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{959931CF-EE40-4524-B1ED-43D3DA6AA6E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{959931CF-EE40-4524-B1ED-43D3DA6AA6E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {028E215A-5391-4B35-A75B-7DD81F8B9117}
+	EndGlobalSection
+EndGlobal
