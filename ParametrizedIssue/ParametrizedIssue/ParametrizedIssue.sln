@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParametrizedIssue", "ParametrizedIssue\ParametrizedIssue.csproj", "{3EC3291C-C9FC-4011-9149-B04621BB1AA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParametrizedIssue", "ParametrizedIssue\ParametrizedIssue.csproj", "{3EC3291C-C9FC-4011-9149-B04621BB1AA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9B3188D1-F241-4AA8-829E-8A3650BCB366}"
+	ProjectSection(SolutionItems) = preProject
+		simple.runsettings = simple.runsettings
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
