@@ -4,9 +4,9 @@
 <RunSettings>
   <RunConfiguration>
     <!-- 0 = As many processes as possible, limited by number of cores on machine, 1 = Sequential (1 process), 2-> Given number of processes up to limit by number of cores on machine-->
-    <MaxCpuCount>1</MaxCpuCount>
+    <MaxCpuCount>0</MaxCpuCount>
     <!-- Disables in-assembly parallel execution, applies to both MSTest and NUnit -->
-    <DisableParallelization>true</DisableParallelization>
+    <DisableParallelization>false</DisableParallelization>
   </RunConfiguration>
 
     <!--
@@ -49,17 +49,16 @@
       <InternalTraceLevel>Off</InternalTraceLevel>
       <!--<RandomSeed>1234567</RandomSeed>-->
       <NumberOfTestWorkers>-1</NumberOfTestWorkers>
-      <Verbosity>5</Verbosity>
+      <Verbosity>0</Verbosity>
       <!--<UseVsKeepEngineRunning>false</UseVsKeepEngineRunning>-->
       <!--<ShadowCopyFiles>false</ShadowCopyFiles>-->
       <!--<DefaultTestNamePattern>{m}{a}</DefaultTestNamePattern>-->
       <!--<DomainUsage>Single</DomainUsage>-->
-      <DumpXmlTestDiscovery>true</DumpXmlTestDiscovery>
-      <DumpXmlTestResults>true</DumpXmlTestResults>
+      <DumpXmlTestDiscovery>false</DumpXmlTestDiscovery>
+      <DumpXmlTestResults>false</DumpXmlTestResults>
       <ShowInternalProperties>false</ShowInternalProperties>
       <TestOutputXml>false</TestOutputXml>
-      <UseParentFQNForParametrizedTests>true</UseParentFQNForParametrizedTests>
-      <UseNUnitIdforTestCaseId>true</UseNUnitIdforTestCaseId>
+      <StopOnError>true</StopOnError>
     </NUnit>
 </RunSettings>
 
