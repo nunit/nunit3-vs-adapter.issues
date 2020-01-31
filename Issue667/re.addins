@@ -1,0 +1,3 @@
+﻿# This line is a comment and is ignored. The next (blank) line is ignored as well.
+
+Issue667.dll                   # include all dlls in the same directory
