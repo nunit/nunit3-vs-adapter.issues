@@ -24,9 +24,8 @@ namespace TestCaseSourceJumpToGivenLocation
                     var td = new TestCaseData(new FileInfo(f))
                         .SetName(Path.GetFileNameWithoutExtension(f).Replace(".", "_"))
                         .SetDescription($"Description for: {f}")
-                        .SetCategory("TextFiles");
-                    td.Properties.Add("CodeFilePath", f);
-                    td.Properties.Add("LineNumber", 1);
+                        .SetCategory("TextFiles")
+                        .SetSourceLocationEx(f);
                     yield return td;
                         
 

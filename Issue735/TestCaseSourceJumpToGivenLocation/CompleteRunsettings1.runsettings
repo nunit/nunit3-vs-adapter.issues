@@ -42,7 +42,7 @@
         <!--<ShadowCopyFiles>false</ShadowCopyFiles>-->
         <!--<DefaultTestNamePattern>{m}{a}</DefaultTestNamePattern>-->
         <!--<DomainUsage>Single</DomainUsage>-->
-        <DumpXmlTestDiscovery>false</DumpXmlTestDiscovery>
+        <DumpXmlTestDiscovery>true</DumpXmlTestDiscovery>
         <DumpXmlTestResults>true</DumpXmlTestResults>
         <ShowInternalProperties>false</ShowInternalProperties>
         <TestOutputXml>false</TestOutputXml>
