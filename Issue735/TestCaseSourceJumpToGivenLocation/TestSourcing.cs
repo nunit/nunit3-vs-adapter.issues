@@ -11,6 +11,8 @@ namespace TestCaseSourceJumpToGivenLocation
         [TestCaseSource(nameof(GetTestFiles))]
         public void TestHeader(FileInfo file)
         {
+            //if (file.Name.Contains("TextFile1"))
+            //    Assert.Fail();
             Assert.Pass();
         }
 
