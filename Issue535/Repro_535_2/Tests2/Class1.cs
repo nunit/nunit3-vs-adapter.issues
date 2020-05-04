@@ -24,8 +24,8 @@ namespace Tests2
 
         public static List<string> GetAllFileNames()
         {
-
-            var allSourceFilePaths = Directory.GetFiles(Directory.GetCurrentDirectory() + @"\Tests2\" + _sourcesDir);
+            var path = Path.Combine(TestContext.CurrentContext.TestDirectory,@"..\..\",_sourcesDir);
+            var allSourceFilePaths = Directory.GetFiles(path);
             var allSourceFileNamesWithExtensions = allSourceFilePaths.Select(Path.GetFileName);
 
             return allSourceFileNamesWithExtensions.ToList();
