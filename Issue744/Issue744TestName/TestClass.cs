@@ -23,7 +23,6 @@ namespace Issue744TestName
             Assert.That(x + y, Is.EqualTo(expectedresult));
         }
 
-        [TestCase(2, 3, 5)]
         [TestCase(1, 2, 3)]
         public void TestCaseTest(int x, int y, int expectedresult)
         {
