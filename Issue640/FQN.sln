@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FQN", "FQN.csproj", "{65D18639-E3C4-410C-BF06-0166D8E9A0D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0DA44DA9-EE1E-4255-A92B-CF9161410D84}"
+	ProjectSection(SolutionItems) = preProject
+		.runsettings = .runsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65D18639-E3C4-410C-BF06-0166D8E9A0D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65D18639-E3C4-410C-BF06-0166D8E9A0D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65D18639-E3C4-410C-BF06-0166D8E9A0D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65D18639-E3C4-410C-BF06-0166D8E9A0D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B773E437-213B-4717-93C3-D44F7703D187}
+	EndGlobalSection
+EndGlobal
