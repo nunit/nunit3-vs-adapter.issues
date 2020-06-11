@@ -58,6 +58,7 @@
       <DumpXmlTestResults>true</DumpXmlTestResults>
       <ShowInternalProperties>false</ShowInternalProperties>
       <TestOutputXml>NUnitTestResults</TestOutputXml>
+      <DisplayName>FullNameSep</DisplayName>
     </NUnit>
 </RunSettings>
 
