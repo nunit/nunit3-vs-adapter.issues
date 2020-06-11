@@ -56,9 +56,9 @@
       <!--<DomainUsage>Single</DomainUsage>-->
       <DumpXmlTestDiscovery>false</DumpXmlTestDiscovery>
       <DumpXmlTestResults>false</DumpXmlTestResults>
-      <UseParentFQNForParametrizedTests>true</UseParentFQNForParametrizedTests>
+      <UseParentFQNForParametrizedTests>false</UseParentFQNForParametrizedTests>
       <UseNUnitIdforTestCaseId>true</UseNUnitIdforTestCaseId>
-      <ShowInternalProperties>false</ShowInternalProperties>
+      <ShowInternalProperties>true</ShowInternalProperties>
       <TestOutputXml>false</TestOutputXml>
     </NUnit>
 </RunSettings>

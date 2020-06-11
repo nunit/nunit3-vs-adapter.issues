@@ -1,0 +1,9 @@
+<RunSettings>
+  <NUnit>
+    <MapWarningTo>Passed</MapWarningTo>
+    <Verbosity>5</Verbosity>
+    <DumpXmlTestResults>True</DumpXmlTestResults>
+    <ConsoleOut>1</ConsoleOut>
+    <UseTestNameInConsoleOutput>true</UseTestNameInConsoleOutput>
+  </NUnit>
+</RunSettings>
