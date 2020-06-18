@@ -11,7 +11,29 @@ namespace Explicit
     {
         [Explicit]
         [Test]
+        public void TestMethodIsExplicit()
+        {
+            // TODO: Add your test code here
+            var answer = 42;
+            Assert.That(answer, Is.EqualTo(42), "Some useful error message");
+        }
+
+        [Test]
         public void TestMethod()
+        {
+            // TODO: Add your test code here
+            var answer = 42;
+            Assert.That(answer, Is.EqualTo(42), "Some useful error message");
+        }
+    }
+
+ //   [Explicit]
+    [TestFixture]
+    public class ExplicitTestClass
+    {
+       
+        [Test]
+        public void TestMethod1()
         {
             // TODO: Add your test code here
             var answer = 42;

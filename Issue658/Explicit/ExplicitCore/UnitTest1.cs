@@ -11,6 +11,14 @@ namespace ExplicitCore
     {
         [Explicit]
         [Test]
+        public void TestMethodCoreIsExplicit()
+        {
+            // TODO: Add your test code here
+            var answer = 42;
+            Assert.That(answer, Is.EqualTo(42), "Some useful error message");
+        }
+
+        [Test]
         public void TestMethodCore()
         {
             // TODO: Add your test code here
