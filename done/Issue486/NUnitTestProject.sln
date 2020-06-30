@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTestProject", "NUnitTe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AE2E5A6D-CFEF-4242-A449-07A1C1DA9A28}"
 	ProjectSection(SolutionItems) = preProject
-		simple.runsettings = simple.runsettings
+		.runsettings = .runsettings
 	EndProjectSection
 EndProject
 Global

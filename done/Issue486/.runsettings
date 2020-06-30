@@ -58,7 +58,7 @@
       <DumpXmlTestResults>true</DumpXmlTestResults>
       <ShowInternalProperties>false</ShowInternalProperties>
       <TestOutputXml>TestResults</TestOutputXml>
-     
+      <DiscoveryMethod>Modern</DiscoveryMethod>
     </NUnit>
 </RunSettings>
 
