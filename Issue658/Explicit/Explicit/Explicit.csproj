@@ -43,7 +43,7 @@
       <Version>3.12.0</Version>
     </PackageReference>
     <PackageReference Include="NUnit3TestAdapter">
-      <Version>3.17.0-ce106</Version>
+      <Version>3.17.0-ce138-dbg</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

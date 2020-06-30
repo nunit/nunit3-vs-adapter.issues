@@ -19,7 +19,7 @@ namespace ExplicitCore
         }
 
         [Test]
-        public void TestMethodCore()
+        public void TestMethodCoreNotExplicit()
         {
             // TODO: Add your test code here
             var answer = 42;

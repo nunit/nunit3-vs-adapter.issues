@@ -27,7 +27,7 @@ namespace Explicit
         }
     }
 
- //   [Explicit]
+    [Explicit]
     [TestFixture]
     public class ExplicitTestClass
     {
