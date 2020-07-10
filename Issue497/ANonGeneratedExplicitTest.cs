@@ -17,5 +17,11 @@ namespace Filtering
             Assert.Pass();
         }
 
+        [Test, Category("Slow")]
+        public void RealSlowTestThatFails()
+        {
+            Assert.Fail();
+        }
+
     }
 }

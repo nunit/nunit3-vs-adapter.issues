@@ -25,5 +25,19 @@ namespace ExplicitCore
             var answer = 42;
             Assert.That(answer, Is.EqualTo(42), "Some useful error message");
         }
+
+        [Ignore("ignored")]
+        [Test]
+        public void AnIgnoredTest()
+        {
+
+        }
+
+
+        [Test, Category("Slow")]
+        public void SlowAndFailsTestMethod()
+        {
+            Assert.Fail();
+        }
     }
 }

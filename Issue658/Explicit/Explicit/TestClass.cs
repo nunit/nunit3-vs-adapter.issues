@@ -25,6 +25,12 @@ namespace Explicit
             var answer = 42;
             Assert.That(answer, Is.EqualTo(42), "Some useful error message");
         }
+
+        [Test, Category("Slow")]
+        public void SlowAndFailsTestMethod()
+        {
+            Assert.Fail();
+        }
     }
 
     [Explicit]

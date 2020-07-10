@@ -55,10 +55,10 @@
       <!--<DefaultTestNamePattern>{m}{a}</DefaultTestNamePattern>-->
       <!--<DomainUsage>Single</DomainUsage>-->
       <DumpXmlTestDiscovery>false</DumpXmlTestDiscovery>
-      <DumpXmlTestResults>true</DumpXmlTestResults>
+      <DumpXmlTestResults>false</DumpXmlTestResults>
       <ShowInternalProperties>false</ShowInternalProperties>
       <!--<TestOutputXml>false</TestOutputXml>-->
-      <DiscoveryMethod>Modern</DiscoveryMethod>
+      <DiscoveryMethod>Current</DiscoveryMethod>
     </NUnit>
 </RunSettings>
 
