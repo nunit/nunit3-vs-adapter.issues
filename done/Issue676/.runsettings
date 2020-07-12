@@ -58,7 +58,7 @@
       <DumpXmlTestResults>true</DumpXmlTestResults>
       <ShowInternalProperties>false</ShowInternalProperties>
       <TestOutputXml>false</TestOutputXml>
-      <DiscoveryMethod>Modern</DiscoveryMethod>
+      <DiscoveryMethod>Current</DiscoveryMethod>
       <UseParentFQNForParametrizedTests>true</UseParentFQNForParametrizedTests>
       <UseNUnitIdforTestCaseId>false</UseNUnitIdforTestCaseId>
     </NUnit>

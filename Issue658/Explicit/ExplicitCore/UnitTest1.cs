@@ -39,5 +39,11 @@ namespace ExplicitCore
         {
             Assert.Fail();
         }
+
+        [Test]
+        public void FailsTestMethod()
+        {
+            Assert.That(1,Is.EqualTo(2));
+        }
     }
 }

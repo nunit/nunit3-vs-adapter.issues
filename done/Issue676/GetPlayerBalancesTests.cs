@@ -37,7 +37,7 @@ namespace NUnitTest
                 new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = GameToken, CurrencyCode = CurrencyCode }, string.Empty, CorrelationToken },
                 new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = GameToken, CurrencyCode = CurrencyCode }, new string('*', 51), CorrelationToken },
                 new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = GameToken, CurrencyCode = CurrencyCode }, SiteCode, null },
-                new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = GameToken, CurrencyCode = CurrencyCode }, SiteCode, string.Empty }
+                new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = GameToken, CurrencyCode = CurrencyCode }, SiteCode, string.Empty },
             };
         }
     }
