@@ -1,4 +1,6 @@
 
+`This has been resolved in version 3.17`
+
 The following table shows whether XUnit/NUnit Console.WriteLine output shows when running in various scenarios.
 
 |                                            | XUnit | NUnit |
