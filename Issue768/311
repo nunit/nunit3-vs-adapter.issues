@@ -1,0 +1,11 @@
+<test-run id="0" name="NRENUnitEventListner_v2.dll" fullname="d:\repos\NUnit\nunit3-vs-adapter.issues\Issue768\NRENUnitEventListner_v2\bin\Debug\net472\NRENUnitEventListner_v2.dll" runstate="Runnable" testcasecount="1">
+  <test-suite type="Assembly" id="0-1005" name="NRENUnitEventListner_v2.dll" fullname="NRENUnitEventListner_v2.dll" runstate="Runnable" testcasecount="1">
+    <test-suite type="TestSuite" id="0-1006" name="NRENUnitEventListner_v2" fullname="NRENUnitEventListner_v2" runstate="Runnable" testcasecount="1">
+      <test-suite type="TestSuite" id="0-1007" name="TestNRE" fullname="NRENUnitEventListner_v2.TestNRE" runstate="Runnable" testcasecount="1">
+        <test-suite type="TestSuite" id="0-1008" name="SimpleTest" fullname="NRENUnitEventListner_v2.TestNRE.SimpleTest" classname="NRENUnitEventListner_v2.TestNRE" runstate="Runnable" testcasecount="1">
+          <test-case id="0-1001" name="SimpleTest()" fullname="NRENUnitEventListner_v2.TestNRE.SimpleTest()" methodname="SimpleTest" classname="NRENUnitEventListner_v2.TestNRE" runstate="Runnable" seed="165133264" />
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
