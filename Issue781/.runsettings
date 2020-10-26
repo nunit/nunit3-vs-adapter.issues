@@ -51,15 +51,14 @@
         <InternalTraceLevel>Off</InternalTraceLevel>
         <!--<RandomSeed>1234567</RandomSeed>-->  
         <NumberOfTestWorkers>-1</NumberOfTestWorkers>
-        <Verbosity>0</Verbosity>
+        <Verbosity>5</Verbosity>
         <!--<UseVsKeepEngineRunning>false</UseVsKeepEngineRunning>-->
         <!--<ShadowCopyFiles>false</ShadowCopyFiles>-->
         <!--<DefaultTestNamePattern>{m}{a}</DefaultTestNamePattern>-->
         <!--<DomainUsage>Single</DomainUsage>-->
-        <DumpXmlTestDiscovery>false</DumpXmlTestDiscovery>
-        <DumpXmlTestResults>false</DumpXmlTestResults>
+        <DumpXmlTestDiscovery>true</DumpXmlTestDiscovery>
+        <DumpXmlTestResults>true</DumpXmlTestResults>
         <ShowInternalProperties>false</ShowInternalProperties>
-        <TestOutputXml>false</TestOutputXml>
         <ConsoleOut>1</ConsoleOut>
     </NUnit>
 
