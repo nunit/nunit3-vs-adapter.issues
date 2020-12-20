@@ -95,7 +95,7 @@
       <MapWarningTo>Skipped</MapWarningTo>  <!--Passed, Failed or Skipped-->
       <DisplayName>Name</DisplayName>   <!--Name, FullName or FullNameSep-->
       <FullnameSeparator>:</FullnameSeparator>
-      <DiscoveryMethod>Legacy</DiscoveryMethod>   <!--Legacy or Current-->
+      <DiscoveryMethod>Current</DiscoveryMethod>   <!--Legacy or Current-->
       <AssemblySelectLimit>2000</AssemblySelectLimit>
     </NUnit>
 </RunSettings>

@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRENUnitEventListner_v2", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{54543EC6-ACED-4A4E-B098-DBC48C4A7C7B}"
 	ProjectSection(SolutionItems) = preProject
+		CompleteRunsettings1.runsettings = CompleteRunsettings1.runsettings
+		CoverageNoParallel1.runsettings = CoverageNoParallel1.runsettings
 		Parallel1.runsettings = Parallel1.runsettings
 		x.runsettings = x.runsettings
 	EndProjectSection
