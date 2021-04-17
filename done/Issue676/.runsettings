@@ -54,12 +54,13 @@
       <!--<ShadowCopyFiles>false</ShadowCopyFiles>-->
       <!--<DefaultTestNamePattern>{m}{a}</DefaultTestNamePattern>-->
       <!--<DomainUsage>Single</DomainUsage>-->
-      <DumpXmlTestDiscovery>false</DumpXmlTestDiscovery>
+      <DumpXmlTestDiscovery>true</DumpXmlTestDiscovery>
       <DumpXmlTestResults>true</DumpXmlTestResults>
       <ShowInternalProperties>false</ShowInternalProperties>
       <TestOutputXml>false</TestOutputXml>
+        <!--<FreakMode>true</FreakMode>-->
       <DiscoveryMethod>Current</DiscoveryMethod>
-      <UseParentFQNForParametrizedTests>true</UseParentFQNForParametrizedTests>
+      <UseParentFQNForParametrizedTests>false</UseParentFQNForParametrizedTests>
       <UseNUnitIdforTestCaseId>false</UseNUnitIdforTestCaseId>
     </NUnit>
 </RunSettings>
