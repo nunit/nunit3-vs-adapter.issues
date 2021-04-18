@@ -63,6 +63,12 @@ namespace NUnitTest
             Assert.Pass();
         }
 
+        [TestCaseSource(nameof(CreateTestContextRandomPlayerBalancesRequests))]
+        public void TestContextRandomPlayerBalancesTest(PlayerBalancesRequest request, string siteCode, string correlationToken)
+        {
+            Assert.Pass();
+        }
+
 
         private static object[] CreateInvalidPlayerBalancesRequests()
         {
@@ -113,6 +119,26 @@ namespace NUnitTest
                 new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = GameToken, CurrencyCode = CurrencyCode }, null, ModifiedCorrelationToken },
                 new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = GameToken, CurrencyCode = CurrencyCode }, string.Empty, ModifiedCorrelationToken },
                 new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = GameToken, CurrencyCode = CurrencyCode }, new string('*', 51), ModifiedCorrelationToken },
+                new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = GameToken, CurrencyCode = CurrencyCode }, SiteCode, null },
+                new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = GameToken, CurrencyCode = CurrencyCode }, SiteCode, string.Empty },
+            };
+        }
+
+        protected static string TestContextRandomGuid => TestContext.CurrentContext.Random.NextGuid().ToString();
+
+        private static object[] CreateTestContextRandomPlayerBalancesRequests()
+        {
+            return new object[]
+            {
+                new object[] { new PlayerBalancesRequest(), null, null },
+                new object[] { new PlayerBalancesRequest { PlayerId = -1, Token = GameToken, CurrencyCode = CurrencyCode }, SiteCode,TestContextRandomGuid  },
+                new object[] { new PlayerBalancesRequest { PlayerId = 0, Token = GameToken, CurrencyCode = CurrencyCode }, SiteCode, TestContextRandomGuid },
+                new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = null, CurrencyCode = CurrencyCode }, SiteCode, TestContextRandomGuid },
+                new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = string.Empty, CurrencyCode = CurrencyCode }, SiteCode, TestContextRandomGuid },
+                new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = new string('*', 51), CurrencyCode = CurrencyCode }, SiteCode, TestContextRandomGuid },
+                new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = GameToken, CurrencyCode = CurrencyCode }, null, TestContextRandomGuid },
+                new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = GameToken, CurrencyCode = CurrencyCode }, string.Empty, TestContextRandomGuid },
+                new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = GameToken, CurrencyCode = CurrencyCode }, new string('*', 51), TestContextRandomGuid },
                 new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = GameToken, CurrencyCode = CurrencyCode }, SiteCode, null },
                 new object[] { new PlayerBalancesRequest { PlayerId = PlayerId, Token = GameToken, CurrencyCode = CurrencyCode }, SiteCode, string.Empty },
             };
