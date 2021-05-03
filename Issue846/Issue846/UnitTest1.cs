@@ -14,21 +14,22 @@ namespace Issue846
         {
         }
 
-        [Test]
-        public void Test1()
+        [TestCase(42)]
+        public void Test1(int x)
         {
             Assert.Pass();
+            Assert.That(x == 42);
         }
 
         [TestCase("sv-SE")]
         [TestCase("nb-NO")]
-        [TestCase("nn-NO")]
+        [TestCase("nn-NO",Explicit=true)]
         [TestCase("da-DK")]
         public void TestCulture(string culture)
         {
 
-            var cultures = CultureInfo.GetCultures(CultureTypes.AllCultures).Select(o=>o.Name).ToList();
-            Assert.That(cultures, Does.Contain(culture),$"Specified culture {culture} doesn't exist");
+            var cultures = CultureInfo.GetCultures(CultureTypes.AllCultures).Select(o => o.Name).ToList();
+            Assert.That(cultures, Does.Contain(culture), $"Specified culture {culture} doesn't exist");
             var input = new List<string>
             {
                 "XXX","AAA", "BBB", "AAB", "ABA"
@@ -40,9 +41,9 @@ namespace Issue846
             {
                 Assert.That(result.First(), Is.EqualTo("AAA"));
                 Assert.That(result.Last(), Is.EqualTo("XXX"));
-                Assert.That(result, Is.Not.EqualTo(input).AsCollection,"Has not been sorted at all");
+                Assert.That(result, Is.Not.EqualTo(input).AsCollection, "Has not been sorted at all");
             });
-            
+
         }
     }
 }
