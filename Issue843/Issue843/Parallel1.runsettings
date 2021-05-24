@@ -45,25 +45,7 @@
         <Parameter name="webAppUserName" value="Admin" />
     </TestRunParameters>
 -->
-    <LoggerRunSettings>
-        <Loggers>
-            <Logger friendlyName="console" enabled="True">
-                <Configuration>
-                    <Verbosity>quiet</Verbosity>
-                </Configuration>
-            </Logger>
-            <Logger friendlyName="trx" enabled="True">
-                <Configuration>
-                    <LogFileName>foo.trx</LogFileName>
-                </Configuration>
-            </Logger>
-            <Logger friendlyName="html" enabled="True">
-                <Configuration>
-                    <LogFileName>foo.html</LogFileName>
-                </Configuration>
-            </Logger>
-        </Loggers>
-    </LoggerRunSettings>
+
     <!-- Adapter Specific sections -->
 
     <!-- MSTest adapter -->
@@ -104,8 +86,8 @@
       <!--<DomainUsage>Single</DomainUsage>-->
       <DumpXmlTestDiscovery>false</DumpXmlTestDiscovery>
       <DumpXmlTestResults>false</DumpXmlTestResults>
-      <ShowInternalProperties>true</ShowInternalProperties>
-      <TestOutputXml>..\..\..\TestOutputXml</TestOutputXml>
+      <ShowInternalProperties>false</ShowInternalProperties>
+      <!--<TestOutputXml>TestOutputXml</TestOutputXml>-->
       <!--<Where></Where>-->   <!-- NUnit filter expression, see https://docs.nunit.org/articles/nunit/running-tests/Test-Selection-Language.html  -->
       <ConsoleOut>1</ConsoleOut>
       <StopOnError>false</StopOnError>
