@@ -41,7 +41,7 @@ namespace Issue846
             {
                 Assert.That(result.First(), Is.EqualTo("AAA"));
                 Assert.That(result.Last(), Is.EqualTo("XXX"));
-                Assert.That(result, Is.Not.EqualTo(input).AsCollection, "Has not been sorted at all");
+                Assert.That(result, Is.EqualTo(input).AsCollection, "Has not been sorted at all");
             });
 
         }
