@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 
 namespace Issue847
@@ -9,6 +10,8 @@ namespace Issue847
         [Description("some text here")]
         public void Test1()
         {
+            Console.WriteLine("Hi testing Test1");
+            TestContext.WriteLine("Context Test1");
             Assert.Pass();
         }
     }
