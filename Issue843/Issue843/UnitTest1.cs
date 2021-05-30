@@ -15,6 +15,7 @@ namespace Issue843
             Array.Sort(data);
 
             Assert.That(data, Is.Ordered);
+            Console.WriteLine("All is well");
         }
     }
 }

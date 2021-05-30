@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="0" name="Issue843.dll" fullname="D:\repos\NUnit\nunit3-vs-adapter.issues\Issue843\Issue843\bin\Debug\net5.0\Issue843.dll" runstate="Runnable" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="1" engine-version="3.12.0.0" clr-version="5.0.6" start-time="2021-05-28 07:58:35Z" end-time="2021-05-28 07:58:35Z" duration="0.058688">
+  <command-line><![CDATA[D:\repos\NUnit\nunit3-vs-adapter.issues\Issue843\Issue843\bin\Debug\net5.0\testhost.dll --port 1481 --endpoint 127.0.0.1:01481 --role client --parentprocessid 72308 --telemetryoptedin true]]></command-line>
+  <filter>
+    <test>Issue843.Tests.Sort_RandomData_IsSorted</test>
+  </filter>
+  <test-suite type="Assembly" id="0-1002" name="Issue843.dll" fullname="D:/repos/NUnit/nunit3-vs-adapter.issues/Issue843/Issue843/bin/Debug/net5.0/Issue843.dll" runstate="Runnable" testcasecount="1" result="Passed" start-time="2021-05-28T07:58:35.2533502Z" end-time="2021-05-28T07:58:35.2793227Z" duration="0.025903" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1">
+    <environment framework-version="3.13.1.0" clr-version="5.0.6" os-version="Microsoft Windows 10.0.19042" platform="Win32NT" cwd="D:\repos\NUnit\nunit3-vs-adapter.issues\Issue843\Issue843\bin\Debug\net5.0" machine-name="DESKTOP-SIATMVB" user="TerjeSandstrom" user-domain="AzureAD" culture="en-US" uiculture="en-US" os-architecture="x64" />
+    <settings>
+      <setting name="SynchronousEvents" value="False" />
+      <setting name="InternalTraceLevel" value="Off" />
+      <setting name="RandomSeed" value="1129862528" />
+      <setting name="ProcessModel" value="InProcess" />
+      <setting name="DomainUsage" value="Single" />
+      <setting name="DefaultTestNamePattern" value="{m}{a}" />
+      <setting name="WorkDirectory" value="D:\repos\NUnit\nunit3-vs-adapter.issues\Issue843\Issue843\bin\Debug\net5.0" />
+      <setting name="NumberOfTestWorkers" value="28" />
+    </settings>
+    <properties>
+      <property name="_PID" value="67544" />
+      <property name="_APPDOMAIN" value="testhost" />
+    </properties>
+    <test-suite type="TestSuite" id="0-1003" name="Issue843" fullname="Issue843" runstate="Runnable" testcasecount="1" result="Passed" start-time="2021-05-28T07:58:35.2595894Z" end-time="2021-05-28T07:58:35.2793054Z" duration="0.019715" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1">
+      <test-suite type="TestFixture" id="0-1000" name="Tests" fullname="Issue843.Tests" classname="Issue843.Tests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2021-05-28T07:58:35.2612908Z" end-time="2021-05-28T07:58:35.2787557Z" duration="0.017465" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1">
+        <test-case id="0-1001" name="Sort_RandomData_IsSorted" fullname="Issue843.Tests.Sort_RandomData_IsSorted" methodname="Sort_RandomData_IsSorted" classname="Issue843.Tests" runstate="Runnable" seed="2064862881" result="Passed" start-time="2021-05-28T07:58:35.2635997Z" end-time="2021-05-28T07:58:35.2749284Z" duration="0.011459" asserts="1">
+          <output><![CDATA[All is well
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

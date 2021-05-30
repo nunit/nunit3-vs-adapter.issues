@@ -97,7 +97,7 @@
       <InternalTraceLevel>Off</InternalTraceLevel>
       <!--<RandomSeed>1234567</RandomSeed>-->
       <NumberOfTestWorkers>-1</NumberOfTestWorkers>
-      <Verbosity>0</Verbosity>
+      <Verbosity>5</Verbosity>
       <!--<UseVsKeepEngineRunning>false</UseVsKeepEngineRunning>-->
       <!--<ShadowCopyFiles>false</ShadowCopyFiles>-->
       <!--<DefaultTestNamePattern>{m}{a}</DefaultTestNamePattern>-->
@@ -108,6 +108,7 @@
       <TestOutputXml>..\..\..\TestOutputXml</TestOutputXml>
       <!--<Where></Where>-->   <!-- NUnit filter expression, see https://docs.nunit.org/articles/nunit/running-tests/Test-Selection-Language.html  -->
       <ConsoleOut>1</ConsoleOut>
+      <UseTestNameInConsoleOutput>false</UseTestNameInConsoleOutput>
       <StopOnError>false</StopOnError>
       <SkipNonTestAssemblies>false</SkipNonTestAssemblies>
       <MapWarningTo>Skipped</MapWarningTo>  <!--Passed, Failed or Skipped-->
