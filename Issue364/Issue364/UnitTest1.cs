@@ -1,7 +1,18 @@
-using TestProject1;
+
 using NUnit.Framework;
+using SomeBaseNameSpace;
 
-
+namespace SomeBaseNameSpace
+{
+    public abstract class EntityEditTests
+    {
+        [Test]
+        public void DeleteEntity()
+        {
+            Assert.Pass();
+        }
+    }
+}
 
 
 namespace Issue364
