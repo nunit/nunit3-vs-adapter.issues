@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using ApplicationToTest;
 using NUnit.Framework;
 
@@ -64,15 +66,35 @@ namespace UnitTests
             Assert.Pass();
         }
     }
-}
-// BackLook.Apps.WorkInProgress.Specs.Computing work in progress Project.No Workpackages exist"
 
-/// <summary>
-/// Issue 876
-/// </summary>
+
+    public class TestFor742    
+    {
+        public static IEnumerable<string> FormatFactory()
+        {
+            yield return "Some string {0}";
+        }
+
+        public static IEnumerable<char> InvalidCharacters()
+        {
+            var result = Path.GetInvalidFileNameChars().Except(new[] { '\\', '/' });
+            return result;
+        }
+
+        [Test]
+        public void InvalidCharactersTest([ValueSource(nameof(FormatFactory))] string format ,
+            [ValueSource(nameof(InvalidCharacters))] char specialCharacter)
+        {
+            Assert.Pass();
+        }
+    }
+
+
+}
+
 namespace BackLook.Apps.WorkInProgress
 {
-    public class Specs
+    public class SpecsFor876
     {
         [TestCase(TestName = "Computing work in progress Project.No Workpackages exist")]
         public void Test876()
