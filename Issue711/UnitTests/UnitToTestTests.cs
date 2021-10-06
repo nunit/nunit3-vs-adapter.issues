@@ -61,7 +61,7 @@ namespace UnitTests
         [TestCase("Works fine", "()\"")]
         [TestCase("Breaks test executor when using Run All", "\"()")]
         [TestCase("Breaks test executor when using Run All", "\")")]
-        public void TestName(string expectedBehaviour, string data)
+        public void CheckName(string expectedBehaviour, string data)
         {
             Assert.Pass();
         }
