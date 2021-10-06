@@ -90,6 +90,34 @@ namespace UnitTests
     }
 
 
+    public class TestForIssue489
+    {
+        [Test]
+        public void SimpleTest() { }
+
+        [TestCase(1)]
+        public void TestCase(int i) { }
+
+        [TestCase(1, TestName = "{m} with a 1")]
+        [TestCase(1, TestName = "an overriden test name with a 1")]
+        public void NamedTestCase(int i) { }
+
+        [TestCaseSource(nameof(Sauce))]
+        public void SourcedTestCase(int i) { }
+
+        public static IEnumerable<TestCaseData> Sauce
+        {
+            get
+            {
+                yield return new TestCaseData(1).SetName("totally overriden name");
+                yield return new TestCaseData(1).SetName("{m} - enhanced name");
+            }
+        }
+    }
+
+
+
+
 }
 
 namespace BackLook.Apps.WorkInProgress
