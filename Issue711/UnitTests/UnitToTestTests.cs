@@ -61,7 +61,23 @@ namespace UnitTests
         [TestCase("Breaks test executor when using Run All", "\")")]
         public void TestName(string expectedBehaviour, string data)
         {
-           Assert.Pass();
+            Assert.Pass();
         }
     }
+}
+// BackLook.Apps.WorkInProgress.Specs.Computing work in progress Project.No Workpackages exist"
+
+/// <summary>
+/// Issue 876
+/// </summary>
+namespace BackLook.Apps.WorkInProgress
+{
+    public class Specs
+    {
+        [TestCase(TestName = "Computing work in progress Project.No Workpackages exist")]
+        public void Test876()
+        {
+            Assert.Pass();
+        }
+}
 }
