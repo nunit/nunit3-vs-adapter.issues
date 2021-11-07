@@ -14,13 +14,13 @@ namespace TestProject1
 
 		[Category("A")]
         [Test]
-        public void Test2()
+    	public void Test2()
         {
             Assert.Pass();
         }
 
-		 [Test, Category("B")]
-        public void Test3()
+		[Test, Category("B")]
+    	public void Test3()
         {
             Assert.Pass();
         }
