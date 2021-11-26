@@ -131,7 +131,7 @@
         <DisplayName>Name</DisplayName>
         <!--Name, FullName or FullNameSep-->
         <FullnameSeparator>:</FullnameSeparator>
-        <DiscoveryMethod>Current</DiscoveryMethod>
+        <DiscoveryMethod>Legacy</DiscoveryMethod>
         <!--Legacy or Current-->
         <AssemblySelectLimit>2000</AssemblySelectLimit>
     </NUnit>
