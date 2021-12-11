@@ -1,7 +1,7 @@
 namespace Issue919;
 
- public class Tests
- {
+//  public class Tests
+//  {
     public class Foo
    {
        [TestCase(1)]
@@ -10,4 +10,4 @@ namespace Issue919;
            Assert.Pass();
        }
    }
-}
+//}
