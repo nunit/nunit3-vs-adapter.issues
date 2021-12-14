@@ -59,6 +59,7 @@
       <ShowInternalProperties>false</ShowInternalProperties>
       <!--<TestOutputXml>false</TestOutputXml>-->
       <DiscoveryMethod>Current</DiscoveryMethod>
+		<AssemblySelectLimit>999999</AssemblySelectLimit>
     </NUnit>
 </RunSettings>
 
