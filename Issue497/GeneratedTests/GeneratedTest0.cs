@@ -2,7 +2,7 @@ using NUnit.Framework;
 public class GeneratedTest0
 {
     [Test, Category("Foo")] public void Test1() { }
-    [Test] public void Test2() { }
+    [Test, Category("FOO")] public void Test2() { }
     [Test] public void Test3() { }
     [Test] public void Test4() { }
     [Test] public void Test5() { }

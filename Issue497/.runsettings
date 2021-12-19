@@ -60,6 +60,8 @@
       <!--<TestOutputXml>false</TestOutputXml>-->
       <DiscoveryMethod>Current</DiscoveryMethod>
 		<AssemblySelectLimit>999999</AssemblySelectLimit>
+		<Where>cat==Autotuner</Where>
+		<DebugExecution>true</DebugExecution>
     </NUnit>
 </RunSettings>
 

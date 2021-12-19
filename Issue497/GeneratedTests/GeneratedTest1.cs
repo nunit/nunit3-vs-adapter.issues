@@ -1,8 +1,8 @@
 using NUnit.Framework;
 public class GeneratedTest1
 {
-    [Test] public void Test1() { }
-    [Test] public void Test2() { }
+    [Test, Category("Autotuner")] public void Test1() { }
+    [Test, Category("Autotuner")] public void Test2() { }
     [Test] public void Test3() { }
     [Test] public void Test4() { }
     [Test] public void Test5() { }

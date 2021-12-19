@@ -4,6 +4,7 @@ namespace Filtering
 {
     public class ANonGeneratedExplicitTest
     {
+        [Category("IsExplicit")]
         [Explicit]
         [Test]
         public void TestExplicitTest()
@@ -18,7 +19,14 @@ namespace Filtering
         }
 
         [Test, Category("Slow")]
-        public void RealSlowTestThatFails()
+        public void RealSlowTestThatDoesntFail()
+        {
+            Assert.Pass();
+        }
+
+        [Explicit]
+        [Test, Category("Slow")]
+        public void TestExplicitTestSlow()
         {
             Assert.Pass();
         }

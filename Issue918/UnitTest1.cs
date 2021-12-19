@@ -1,25 +1,30 @@
-namespace Issue918;
+using NUnit.Framework;
+using System;
 
-public class Tests
+namespace Issue918
 {
-    [TestFixtureSource(typeof(FixtureSources), nameof(FixtureSources.Types))]
-    public class SomeTest<T>
-    {
-        [Test]
-        public void Foo()
-        {
-            DateTime? dateTime = DateTime.Now;
-            Assert.That(dateTime, Is.Not.Null);
-            DateTime x = dateTime.Value;
-            Assert.Pass();
-        }
-    }
 
-    public static class FixtureSources
+    public class Tests
     {
-        public static Type[] Types =
+        [TestFixtureSource(typeof(FixtureSources), nameof(FixtureSources.Types))]
+        public class SomeTest<T>
         {
-            typeof(object)
-        };
+            [Test]
+            public void Foo()
+            {
+                DateTime? dateTime = DateTime.Now;
+                Assert.That(dateTime, Is.Not.Null);
+                DateTime x = dateTime.Value;
+                Assert.Pass();
+            }
+        }
+
+        public static class FixtureSources
+        {
+            public static Type[] Types =
+            {
+                typeof(object)
+            };
+        }
     }
 }
