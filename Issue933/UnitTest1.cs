@@ -6,7 +6,10 @@ public class Tests
     [Test]
     public void Test1()
     {
-        Console.WriteLine("Test1 is here");
+        Console.WriteLine("Console.WriteLine for Test1 is here");
+        TestContext.WriteLine("TestContext.WriteLine for Test1 is here");
+        TestContext.Progress.WriteLine("TestContext.Progress.WriteLine for Test1 is here");
+        TestContext.Out.WriteLine("TestContext.Out.WriteLine for Test1 is here");
         Assert.Pass();
     }
 

@@ -15,6 +15,14 @@ public class TestExplicit
         Assert.Fail();
     }
 
+    [Category("FOO")]
+    [Test]
+    [Explicit]
+    public void Test2()
+    {
+        Assert.Fail();
+    }
+
     [Test]
     [Category("FOO")]
     public void TestFoo()
