@@ -13,7 +13,7 @@ namespace Issue919
         }
 
         [Test]
-        public void Barr()
+        public void Bzzt()
         {
             Assert.Pass();
         }
