@@ -19,12 +19,26 @@ namespace CSharpTest
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+
+        
+
     }
 
     [TestFixture]
     public class MyTests
     {
         [TestCaseSource(typeof(MyTestCases))]
-        public void RunSomeTests(MyTestItem testItem) => throw new NotImplementedException("If you get this exception the test ran!");
+        public void RunSomeTests(MyTestItem testItem) => Assert.Pass();
+
+
+        [TestCaseSource(nameof(GetBadTest2Data))]
+        public void BadTest2(IEnumerable<(string, string)> collection) => Assert.Pass();
+
+        private static IEnumerable<TestCaseData> GetBadTest2Data()
+        {
+            yield return new TestCaseData(new[] { ("ccc", "ddd") });
+        }
     }
+
 }
