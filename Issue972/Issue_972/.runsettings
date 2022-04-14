@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- File name extension must be .runsettings -->
+<!-- For more information, see https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2019  -->
+<RunSettings>
+  <!-- Configurations that affect the Test Framework -->
+  <RunConfiguration>
+    <!-- Path relative to solution directory -->
+    <ResultsDirectory>.\TestResults</ResultsDirectory>
+
+    <!-- [x86] | x64  
+      - You can also change it from menu Test, Test Settings, Default Processor Architecture -->
+    <!--<TargetPlatform>x86</TargetPlatform>-->
+
+    <!-- Framework35 | [Framework40] | Framework45 -->
+    <!--<TargetFrameworkVersion>Framework45</TargetFrameworkVersion>-->
+
+    <TreatTestAdapterErrorsAsWarnings>false</TreatTestAdapterErrorsAsWarnings>
+    
+    <CollectSourceInformation>true</CollectSourceInformation>
+      
+    <!-- Uncomment the below for settings test adapter paths , a semicolon seperated list-->
+      <!--  
+      <TestAdapterPaths>%SystemDrive%\Temp\foo;%SystemDrive%\Temp\bar</TestAdapterPaths>
+       -->
+    <!-- 0 = As many processes as possible, limited by number of cores on machine, 1 = Sequential (1 process), 2-> Given number of processes up to limit by number of cores on machine-->
+    <MaxCpuCount>0</MaxCpuCount>
+    <DisableParallelization>false</DisableParallelization>
+    <!-- TestSessionTimeout was introduced in Visual Studio 2017 version 15.5 -->
+    <!-- Specify timeout in milliseconds. A valid value should be greater than 0 -->
+    <TestSessionTimeout>10000</TestSessionTimeout>
+  </RunConfiguration>
+  
+    <!--
+  <TestRunParameters>
+    <Parameter name="webAppUrl" value="http://localhost" />
+    <Parameter name="webAppUserName" value="Admin" />
+  </TestRunParameters>
+  -->
+  
+  <!-- Adapter Specific sections -->
+
+ 
+  
+    <!-- NUnit3 adapter, uncomment sections to set as appropriate, numeric, booleans, enums have their default values below, except RandomSeed -->
+   <!-- For documentation, see https://github.com/nunit/docs/wiki/Tips-And-Tricks -->
+   <NUnit>
+        <!--<BasePath>D:\Dev\NUnit\nunit3-vs-adapter\demo\NUnitTestDemo\bin\Release</BasePath>-->
+        <!--<PrivateBinPath>extras;more.extras</PrivateBinPath>-->
+        <DefaultTimeout>0</DefaultTimeout>
+        <!--<WorkDirectory>work</WorkDirectory>-->
+        <InternalTraceLevel>Off</InternalTraceLevel>
+        <!--<RandomSeed>1234567</RandomSeed>-->  
+        <NumberOfTestWorkers>-1</NumberOfTestWorkers>
+        <Verbosity>5</Verbosity>
+        <!--<UseVsKeepEngineRunning>false</UseVsKeepEngineRunning>-->
+        <!--<ShadowCopyFiles>false</ShadowCopyFiles>-->
+        <!--<DefaultTestNamePattern>{m}{a}</DefaultTestNamePattern>-->
+        <!--<DomainUsage>Single</DomainUsage>-->
+        <DumpXmlTestDiscovery>true</DumpXmlTestDiscovery>
+        <DumpXmlTestResults>true</DumpXmlTestResults>
+        <ShowInternalProperties>false</ShowInternalProperties>
+	    <DiscoveryMethod>Current</DiscoveryMethod>
+	    <ConsoleOut>1</ConsoleOut>
+	    <UseParentFQNForParametrizedTests>true</UseParentFQNForParametrizedTests>
+	   <UseNUnitIdforTestCaseId>true</UseNUnitIdforTestCaseId>
+	   
+    </NUnit>
+
+</RunSettings>
