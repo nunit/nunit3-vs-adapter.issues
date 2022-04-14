@@ -11,7 +11,7 @@ namespace nunit_explicit
     [Category("TestMe")]
     public class Tests
     {
-         [Explicit]
+        // [Explicit]
         //[Category("TestMe")]
         [Test]
         public void Test1()

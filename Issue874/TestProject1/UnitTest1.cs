@@ -4,6 +4,7 @@ namespace TestProject1
 {
 	public class Tests
 	{
+
 		[Category("A")]
 		[Test]
 		[Explicit]

@@ -6,13 +6,19 @@ namespace Issue919
 
 namespace TestNUnit
 {
-   public class Foo
-   {
-       [TestCase(1)]
-       public void Baz(int a)
-       {
-           Assert.Pass();
-       }
-   }
+    public class Foo
+    {
+        [TestCase(1)]
+        public void Baz(int a)
+        {
+            Assert.Pass();
+        }
+
+        [Test]
+        public void Bzzt()
+        {
+            Assert.Pass();
+        }
+    }
 }
-}
+//}
