@@ -32,7 +32,7 @@ namespace UnitTests
 
 
     [TestFixture]
-    public class TestFilterBug
+    public class TestFilterBugIssue
     {
         [TestCase(TestName = "Invalid = TestNameEquals")]
         public void ReservedNames()
