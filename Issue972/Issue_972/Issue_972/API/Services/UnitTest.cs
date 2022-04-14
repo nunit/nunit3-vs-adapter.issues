@@ -79,11 +79,11 @@ namespace Issue_972.Tests.API.Services
 
         [Test]
         [TestCaseSource(nameof(CalcHoursTestCalculateOverTimeHoursData))]
-        public async Task CalcHoursTestCalculateOverTimeHours(DateTime start, DateTime end, List<CalculateHoursObj>? list = default)
+        public async Task CalcHoursTestCalculateOverTimeHours(DateTime start, DateTime end)
         {
-            if (list == null) list = new List<CalculateHoursObj>();
-            var res= await EmployeeService.CalculateOverTimeHours(start, end, list);
-            Assert.That(res, Is.EqualTo(0.0f));
+            var list = new List<CalculateHoursObj>();
+            var res = await EmployeeService.CalculateOverTimeHours(start, end, list);
+            Assert.That(res, Is.EqualTo(8.0f));
         }
         public static IEnumerable<TestCaseData> CalcHoursTestCalculateOverTimeHoursData
         {
@@ -106,7 +106,7 @@ namespace Issue_972.Tests.API.Services
         {
             get
             {
-                yield return new TestCaseData(TenthMarch8_2022, EleventhMarch16_2022, new ArgumentException());
+                yield return new TestCaseData(TenthMarch8_2022, EleventhMarch16_2022, new ArgumentException(),null);
                 yield return new TestCaseData(TenthMarch8_2022, TenthMarch16_2022, new Exception(), standardWeek);
                 yield return new TestCaseData(TenthMarch8_2022, TenthMarch16_2022, new System.IO.InvalidDataException(), new List<CalculateHoursObj> {
                     new CalculateHoursObj{Start = new(), End = new(), TimeBlock = new(0, 0, 0, new(0), "") },
@@ -118,10 +118,11 @@ namespace Issue_972.Tests.API.Services
 
         [Test]
         [TestCaseSource(nameof(CalcHoursTestCalculateOffTimeHoursData))]
-        public async Task CalcHoursTestCalculateOffTimeHours(DateTime start, DateTime end)
+        public async Task<float> CalcHoursTestCalculateOffTimeHours(DateTime start, DateTime end)
         {
-            var x =  await EmployeeService.CalculateOffTimeHours(start, end, new List<CalculateHoursObj>()/*new List<CalculateHoursObj>()*/);
+            var x = await EmployeeService.CalculateOffTimeHours(start, end, new List<CalculateHoursObj>()/*new List<CalculateHoursObj>()*/);
             Assert.That(x, Is.EqualTo(0.0f));
+            return x;
         }
         public static IEnumerable CalcHoursTestCalculateOffTimeHoursData
         {
@@ -132,7 +133,7 @@ namespace Issue_972.Tests.API.Services
         }
 
 
-        
+
     }
 
     [TestFixture, Parallelizable(scope: ParallelScope.All), Explicit]
@@ -193,7 +194,7 @@ namespace Issue_972.Tests.API.Services
             new CalculateHoursObj { Start = standardStart, End = standardEnd, TimeBlock = new(HourTypeEnum.Work, DayOfWeek.Friday, TimeType.End, new(15, 30, 0), "") }
         };
 
-       
+
 
         private static readonly DateTime TenthMarch8_2022 = new(2022, 3, 10, 8, 0, 0, 0);
         private static readonly DateTime TenthMarch16_2022 = new(2022, 3, 10, 16, 0, 0, 0);
