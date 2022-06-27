@@ -1,0 +1,36 @@
+========== Starting test discovery ==========
+NUnit Adapter 4.2.0.0: Test discovery starting
+Exception System.TypeInitializationException, Exception thrown discovering tests in C:\Users\mohha\source\repos\MyProject.Test\MyProject.Test\bin\Debug\net45\MyProject.Test.dll
+The type initializer for 'NUnit.Engine.Services.RuntimeFrameworkService' threw an exception.
+   at NUnit.Engine.Services.RuntimeFrameworkService.ApplyImageData(TestPackage package)
+   at NUnit.Engine.Services.RuntimeFrameworkService.SelectRuntimeFramework(TestPackage package)
+   at NUnit.Engine.Runners.MasterTestRunner.GetEngineRunner()
+   at NUnit.Engine.Runners.MasterTestRunner.Explore(TestFilter filter)
+   at NUnit.VisualStudio.TestAdapter.NUnitEngine.NUnitEngineAdapter.Explore(TestFilter filter) in D:\repos\NUnit\nunit3-vs-adapter\src\NUnitTestAdapter\NUnitEngine\NUnitEngineAdapter.cs:line 88
+   at NUnit.VisualStudio.TestAdapter.NUnit3TestDiscoverer.DiscoverTests(IEnumerable`1 sources, IDiscoveryContext discoveryContext, IMessageLogger messageLogger, ITestCaseDiscoverySink discoverySink) in D:\repos\NUnit\nunit3-vs-adapter\src\NUnitTestAdapter\NUnit3TestDiscoverer.cs:line 82
+InnerException: System.ArgumentException: Unknown framework version 7.0
+Parameter name: version
+   at NUnit.Engine.RuntimeFramework.GetClrVersionForFramework(Version frameworkVersion)
+   at NUnit.Engine.RuntimeFramework..ctor(RuntimeType runtime, Version version, String profile)
+   at NUnit.Engine.RuntimeFramework.GetNetCoreRuntimesFromDirectoryNames(IEnumerable`1 dirNames)
+   at NUnit.Engine.RuntimeFramework.FindDotNetCoreFrameworks()
+   at NUnit.Engine.RuntimeFramework.get_AvailableFrameworks()
+   at NUnit.Engine.Services.RuntimeFrameworkService..cctor()
+NUnit Adapter 4.2.0.0: Test discovery complete
+No test is available in C:\Users\mohha\source\repos\MyProject.Test\MyProject.Test\bin\Debug\net45\MyProject.Test.dll. Make sure that test discoverer & executors are registered and platform & framework version settings are appropriate and try again.
+NUnit Adapter 4.2.0.0: Test discovery starting
+NUnit Adapter 4.2.0.0: Test discovery complete
+========== Test discovery finished: 1 Tests found in 2.9 sec ==========
+Building Test Projects
+========== Starting test run ==========
+========== Test run finished: 0 Tests (0 Passed, 0 Failed, 0 Skipped) run in < 1 ms ==========
+Building Test Projects
+========== Starting test run ==========
+NUnit Adapter 4.2.0.0: Test execution started
+Running selected tests in C:\Users\mohha\source\repos\MyProject.Test\MyProject.Test\bin\Debug\net5.0\MyProject.Test.dll
+   NUnit3TestExecutor discovered 1 of 1 NUnit test cases using Current Discovery mode, Non-Explicit run
+NUnit Adapter 4.2.0.0: Test execution complete
+========== Test run finished: 1 Tests (1 Passed, 0 Failed, 0 Skipped) run in 196 ms ==========
+Building Test Projects
+========== Starting test run ==========
+========== Test run finished: 0 Tests (0 Passed, 0 Failed, 0 Skipped) run in < 1 ms ==========

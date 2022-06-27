@@ -1,0 +1,7 @@
+<RunSettings>
+  <NUnit>
+    <DumpXmlTestDiscovery>true</DumpXmlTestDiscovery>
+    <DumpXmlTestResults>true</DumpXmlTestResults>
+    <Verbosity>5</Verbosity>
+  </NUnit>
+</RunSettings>

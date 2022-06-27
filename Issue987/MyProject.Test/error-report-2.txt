@@ -1,0 +1,35 @@
+d:\repos\NUnit\Issues\Issue987\MyProject.Test>dotnet test
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  MyProject.Test -> d:\repos\NUnit\Issues\Issue987\MyProject.Test\MyProject.Test\bin\Debug\net45\MyProject.Test.dll
+Test run for d:\repos\NUnit\Issues\Issue987\MyProject.Test\MyProject.Test\bin\Debug\net45\MyProject.Test.dll (.NETFramework,Version=v4.5)
+Microsoft (R) Test Execution Command Line Tool Version 17.2.0 (x64)
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+No test is available in d:\repos\NUnit\Issues\Issue987\MyProject.Test\MyProject.Test\bin\Debug\net45\MyProject.Test.dll. Make sure that test discoverer & executors are registered and platform & framework version settings are appropriate and try again.
+
+Additionally, path to test adapters can be specified using /TestAdapterPath command. Example  /TestAdapterPath:<pathToCustomAdapters>.
+
+
+
+The Discovery Dump file:
+
+<?xml version="1.0" encoding="utf-8"?>
+<NUnitXml>
+<test-run id='0' runstate='Runnable' testcasecount='1' result='Failed' label='Error' total='1' passed='0' failed='1' warnings='0' inconclusive='0' skipped='0' asserts='0'>
+   <test-suite type='Assembly' id='0' name='' fullname='' runstate='NotRunnable' testcasecount='1' result='Failed' label='Error' start-time='2022-06-27 14:30:13Z' end-time='2022-06-27 14:30:13Z' duration='0.001' total='1' passed='0' failed='1' inconclusive='0' skipped='0' asserts='0'>
+      <failure>
+         <message><![CDATA[System.ComponentModel.Win32Exception : The system cannot find the file specified]]></message>
+         <stack-trace><![CDATA[--Win32Exception
+The system cannot find the file specified
+   at System.Diagnostics.Process.StartWithCreateProcess(ProcessStartInfo startInfo)
+   at NUnit.Engine.Services.TestAgency.GetAgent(TestPackage package)
+   at NUnit.Engine.Runners.ProcessRunner.CreateAgentAndRunnerIfNeeded()
+   at NUnit.Engine.Runners.ProcessRunner.Explore(TestFilter filter)
+]]></stack-trace>
+      </failure>
+   </test-suite>
+</test-run>
+</NUnitXml>
