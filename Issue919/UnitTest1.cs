@@ -2,8 +2,10 @@ using NUnit.Framework;
 
 namespace Issue919
 {
-//  public class Tests
-//  {
+    using NUnit.Framework;
+
+namespace TestNUnit
+{
     public class Foo
     {
         [TestCase(1)]
