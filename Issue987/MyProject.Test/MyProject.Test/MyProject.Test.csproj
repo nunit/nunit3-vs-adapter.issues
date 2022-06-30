@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net45</TargetFrameworks>
+    <TargetFrameworks>net45</TargetFrameworks>
     <IsPackable>false</IsPackable>
 
   </PropertyGroup>
@@ -11,7 +11,7 @@
     <PackageReference Include="nunit" Version="3.13.3" />
     <!--<PackageReference Include="NUnit3TestAdapter" Version="4.1.0" />-->
     <!--<PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />-->
-    <PackageReference Include="NUnit3TestAdapter" Version="4.3.0-alpha-net7.4" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.3.0-alpha-net7.5-dbg" />
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
   </ItemGroup>
 

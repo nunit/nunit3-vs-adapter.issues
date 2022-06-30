@@ -3,5 +3,7 @@
     <DumpXmlTestDiscovery>true</DumpXmlTestDiscovery>
     <DumpXmlTestResults>true</DumpXmlTestResults>
     <Verbosity>5</Verbosity>
+    <DebugExecution>true</DebugExecution>
+    <DebugDiscovery>true</DebugDiscovery>
   </NUnit>
 </RunSettings>
