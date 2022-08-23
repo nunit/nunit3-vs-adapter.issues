@@ -2,7 +2,7 @@ namespace NUnit4160;
 
 public static class Categories
 {
-    public const string LongRunning = "LongRunning";
+    public const string LongRunning = "LongRunningg";
 }
 
 
