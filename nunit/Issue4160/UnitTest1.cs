@@ -13,8 +13,7 @@ public class Tests
     {
     }
 
-    [Explicit]
-    [Category("LongRunning")]
+    [Category(Categories.LongRunning)]
     [Test]
     public void Test1()
     {
@@ -22,7 +21,7 @@ public class Tests
     }
 
     [Explicit]
-    [Category(Categories.LongRunning)]
+    [Category("LongRunning")]
     [TestCaseSource(nameof(DivideCases))]
     public void DivideTest(int n, int d, int q)
     {
