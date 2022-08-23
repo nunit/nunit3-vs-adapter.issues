@@ -20,6 +20,7 @@ public class Tests
         Assert.Pass();
     }
     
+    [Explicit]
     [Category("TCS")]
     [TestCaseSource(nameof(DivideCases))]
     public void DivideTest(int n, int d, int q)
