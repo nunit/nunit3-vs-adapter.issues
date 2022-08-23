@@ -1,5 +1,11 @@
 namespace NUnit4160;
 
+public static class Categories
+{
+    public const string LongRunning = "LongRunning";
+}
+
+
 public class Tests
 {
     [SetUp]
@@ -7,25 +13,19 @@ public class Tests
     {
     }
 
-    [Category("Whatever")]
+    [Category("LongRunning")]
     [Test]
     public void Test1()
     {
         Assert.Pass();
     }
 
-     [Test]
-    public void Test2()
-    {
-        Assert.Pass();
-    }
-    
     [Explicit]
-    [Category("TCS")]
+    [Category(Categories.LongRunning)]
     [TestCaseSource(nameof(DivideCases))]
     public void DivideTest(int n, int d, int q)
     {
-        Assert.That(n / d,Is.EqualTo(q));
+        Assert.That(n / d, Is.EqualTo(q));
     }
 
     static object[] DivideCases =
