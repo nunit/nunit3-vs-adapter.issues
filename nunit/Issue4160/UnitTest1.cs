@@ -13,6 +13,7 @@ public class Tests
     {
     }
 
+    [Explicit]
     [Category("LongRunning")]
     [Test]
     public void Test1()
