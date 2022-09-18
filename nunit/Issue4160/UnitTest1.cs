@@ -28,6 +28,14 @@ public class Tests
         Assert.That(n / d, Is.EqualTo(q));
     }
 
+    [Explicit]
+    [Category("LongRunning")]
+    [Test]
+    public void MultipleTest()
+    {
+        Assert.That(1 * 3, Is.EqualTo(3));
+    }
+
     static object[] DivideCases =
     {
         new object[] { 12, 3, 4 },
