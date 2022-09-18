@@ -30,6 +30,7 @@ public class Tests
 
     [Explicit]
     [Category("LongRunning")]
+    [Ignore("Not implemented")]
     [Test]
     public void MultipleTest()
     {
