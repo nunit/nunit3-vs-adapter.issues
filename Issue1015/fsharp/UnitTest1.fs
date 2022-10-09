@@ -11,7 +11,8 @@ let Test1 () =
     Assert.Pass()
 
 [<Test>]
-let Test2 ([<Range(0, 8)>] r) =
+let Test2 ([<Range(0, 8)>] r ) =
+    printfn "%f" r
     Assert.Pass()
 
 
