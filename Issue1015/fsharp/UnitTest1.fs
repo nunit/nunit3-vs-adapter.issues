@@ -12,7 +12,7 @@ let Test1 () =
 
 [<Test>]
 let Test2 ([<Range(0, 8)>] r ) =
-    printfn "%f" r
+    // printfn "%f" r  // Uncomment this to make the project work
     Assert.Pass()
 
 
