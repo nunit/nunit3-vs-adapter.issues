@@ -2,6 +2,8 @@
   <NUnit>
     <DumpXmlTestDiscovery>true</DumpXmlTestDiscovery>
     <DumpXmlTestResults>true</DumpXmlTestResults>
+    <TestOutputXml>C:\tmp\TestResults</TestOutputXml>
     <Verbosity>5</Verbosity>
+    <Debug>true</Debug>
   </NUnit>
 </RunSettings>
