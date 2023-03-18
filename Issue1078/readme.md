@@ -7,7 +7,7 @@ Run the repro with
 dotnet test -s .runsettings  --logger "console;verbosity=normal"
 ```
 
-alterntively run
+alternatively run
 
 ```cmd
 dotnet test --filter FullyQualifiedName!~Test1  --logger "console;verbosity=normal"
