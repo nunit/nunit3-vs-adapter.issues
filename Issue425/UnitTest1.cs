@@ -5,7 +5,7 @@ public class Tests
 {
     [Test]
     [Category("Foo")]
-    public void Test1()
+    public void Test1Foo()
     {
       Assert.Pass();
     }
@@ -17,7 +17,7 @@ public class Tests
     }
     [Test]
     [Category("Foo")]
-    public void MyTest()
+    public void Test2Foo()
     {
       Assert.Pass();
     }
@@ -25,20 +25,20 @@ public class Tests
     [Test]
     [Category("Bar")]
     [Category("Foo")]
-    public void Test2()
+    public void Test2FooAndBar()
     {
       Assert.Pass();
     }
 
     [Test]
     [Category("Bar")]
-    public void MyTest3()
+    public void Test3Bar()
     {
       Assert.Pass();
     }
     [Test]
     [Category("Foo")]
-    public void MyTest4()
+    public void Test4Foo()
     {
       Assert.Pass();
     }
