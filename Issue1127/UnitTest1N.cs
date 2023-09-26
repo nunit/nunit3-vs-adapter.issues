@@ -1,5 +1,5 @@
 namespace Issue1127;
-
+using NUnit.Framework;
 public class Tests
 {
     [TestCase(" ", false, false)]
