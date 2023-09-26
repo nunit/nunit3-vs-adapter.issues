@@ -1,4 +1,6 @@
 namespace Issue1127.X;
+
+
 using Xunit;
 public class Tests
 {
@@ -14,5 +16,11 @@ public class Tests
     public void Test1(string a, bool b, bool c)
     {
         Assert.Equal(c,b);
+    }
+
+    [Fact]
+    public void Test2()
+    {
+        Assert.Equal(1,1);
     }
 }
