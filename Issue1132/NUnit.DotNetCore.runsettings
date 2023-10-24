@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--https://github.com/nunit/docs/wiki/Tips-And-Tricks-->
+<RunSettings>
+	<RunConfiguration>
+		<TargetPlatform>x64</TargetPlatform>
+		<TestAdaptersPaths>C:\Temp\bin</TestAdaptersPaths>
+		<SolutionDirectory>C:\Temp\bin</SolutionDirectory>
+		<TargetFrameworkVersion>net7.0</TargetFrameworkVersion>
+		<MaxCpuCount>1</MaxCpuCount>
+	</RunConfiguration>
+	<NUnit>
+		<BasePath>C:\Temp\bin</BasePath>
+		<PrivateBinPath>C:\Temp\bin</PrivateBinPath>
+		<WorkDirectory>C:\Temp\bin</WorkDirectory>
+	</NUnit>
+</RunSettings>
