@@ -12,6 +12,7 @@ namespace MyApp.Tests.NUnit
         {
             Program.Main(new string[] { });
             Assert.Pass();
+            Assert.AreEqual(1,2);
         }
     }
 }
