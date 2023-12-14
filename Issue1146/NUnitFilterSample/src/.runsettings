@@ -1,0 +1,14 @@
+<RunSettings>
+	<RunConfiguration>
+		<MaxCpuCount>1</MaxCpuCount>
+		<TargetPlatform>x64</TargetPlatform>
+		<TargetFrameworkVersion>net6.0</TargetFrameworkVersion>
+		<TreatNoTestsAsError>false</TreatNoTestsAsError>
+	</RunConfiguration>
+	<NUnit>
+		<!-- <Where>cat != UsesNetwork and cat != StressTest</Where> -->
+		<Verbosity>5</Verbosity>
+		<DumpXmlTestDiscovery>true</DumpXmlTestDiscovery>
+		<DumpXmlTestResults>true</DumpXmlTestResults>
+	</NUnit>
+</RunSettings>

@@ -1,0 +1,1 @@
+dotnet test ..\src\NUnitFilterSample.csproj -c Release -s .runsettings --filter "TestCategory!=Sample&TestCategory!=Stress"
