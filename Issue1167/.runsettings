@@ -10,4 +10,7 @@
   <MSTest>
   </MSTest>
 
+  <xUnit>
+  </xUnit>
+
 </RunSettings>

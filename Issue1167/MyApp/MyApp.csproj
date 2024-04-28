@@ -10,6 +10,7 @@
   <ItemGroup>
     <InternalsVisibleTo Include="MyApp.Tests.NUnit"/>
     <InternalsVisibleTo Include="MyApp.Tests.MSTest"/>
+    <InternalsVisibleTo Include="MyApp.Tests.xUnit"/>
   </ItemGroup>
 
 </Project>
