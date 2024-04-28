@@ -11,6 +11,7 @@
     <InternalsVisibleTo Include="MyApp.Tests.NUnit"/>
     <InternalsVisibleTo Include="MyApp.Tests.MSTest"/>
     <InternalsVisibleTo Include="MyApp.Tests.xUnit"/>
+    <InternalsVisibleTo Include="ConsoleRecorder.PoC"/>
   </ItemGroup>
 
 </Project>

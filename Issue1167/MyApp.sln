@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp", "MyApp\MyApp.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.Tests.NUnit", "MyApp.Tests.NUnit\MyApp.Tests.NUnit.csproj", "{8BD72ECF-5E52-4504-AA76-47D9572F87C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp.Tests.MSTest", "MyApp.Tests.MSTest\MyApp.Tests.MSTest.csproj", "{92C4947C-FB98-4B2A-9752-6998A64C7214}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.Tests.MSTest", "MyApp.Tests.MSTest\MyApp.Tests.MSTest.csproj", "{92C4947C-FB98-4B2A-9752-6998A64C7214}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp.Tests.xUnit", "MyApp.Tests.xUnit\MyApp.Tests.xUnit.csproj", "{9C36E3E8-62D1-4ED8-BC06-7AEE6C81EAEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.Tests.xUnit", "MyApp.Tests.xUnit\MyApp.Tests.xUnit.csproj", "{9C36E3E8-62D1-4ED8-BC06-7AEE6C81EAEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleRecorder.PoC", "ConsoleRecorder.PoC\ConsoleRecorder.PoC.csproj", "{7581E09A-13AC-49D0-B80B-661A67EBF86A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9C36E3E8-62D1-4ED8-BC06-7AEE6C81EAEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C36E3E8-62D1-4ED8-BC06-7AEE6C81EAEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C36E3E8-62D1-4ED8-BC06-7AEE6C81EAEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7581E09A-13AC-49D0-B80B-661A67EBF86A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7581E09A-13AC-49D0-B80B-661A67EBF86A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7581E09A-13AC-49D0-B80B-661A67EBF86A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7581E09A-13AC-49D0-B80B-661A67EBF86A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
