@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+
+  <NUnit>
+    <ConsoleOut>1</ConsoleOut>
+    <Verbosity>0</Verbosity>
+    <UseTestNameInConsoleOutput>false</UseTestNameInConsoleOutput>
+  </NUnit>
+
+  <MSTest>
+  </MSTest>
+
+  <xUnit>
+  </xUnit>
+
+</RunSettings>
