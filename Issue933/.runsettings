@@ -9,4 +9,7 @@
             </Logger>
         </Loggers>
     </LoggerRunSettings>
+  <NUnit>
+    <DumpXmlTestResults>true</DumpXmlTestResults>
+  </NUnit>
 </RunSettings>

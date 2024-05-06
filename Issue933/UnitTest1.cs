@@ -3,6 +3,14 @@ namespace Issue933;
 
 public class Tests
 {
+    [SetUp]
+    public void Setup()
+    {
+        TestContext.Out.WriteLine("TestContext.Out.WriteLine Setup for any test is here");
+    }
+
+
+
     [Test]
     public void Test1()
     {
