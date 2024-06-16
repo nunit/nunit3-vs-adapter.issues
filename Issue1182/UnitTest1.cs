@@ -1,67 +1,76 @@
 
-using NUnit.Framework.Interfaces;
 using System.Collections;
+using System.Runtime.CompilerServices;
 
 namespace TestOfCategories;
 
-public abstract class TestData(string dataName) 
+public class MyTestCase(string name, int someNumber, string someString)
 {
-    public string DataName => dataName;
+    public int SomeNumber { get; } = someNumber;
+    public string SomeString { get; } = someString;
 
-	public override string ToString()
-	{
-		return DataName;
-	}
-
+    public string DataName { get; } = name;
 }
 
-public class SimpleTestData(string dataName) : TestData(dataName)
+public class MyTestCaseData : TestCaseData
 {
-	public int? SomeNumber;
-	public string? SomeString;
+    public MyTestCaseData(MyTestCase testCase) : base(testCase)
+    {
+        SetName($"{testCase.DataName} {testCase.SomeNumber} {testCase.SomeString} ");
+        SetCategory(testCase.DataName);
+    }
 }
+
+public class SimpleTestData_FirstDataSource
+{
+    public static IEnumerable GetTestCases
+    {
+        get
+        {
+            yield return new MyTestCaseData(new MyTestCase(nameof(SimpleTestData_FirstDataSource), 1, "Whatever 1"));
+            yield return new MyTestCaseData(new MyTestCase(nameof(SimpleTestData_FirstDataSource), 2, "Whatever 2"));
+            yield return new MyTestCaseData(new MyTestCase(nameof(SimpleTestData_FirstDataSource), 3, "Whatever 3"));
+        }
+    }
+}
+
+public class SimpleTestData_SecondDataSource
+{
+    public static IEnumerable GetTestCases
+    {
+        get
+        {
+            yield return new MyTestCaseData(new MyTestCase(nameof(SimpleTestData_SecondDataSource), 1, "Whatever 1"));
+            yield return new MyTestCaseData(new MyTestCase(nameof(SimpleTestData_SecondDataSource), 2, "Whatever 2"));
+            yield return new MyTestCaseData(new MyTestCase(nameof(SimpleTestData_SecondDataSource), 3, "Whatever 3"));
+        }
+    }
+}
+
+public class SimpleTestData_ThirdDataSource
+{
+    public static IEnumerable GetTestCases
+    {
+        get
+        {
+            yield return new MyTestCaseData(new MyTestCase("ThirdDataSource_Test1", 1, "One"));
+            yield return new MyTestCaseData(new MyTestCase("ThirdDataSource_Test1", 2, "Two"));
+        }
+    }
+}
+
+
 
 public class Tests
 {
-	[Test]
-	[TestCaseSource(typeof(SimpleTestData_FirstDataSource), Category = "FirstDataSource")]
-	[TestCaseSource(typeof(SimpleTestData_SecondDataSource), Category = "SecondDataSource")]
-	[TestCaseSource(typeof(SimpleTestData_ThirdDataSource), Category = "ThirdDataSource")]
-	public void SimpleTest(SimpleTestData data)
-	{
-		Console.WriteLine(data);
-	}
+    [Test]
+    [TestCaseSource(typeof(SimpleTestData_FirstDataSource), nameof(SimpleTestData_FirstDataSource.GetTestCases))]
+    [TestCaseSource(typeof(SimpleTestData_SecondDataSource), nameof(SimpleTestData_SecondDataSource.GetTestCases))]
+    [TestCaseSource(typeof(SimpleTestData_ThirdDataSource), nameof(SimpleTestData_ThirdDataSource.GetTestCases))]
+    public void SimpleTest(MyTestCase data)
+    {
+        Console.WriteLine(data);
+    }
 }
 
-public class SimpleTestData_FirstDataSource : IEnumerable
-{
-	public IEnumerator GetEnumerator()
-	{
-		yield return new SimpleTestData("Test1") { SomeNumber = 1, SomeString = "One" };//.SetName("FirstDataSource_Test1");
-		yield return new SimpleTestData("Test2") { SomeNumber = 2, SomeString = "Two" };//.SetName("FirstDataSource_Test2");
-	}
-}
 
-public class SimpleTestData_SecondDataSource : IEnumerable
-{
-	public IEnumerator GetEnumerator()
-	{
-		//SecondDataSource is not visible in tests, only because it has same DataNames as FirstDataSource (Test1, Test2)
-		yield return new SimpleTestData("Test1") { SomeNumber = 1, SomeString = "One" };//.SetName("SecondDataSource_Test1");
-        yield return new SimpleTestData("Test2") { SomeNumber = 2, SomeString = "Two" };//.SetName("SecondDataSource_Test2");
-
-		//As soon as we change DataNames, SecondDataSource will be visible in tests, just uncomment these lines:
-
-		//yield return new SimpleTestData("SecondDataSource_Test1") { SomeNumber = 1, SomeString = "One" };
-		//yield return new SimpleTestData("SecondDataSource_Test2") { SomeNumber = 2, SomeString = "Two" };
-	}
-}
-
-public class SimpleTestData_ThirdDataSource : IEnumerable
-{
-	public IEnumerator GetEnumerator()
-	{
-		yield return new SimpleTestData("ThirdDataSource_Test1") { SomeNumber = 1, SomeString = "One" };//.SetName("ThirdDataSource_Test1");
-        yield return new SimpleTestData("ThirdDataSource_Test2") { SomeNumber = 2, SomeString = "Two" };//.SetName("ThirdDataSource_Test2");
-	}
-}
