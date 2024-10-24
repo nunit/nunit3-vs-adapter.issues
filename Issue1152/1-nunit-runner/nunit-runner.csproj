@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>nunit_runner</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -14,6 +14,7 @@
       to minimize disruptancy for end users.
     -->
     <EnableNUnitRunner>true</EnableNUnitRunner>
+	  <GenerateSelfRegisteredExtensions>true</GenerateSelfRegisteredExtensions>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 
