@@ -13,9 +13,10 @@
       These 2 lines are required as some opt-in to the new platform 
       to minimize disruptancy for end users.
     -->
-    <EnableNUnitRunner>true</EnableNUnitRunner>
-	  <GenerateSelfRegisteredExtensions>true</GenerateSelfRegisteredExtensions>
-    <OutputType>Exe</OutputType>
+    <EnableNUnitRunner>false</EnableNUnitRunner>
+	  <!--<OutputType>Exe</OutputType>-->
+
+
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,7 +26,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="NUnit3TestAdapter" Version="5.0.0-beta.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="5.0.0-beta.4" />
   </ItemGroup>
 
 </Project>
