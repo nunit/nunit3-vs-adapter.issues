@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -11,7 +11,7 @@
       These 2 lines are required as some opt-in to the new platform 
       to minimize disruptancy for end users.
     -->
-    <EnableNUnitRunner>false</EnableNUnitRunner>
+    <EnableNUnitRunner>true</EnableNUnitRunner>
 	  <!--<OutputType>Exe</OutputType>-->
 
 
@@ -19,7 +19,7 @@
       Set the property below to update dotnet test behavior to 
       use the new platform instead of VSTest 
     -->
-    <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+    <!--<TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>-->
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,7 +29,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="NUnit3TestAdapter" Version="5.0.0-beta.4" />
+    <PackageReference Include="NUnit3TestAdapter" Version="5.0.0-beta.5" />
   </ItemGroup>
+
+	<Target Name="ShowEnableNUnitRunner" BeforeTargets="Build">
+		<Message Text="EnableNUnitRunner is set to: $(EnableNUnitRunner)" Importance="High" />
+	</Target>
 
 </Project>
