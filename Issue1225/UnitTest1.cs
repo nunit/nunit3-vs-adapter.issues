@@ -11,15 +11,14 @@ public class MyFixture
     public void AtStartOfEachTest()
     {
         i++;
-        TestContext.Out.WriteLine(i);
+        Console.Error.WriteLine($"{TestContext.CurrentContext.Test.FullName} runs as number {i}");
     }
 
     [Test, Order(42)]
     public void TestA_42()
     {
-        
+    
     }
-
 
     [Test, Order(13)]
     public void TestB_13()
