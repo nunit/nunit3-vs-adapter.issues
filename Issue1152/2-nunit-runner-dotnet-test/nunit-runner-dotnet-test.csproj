@@ -12,7 +12,7 @@
       to minimize disruptancy for end users.
     -->
     <EnableNUnitRunner>true</EnableNUnitRunner>
-	  <!--<OutputType>Exe</OutputType>-->
+	  <OutputType>Exe</OutputType>
 
 
     <!-- 

@@ -13,8 +13,8 @@
       These 2 lines are required as some opt-in to the new platform 
       to minimize disruptancy for end users.
     -->
-    <!--<EnableNUnitRunner>true</EnableNUnitRunner>
-	<OutputType>Exe</OutputType>-->
+    <EnableNUnitRunner>true</EnableNUnitRunner>
+	<OutputType>Exe</OutputType>
 
 
   </PropertyGroup>
