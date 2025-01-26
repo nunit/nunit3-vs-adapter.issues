@@ -119,7 +119,7 @@
     <DumpXmlTestDiscovery>false</DumpXmlTestDiscovery>
     <DumpXmlTestResults>true</DumpXmlTestResults>
     <ShowInternalProperties>false</ShowInternalProperties>
-    <!--<TestOutputXml>TestOutputXml</TestOutputXml>-->
+    <TestOutputXml>TestOutputXml</TestOutputXml>
     <!--<Where></Where>-->
     <!-- NUnit filter expression, see https://docs.nunit.org/articles/nunit/running-tests/Test-Selection-Language.html  -->
     <ConsoleOut>1</ConsoleOut>
