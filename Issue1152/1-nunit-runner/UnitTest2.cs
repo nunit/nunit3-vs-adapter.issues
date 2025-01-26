@@ -1,6 +1,6 @@
 namespace nunit_runner;
 
-public class Tests2
+public class Tests
 {
     [SetUp]
     public void Setup()
