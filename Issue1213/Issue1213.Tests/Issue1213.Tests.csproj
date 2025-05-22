@@ -9,7 +9,7 @@
     <IsTestProject>true</IsTestProject>
 
     <!-- When this is set to false, test discovery fails. -->
-    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <!--<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>-->
 
     <!-- When it's set to true, test discovery succeeds. -->
     <!--<GenerateTargetFrameworkAttribute>true</GenerateTargetFrameworkAttribute>-->
