@@ -8,6 +8,7 @@
             Assert.Pass();
         }
 
+        [Property("Name","Whatever")]
         [Test, Category("Cat2")]
         public void Test2()
         {
