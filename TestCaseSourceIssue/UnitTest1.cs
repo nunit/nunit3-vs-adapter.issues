@@ -14,9 +14,11 @@ public class Tests
     private static IEnumerable<TestCaseData> SourceOne()
     {
         string[] names = [ "One", "Two", "Three", "Four","Five" ];
-        for (int i = 1; i < 6; i++)
+        int i = 0;
+        foreach (var name in names)
         {
-            yield return new TestCaseData(i.ToString(), i).SetName($"{nameof(TestOne)}.{names[i-1]}");
+            i++;
+            yield return new TestCaseData(i.ToString(), i).SetName($"{nameof(TestOne)}.{name}");
         }
 
 
