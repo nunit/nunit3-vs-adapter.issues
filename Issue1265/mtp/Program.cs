@@ -3,15 +3,14 @@
 using Microsoft.Testing.Extensions;
 using Microsoft.Testing.Platform.Builder;
 
-using NUnit.Framework;
 using NUnit.VisualStudio.TestAdapter.TestingPlatformAdapter;
 
-ITestApplicationBuilder testApplicationBuilder = await TestApplication.CreateBuilderAsync(args);
+var testApplicationBuilder = await TestApplication.CreateBuilderAsync(args);
 
 testApplicationBuilder.AddNUnit(() => [Assembly.GetEntryAssembly()!]);
 testApplicationBuilder.AddTrxReportProvider();
 testApplicationBuilder.AddAppInsightsTelemetryProvider();
-using ITestApplication testApplication = await testApplicationBuilder.BuildAsync();
+using var testApplication = await testApplicationBuilder.BuildAsync();
 return await testApplication.RunAsync();
 
 
