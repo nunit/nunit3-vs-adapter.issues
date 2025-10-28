@@ -12,10 +12,10 @@
         <PackageReference Include="NUnit3TestAdapter" Version="6.0.0-alpha.100" />
     </ItemGroup>
 
-    <ItemGroup>
+    <!--<ItemGroup>
         <AssemblyAttribute Include="NUnit.Framework.FixtureLifeCycle">
             <_Parameter1>NUnit.Framework.LifeCycle.InstancePerTestCase</_Parameter1>
             <_Parameter1_IsLiteral>true</_Parameter1_IsLiteral>
         </AssemblyAttribute>
-    </ItemGroup>
+    </ItemGroup>-->
 </Project>
