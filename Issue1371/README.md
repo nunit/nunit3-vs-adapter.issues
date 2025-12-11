@@ -1,5 +1,7 @@
 # NUnit3TestAdapter 6.0.0 Assembly Binding Issue - Repro
 
+> **Note**: See [AppLoadCrash.readme.md](AppLoadCrash.readme.md) for a detailed analysis from the actual production codebase where this issue was originally reported. That document contains a similar analysis with the same conclusions, based on real-world code.
+
 ## Issue Description
 
 NUnit3TestAdapter version 6.0.0 fails with a `FileLoadException` when running tests that use `WebApplicationFactory<T>` in projects that reference `Microsoft.ApplicationInsights.AspNetCore` version 2.23.0.
