@@ -31,7 +31,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="NUnit3TestAdapter" Version="6.0.0-beta.2.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="6.0.1-alpha.3" />
   </ItemGroup>
 
 	<Target Name="ShowEnableNUnitRunner" BeforeTargets="Build">

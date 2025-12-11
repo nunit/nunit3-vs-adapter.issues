@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CoreWCF.Primitives" Version="1.8.0" />
+		<PackageReference Include="CoreWCF.WebHttp" Version="1.8.0" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+		<PackageReference Include="NUnit" Version="4.4.0" />
+		<!--<PackageReference Include="NUnit3TestAdapter" Version="5.2.0" />-->
+		<PackageReference Include="NUnit3TestAdapter" Version="6.0.0" />
+	</ItemGroup>
+
+</Project>
