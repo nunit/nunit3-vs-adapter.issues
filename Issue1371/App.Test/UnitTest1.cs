@@ -10,7 +10,10 @@ public class Tests
     public void ThatWeCanGetEnvironment(string env)
     {
         // Try to force load the old version to trigger the conflict
-        try
+       
+       /*  
+       // Uncomment this block to trigger the error the hard way
+       try
         {
             // This mimics what ApplicationInsights dependencies might try to do
             var oldHttpType = Type.GetType("Microsoft.AspNetCore.Http.HttpContext, Microsoft.AspNetCore.Http, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60");
@@ -19,7 +22,9 @@ public class Tests
         catch (Exception ex)
         {
             Console.WriteLine($"Exception loading old type: {ex.Message}");
-        }
+        } 
+        
+        */
 
         // Diagnostic: Log all loaded assemblies before test execution
         Console.WriteLine("=== Loaded Assemblies Before Test ===");
