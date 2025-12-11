@@ -47,18 +47,51 @@ The NUnit Engine creates its own isolated `AssemblyLoadContext` rather than usin
 3. **Multi-targeting**: Different test assemblies can target different frameworks
 
 ### The Problem This Creates
-1. **Separate Resolution**: The engine's `AssemblyLoadContext` probes and resolves assemblies independently
-2. **Metadata Scanning**: During test discovery, it scans assembly metadata and sees `Microsoft.AspNetCore.Hosting v2.1.1` in the dependency chain
-3. **Early Loading**: It loads this from the shared framework (resolving to v3.1.32) in **the engine's context**
-4. **Version Binding**: This happens BEFORE the application runtime establishes its own version bindings
-5. **Strict Enforcement**: .NET 8/9's `AssemblyLoadContext` strictly enforces version conflicts - when the app needs v9.0.0 but v3.1.32 is already loaded, it throws `FileLoadException`
+
+**Key Principle:** Isolated `AssemblyLoadContext` + conflicting deps.json entries = always fails, regardless of target framework.
+
+When the test engine creates its own isolated `AssemblyLoadContext`:
+
+1. **Explicit deps.json Entries**: The test engine sees the deps.json which explicitly lists both version requirements:
+   - Framework provides `Microsoft.AspNetCore.Http.Extensions` 9.0.0.0
+   - ApplicationInsights deps.json declares `Microsoft.AspNetCore.Http.Extensions` 2.1.1 as a dependency
+
+2. **Strict Loading Rules**: .NET 8/9 runtime rule - **You cannot load two different versions of the same assembly in one `AssemblyLoadContext`**
+
+3. **Conflict Detection**: When the engine tries to honor both requirements, the runtime throws `FileLoadException`
+
+4. **Why Application Works But Tests Fail**:
+   - **Application runtime**: Uses version forwarding - the 2.1.1 reference is satisfied by the 9.0.0 framework assembly in the default context
+   - **Test context**: Isolated `AssemblyLoadContext` sees conflicting explicit version requirements and cannot auto-redirect
 
 ### Why This Wasn't a Problem Before
+
 - **.NET Core 3.1-7**: More lenient `AssemblyLoadContext` would allow version mismatches to "slide" and unify to compatible versions
 - **.NET 8/9**: Stricter version enforcement - won't silently unify incompatible versions
 
+### Engine Resolution Strategies
+
+The NUnit Engine (v3.21.0) implements sophisticated assembly resolution strategies:
+
+- **TrustedPlatformAssembliesStrategy**: Loads from framework assemblies
+- **RuntimeLibrariesStrategy**: Uses deps.json and DependencyContext for application dependencies
+- **AspNetCoreStrategy**: Special handling for ASP.NET Core runtime dependencies
+
+The engine **does mimic runtime resolution behavior** through these strategies. However, when deps.json explicitly declares conflicting versions AND .NET 8+ enforces strict version matching, the engine cannot perform automatic binding redirects without violating the runtime's security model.
+
+### Important: Target Framework Doesn't Matter
+
+**Downgrading from .NET 9 to .NET 8 does NOT fix this issue**. The problem is:
+
+- **Not** about the version gap between framework versions (8.0 vs 9.0)
+- **IS** about assembly identity conflict in isolated context - two versions of the same assembly cannot coexist
+- Affects .NET 8 and .NET 9 equally when using isolated `AssemblyLoadContext`
+- The adapter's target framework (net8.0) matters because .NET 8+ enforces stricter isolation rules
+
 ### Why the Engine Can't Just Use Application Context
+
 Using the application's runtime resolution would:
+
 - Break test isolation (tests could interfere with each other)
 - Cause the engine to conflict with test dependencies
 - Prevent running multiple test assemblies with different dependency versions
