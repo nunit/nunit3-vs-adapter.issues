@@ -78,7 +78,8 @@ def summarize(text: str, limit: int = 240) -> str:
 
 
 def failure_detail(item: dict) -> str:
-    for key in ("notes", "test_error", "update_error", "update_output", "test_output"):
+    # Prefer test-related details before update noise.
+    for key in ("notes", "test_error", "test_output", "update_error", "update_output"):
         val = item.get(key)
         if val:
             return summarize(val)
