@@ -276,6 +276,41 @@ def find_nunit_packages(csproj: Path) -> dict[str, str]:
     return results
 
 
+def read_tfms_and_packages(csproj: Path) -> tuple[list[str], list[str]]:
+    """Return target frameworks and all PackageReference versions as 'Name=Version' strings."""
+    frameworks: list[str] = []
+    packages: list[str] = []
+    try:
+        tree = ET.parse(csproj)
+        root = tree.getroot()
+        for elem in root.findall(".//{*}TargetFramework"):
+            if elem.text:
+                frameworks.append(elem.text.strip())
+        for elem in root.findall(".//{*}TargetFrameworks"):
+            if elem.text:
+                for part in elem.text.replace(";", ",").split(","):
+                    part = part.strip()
+                    if part:
+                        frameworks.append(part)
+        for pr in root.findall(".//{*}PackageReference"):
+            name = pr.attrib.get("Include") or pr.attrib.get("Update")
+            version = pr.attrib.get("Version")
+            if version is None:
+                v_elem = pr.find("{*}Version")
+                if v_elem is not None and v_elem.text:
+                    version = v_elem.text.strip()
+            if name and version:
+                packages.append(f"{name}={version}")
+    except Exception:
+        pass
+    # Deduplicate while preserving order
+    seen = set()
+    frameworks = [f for f in frameworks if not (f in seen or seen.add(f))]
+    seen.clear()
+    packages = [p for p in packages if not (p in seen or seen.add(p))]
+    return frameworks, packages
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Update packages and run tests for Issue* repros.")
     parser.add_argument(
@@ -307,6 +342,12 @@ def main() -> int:
         action="store_true",
         help="Allow pre-release updates (default: disabled)",
     )
+    parser.add_argument(
+        "--scope",
+        choices=["all", "new", "new-and-failed"],
+        default="all",
+        help="Which issues to process: all (default), only new (no test_result), or new-and-failed (no test_result or previous failure)",
+    )
     args = parser.parse_args()
 
     root = args.root.resolve()
@@ -328,6 +369,27 @@ def main() -> int:
         sys.stderr.write(f"Failed to read metadata: {exc}\n")
         return 1
 
+    def persist_metadata() -> None:
+        metadata_path.write_text(json.dumps(records, indent=2), encoding="utf-8")
+
+    # Seed metadata entries for Issue* folders that are missing.
+    meta_numbers = {int(it["number"]) for it in records if isinstance(it, dict) and "number" in it}
+    issue_dirs = [p for p in root.iterdir() if p.is_dir() and p.name.startswith("Issue")]
+    added = 0
+    for d in issue_dirs:
+        digits = first_digits(d.name)
+        if not digits:
+            continue
+        num = int(digits)
+        if num in meta_numbers:
+            continue
+        records.append({"number": num})
+        meta_numbers.add(num)
+        added += 1
+    if added:
+        persist_metadata()
+        log(f"Seeded {added} missing metadata entries from Issue* folders.")
+
     issue_filter = None
     if args.issues:
         try:
@@ -336,6 +398,7 @@ def main() -> int:
             sys.stderr.write("Could not parse --issues (expected comma-separated integers)\n")
             return 1
     nunit_pre_mode = "Always" if args.pre_release else "Auto"
+    run_nunit_versions: list[str] = []
 
     # One-time NUnit version check on the first eligible issue to see target versions.
     checked_nunit_versions = False
@@ -358,6 +421,7 @@ def main() -> int:
         log(
             f"[{num}] NUnit package version check (pre-release mode {nunit_pre_mode})"
         )
+        tfms, all_packages = read_tfms_and_packages(csproj)
         nu_stdout, nu_stderr, _ = run_cmd(
             [
                 "dotnet",
@@ -398,16 +462,26 @@ def main() -> int:
                 "stdout": nu_stdout,
                 "stderr": nu_stderr,
                 "current_versions": current_versions,
+                "packages": all_packages,
+                "target_frameworks": tfms,
             }
         )
         if nu_stdout.strip():
             log(nu_stdout.strip())
         if nu_stderr.strip():
             log(nu_stderr.strip())
-        if not nu_stdout.strip() and current_versions:
+        if current_versions:
+            run_nunit_versions = current_versions
             log(f"[{num}] Testing with NUnit package versions: {', '.join(current_versions)}")
-        elif "No outdated dependencies were detected" in nu_stdout and current_versions:
-            log(f"[{num}] Testing with NUnit package versions: {', '.join(current_versions)}")
+            update_records.append(
+                {
+                    "phase": "nunit-versions",
+                    "issue": int(num),
+                    "versions": list(current_versions),
+                    "packages": all_packages,
+                    "target_frameworks": tfms,
+                }
+            )
         checked_nunit_versions = True
         break
     if not checked_nunit_versions:
@@ -419,18 +493,30 @@ def main() -> int:
             continue
         if issue_filter is not None and int(num) not in issue_filter:
             continue
+        record_changed = False
+        existing_result = record.get("test_result")
+        if args.scope == "new" and existing_result:
+            log(f"[{num}] Skipped (scope=new; already has test_result={existing_result})")
+            continue
+        if args.scope == "new-and-failed" and existing_result and existing_result != "fail":
+            log(f"[{num}] Skipped (scope=new-and-failed; test_result={existing_result})")
+            continue
         if not any(k for k in record.keys() if k != "number"):
             record["update_result"] = "skipped"
             record["test_result"] = "skipped"
             record["notes"] = "Skipped: empty metadata record"
             record["test_conclusion"] = "Skipped"
             log(f"[{num}] Skipped")
+            record_changed = True
+            persist_metadata()
             continue
         issue_dir = find_issue_dir(root, int(num))
         if issue_dir is None:
             record["update_result"] = "fail"
             record["test_result"] = "fail"
             record["notes"] = "Issue directory not found"
+            record_changed = True
+            persist_metadata()
             continue
 
         if should_skip_issue(issue_dir):
@@ -439,6 +525,8 @@ def main() -> int:
             record["notes"] = "Skipped due to marker file (ignore/explicit/wip)"
             record["test_conclusion"] = "Skipped"
             log(f"[{num}] Skipped")
+            record_changed = True
+            persist_metadata()
             continue
 
         csproj = find_csproj(issue_dir)
@@ -446,6 +534,8 @@ def main() -> int:
             record["update_result"] = "fail"
             record["test_result"] = "fail"
             record["notes"] = "No csproj found"
+            record_changed = True
+            persist_metadata()
             continue
 
         workdir = csproj.parent
@@ -483,6 +573,7 @@ def main() -> int:
                 log(f"[{num}] Updated target framework(s) to net10.0 in {rel_proj}")
         except Exception as exc:  # noqa: BLE001
             record["notes"] = f"Failed to update target frameworks: {exc}"
+            record_changed = True
 
         try:
             global_json = find_global_json(issue_dir, workdir)
@@ -490,6 +581,7 @@ def main() -> int:
                 log(f"[{num}] Updated SDK version to {LATEST_SDK} in {global_json.relative_to(root)}")
         except Exception as exc:  # noqa: BLE001
             record["notes"] = f"Failed to update global.json: {exc}"
+            record_changed = True
 
         log(f"[{num}] Updating packages in {rel_proj}")
 
@@ -552,6 +644,7 @@ def main() -> int:
             "[nunit]\n" + nunit_stdout + "\n[other]\n" + other_stdout
         )
         record["update_error"] = "[nunit]\n" + nunit_stderr + "\n[other]\n" + other_stderr
+        record_changed = True
 
         log(f"[{num}] Running tests in {rel_proj}")
 
@@ -581,6 +674,7 @@ def main() -> int:
             test_conclusion = f"Failure: {test_conclusion}"
         record["test_conclusion"] = test_conclusion
         log(f"[{num}] {test_conclusion}")
+        record_changed = True
 
         # Mirror results into the per-issue metadata file.
         try:
@@ -600,6 +694,7 @@ def main() -> int:
             )
         except Exception as exc:  # noqa: BLE001
             record["notes"] = f"Failed to write issue_metadata.json: {exc}"
+            record_changed = True
 
         if test_code != 0:
             # On failure, surface both stdout and stderr for visibility.
@@ -609,6 +704,9 @@ def main() -> int:
             if test_stderr:
                 for line in test_stderr.rstrip().splitlines():
                     log(line)
+
+        if record_changed:
+            persist_metadata()
 
     # Write back updated metadata
     metadata_path.write_text(json.dumps(records, indent=2), encoding="utf-8")
