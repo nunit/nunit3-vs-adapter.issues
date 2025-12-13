@@ -22,6 +22,15 @@ jobs:
             8.0.x
             6.0.x
 
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/global.json', '**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
       - name: Install dotnet-outdated
         run: |
           dotnet tool install --global dotnet-outdated-tool
