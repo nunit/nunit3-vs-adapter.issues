@@ -1,0 +1,31 @@
+[
+  {
+    "number": 735,
+    "title": "TestCaseData: Missing Feature \"Jump to File\"",
+    "state": "closed",
+    "milestone": "3.17",
+    "labels": [
+      "closed:done",
+      "is:idea"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/735",
+    "project_path": "TestCaseSourceJumpToGivenLocation/TestCaseSourceJumpToGivenLocation.csproj",
+    "target_frameworks": [
+      "netcoreapp3.1"
+    ],
+    "packages": [
+      {
+        "name": "nunit",
+        "version": "3.12.0"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.4.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "3.17.0-beta.1"
+      }
+    ]
+  }
+]

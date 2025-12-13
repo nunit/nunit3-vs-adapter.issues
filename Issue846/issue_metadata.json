@@ -1,0 +1,44 @@
+[
+  {
+    "number": 846,
+    "title": "NUnit3TestAdapter 4.0.0-beta.2 fails with Resharper",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "External",
+      "closed:SomebodyElsesProblem",
+      "external:fixedInNewVersion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/846",
+    "project_path": "Issue846/Issue846.csproj",
+    "target_frameworks": [
+      "net5.0"
+    ],
+    "packages": [
+      {
+        "name": "AutoFixture",
+        "version": "4.17.0"
+      },
+      {
+        "name": "AutoFixture.AutoNSubstitute",
+        "version": "4.17.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "3.1.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0-beta.2"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.9.4"
+      }
+    ]
+  }
+]

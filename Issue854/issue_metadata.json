@@ -1,0 +1,31 @@
+[
+  {
+    "number": 854,
+    "title": "[BUG] incorrect grouping of ValueTuple<> array TestCase parameters",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "External",
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/854",
+    "project_path": "Issue854.csproj",
+    "target_frameworks": [
+      "net5.0"
+    ],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.10.0"
+      }
+    ]
+  }
+]

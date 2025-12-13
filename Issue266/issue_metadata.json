@@ -1,0 +1,35 @@
+[
+  {
+    "number": 266,
+    "title": "Console.WriteLine statements in \"OneTimeSetUp\" and \"OneTimeTearDown\" is not captured",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "pri:normal"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/266",
+    "project_path": "Issue266.csproj",
+    "target_frameworks": [
+      "net5.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.10.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.0.3"
+      }
+    ]
+  }
+]

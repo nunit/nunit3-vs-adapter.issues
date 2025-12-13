@@ -1,0 +1,58 @@
+[
+  {
+    "number": 343,
+    "title": "Console.WriteLine() does not write to console when running`dotnet test`",
+    "state": "closed",
+    "milestone": "3.17",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:normal"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/343",
+    "project_path": "TestConsoleTests/NUnitTests/Issue343B_NUnitTests.csproj",
+    "target_frameworks": [
+      "netcoreapp3.1"
+    ],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0-dev-01761"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.10.0"
+      }
+    ]
+  },
+  {
+    "number": 343,
+    "title": "Console.WriteLine() does not write to console when running`dotnet test`",
+    "state": "closed",
+    "milestone": "3.17",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:normal"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/343",
+    "project_path": "TestConsoleTests/XUnitTests/XUnitTests.csproj",
+    "target_frameworks": [
+      "netcoreapp3.1"
+    ],
+    "packages": [
+      {
+        "name": "xunit",
+        "version": "2.4.1"
+      },
+      {
+        "name": "xunit.runner.visualstudio",
+        "version": "2.4.1"
+      }
+    ]
+  }
+]

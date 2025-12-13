@@ -1,0 +1,31 @@
+[
+  {
+    "number": 881,
+    "title": "Cannot run tests where test name gets changed by code. Test run is just skipped",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "VS Issue",
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/881",
+    "project_path": "TestProject1/TestProject1.csproj",
+    "target_frameworks": [
+      "net6.0"
+    ],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.10.0"
+      }
+    ]
+  }
+]

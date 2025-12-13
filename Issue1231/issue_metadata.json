@@ -1,0 +1,38 @@
+[
+  {
+    "number": 1231,
+    "title": "/TestCaseFilter does not support ClassName property",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1231",
+    "project_path": "Issue1231.csproj",
+    "target_frameworks": [
+      "net9.0"
+    ],
+    "packages": [
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.2"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.11.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.2.2"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.3.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.6.0"
+      }
+    ]
+  }
+]

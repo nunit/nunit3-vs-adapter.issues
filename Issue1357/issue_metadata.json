@@ -1,0 +1,38 @@
+[
+  {
+    "number": 1357,
+    "title": "Test cases with ArgDisplayNames containing closing braces `)` are recognized as a different test and names are truncated after first closing brace",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1357",
+    "project_path": "Issue1357.csproj",
+    "target_frameworks": [
+      "net6.0"
+    ],
+    "packages": [
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.4"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "14.0.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.11.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "5.2.0"
+      }
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "number": 1241,
+    "title": "VS Test Explorer NUnit error: \"TestPlatformFormatException: Filter string ... includes unrecognized escape sequence\"",
+    "state": "closed",
+    "milestone": "6.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1241",
+    "project_path": "Repro1/TestProject3.csproj",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "18.0.1"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "6.0.0-beta.3"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      }
+    ]
+  },
+  {
+    "number": 1241,
+    "title": "VS Test Explorer NUnit error: \"TestPlatformFormatException: Filter string ... includes unrecognized escape sequence\"",
+    "state": "closed",
+    "milestone": "6.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1241",
+    "project_path": "Repro2/Issue1241.csproj",
+    "target_frameworks": [
+      "net9.0"
+    ],
+    "packages": [
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.4"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "18.0.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.10.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "6.0.0-beta.3"
+      }
+    ]
+  }
+]

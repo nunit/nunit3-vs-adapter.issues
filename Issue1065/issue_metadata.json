@@ -1,0 +1,109 @@
+[
+  {
+    "number": 1065,
+    "title": "WebHostBuilder.ConfigureServices method not found when using nunit3testadapter 4.4.0 ",
+    "state": "closed",
+    "milestone": "4.4.1",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1065",
+    "project_path": "wiremocktests/wiremocktests.csproj",
+    "target_frameworks": [
+      "net6.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.5.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.3"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "3.3.0"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.1.2"
+      },
+      {
+        "name": "wiremock.net",
+        "version": "1.5.17"
+      },
+      {
+        "name": "NFluent",
+        "version": "2.8.0"
+      }
+    ]
+  },
+  {
+    "number": 1065,
+    "title": "WebHostBuilder.ConfigureServices method not found when using nunit3testadapter 4.4.0 ",
+    "state": "closed",
+    "milestone": "4.4.1",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1065",
+    "project_path": "gheylar/lib/lib_lib.csproj",
+    "target_frameworks": [
+      "net6.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+        "version": "6.0.0"
+      },
+      {
+        "name": "Microsoft.Extensions.Diagnostics.HealthChecks",
+        "version": "6.0.14"
+      }
+    ]
+  },
+  {
+    "number": 1065,
+    "title": "WebHostBuilder.ConfigureServices method not found when using nunit3testadapter 4.4.0 ",
+    "state": "closed",
+    "milestone": "4.4.1",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1065",
+    "project_path": "gheylar/tests/tests_tests.csproj",
+    "target_frameworks": [
+      "net6.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.Extensions.DependencyInjection",
+        "version": "6.0.0"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.5.0"
+      },
+      {
+        "name": "Moq",
+        "version": "4.18.4"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.3"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.4.0"
+      }
+    ]
+  }
+]

@@ -1,0 +1,49 @@
+[
+  {
+    "number": 1213,
+    "title": "Test discovery fails with exception when test project uses .NET 6+ but references a project using .NET Standard",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:docs"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1213",
+    "project_path": "Issue1213/Issue1213.csproj",
+    "target_frameworks": [
+      "netstandard2.0"
+    ],
+    "packages": []
+  },
+  {
+    "number": 1213,
+    "title": "Test discovery fails with exception when test project uses .NET 6+ but references a project using .NET Standard",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:docs"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1213",
+    "project_path": "Issue1213.Tests/Issue1213.Tests.csproj",
+    "target_frameworks": [
+      "net8.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.11.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.2.2"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.3.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.6.0"
+      }
+    ]
+  }
+]

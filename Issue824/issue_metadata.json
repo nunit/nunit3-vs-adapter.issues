@@ -1,0 +1,31 @@
+[
+  {
+    "number": 824,
+    "title": "\"Not a TestFixture or TestSuite, but SetUpFixture\" exception is being thrown in case of more than one [SetUpFixture]",
+    "state": "closed",
+    "milestone": "4.0.0-beta.2",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/824",
+    "project_path": "Issue824.csproj",
+    "target_frameworks": [
+      "net5.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.9.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.1"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0-beta.301"
+      }
+    ]
+  }
+]

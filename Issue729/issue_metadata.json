@@ -1,0 +1,32 @@
+[
+  {
+    "number": 729,
+    "title": "TestFixture with TestName displayed twice in TestExplorer",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "is:FQNIssue"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/729",
+    "project_path": "NUnitAdapterIssue729TestProject.csproj",
+    "target_frameworks": [
+      "netcoreapp3.1"
+    ],
+    "packages": [
+      {
+        "name": "nunit",
+        "version": "3.12.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "3.17.0-be104"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.6.0"
+      }
+    ]
+  }
+]

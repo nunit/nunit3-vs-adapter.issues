@@ -1,0 +1,31 @@
+[
+  {
+    "number": 744,
+    "title": "Setting TestCaseAttribute.TestName in .NET Core project causes not running tests",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:norepro",
+      "closed:noresponse"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/744",
+    "project_path": "Issue744TestName/Issue744TestName.csproj",
+    "target_frameworks": [
+      "net461"
+    ],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.12.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "3.16.1"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "15.8.0"
+      }
+    ]
+  }
+]

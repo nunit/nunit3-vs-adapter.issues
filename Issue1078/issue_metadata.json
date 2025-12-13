@@ -1,0 +1,40 @@
+[
+  {
+    "number": 1078,
+    "title": "Tests with the Explicit attribute are run when all test case filters are using the operator !~",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:idea",
+      "closed:norepro",
+      "reproNeeded"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1078",
+    "project_path": "exp.csproj",
+    "target_frameworks": [
+      "net6.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.3.2"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.3"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.4.1"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "3.3.0"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.1.2"
+      }
+    ]
+  }
+]

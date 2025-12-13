@@ -1,0 +1,114 @@
+[
+  {
+    "number": 1371,
+    "title": ":test_tube: V6 - assembly loading issue",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1371",
+    "project_path": "App/App.csproj",
+    "target_frameworks": [
+      "net9.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.AspNetCore.OpenApi",
+        "version": "9.0.0"
+      },
+      {
+        "name": "Swashbuckle.AspNetCore",
+        "version": "9.0.6"
+      },
+      {
+        "name": "Swashbuckle.AspNetCore.Annotations",
+        "version": "9.0.6"
+      },
+      {
+        "name": "Swashbuckle.AspNetCore.Filters",
+        "version": "9.0.1"
+      },
+      {
+        "name": "Swashbuckle.AspNetCore.Newtonsoft",
+        "version": "9.0.6"
+      },
+      {
+        "name": "Azure.Extensions.AspNetCore.Configuration.Secrets",
+        "version": "1.4.0"
+      },
+      {
+        "name": "Microsoft.ApplicationInsights.AspNetCore",
+        "version": "2.23.0"
+      },
+      {
+        "name": "Microsoft.AspNetCore.AzureAppServices.HostingStartup",
+        "version": "9.0.11"
+      },
+      {
+        "name": "Microsoft.AspNetCore.HeaderPropagation",
+        "version": "9.0.11"
+      },
+      {
+        "name": "Microsoft.AspNetCore.SpaProxy",
+        "version": "9.0.11"
+      },
+      {
+        "name": "Serilog.AspNetCore",
+        "version": "9.0.0"
+      }
+    ]
+  },
+  {
+    "number": 1371,
+    "title": ":test_tube: V6 - assembly loading issue",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1371",
+    "project_path": "App.Test/App.Test.csproj",
+    "target_frameworks": [
+      "net9.0"
+    ],
+    "packages": [
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.4"
+      },
+      {
+        "name": "Microsoft.AspNetCore.Http.Extensions",
+        "version": "2.2.0"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "18.0.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.11.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "6.0.0"
+      },
+      {
+        "name": "Microsoft.AspNetCore.Mvc.Testing",
+        "version": "9.0.11"
+      },
+      {
+        "name": "Microsoft.Extensions.TimeProvider.Testing",
+        "version": "9.10.0"
+      },
+      {
+        "name": "NSubstitute",
+        "version": "5.3.0"
+      }
+    ]
+  }
+]

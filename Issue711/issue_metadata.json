@@ -1,0 +1,51 @@
+[
+  {
+    "number": 711,
+    "title": "Incorrect format for TestCaseFilter Error: Invalid Condition - Using = in SetName",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "closed:fixedinnewversion",
+      "FailsWithRealTimeTestDiscovery"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/711",
+    "project_path": "ApplicationToTest/ApplicationToTest.csproj",
+    "target_frameworks": [
+      "netcoreapp3.1"
+    ],
+    "packages": []
+  },
+  {
+    "number": 711,
+    "title": "Incorrect format for TestCaseFilter Error: Invalid Condition - Using = in SetName",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "closed:fixedinnewversion",
+      "FailsWithRealTimeTestDiscovery"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/711",
+    "project_path": "UnitTests/UnitTests.csproj",
+    "target_frameworks": [
+      "netcoreapp3.1"
+    ],
+    "packages": [
+      {
+        "name": "nunit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.2.0-dbg"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.0.0"
+      }
+    ]
+  }
+]

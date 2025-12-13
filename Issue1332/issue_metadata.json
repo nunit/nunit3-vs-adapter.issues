@@ -1,0 +1,32 @@
+[
+  {
+    "number": 1332,
+    "title": "[MTP] OutOfMemoryException in VS Test Explorer from TestFilterConverter.Tokenizer",
+    "state": "closed",
+    "milestone": "6.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1332",
+    "project_path": "Issue1332.csproj",
+    "target_frameworks": [
+      "net9.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "18.0.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "6.0.0-alpha.101-dbg"
+      }
+    ]
+  }
+]

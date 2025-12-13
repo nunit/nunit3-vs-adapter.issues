@@ -1,0 +1,39 @@
+[
+  {
+    "number": 1089,
+    "title": "TextContext.Progress.Writeline does not work in 4.4.2 when running dotnet test",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug",
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1089",
+    "project_path": "Issue1089.csproj",
+    "target_frameworks": [
+      "net7.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.6.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.3"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.5.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "3.3.0"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.1.2"
+      }
+    ]
+  }
+]

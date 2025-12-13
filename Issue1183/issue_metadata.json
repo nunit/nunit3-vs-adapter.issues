@@ -1,0 +1,38 @@
+[
+  {
+    "number": 1183,
+    "title": "dotnet test -- NUnit.Where works but dotnet test --list-tests -- NUnit.Where does not",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:bydesign"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1183",
+    "project_path": "Issue1183.csproj",
+    "target_frameworks": [
+      "net8.0"
+    ],
+    "packages": [
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.2"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.10.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.1.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.2.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.5.0"
+      }
+    ]
+  }
+]

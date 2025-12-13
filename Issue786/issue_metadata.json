@@ -1,0 +1,60 @@
+[
+  {
+    "number": 786,
+    "title": "When using TRX logger, should warn about incompatible test adapter across .NET Framework and .NET Core and/or log where an adapter is located",
+    "state": "closed",
+    "milestone": "4.0.0-beta.1",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/786",
+    "project_path": "NUnit3TestAdapterMismatchRepro/ProjectANetCore/ProjectANetCore.csproj",
+    "target_frameworks": [
+      "netcoreapp3.1"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.7.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.12.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0-alpha.4"
+      }
+    ]
+  },
+  {
+    "number": 786,
+    "title": "When using TRX logger, should warn about incompatible test adapter across .NET Framework and .NET Core and/or log where an adapter is located",
+    "state": "closed",
+    "milestone": "4.0.0-beta.1",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/786",
+    "project_path": "NUnit3TestAdapterMismatchRepro/ProjectBNetFramework/ProjectBNetFramework.csproj",
+    "target_frameworks": [
+      "net461"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.7.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.12.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0-alpha.4"
+      }
+    ]
+  }
+]

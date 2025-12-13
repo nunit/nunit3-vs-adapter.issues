@@ -1,0 +1,34 @@
+[
+  {
+    "number": 894,
+    "title": "Tests marked with ExplicitAttribute don't always run with category filter",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/894",
+    "project_path": "Issue894.csproj",
+    "target_frameworks": [
+      "net5.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.11.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.0.2"
+      }
+    ]
+  }
+]

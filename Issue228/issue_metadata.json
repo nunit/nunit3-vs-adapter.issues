@@ -1,0 +1,36 @@
+[
+  {
+    "number": 228,
+    "title": "Tests inherited from Generic test fixture",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "pri:normal",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/228",
+    "project_path": "Issue228.csproj",
+    "target_frameworks": [
+      "net8.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "18.0.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "6.0.0-beta.3"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.4"
+      }
+    ]
+  }
+]

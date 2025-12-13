@@ -1,0 +1,36 @@
+[
+  {
+    "number": 912,
+    "title": "Explicit runs when using NUnit-filters 'cat!=FOO'",
+    "state": "closed",
+    "milestone": "4.2",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:high"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/912",
+    "project_path": "Issue912.csproj",
+    "target_frameworks": [
+      "net6.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.6.2"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.3"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "<no version found>"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.1.0"
+      }
+    ]
+  }
+]

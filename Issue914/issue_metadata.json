@@ -1,0 +1,35 @@
+[
+  {
+    "number": 914,
+    "title": "AddTestAttachment does not work anymore in VS2022",
+    "state": "closed",
+    "milestone": "4.2",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/914",
+    "project_path": "Issue914.csproj",
+    "target_frameworks": [
+      "net5.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.11.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "<no version found>"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.1.0"
+      }
+    ]
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "number": 640,
+    "title": "Allow use of FullName as the DisplayName for Converted Tests",
+    "state": "closed",
+    "milestone": "3.17",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/640",
+    "project_path": "FQN.csproj",
+    "target_frameworks": [
+      "net472"
+    ],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.12.0"
+      },
+      {
+        "name": "NUnit.Console",
+        "version": "3.11.1"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "3.17.0-ce110-dbg"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.6.0"
+      }
+    ]
+  }
+]

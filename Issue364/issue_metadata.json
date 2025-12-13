@@ -1,0 +1,64 @@
+[
+  {
+    "number": 364,
+    "title": "Inherited Testcase does not open source file on double click",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/364",
+    "project_path": "Issue364/Issue364.csproj",
+    "target_frameworks": [
+      "net5.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.10.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.0.3"
+      }
+    ]
+  },
+  {
+    "number": 364,
+    "title": "Inherited Testcase does not open source file on double click",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/364",
+    "project_path": "TestProject1/TestProject1.csproj",
+    "target_frameworks": [
+      "netcoreapp3.1"
+    ],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.12.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "3.16.1"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.5.0"
+      }
+    ]
+  }
+]

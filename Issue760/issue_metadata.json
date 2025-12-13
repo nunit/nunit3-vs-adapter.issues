@@ -1,0 +1,33 @@
+[
+  {
+    "number": 760,
+    "title": "Syntax for auto-removable test suffix",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:feature",
+      "soon:closing",
+      "closed:noresponse",
+      "is:discussion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/760",
+    "project_path": "Issue760.csproj",
+    "target_frameworks": [
+      "netcoreapp3.1"
+    ],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.12.0"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.6.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "3.17.0-be104"
+      }
+    ]
+  }
+]

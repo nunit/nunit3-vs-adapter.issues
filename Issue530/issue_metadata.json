@@ -1,0 +1,30 @@
+[
+  {
+    "number": 530,
+    "title": "Adapter discovers explicit TestCase without skip details",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/530",
+    "project_path": "Issue530.csproj",
+    "target_frameworks": [
+      "net5.0"
+    ],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.10.0"
+      }
+    ]
+  }
+]

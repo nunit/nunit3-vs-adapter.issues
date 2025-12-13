@@ -1,0 +1,40 @@
+[
+  {
+    "number": 1290,
+    "title": "OneTimeTeardown failures don't show up in results   (formerly: Include TearDown errors on stdout)",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1290",
+    "project_path": "Issue1290.csproj",
+    "target_frameworks": [
+      "net9.0"
+    ],
+    "packages": [
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.4"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.14.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.10.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "5.1.0"
+      }
+    ]
+  }
+]

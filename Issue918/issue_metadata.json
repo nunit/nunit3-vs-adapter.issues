@@ -1,0 +1,36 @@
+[
+  {
+    "number": 918,
+    "title": "New DiscoveryMode doesn't play nicely with `TestFixtureSource` - Missing GenericFixture",
+    "state": "closed",
+    "milestone": "4.2",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:high"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/918",
+    "project_path": "Issue918.csproj",
+    "target_frameworks": [
+      "netcoreapp3.1"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.11.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "<no version found>"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.1.0"
+      }
+    ]
+  }
+]

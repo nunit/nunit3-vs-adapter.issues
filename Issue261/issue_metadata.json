@@ -1,0 +1,15 @@
+[
+  {
+    "number": 261,
+    "title": "NUnit3TestDiscoverer unable to load nunit.engine",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/261",
+    "project_path": "Issue261.csproj",
+    "target_frameworks": [],
+    "packages": []
+  }
+]

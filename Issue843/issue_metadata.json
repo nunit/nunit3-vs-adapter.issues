@@ -1,0 +1,35 @@
+[
+  {
+    "number": 843,
+    "title": "Reporting random seed for a test case",
+    "state": "closed",
+    "milestone": "4.0",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/843",
+    "project_path": "Issue843/Issue843.csproj",
+    "target_frameworks": [
+      "net5.0"
+    ],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.13.1"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0-dev.600"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.9.4"
+      },
+      {
+        "name": "NunitXml.TestLogger",
+        "version": "3.0.97"
+      }
+    ]
+  }
+]

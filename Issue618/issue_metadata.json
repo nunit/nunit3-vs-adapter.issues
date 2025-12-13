@@ -1,0 +1,32 @@
+[
+  {
+    "number": 618,
+    "title": "Description from TestContext.AddTestAttachment does not displays in TEst Output window",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "VS Issue",
+      "External",
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/618",
+    "project_path": "Issue618.csproj",
+    "target_frameworks": [
+      "net472"
+    ],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.14.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.5.0"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.7.2"
+      }
+    ]
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "number": 1240,
+    "title": "NUnit3TestAdapter v5 launches executables in the background",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1240",
+    "project_path": "TestHelpers/TestHelpers.csproj",
+    "target_frameworks": [
+      "net9.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.13.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.2.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "5.0.0"
+      }
+    ]
+  },
+  {
+    "number": 1240,
+    "title": "NUnit3TestAdapter v5 launches executables in the background",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1240",
+    "project_path": "TestProject1/TestProject1.csproj",
+    "target_frameworks": [
+      "net9.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.13.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.3.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "5.0.0"
+      }
+    ]
+  }
+]

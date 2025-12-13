@@ -1,0 +1,30 @@
+[
+  {
+    "number": 718,
+    "title": "Trace and Debug output is not displayed",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:docs"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/718",
+    "project_path": "Issue718.csproj",
+    "target_frameworks": [
+      "net8.0"
+    ],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "4.1.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.6.0-beta.2-dbg"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.9.0"
+      }
+    ]
+  }
+]

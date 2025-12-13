@@ -1,0 +1,38 @@
+[
+  {
+    "number": 425,
+    "title": "Run only specific tests when using dotnet test?",
+    "state": "closed",
+    "milestone": "3.16",
+    "labels": [
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/425",
+    "project_path": "Issue425.csproj",
+    "target_frameworks": [
+      "net7.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.5.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.3"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.4.2"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "3.6.0"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.1.2"
+      }
+    ]
+  }
+]

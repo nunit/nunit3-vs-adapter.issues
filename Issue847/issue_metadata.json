@@ -1,0 +1,35 @@
+[
+  {
+    "number": 847,
+    "title": "Adapter doesn't report TestCase properties",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug",
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/847",
+    "project_path": "Issue847.csproj",
+    "target_frameworks": [
+      "net5.0"
+    ],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": " 4.0.0-beta.2"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.9.4"
+      },
+      {
+        "name": "NunitXml.TestLogger",
+        "version": "3.0.107"
+      }
+    ]
+  }
+]

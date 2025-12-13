@@ -1,0 +1,38 @@
+[
+  {
+    "number": 1044,
+    "title": "Explicit tests executed when TestName is set on TestCaseData",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1044",
+    "project_path": "Issue1044.csproj",
+    "target_frameworks": [
+      "net7.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.3.2"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.3"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.5.0-alpha.3"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "3.3.0"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.1.2"
+      }
+    ]
+  }
+]

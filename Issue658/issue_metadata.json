@@ -1,0 +1,89 @@
+[
+  {
+    "number": 658,
+    "title": "Explicit tests are automatically run in Visual Studio 2019",
+    "state": "closed",
+    "milestone": "4.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:high",
+      "VS Issue"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/658",
+    "project_path": "StopOnError/StopOnError.csproj",
+    "target_frameworks": [
+      "netcoreapp3.1"
+    ],
+    "packages": [
+      {
+        "name": "nunit",
+        "version": "3.12.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "3.17.0-a19"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.4.0"
+      }
+    ]
+  },
+  {
+    "number": 658,
+    "title": "Explicit tests are automatically run in Visual Studio 2019",
+    "state": "closed",
+    "milestone": "4.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:high",
+      "VS Issue"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/658",
+    "project_path": "Explicit/Explicit/Explicit.csproj",
+    "target_frameworks": [],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.12.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0"
+      }
+    ]
+  },
+  {
+    "number": 658,
+    "title": "Explicit tests are automatically run in Visual Studio 2019",
+    "state": "closed",
+    "milestone": "4.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:high",
+      "VS Issue"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/658",
+    "project_path": "Explicit/ExplicitCore/ExplicitCore.csproj",
+    "target_frameworks": [
+      "netcoreapp3.1"
+    ],
+    "packages": [
+      {
+        "name": "nunit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.1.0-alpha02-07-dbg"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.11.0"
+      }
+    ]
+  }
+]

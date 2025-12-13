@@ -1,0 +1,38 @@
+[
+  {
+    "number": 1096,
+    "title": "Parsing error when namespace contains 0",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1096",
+    "project_path": "NUnitParseIssue.csproj",
+    "target_frameworks": [
+      "net6.0-windows"
+    ],
+    "packages": [
+      {
+        "name": "Moq",
+        "version": "4.18.2"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.3"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.3.0"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.3.2"
+      },
+      {
+        "name": "NunitXml.TestLogger",
+        "version": "3.0.127"
+      }
+    ]
+  }
+]

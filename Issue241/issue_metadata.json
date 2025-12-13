@@ -1,0 +1,76 @@
+[
+  {
+    "number": 241,
+    "title": "Nunit test runner picking up ignored tests (ish) in tfs",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "confirm",
+      "closed:norepro"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/241",
+    "project_path": "igntest/igntest.csproj",
+    "target_frameworks": [
+      "net6.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.1.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.3"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.2.1"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "3.3.0"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.1.2"
+      }
+    ]
+  },
+  {
+    "number": 241,
+    "title": "Nunit test runner picking up ignored tests (ish) in tfs",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "confirm",
+      "closed:norepro"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/241",
+    "project_path": "test/test.csproj",
+    "target_frameworks": [
+      "net6.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.1.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.3"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.2.1"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "3.3.0"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.1.2"
+      }
+    ]
+  }
+]

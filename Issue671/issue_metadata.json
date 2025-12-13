@@ -1,0 +1,31 @@
+[
+  {
+    "number": 671,
+    "title": "Exception in OneTimeSetUp has no stack trace",
+    "state": "closed",
+    "milestone": "4.0",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/671",
+    "project_path": "Issue671.csproj",
+    "target_frameworks": [
+      "net5.0"
+    ],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0-dev.751"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.9.4"
+      }
+    ]
+  }
+]

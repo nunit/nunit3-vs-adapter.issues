@@ -1,0 +1,39 @@
+[
+  {
+    "number": 1182,
+    "title": "Category (Traits) should differentiate test cases even when they have same data name",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:wontfix",
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1182",
+    "project_path": "Issue1182.csproj",
+    "target_frameworks": [
+      "net8.0"
+    ],
+    "packages": [
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.2"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.10.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.1.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.2.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.5.0"
+      }
+    ]
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "number": 1264,
+    "title": "Tests are not discovered in VS when the NUnit version is 3.11 or less",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1264",
+    "project_path": "Issue1264.csproj",
+    "target_frameworks": [
+      "net9.0"
+    ],
+    "packages": [
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.4"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.13.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.11.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.7.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "5.0.0"
+      }
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "number": 545,
+    "title": "Setting [TestCaseSource] to [Explicit] makes other tests in fixture explicit.",
+    "state": "closed",
+    "milestone": "4.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "External"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/545",
+    "project_path": "Issue545/Issue545.csproj",
+    "target_frameworks": [],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0"
+      }
+    ]
+  }
+]

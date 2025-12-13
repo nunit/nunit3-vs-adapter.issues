@@ -1,0 +1,38 @@
+[
+  {
+    "number": 1367,
+    "title": "v10 of Microsoft.* nugets makes it more difficult to support older nugets and runtime",
+    "state": "open",
+    "milestone": "6.0.1",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1367",
+    "project_path": "Issue1367.csproj",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.4"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "18.0.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.11.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "6.0.1-alpha.3"
+      }
+    ]
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "number": 972,
+    "title": "Nunit won't discover working non explicit tests Visual studio 2022",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/972",
+    "project_path": "Issue_972/Issue_972/Issue_972.csproj",
+    "target_frameworks": [
+      "net6.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.1.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.3"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.2.1"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.1.2"
+      }
+    ]
+  },
+  {
+    "number": 972,
+    "title": "Nunit won't discover working non explicit tests Visual studio 2022",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/972",
+    "project_path": "Issue_972/Issue_972.API/Issue_972.API.csproj",
+    "target_frameworks": [
+      "net6.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.EntityFrameworkCore.SqlServer",
+        "version": "6.0.4"
+      },
+      {
+        "name": "Microsoft.EntityFrameworkCore.Tools",
+        "version": "6.0.4"
+      },
+      {
+        "name": "Microsoft.VisualStudio.Web.CodeGeneration.Design",
+        "version": "6.0.3"
+      },
+      {
+        "name": "Swashbuckle.AspNetCore",
+        "version": "6.3.0"
+      },
+      {
+        "name": "System.Collections",
+        "version": "4.3.0"
+      }
+    ]
+  },
+  {
+    "number": 972,
+    "title": "Nunit won't discover working non explicit tests Visual studio 2022",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/972",
+    "project_path": "Issue_972/Issue_972.common/Issue_972.common.csproj",
+    "target_frameworks": [
+      "NET6.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.EntityFrameworkCore.Design",
+        "version": "6.0.4"
+      },
+      {
+        "name": "Microsoft.EntityFrameworkCore.SqlServer",
+        "version": "6.0.4"
+      },
+      {
+        "name": "Microsoft.EntityFrameworkCore.Tools",
+        "version": "6.0.4"
+      }
+    ]
+  }
+]

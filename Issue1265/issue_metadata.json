@@ -1,0 +1,72 @@
+[
+  {
+    "number": 1265,
+    "title": "In Microsoft.Testing.Platform  , using dotnet test, the testResults folder is not created, but it is created when run test from the  TestExplorer of vs 2022",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1265",
+    "project_path": "mtp/mtp.csproj",
+    "target_frameworks": [
+      "net9.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.Testing.Extensions.VSTestBridge",
+        "version": "1.8.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "5.1.0"
+      },
+      {
+        "name": "Microsoft.Testing.Extensions.TrxReport",
+        "version": "1.8.2"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      }
+    ]
+  },
+  {
+    "number": 1265,
+    "title": "In Microsoft.Testing.Platform  , using dotnet test, the testResults folder is not created, but it is created when run test from the  TestExplorer of vs 2022",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1265",
+    "project_path": "normal/normal.csproj",
+    "target_frameworks": [
+      "net9.0"
+    ],
+    "packages": [
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.4"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.14.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.10.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "5.1.0"
+      }
+    ]
+  }
+]

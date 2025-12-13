@@ -1,0 +1,31 @@
+[
+  {
+    "number": 1261,
+    "title": "Retry extension - no tests discovered with NUnit runner",
+    "state": "closed",
+    "milestone": "5.1",
+    "labels": [
+      "is:bug",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1261",
+    "project_path": "RetryRepro/RetryRepro/RetryRepro.csproj",
+    "target_frameworks": [
+      "net9.0"
+    ],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "4.3.2"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.7.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "5.1.0-alpha.3-dbg"
+      }
+    ]
+  }
+]

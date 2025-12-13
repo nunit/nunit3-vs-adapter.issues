@@ -1,0 +1,85 @@
+[
+  {
+    "number": 1102,
+    "title": "Console output from application is logged as warnings",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1102",
+    "project_path": "MyApp/MyApp.csproj",
+    "target_frameworks": [
+      "net6.0"
+    ],
+    "packages": []
+  },
+  {
+    "number": 1102,
+    "title": "Console output from application is logged as warnings",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1102",
+    "project_path": "MyApp.Tests.MSTest/MyApp.Tests.MSTest.csproj",
+    "target_frameworks": [
+      "net6.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.1.0"
+      },
+      {
+        "name": "MSTest.TestAdapter",
+        "version": "2.2.8"
+      },
+      {
+        "name": "MSTest.TestFramework",
+        "version": "2.2.8"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.1.2"
+      }
+    ]
+  },
+  {
+    "number": 1102,
+    "title": "Console output from application is logged as warnings",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1102",
+    "project_path": "MyApp.Tests.NUnit/MyApp.Tests.NUnit.csproj",
+    "target_frameworks": [
+      "netcoreapp2.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "15.8.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.13.3"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "3.17.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "3.3.0"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "3.1.2"
+      }
+    ]
+  }
+]

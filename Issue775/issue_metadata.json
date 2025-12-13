@@ -1,0 +1,30 @@
+[
+  {
+    "number": 775,
+    "title": "When group of tests contains sub-group, VS 2019 Test Explorer shows Not Run, while all tests pass separately",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/775",
+    "project_path": "NUnitTestProject1/NUnitTestProject1/NUnitTestProject1.csproj",
+    "target_frameworks": [
+      "net472"
+    ],
+    "packages": [
+      {
+        "name": "nunit",
+        "version": "3.12.0"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.6.1"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0-alpha.1"
+      }
+    ]
+  }
+]

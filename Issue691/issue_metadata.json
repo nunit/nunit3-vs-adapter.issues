@@ -1,0 +1,34 @@
+[
+  {
+    "number": 691,
+    "title": "Incorrect format for TestCaseFilter Error: Missing '('",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "External",
+      "is:FQNIssue",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/691",
+    "project_path": "Issue691/Issue691/Issue691.csproj",
+    "target_frameworks": [
+      "netcoreapp3.1"
+    ],
+    "packages": [
+      {
+        "name": "nunit",
+        "version": "3.12.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "3.16.0"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.2.0"
+      }
+    ]
+  }
+]

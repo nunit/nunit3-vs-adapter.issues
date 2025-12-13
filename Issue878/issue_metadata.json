@@ -1,0 +1,33 @@
+[
+  {
+    "number": 878,
+    "title": "NUnit3TestAdapter 4.0.0: test owner no longer is written to .trx file",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "pri:high",
+      "External",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/878",
+    "project_path": "TestOwner/TestOwner.csproj",
+    "target_frameworks": [
+      "net48"
+    ],
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.13.2"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "16.9.4"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0"
+      }
+    ]
+  }
+]
