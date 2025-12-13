@@ -46,22 +46,4 @@ jobs:
 
       - name: Fail on regression failures
         run: |
-          python - <<'PY'
-  import json
-  from pathlib import Path
-  path = Path("scripts/issues_metadata.json")
-  data = json.loads(path.read_text(encoding="utf-8"))
-  failed = [
-      item for item in data
-      if (item.get("state") or "").lower() == "closed"
-      and item.get("test_result") == "fail"
-  ]
-  if failed:
-      print("Regression failures detected:")
-      for item in failed:
-          num = item.get("number")
-          url = item.get("url") or ""
-          print(f"- Issue #{num} {url}")
-      raise SystemExit(1)
-  print("No regression failures detected.")
-PY
+          python scripts/check_regressions.py
