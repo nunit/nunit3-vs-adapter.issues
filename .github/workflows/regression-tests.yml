@@ -33,8 +33,10 @@ jobs:
           python-version: "3.x"
 
       - name: Run regression tests (no prerelease)
+        env:
+          PYTHONUNBUFFERED: "1"
         run: |
-          python scripts/update_packages_and_tests.py --timeout 900
+          python -u scripts/update_packages_and_tests.py --timeout 900
 
       - name: Generate test report
         run: |
