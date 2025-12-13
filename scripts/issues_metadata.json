@@ -9,7 +9,13 @@
       "pri:normal",
       "closed:fixedinnewversion"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/228"
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/228",
+    "update_result": "fail",
+    "update_output": "",
+    "update_error": "Unhandled exception. McMaster.Extensions.CommandLineUtils.CommandParsingException: Invalid value specified for pre-release. Allowed values are: Auto, Always, Never.\n ---> System.FormatException: Invalid value specified for pre-release. Allowed values are: Auto, Always, Never.\n   at McMaster.Extensions.CommandLineUtils.Abstractions.EnumParser.<>c__DisplayClass0_0.<Create>b__0(String argName, String value, CultureInfo culture)\n   at McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.DelegatingValueParser`1.Parse(String argName, String value, CultureInfo culture)\n   at McMaster.Extensions.CommandLineUtils.Abstractions.ValueParser.DelegatingValueParser.Parse(String argName, String value, CultureInfo culture)\n   at McMaster.Extensions.CommandLineUtils.Abstractions.ValueParserProvider.GenericParserAdapter`1.McMaster.Extensions.CommandLineUtils.Abstractions.IValueParser.Parse(String argName, String value, CultureInfo culture)\n   at McMaster.Extensions.CommandLineUtils.Conventions.OptionAttributeConventionBase`1.<>c__DisplayClass0_0.<AddOption>b__1(ParseResult _)\n   at McMaster.Extensions.CommandLineUtils.CommandLineApplication.HandleParseResult(ParseResult parseResult)\n   --- End of inner exception stack trace ---\n   at McMaster.Extensions.CommandLineUtils.CommandLineApplication.HandleParseResult(ParseResult parseResult)\n   at McMaster.Extensions.CommandLineUtils.CommandLineApplication.Parse(String[] args)\n   at McMaster.Extensions.CommandLineUtils.CommandLineApplication.ExecuteAsync(String[] args, CancellationToken cancellationToken)\n   at McMaster.Extensions.CommandLineUtils.CommandLineApplication.Execute(String[] args)\n   at DotNetOutdated.Program.Main(String[] args) in /home/runner/work/dotnet-outdated/dotnet-outdated/src/DotNetOutdated/Program.cs:line 163\n",
+    "test_result": "success",
+    "test_output": "  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Issue228 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue228\\bin\\Debug\\net10.0\\Issue228.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue228\\bin\\Debug\\net10.0\\Issue228.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     2, Skipped:     0, Total:     2, Duration: 36 ms - Issue228.dll (net10.0)\n",
+    "test_error": ""
   },
   {
     "number": 241,
@@ -53,7 +59,14 @@
       "closed:done",
       "pri:normal"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/343"
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/343",
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.6546586\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.7408324\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "success",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\Issue343B_NUnitTests.csproj (in 339 ms).\n  Issue343B_NUnitTests -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\bin\\Debug\\net10.0\\Issue343B_NUnitTests.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\bin\\Debug\\net10.0\\Issue343B_NUnitTests.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 8 ms - Issue343B_NUnitTests.dll (net10.0)\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure"
   },
   {
     "number": 364,
