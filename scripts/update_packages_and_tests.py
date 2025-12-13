@@ -45,10 +45,15 @@ def find_issue_dir(root: Path, number: int) -> Optional[Path]:
         if not path.is_dir() or not path.name.startswith("Issue"):
             continue
         digits = first_digits(path.name)
-        if digits == target:
-            if path.name == f"Issue{target}":
-                return path  # Exact match wins immediately.
-            candidates.append(path)
+        if digits is None:
+            continue
+        try:
+            if int(digits) == number:
+                if path.name == f"Issue{target}":
+                    return path  # Exact match wins immediately.
+                candidates.append(path)
+        except ValueError:
+            continue
     return candidates[0] if candidates else None
 
 
@@ -344,9 +349,12 @@ def main() -> int:
     )
     parser.add_argument(
         "--scope",
-        choices=["all", "new", "new-and-failed"],
+        choices=["all", "new", "new-and-failed", "regression-only", "open-only"],
         default="all",
-        help="Which issues to process: all (default), only new (no test_result), or new-and-failed (no test_result or previous failure)",
+        help=(
+            "Which issues to process: all (default), new (no test_result), new-and-failed (no test_result or previous failure), "
+            "regression-only (state closed), or open-only (state open)"
+        ),
     )
     args = parser.parse_args()
 
@@ -372,9 +380,14 @@ def main() -> int:
     def persist_metadata() -> None:
         metadata_path.write_text(json.dumps(records, indent=2), encoding="utf-8")
 
+    def persist_update_records() -> None:
+        (root / "testupdate.json").write_text(
+            json.dumps(update_records, indent=2), encoding="utf-8"
+        )
+
     # Seed metadata entries for Issue* folders that are missing.
     meta_numbers = {int(it["number"]) for it in records if isinstance(it, dict) and "number" in it}
-    issue_dirs = [p for p in root.iterdir() if p.is_dir() and p.name.startswith("Issue")]
+    issue_dirs = sorted([p for p in root.iterdir() if p.is_dir() and p.name.startswith("Issue")])
     added = 0
     for d in issue_dirs:
         digits = first_digits(d.name)
@@ -400,26 +413,27 @@ def main() -> int:
     nunit_pre_mode = "Always" if args.pre_release else "Auto"
     run_nunit_versions: list[str] = []
 
-    # One-time NUnit version check on the first eligible issue to see target versions.
+    # One-time NUnit version check on the lowest-numbered eligible issue (by folder) to capture versions up front.
     checked_nunit_versions = False
-    for record in records:
-        num = record.get("number")
-        if num is None:
+    for issue_dir in issue_dirs:
+        digits = first_digits(issue_dir.name)
+        if not digits:
             continue
-        if issue_filter is not None and int(num) not in issue_filter:
+        try:
+            num_val = int(digits)
+        except ValueError:
             continue
-        if not any(k for k in record.keys() if k != "number"):
+        if issue_filter is not None and num_val not in issue_filter:
             continue
-        issue_dir = find_issue_dir(root, int(num))
-        if issue_dir is None or should_skip_issue(issue_dir):
+        if should_skip_issue(issue_dir):
             continue
-        csproj = find_csproj(issue_dir)
+        csproj = find_csprojj(issue_dir) if False else find_csproj(issue_dir)
         if csproj is None:
             continue
         workdir = csproj.parent
         target = choose_dotnet_target(workdir, csproj)
         log(
-            f"[{num}] NUnit package version check (pre-release mode {nunit_pre_mode})"
+            f"[{num_val}] NUnit package version check (pre-release mode {nunit_pre_mode})"
         )
         tfms, all_packages = read_tfms_and_packages(csproj)
         nu_stdout, nu_stderr, _ = run_cmd(
@@ -456,7 +470,7 @@ def main() -> int:
         update_records.append(
             {
                 "phase": "initial-nunit-check",
-                "issue": int(num),
+                "issue": num_val,
                 "target": str(target),
                 "pre_release": args.pre_release,
                 "stdout": nu_stdout,
@@ -466,22 +480,24 @@ def main() -> int:
                 "target_frameworks": tfms,
             }
         )
+        persist_update_records()
         if nu_stdout.strip():
             log(nu_stdout.strip())
         if nu_stderr.strip():
             log(nu_stderr.strip())
         if current_versions:
             run_nunit_versions = current_versions
-            log(f"[{num}] Testing with NUnit package versions: {', '.join(current_versions)}")
+            log(f"[{num_val}] Testing with NUnit package versions: {', '.join(current_versions)}")
             update_records.append(
                 {
                     "phase": "nunit-versions",
-                    "issue": int(num),
+                    "issue": num_val,
                     "versions": list(current_versions),
                     "packages": all_packages,
                     "target_frameworks": tfms,
                 }
             )
+            persist_update_records()
         checked_nunit_versions = True
         break
     if not checked_nunit_versions:
@@ -494,21 +510,17 @@ def main() -> int:
         if issue_filter is not None and int(num) not in issue_filter:
             continue
         record_changed = False
+        state_val = (record.get("state") or "").lower()
+        if args.scope == "regression-only" and state_val != "closed":
+            continue
+        if args.scope == "open-only" and state_val != "open":
+            continue
         existing_result = record.get("test_result")
         if args.scope == "new" and existing_result:
             log(f"[{num}] Skipped (scope=new; already has test_result={existing_result})")
             continue
         if args.scope == "new-and-failed" and existing_result and existing_result != "fail":
             log(f"[{num}] Skipped (scope=new-and-failed; test_result={existing_result})")
-            continue
-        if not any(k for k in record.keys() if k != "number"):
-            record["update_result"] = "skipped"
-            record["test_result"] = "skipped"
-            record["notes"] = "Skipped: empty metadata record"
-            record["test_conclusion"] = "Skipped"
-            log(f"[{num}] Skipped")
-            record_changed = True
-            persist_metadata()
             continue
         issue_dir = find_issue_dir(root, int(num))
         if issue_dir is None:
