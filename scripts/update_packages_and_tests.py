@@ -451,6 +451,34 @@ def main() -> int:
         )
         current_versions = []
         nunit_versions = find_nunit_packages(csproj)
+        # Auto-bump NUnit packages to latest stable before capturing versions.
+        if nunit_versions:
+            for pkg_name, current_ver in nunit_versions.items():
+                latest = latest_stable_version(pkg_name)
+                if latest and is_newer_version(latest, current_ver):
+                    log(f"[{num_val}] Bumping {pkg_name} from {current_ver} to stable {latest} (pretest)")
+                    upd_stdout, upd_stderr, upd_code = run_cmd(
+                        ["dotnet", "add", target.name, "package", pkg_name, "--version", latest],
+                        workdir,
+                        timeout=args.timeout,
+                    )
+                    update_records.append(
+                        {
+                            "phase": "manual-nunit-upgrade-pretest",
+                            "issue": num_val,
+                            "package": pkg_name,
+                            "from": current_ver,
+                            "to": latest,
+                            "target": str(target),
+                            "exit_code": upd_code,
+                            "stdout": upd_stdout,
+                            "stderr": upd_stderr,
+                        }
+                    )
+                    persist_update_records()
+            # refresh versions after potential bump
+            nunit_versions = find_nunit_packages(csproj)
+
         if nunit_versions:
             current_versions = [f"{k}={v}" for k, v in nunit_versions.items()]
         else:

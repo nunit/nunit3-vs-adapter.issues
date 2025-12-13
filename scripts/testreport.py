@@ -70,6 +70,21 @@ def format_table(headers: List[str], rows: List[Tuple[str, ...]]) -> List[str]:
     return lines
 
 
+def summarize(text: str, limit: int = 240) -> str:
+    text = " ".join((text or "").split())
+    if len(text) <= limit:
+        return text
+    return text[: limit - 3] + "..."
+
+
+def failure_detail(item: dict) -> str:
+    for key in ("notes", "test_error", "update_error", "update_output", "test_output"):
+        val = item.get(key)
+        if val:
+            return summarize(val)
+    return "n/a"
+
+
 def main() -> int:
     data = load_json(METADATA_PATH)
     if not isinstance(data, list):
@@ -95,7 +110,11 @@ def main() -> int:
         short = f"{result}"
         if conclusion:
             short = f"{result} - {conclusion}"
-        detail_row = (f"{issue} {url}".strip(), conclusion or result or "n/a")
+        detail_row = (
+            f"{issue} {url}".strip(),
+            conclusion or result or "n/a",
+            failure_detail(item),
+        )
         icon = ""
         if state == "closed":
             if result == "success":
@@ -115,7 +134,7 @@ def main() -> int:
                 closed_success_count += 1
         elif state == "open":
             if result == "success":
-                open_success.append(detail_row)
+                open_success.append((detail_row[0], detail_row[1]))
             elif result == "fail":
                 open_fail.append(detail_row)
 
@@ -163,7 +182,7 @@ def main() -> int:
     lines.append("### Closed failures (details)")
     lines.append("")
     if closed_fail:
-        lines.extend(format_table(["Issue", "Conclusion"], closed_fail))
+        lines.extend(format_table(["Issue", "Conclusion", "Details"], closed_fail))
     else:
         lines.append("- None")
     lines.append("")
@@ -184,7 +203,7 @@ def main() -> int:
     lines.append("### Failing (confirmed repros)")
     lines.append("")
     if open_fail:
-        lines.extend(format_table(["Issue", "Conclusion"], open_fail))
+        lines.extend(format_table(["Issue", "Conclusion", "Details"], open_fail))
     else:
         lines.append("- None")
     lines.append("")
