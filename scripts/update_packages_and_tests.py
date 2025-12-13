@@ -24,6 +24,15 @@ from pathlib import Path
 from typing import Iterable, Optional, Sequence
 
 LATEST_SDK = "10.0.100"
+LEGACY_NET_TO_462 = {
+    "net35",
+    "net40",
+    "net45",
+    "net451",
+    "net452",
+    "net46",
+    "net461",
+}
 
 
 def first_digits(text: str) -> Optional[str]:
@@ -109,6 +118,8 @@ def map_tfm_to_net10(tfm: str) -> str:
     """Return net10.0 for modern TFMs that should be upgraded, otherwise the original."""
     raw = tfm.strip()
     lower = raw.lower()
+    if lower in LEGACY_NET_TO_462:
+        return "net462"
     if lower.startswith("netcoreapp"):
         return "net10.0"
     m = re.match(r"net(\d+)(?:\.\d+)?", lower)
@@ -689,9 +700,12 @@ def main() -> int:
         log(f"[{num}] Running tests in {rel_proj}")
 
         # dotnet test
-        test_stdout, test_stderr, test_code = run_cmd(
-            ["dotnet", "test", target.name], workdir, timeout=args.timeout
-        )
+        test_cmd = ["dotnet", "test"]
+        if target.suffix.lower() == ".sln":
+            test_cmd.extend(["--solution", target.name])
+        else:
+            test_cmd.append(target.name)
+        test_stdout, test_stderr, test_code = run_cmd(test_cmd, workdir, timeout=args.timeout)
         record["test_result"] = "success" if test_code == 0 else "fail"
         record["test_output"] = test_stdout
         record["test_error"] = test_stderr
