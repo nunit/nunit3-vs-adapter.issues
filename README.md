@@ -2,9 +2,9 @@
 
 Examples and repros of issues found in the NUnit Adapter
 
-## Regression testing (update_packages_and_tests.py)
+## Regression testing (run_tests.py)
 
-- From repo root: `python scripts/update_packages_and_tests.py [--issues 228,343] [--timeout 600] [--pre-release] [--scope all|new|new-and-failed|regression-only|open-only]`
+- From repo root: `python scripts/run_tests.py [--issues 228,343] [--timeout 600] [--pre-release] [--scope all|new|new-and-failed|regression-only|open-only]`
 - Pre-release packages are **off by default**; add `--pre-release` to allow prerelease versions (NUnit packages only; others stay stable).
 - Timeout applies per external command (`dotnet outdated` and `dotnet test`) per issue.
 - Scope options:
@@ -17,20 +17,55 @@ Examples and repros of issues found in the NUnit Adapter
 - Issues with marker files `ignore`, `ignore.md`, `explicit`, `explicit.md`, `wip`, or `wip.md` are skipped.
 
 Examples:
-- Run everything with defaults: `python scripts/update_packages_and_tests.py`
-- Run specific issues: `python scripts/update_packages_and_tests.py --issues 1,228,343`
-- Only new tests: `python scripts/update_packages_and_tests.py --scope new`
-- New or previously failing: `python scripts/update_packages_and_tests.py --scope new-and-failed`
-- Only closed (regressions): `python scripts/update_packages_and_tests.py --scope regression-only`
-- Only open issues: `python scripts/update_packages_and_tests.py --scope open-only`
+
+- Run everything with defaults: `python scripts/run_tests.py`
+- Run specific issues: `python scripts/run_tests.py --issues 1,228,343`
+- Only new tests: `python scripts/run_tests.py --scope new`
+- New or previously failing: `python scripts/run_tests.py --scope new-and-failed`
+- Only closed (regressions): `python scripts/run_tests.py --scope regression-only`
+- Only open issues: `python scripts/run_tests.py --scope open-only`
 - Allow prerelease for NUnit packages: add `--pre-release`
-
-## Maintaining metadata
-
-- To regenerate per-issue project metadata: `python scripts/write_issue_project_metadata.py` (creates/updates `issue_metadata.json` in each `Issue*` folder).
-- Central metadata lives at `scripts/issues_metadata.json`; keep it in sync with `fetch_issue_metadata.py`/`fetch_issue_titles.py` as needed.
-- To ignore a repro folder for test/update runs, drop one of these files into the issue folder: `ignore`, `ignore.md`, `explicit`, `explicit.md`, `wip`, or `wip.md`.
 
 ## Reporting
 
 - Generate the Markdown test report: `python scripts/testreport.py` (writes `TestReport.md` at repo root).
+
+## Maintaining metadata
+
+### Syncing metadata from GitHub
+
+When issues have been updated on GitHub (state, labels, milestone changes), run these scripts in sequence:
+
+1. **Fetch from GitHub to central file**: `python scripts/update_central_from_github.py`
+   - Fetches current issue metadata from GitHub API
+   - Updates `scripts/issues_metadata.json`
+   - Requires `GITHUB_TOKEN` environment variable for higher rate limits
+
+2. **Distribute to issue folders**: `python scripts/update_folders_from_central.py`
+   - Reads from `scripts/issues_metadata.json`
+   - Creates/updates `issue_metadata.json` in each `Issue*` folder
+   - Includes project details (csproj files, frameworks, packages)
+
+3. **Optional - Update readme titles**: `python scripts/fetch_issue_titles.py`
+   - Updates `readme.md` files in each `Issue*` folder with current GitHub titles
+
+**Quick sync workflow:**
+```bash
+python scripts/update_central_from_github.py
+python scripts/update_folders_from_central.py
+```
+
+Or use the convenience script:
+```bash
+scripts\Update_all_from_github.cmd
+```
+
+**What to commit:**
+- ✅ Metadata updates from the sync scripts above (central and per-issue `issue_metadata.json` files) should be committed
+- ❌ Test results in individual issue folders should normally NOT be committed
+- ✅ `TestReport.md` at repo root CAN be committed for documentation purposes
+
+### Other maintenance tasks
+
+- To ignore a repro folder for test/update runs, drop one of these files into the issue folder: `ignore`, `ignore.md`, `explicit`, `explicit.md`, `wip`, or `wip.md`.
+

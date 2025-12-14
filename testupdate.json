@@ -1,0 +1,38 @@
+[
+  {
+    "phase": "initial-nunit-check",
+    "issue": 484,
+    "target": "C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue484\\Issue484\\Issue484.csproj",
+    "pre_release": false,
+    "stdout": "Discovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.7960232\n",
+    "stderr": "",
+    "current_versions": [
+      "nunit=4.4.0",
+      "NUnit3TestAdapter=6.0.0"
+    ],
+    "packages": [
+      "nunit=4.4.0",
+      "NUnit3TestAdapter=6.0.0",
+      "Microsoft.NET.Test.Sdk=18.0.1"
+    ],
+    "target_frameworks": [
+      "net472"
+    ]
+  },
+  {
+    "phase": "nunit-versions",
+    "issue": 484,
+    "versions": [
+      "nunit=4.4.0",
+      "NUnit3TestAdapter=6.0.0"
+    ],
+    "packages": [
+      "nunit=4.4.0",
+      "NUnit3TestAdapter=6.0.0",
+      "Microsoft.NET.Test.Sdk=18.0.1"
+    ],
+    "target_frameworks": [
+      "net472"
+    ]
+  }
+]

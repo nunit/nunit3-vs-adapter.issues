@@ -84,7 +84,7 @@ def failure_detail(item: dict) -> str:
         val = item.get(key)
         if val:
             summary = summarize(val, limit=800)  # allow more before wrapping
-            wrapped = "<br>".join(textwrap.wrap(summary, width=100))
+            wrapped = "<br/>".join(textwrap.wrap(summary, width=100))
             return wrapped
     return "n/a"
 

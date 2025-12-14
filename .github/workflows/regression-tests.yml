@@ -52,7 +52,7 @@ jobs:
         env:
           PYTHONUNBUFFERED: "1"
         run: |
-          python -u scripts/update_packages_and_tests.py --timeout 900 --skip-netfx
+          python -u scripts/run_tests.py --timeout 900 --skip-netfx
 
       - name: Run regression tests (no prerelease) [Windows]
         if: matrix.os == 'windows-latest'
@@ -60,7 +60,7 @@ jobs:
         env:
           PYTHONUNBUFFERED: "1"
         run: |
-          python -u scripts/update_packages_and_tests.py --timeout 900 --only-netfx
+          python -u scripts/run_tests.py --timeout 900 --only-netfx
 
       - name: Generate test report
         run: |

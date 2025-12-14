@@ -293,7 +293,11 @@ def find_nunit_packages(csproj: Path) -> dict[str, str]:
 
 
 def read_tfms_and_packages(csproj: Path) -> tuple[list[str], list[str]]:
-    """Return target frameworks and all PackageReference versions as 'Name=Version' strings."""
+    """Return target frameworks and all package versions as 'Name=Version' strings.
+
+    For SDK-style projects, we read TargetFramework/TargetFrameworks and PackageReference.
+    For classic projects, we also read TargetFrameworkVersion and packages.config if present.
+    """
     frameworks: list[str] = []
     packages: list[str] = []
     try:
@@ -319,6 +323,35 @@ def read_tfms_and_packages(csproj: Path) -> tuple[list[str], list[str]]:
                 packages.append(f"{name}={version}")
     except Exception:
         pass
+
+    # Classic projects: TargetFrameworkVersion -> net4xx.
+    try:
+        tree = ET.parse(csproj)
+        root = tree.getroot()
+        for elem in root.findall(".//{*}TargetFrameworkVersion"):
+            if elem.text:
+                tfv = elem.text.strip().lstrip("vV")
+                # e.g., 4.6.1 -> net461
+                digits = "".join(ch for ch in tfv if ch.isdigit())
+                if digits:
+                    frameworks.append(f"net{digits}")
+    except Exception:
+        pass
+
+    # Classic projects: pull from packages.config if present.
+    pkgs_config = csproj.parent / "packages.config"
+    if pkgs_config.exists():
+        try:
+            tree = ET.parse(pkgs_config)
+            root = tree.getroot()
+            for pkg in root.findall(".//package"):
+                name = pkg.attrib.get("id")
+                version = pkg.attrib.get("version")
+                if name and version:
+                    packages.append(f"{name}={version}")
+        except Exception:
+            pass
+
     # Deduplicate while preserving order
     seen = set()
     frameworks = [f for f in frameworks if not (f in seen or seen.add(f))]
@@ -330,6 +363,28 @@ def read_tfms_and_packages(csproj: Path) -> tuple[list[str], list[str]]:
 def is_netfx_tfm(tfm: str) -> bool:
     t = tfm.lower().strip()
     return t.startswith("net2") or t.startswith("net3") or t.startswith("net4")
+
+
+def is_nunit_project(packages: list[str]) -> bool:
+    """Return True if the package list contains NUnit test stack (framework/adapter)."""
+    targets = {"nunit", "nunit.framework", "nunit3testadapter"}
+    for pkg in packages:
+        name = pkg.split("=", 1)[0].lower()
+        if name in targets:
+            return True
+    return False
+
+
+def detect_project_style(csproj: Path) -> str:
+    """Return 'sdk' for SDK-style projects, otherwise 'classic'."""
+    try:
+        tree = ET.parse(csproj)
+        root = tree.getroot()
+        if root.attrib.get("Sdk"):
+            return "sdk"
+    except Exception:
+        pass
+    return "classic"
 
 
 def main() -> int:
@@ -453,18 +508,21 @@ def main() -> int:
             continue
         if should_skip_issue(issue_dir):
             continue
-        tfms_pre, _ = read_tfms_and_packages(issue_dir / next(iter(issue_dir.glob("*.csproj")), Path("dummy")))
-        if args.only_netfx and tfms_pre and not all(is_netfx_tfm(t) for t in tfms_pre):
-            continue
         csproj = find_csprojj(issue_dir) if False else find_csproj(issue_dir)
         if csproj is None:
+            continue
+        tfms, all_packages = read_tfms_and_packages(csproj)
+        if not is_nunit_project(all_packages):
+            continue
+        if args.skip_netfx and tfms and all(is_netfx_tfm(t) for t in tfms):
+            continue
+        if args.only_netfx and tfms and not all(is_netfx_tfm(t) for t in tfms):
             continue
         workdir = csproj.parent
         target = choose_dotnet_target(workdir, csproj)
         log(
             f"[{num_val}] NUnit package version check (pre-release mode {nunit_pre_mode})"
         )
-        tfms, all_packages = read_tfms_and_packages(csproj)
         nu_stdout, nu_stderr, _ = run_cmd(
             [
                 "dotnet",
@@ -611,22 +669,18 @@ def main() -> int:
         rel_proj = csproj.relative_to(root)
         target = choose_dotnet_target(workdir, csproj)
         tfms, all_packages = read_tfms_and_packages(csproj)
+        if not is_nunit_project(all_packages):
+            log(f"[{num}] Skipped (not an NUnit test project)")
+            continue
         if args.only_netfx and tfms and not all(is_netfx_tfm(t) for t in tfms):
             log(f"[{num}] Skipped (not netfx-only; --only-netfx enabled)")
-            record["update_result"] = "skipped"
-            record["test_result"] = "skipped"
-            record["test_conclusion"] = "Skipped (not netfx-only project)"
-            record_changed = True
-            persist_metadata()
             continue
         if args.skip_netfx and tfms and all(is_netfx_tfm(t) for t in tfms):
             log(f"[{num}] Skipped (netfx-only project; --skip-netfx enabled)")
-            record["update_result"] = "skipped"
-            record["test_result"] = "skipped"
-            record["test_conclusion"] = "Skipped (netfx-only project; requires Windows/mono)"
-            record_changed = True
-            persist_metadata()
             continue
+        record["project_style"] = detect_project_style(csproj)
+        record_changed = True
+        persist_metadata()
 
         # Force upgrade NUnit packages to latest stable if current is older or pre-release.
         nunit_packages = find_nunit_packages(csproj)
