@@ -700,11 +700,8 @@ def main() -> int:
         log(f"[{num}] Running tests in {rel_proj}")
 
         # dotnet test
-        test_cmd = ["dotnet", "test"]
-        if target.suffix.lower() == ".sln":
-            test_cmd.extend(["--solution", target.name])
-        else:
-            test_cmd.append(target.name)
+        # Use plain path for both csproj and sln to avoid MSBuild switch issues on newer SDKs.
+        test_cmd = ["dotnet", "test", target.name]
         test_stdout, test_stderr, test_code = run_cmd(test_cmd, workdir, timeout=args.timeout)
         record["test_result"] = "success" if test_code == 0 else "fail"
         record["test_output"] = test_stdout
