@@ -46,15 +46,21 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Run regression tests (no prerelease)
+      - name: Run regression tests (no prerelease) [Linux]
+        if: matrix.os == 'ubuntu-latest'
+        shell: bash
         env:
           PYTHONUNBUFFERED: "1"
         run: |
-          if [ "${{ matrix.os }}" = "ubuntu-latest" ]; then
-            python -u scripts/update_packages_and_tests.py --timeout 900 --skip-netfx
-          else
-            python -u scripts/update_packages_and_tests.py --timeout 900
-          fi
+          python -u scripts/update_packages_and_tests.py --timeout 900 --skip-netfx
+
+      - name: Run regression tests (no prerelease) [Windows]
+        if: matrix.os == 'windows-latest'
+        shell: pwsh
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          python -u scripts/update_packages_and_tests.py --timeout 900 --only-netfx
 
       - name: Generate test report
         run: |
