@@ -327,6 +327,11 @@ def read_tfms_and_packages(csproj: Path) -> tuple[list[str], list[str]]:
     return frameworks, packages
 
 
+def is_netfx_tfm(tfm: str) -> bool:
+    t = tfm.lower().strip()
+    return t.startswith("net2") or t.startswith("net3") or t.startswith("net4")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Update packages and run tests for Issue* repros.")
     parser.add_argument(
@@ -366,6 +371,16 @@ def main() -> int:
             "Which issues to process: all (default), new (no test_result), new-and-failed (no test_result or previous failure), "
             "regression-only (state closed), or open-only (state open)"
         ),
+    )
+    parser.add_argument(
+        "--skip-netfx",
+        action="store_true",
+        help="Skip issues where all target frameworks are classic .NET Framework (net2*/net3*/net4*).",
+    )
+    parser.add_argument(
+        "--only-netfx",
+        action="store_true",
+        help="Process only issues where all target frameworks are classic .NET Framework (net2*/net3*/net4*).",
     )
     args = parser.parse_args()
 
@@ -437,6 +452,9 @@ def main() -> int:
         if issue_filter is not None and num_val not in issue_filter:
             continue
         if should_skip_issue(issue_dir):
+            continue
+        tfms_pre, _ = read_tfms_and_packages(issue_dir / next(iter(issue_dir.glob("*.csproj")), Path("dummy")))
+        if args.only_netfx and tfms_pre and not all(is_netfx_tfm(t) for t in tfms_pre):
             continue
         csproj = find_csprojj(issue_dir) if False else find_csproj(issue_dir)
         if csproj is None:
@@ -592,6 +610,23 @@ def main() -> int:
         workdir = csproj.parent
         rel_proj = csproj.relative_to(root)
         target = choose_dotnet_target(workdir, csproj)
+        tfms, all_packages = read_tfms_and_packages(csproj)
+        if args.only_netfx and tfms and not all(is_netfx_tfm(t) for t in tfms):
+            log(f"[{num}] Skipped (not netfx-only; --only-netfx enabled)")
+            record["update_result"] = "skipped"
+            record["test_result"] = "skipped"
+            record["test_conclusion"] = "Skipped (not netfx-only project)"
+            record_changed = True
+            persist_metadata()
+            continue
+        if args.skip_netfx and tfms and all(is_netfx_tfm(t) for t in tfms):
+            log(f"[{num}] Skipped (netfx-only project; --skip-netfx enabled)")
+            record["update_result"] = "skipped"
+            record["test_result"] = "skipped"
+            record["test_conclusion"] = "Skipped (netfx-only project; requires Windows/mono)"
+            record_changed = True
+            persist_metadata()
+            continue
 
         # Force upgrade NUnit packages to latest stable if current is older or pre-release.
         nunit_packages = find_nunit_packages(csproj)
