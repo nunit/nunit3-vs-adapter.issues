@@ -13,6 +13,7 @@ Output is written to TestReport.md in the repo root.
 from __future__ import annotations
 
 import json
+import textwrap
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
@@ -82,7 +83,9 @@ def failure_detail(item: dict) -> str:
     for key in ("notes", "test_error", "test_output", "update_error", "update_output"):
         val = item.get(key)
         if val:
-            return summarize(val)
+            summary = summarize(val, limit=800)  # allow more before wrapping
+            wrapped = "<br>".join(textwrap.wrap(summary, width=100))
+            return wrapped
     return "n/a"
 
 
