@@ -23,6 +23,12 @@ Examples and repros of issues found in the NUnit Adapter
 - Test execution:
   - If a `.runsettings` (or `*.runsettings`) file exists in the issue folder, it is passed to `dotnet test` via `--settings`.
   - If a custom runner script is present (Linux: `run_*.sh`; Windows: `run_*.cmd`) in the project folder or its parents up to the issue root, that script is executed instead of `dotnet test`. The script runs from its own folder.
+  - Optional expectations per runner script (add as header lines in the script; examples: `# EXPECT_TESTS=0`, `REM EXPECT_PASS=1`):
+    - `EXPECT_TESTS=<number>`
+    - `EXPECT_PASS=<number>`
+    - `EXPECT_FAIL=<number>`
+    - `EXPECT_SKIP=<number>`
+    Mismatches will fail the run and are recorded in results, including expected/actual counts.
 
 Examples:
 

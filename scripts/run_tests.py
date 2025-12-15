@@ -21,6 +21,7 @@ import sys
 import xml.etree.ElementTree as ET
 import urllib.request
 import platform
+import os
 from pathlib import Path
 from typing import Iterable, Optional, Sequence
 
@@ -162,6 +163,95 @@ def find_custom_runners(start_dir: Path, issue_dir: Path) -> list[Path]:
     return found
 
 
+def parse_expected_tests_from_runner(path: Path) -> int | None:
+    """Extract EXPECT_TESTS=N from the first few lines of a runner script."""
+    try:
+        with path.open(encoding="utf-8") as fh:
+            for _ in range(10):
+                line = fh.readline()
+                if not line:
+                    break
+                if "EXPECT_TESTS" in line.upper():
+                    m = re.search(r"EXPECT_TESTS\s*=\s*(\d+)", line, re.IGNORECASE)
+                    if m:
+                        return int(m.group(1))
+    except Exception:
+        return None
+    return None
+
+
+def parse_total_tests(text: str) -> int | None:
+    """Parse total test count from dotnet test output."""
+    patterns = [
+        r"Total tests:\s+(\d+)",
+        r"Tests run:\s+(\d+)",
+        r"Total:\s+(\d+)",
+    ]
+    for pat in patterns:
+        m = re.search(pat, text, re.IGNORECASE)
+        if m:
+            try:
+                return int(m.group(1))
+            except Exception:
+                continue
+    # Common zero-test phrases
+    zero_phrases = [
+        r"No test is available",
+        r"No tests were found",
+        r"A total of 0 test files matched the specified pattern",
+        r"No test matches the given testcase filter",
+    ]
+    for zp in zero_phrases:
+        if re.search(zp, text, re.IGNORECASE):
+            return 0
+    return None
+
+
+def parse_result_counts(text: str) -> tuple[int | None, int | None, int | None]:
+    """Parse pass/fail/skip counts from test output."""
+    patterns = [
+        r"Failed:\s*(\d+)[, ]+Passed:\s*(\d+)[, ]+Skipped:\s*(\d+)",
+        r"Passed:\s*(\d+)[, ]+Failed:\s*(\d+)[, ]+Skipped:\s*(\d+)",
+    ]
+    for pat in patterns:
+        m = re.search(pat, text, re.IGNORECASE)
+        if m:
+            try:
+                groups = [int(g) for g in m.groups()]
+                if pat.startswith("Failed"):
+                    failed, passed, skipped = groups
+                else:
+                    passed, failed, skipped = groups
+                return passed, failed, skipped
+            except Exception:
+                continue
+    return None, None, None
+
+
+def parse_expectations_from_runner(path: Path) -> dict:
+    """Extract EXPECT_TESTS/EXPECT_PASS/EXPECT_FAIL/EXPECT_SKIP from runner script header."""
+    exp: dict[str, int | None] = {"tests": None, "pass": None, "fail": None, "skip": None}
+    try:
+        with path.open(encoding="utf-8") as fh:
+            for _ in range(10):
+                line = fh.readline()
+                if not line:
+                    break
+                for key, attr in [
+                    ("EXPECT_TESTS", "tests"),
+                    ("EXPECT_PASS", "pass"),
+                    ("EXPECT_FAIL", "fail"),
+                    ("EXPECT_SKIP", "skip"),
+                ]:
+                    if key in line.upper():
+                        m = re.search(rf"{key}\s*=\s*(\d+)", line, re.IGNORECASE)
+                        if m:
+                            exp[attr] = int(m.group(1))
+    except Exception:
+        pass
+    return exp
+
+
 def align_target_frameworks_and_references(
     num: int, csproj: Path, rel_proj: Path, root: Path, log_fn, record: dict
 ) -> None:
@@ -189,7 +279,7 @@ def run_tests_for_issue(
     issue_dir: Path,
     timeout: int | None,
     log_fn,
-) -> tuple[int, str, str, Path | None, list[str]]:
+) -> tuple[int, str, str, Path | None, list[str], list[dict]]:
     """Run tests via custom runners (if any) or dotnet test, returning exit code and output."""
     runsettings_path = find_runsettings(issue_dir)
     runner_scripts = find_custom_runners(workdir, issue_dir)
@@ -198,6 +288,7 @@ def run_tests_for_issue(
     combined_stderr: list[str] = []
     test_code = 0
     runner_paths: list[str] = []
+    runner_expectations: list[dict] = []
 
     if runner_scripts:
         log_fn(f"[{num}] Found custom test scripts: {', '.join(p.name for p in runner_scripts)}")
@@ -211,6 +302,62 @@ def run_tests_for_issue(
             out, err, code = run_cmd(test_cmd, runner_script.parent, timeout=timeout)
             combined_stdout.append(out)
             combined_stderr.append(err)
+            exp = parse_expectations_from_runner(runner_script)
+            expected_tests = exp["tests"]
+            expected_pass = exp["pass"]
+            expected_fail = exp["fail"]
+            expected_skip = exp["skip"]
+            actual_tests = parse_total_tests(out + "\n" + err)
+            actual_pass, actual_fail, actual_skip = parse_result_counts(out + "\n" + err)
+
+            mismatches = []
+            def check(label: str, expected: int | None, actual: int | None) -> None:
+                if expected is None:
+                    return
+                if actual is None or expected != actual:
+                    mismatches.append(f"{label} expected {expected}, saw {actual if actual is not None else 'unknown'}")
+
+            check("tests", expected_tests, actual_tests)
+            check("pass", expected_pass, actual_pass)
+            check("fail", expected_fail, actual_fail)
+            check("skip", expected_skip, actual_skip)
+
+            note_parts = []
+            if expected_tests is not None:
+                note_parts.append(f"expected tests {expected_tests}")
+            if expected_pass is not None:
+                note_parts.append(f"expected pass {expected_pass}")
+            if expected_fail is not None:
+                note_parts.append(f"expected fail {expected_fail}")
+            if expected_skip is not None:
+                note_parts.append(f"expected skip {expected_skip}")
+            note_parts.append(
+                f"saw tests {actual_tests if actual_tests is not None else 'unknown'}, "
+                f"pass {actual_pass if actual_pass is not None else 'unknown'}, "
+                f"fail {actual_fail if actual_fail is not None else 'unknown'}, "
+                f"skip {actual_skip if actual_skip is not None else 'unknown'}"
+            )
+            note = "; ".join(note_parts)
+            log_fn(f"[{num}] {runner_script.name}: {note}")
+
+            runner_expectations.append(
+                {
+                    "script": str(runner_script),
+                    "expected_tests": expected_tests,
+                    "expected_pass": expected_pass,
+                    "expected_fail": expected_fail,
+                    "expected_skip": expected_skip,
+                    "actual_tests": actual_tests,
+                    "actual_pass": actual_pass,
+                    "actual_fail": actual_fail,
+                    "actual_skip": actual_skip,
+                    "note": note,
+                    "mismatches": mismatches,
+                }
+            )
+            if mismatches:
+                code = code or 1
+                combined_stderr.append("; ".join(mismatches))
             if code != 0:
                 test_code = code
     else:
@@ -225,7 +372,7 @@ def run_tests_for_issue(
 
     test_stdout = "\n".join([part for part in combined_stdout if part])
     test_stderr = "\n".join([part for part in combined_stderr if part])
-    return test_code, test_stdout, test_stderr, runsettings_path, runner_paths
+    return test_code, test_stdout, test_stderr, runsettings_path, runner_paths, runner_expectations
 
 
 def ensure_nugetc_and_myget(root: Path, log_fn) -> None:
@@ -1070,7 +1217,7 @@ def main() -> int:
             record["update_error"] = "[nunit]\n" + nunit_stderr + "\n[other]\n" + other_stderr
         record_changed = True
 
-        test_code, test_stdout, test_stderr, runsettings_path, runner_paths = run_tests_for_issue(
+        test_code, test_stdout, test_stderr, runsettings_path, runner_paths, runner_expectations = run_tests_for_issue(
             num=int(num),
             rel_proj=rel_proj,
             target=target,
@@ -1086,6 +1233,10 @@ def main() -> int:
             record["runsettings"] = str(runsettings_path)
         if runner_paths:
             record["runner_scripts"] = runner_paths
+        if runner_expectations:
+            record["runner_expectations"] = runner_expectations
+        if runner_expectations:
+            record["runner_expectations"] = runner_expectations
 
         state = (record.get("state") or "").lower()
         if state == "closed":
@@ -1122,6 +1273,7 @@ def main() -> int:
             "test_conclusion": record.get("test_conclusion", ""),
             "runner_scripts": record.get("runner_scripts", []),
             "runsettings": record.get("runsettings"),
+            "runner_expectations": record.get("runner_expectations", []),
         }
         upsert_result(entry)
 
