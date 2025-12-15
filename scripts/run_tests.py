@@ -1050,6 +1050,7 @@ def main() -> int:
         rel_proj = csproj.relative_to(root)
         target = choose_dotnet_target(workdir, csproj)
         tfms, all_packages = read_tfms_and_packages(csproj)
+        is_netfx_only = bool(tfms) and all(is_netfx_tfm(t) for t in tfms)
         if not is_nunit_project(all_packages):
             # Try another candidate that does look like an NUnit project before skipping.
             fallback = find_first_nunit_csproj(issue_dir)
@@ -1059,13 +1060,20 @@ def main() -> int:
                 rel_proj = csproj.relative_to(root)
                 target = choose_dotnet_target(workdir, csproj)
                 tfms, all_packages = read_tfms_and_packages(csproj)
+                is_netfx_only = bool(tfms) and all(is_netfx_tfm(t) for t in tfms)
             if not is_nunit_project(all_packages):
                 log(f"[{num}] Skipped (not an NUnit test project)")
                 continue
-        if args.only_netfx and tfms and not all(is_netfx_tfm(t) for t in tfms):
-            log(f"[{num}] Skipped (not netfx-only; --only-netfx enabled)")
-            continue
-        if args.skip_netfx and tfms and all(is_netfx_tfm(t) for t in tfms):
+        if args.only_netfx:
+            if is_netfx_only:
+                pass
+            elif not tfms:
+                log(f"[{num}] Skipped (no target framework detected; --only-netfx enabled)")
+                continue
+            else:
+                log(f"[{num}] Skipped (not netfx-only; --only-netfx enabled)")
+                continue
+        if args.skip_netfx and is_netfx_only:
             log(f"[{num}] Skipped (netfx-only project; --skip-netfx enabled)")
             continue
         record["project_style"] = detect_project_style(csproj)
