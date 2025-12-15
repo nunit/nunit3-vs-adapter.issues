@@ -1,0 +1,21 @@
+[
+  {
+    "number": 781,
+    "project_path": "nUnittest/nUnittest.csproj",
+    "project_style": "classic",
+    "target_frameworks": [
+      "net461"
+    ],
+    "packages": [
+      "NUnit=3.12.0",
+      "NUnit3TestAdapter=4.0.2"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:01.2265309\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:01.2098421\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "success",
+    "test_output": "  Determining projects to restore...\n  Nothing to do. None of the projects specified contain packages to restore.\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure"
+  }
+]

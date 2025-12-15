@@ -11,24 +11,24 @@
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/266",
     "project_path": "Issue266.csproj",
     "target_frameworks": [
-      "net5.0"
+      "net10.0"
     ],
     "packages": [
       {
         "name": "Microsoft.NET.Test.Sdk",
-        "version": "16.10.0"
+        "version": "18.0.1"
       },
       {
         "name": "NUnit",
-        "version": "3.13.2"
+        "version": "4.4.0"
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "4.0.0"
+        "version": "6.0.0"
       },
       {
         "name": "coverlet.collector",
-        "version": "3.0.3"
+        "version": "6.0.4"
       }
     ]
   }

@@ -1,0 +1,22 @@
+[
+  {
+    "number": 744,
+    "project_path": "Issue744TestName/Issue744TestName.csproj",
+    "project_style": "sdk",
+    "target_frameworks": [
+      "net461"
+    ],
+    "packages": [
+      "NUnit=3.14.0",
+      "NUnit3TestAdapter=6.0.0",
+      "Microsoft.NET.Test.Sdk=17.3.3"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\n\u00c2\u00bb Issue744TestName\n  [.NETFramework,Version=v4.6.2]\n  NUnit  3.14.0 -> 4.4.0\n\nVersion color legend:\n<red>   : Major version update or pre-release version. Possible breaking changes.\n<yellow>: Minor version update. Backwards-compatible features added.\n<green> : Patch version update. Backwards-compatible bug fixes.\n\nUpgrading package NUnit...\nProject Issue744TestName [.NETFramework,Version=v4.6.2] upgraded successfully\n\nElapsed: 00:00:05.8352054\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\n\u00c2\u00bb Issue744TestName\n  [.NETFramework,Version=v4.6.2]\n  Microsoft.NET.Test.Sdk  17.3.3 -> 18.0.1\n\nVersion color legend:\n<red>   : Major version update or pre-release version. Possible breaking changes.\n<yellow>: Minor version update. Backwards-compatible features added.\n<green> : Patch version update. Backwards-compatible bug fixes.\n\nUpgrading package Microsoft.NET.Test.Sdk...\nProject Issue744TestName [.NETFramework,Version=v4.6.2] upgraded successfully\n\nElapsed: 00:00:06.4580738\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "success",
+    "test_output": "  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Issue744TestName -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue744\\Issue744TestName\\bin\\Debug\\net462\\Issue744TestName.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue744\\Issue744TestName\\bin\\Debug\\net462\\Issue744TestName.dll (.NETFramework,Version=v4.6.2)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 19 ms - Issue744TestName.dll (net462)\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure"
+  }
+]

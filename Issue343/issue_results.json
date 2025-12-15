@@ -1,0 +1,22 @@
+[
+  {
+    "number": 343,
+    "project_path": "TestConsoleTests/NUnitTests/Issue343B_NUnitTests.csproj",
+    "project_style": "sdk",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "NUnit=4.5.0-alpha.0.27",
+      "NUnit3TestAdapter=6.0.0",
+      "Microsoft.NET.Test.Sdk=18.0.1"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.6823096\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.1822565\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "success",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\Issue343B_NUnitTests.csproj (in 482 ms).\n  Issue343B_NUnitTests -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\bin\\Debug\\net10.0\\Issue343B_NUnitTests.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\bin\\Debug\\net10.0\\Issue343B_NUnitTests.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 5 ms - Issue343B_NUnitTests.dll (net10.0)\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure"
+  }
+]

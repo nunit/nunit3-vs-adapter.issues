@@ -11,20 +11,20 @@
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/780",
     "project_path": "Issue780.csproj",
     "target_frameworks": [
-      "netcoreapp3.1"
+      "net10.0"
     ],
     "packages": [
       {
         "name": "NUnit",
-        "version": "3.12.0"
+        "version": "4.4.0"
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "4.0.0-dbg201"
+        "version": "6.0.0"
       },
       {
         "name": "Microsoft.NET.Test.Sdk",
-        "version": "16.5.0"
+        "version": "18.0.1"
       }
     ]
   }

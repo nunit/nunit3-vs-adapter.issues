@@ -16,7 +16,7 @@
     "packages": [
       {
         "name": "NUnit",
-        "version": "3.13.0"
+        "version": "3.14.0"
       },
       {
         "name": "NUnit3TestAdapter",
@@ -24,7 +24,7 @@
       },
       {
         "name": "Microsoft.NET.Test.Sdk",
-        "version": "15.9.2"
+        "version": "17.3.3"
       }
     ]
   }

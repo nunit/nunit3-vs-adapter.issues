@@ -16,43 +16,43 @@
     "packages": [
       {
         "name": "coverlet.collector",
-        "version": "6.0.0"
+        "version": "6.0.4"
       },
       {
         "name": "Microsoft.NET.Test.Sdk",
-        "version": "17.13.0"
+        "version": "18.0.1"
       },
       {
         "name": "NUnit",
-        "version": "3.12.0"
+        "version": "4.4.0"
       },
       {
         "name": "NUnit.Analyzers",
-        "version": "3.8.0"
+        "version": "4.11.2"
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "6.0.0-beta.1"
+        "version": "6.0.0"
       },
       {
         "name": "Microsoft.Testing.Extensions.Telemetry",
-        "version": "2.0.1"
+        "version": "2.0.2"
       },
       {
         "name": "Microsoft.Testing.Extensions.TrxReport",
-        "version": "2.0.1"
+        "version": "2.0.2"
       },
       {
         "name": "Microsoft.Testing.Extensions.VSTestBridge",
-        "version": "2.0.1"
+        "version": "2.0.2"
       },
       {
         "name": "Microsoft.Testing.Platform",
-        "version": "2.0.1"
+        "version": "2.0.2"
       },
       {
         "name": "Microsoft.Testing.Platform.MSBuild",
-        "version": "2.0.1"
+        "version": "2.0.2"
       }
     ]
   }

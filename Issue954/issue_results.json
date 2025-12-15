@@ -1,0 +1,22 @@
+[
+  {
+    "number": 954,
+    "project_path": "NUnitDiscoveryNameChange/NUnitDiscoveryNameChange.csproj",
+    "project_style": "sdk",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=18.0.1",
+      "NUnit=4.4.0",
+      "NUnit3TestAdapter=6.0.0"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.9146905\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.4056338\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "success",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue954\\NUnitDiscoveryNameChange\\NUnitDiscoveryNameChange.csproj (in 412 ms).\n  NUnitDiscoveryNameChange -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue954\\NUnitDiscoveryNameChange\\bin\\Debug\\net10.0\\NUnitDiscoveryNameChange.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue954\\NUnitDiscoveryNameChange\\bin\\Debug\\net10.0\\NUnitDiscoveryNameChange.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 13 ms - NUnitDiscoveryNameChange.dll (net10.0)\n",
+    "test_error": "",
+    "test_conclusion": "Open issue, but test succeeds."
+  }
+]

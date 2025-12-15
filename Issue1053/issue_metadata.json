@@ -10,28 +10,28 @@
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1053",
     "project_path": "Issue1053.csproj",
     "target_frameworks": [
-      "net7.0"
+      "net10.0"
     ],
     "packages": [
       {
         "name": "Microsoft.NET.Test.Sdk",
-        "version": "17.3.2"
+        "version": "18.0.1"
       },
       {
         "name": "NUnit",
-        "version": "3.13.3"
+        "version": "4.4.0"
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "4.3.1"
+        "version": "6.0.0"
       },
       {
         "name": "NUnit.Analyzers",
-        "version": "3.3.0"
+        "version": "4.11.2"
       },
       {
         "name": "coverlet.collector",
-        "version": "3.1.2"
+        "version": "6.0.4"
       }
     ]
   }

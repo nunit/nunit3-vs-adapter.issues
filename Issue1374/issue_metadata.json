@@ -10,7 +10,7 @@
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1374",
     "project_path": "Issue1374.csproj",
     "target_frameworks": [
-      "net9.0"
+      "net10.0"
     ],
     "packages": [
       {

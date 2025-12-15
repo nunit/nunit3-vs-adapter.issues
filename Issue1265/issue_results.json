@@ -1,0 +1,23 @@
+[
+  {
+    "number": 1265,
+    "project_path": "mtp/mtp.csproj",
+    "project_style": "sdk",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.Testing.Extensions.VSTestBridge=2.0.2",
+      "NUnit3TestAdapter=6.0.0",
+      "Microsoft.Testing.Extensions.TrxReport=2.0.2",
+      "NUnit=4.4.0"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.2885532\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.0091786\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "fail",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1265\\mtp\\mtp.csproj (in 525 ms).\nC:\\Users\\TerjeSandstrom\\.nuget\\packages\\microsoft.testing.platform.msbuild\\2.0.2\\buildMultiTargeting\\Microsoft.Testing.Platform.MSBuild.targets(263,5): error : Testing with VSTest target is no longer supported by Microsoft.Testing.Platform on .NET 10 SDK and later. If you use dotnet test, you should opt-in to the new dotnet test experience. For more information, see https://aka.ms/dotnet-test-mtp-error [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1265\\mtp\\mtp.csproj]\n",
+    "test_error": "",
+    "test_conclusion": "Failure: Regression failure."
+  }
+]

@@ -15,7 +15,7 @@
     "packages": [
       {
         "name": "coverlet.collector",
-        "version": "6.0.0"
+        "version": "6.0.4"
       },
       {
         "name": "Microsoft.NET.Test.Sdk",
@@ -23,15 +23,15 @@
       },
       {
         "name": "NUnit",
-        "version": "3.12.0"
+        "version": "4.4.0"
       },
       {
         "name": "NUnit.Analyzers",
-        "version": "3.8.0"
+        "version": "4.11.2"
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "5.0.0"
+        "version": "6.0.0"
       }
     ]
   }

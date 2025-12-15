@@ -1,0 +1,24 @@
+[
+  {
+    "number": 996,
+    "project_path": "Issue996.csproj",
+    "project_style": "sdk",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=18.0.1",
+      "NUnit=4.4.0",
+      "NUnit3TestAdapter=6.0.0",
+      "NUnit.Analyzers=4.11.2",
+      "coverlet.collector=6.0.4"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3877418\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3562457\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "fail",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue996\\Issue996.csproj (in 505 ms).\n  Issue996 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue996\\bin\\Debug\\net10.0\\Issue996.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue996\\bin\\Debug\\net10.0\\Issue996.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n  Failed Test1(\"1\",'\\u0001') [77 ms]\n  Error Message:\n     Assert.That(x, Is.EqualTo(y))\n  Expected: '\\u0001'\n  But was:  \"1\"\n\n  Stack Trace:\n     at Issue996.Tests.Test1(Object x, Object y) in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue996\\UnitTest1.cs:line 9\n\n1)    at Issue996.Tests.Test1(Object x, Object y) in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue996\\UnitTest1.cs:line 9\n\n\n\nFailed!  - Failed:     1, Passed:     0, Skipped:     0, Total:     1, Duration: 77 ms - Issue996.dll (net10.0)\n",
+    "test_error": "",
+    "test_conclusion": "Failure: Test failed."
+  }
+]

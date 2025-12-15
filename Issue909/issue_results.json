@@ -1,0 +1,24 @@
+[
+  {
+    "number": 909,
+    "project_path": "Issue909.csproj",
+    "project_style": "sdk",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=18.0.1",
+      "NUnit=4.4.0",
+      "NUnit3TestAdapter=6.0.0",
+      "coverlet.collector=6.0.4",
+      "NunitXml.TestLogger=7.0.2"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\n\u00c2\u00bb Issue909\n  [net10.0]\n  NunitXml.TestLogger  7.0.2 -> 7.1.0\n\nVersion color legend:\n<red>   : Major version update or pre-release version. Possible breaking changes.\n<yellow>: Minor version update. Backwards-compatible features added.\n<green> : Patch version update. Backwards-compatible bug fixes.\n\nUpgrading package NunitXml.TestLogger...\nProject Issue909 [net10.0] upgraded successfully\n\nElapsed: 00:00:06.1868815\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.4484280\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "success",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue909\\Issue909.csproj (in 495 ms).\n  Issue909 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue909\\bin\\Debug\\net10.0\\Issue909.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue909\\bin\\Debug\\net10.0\\Issue909.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n  Skipped TestAsExplicit [3 ms]\n  Skipped TestAsIgnore [< 1 ms]\n\nPassed!  - Failed:     0, Passed:     1, Skipped:     1, Total:     2, Duration: 121 ms - Issue909.dll (net10.0)\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure"
+  }
+]

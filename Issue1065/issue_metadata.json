@@ -56,7 +56,7 @@
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1065",
     "project_path": "gheylar/lib/lib_lib.csproj",
     "target_frameworks": [
-      "net6.0"
+      "net10.0"
     ],
     "packages": [
       {

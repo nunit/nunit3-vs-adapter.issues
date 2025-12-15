@@ -1,0 +1,22 @@
+[
+  {
+    "number": 1167,
+    "project_path": "ConsoleRecorder.PoC/ConsoleRecorder.PoC.csproj",
+    "project_style": "sdk",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=18.0.1",
+      "NUnit=4.4.0",
+      "NUnit3TestAdapter=6.0.0"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3417900\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.5167873\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "success",
+    "test_output": "  Determining projects to restore...\nC:\\Program Files\\dotnet\\sdk\\10.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework 'net6.0' is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1167\\MyApp\\MyApp.csproj]\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1167\\MyApp\\MyApp.csproj (in 246 ms).\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1167\\ConsoleRecorder.PoC\\ConsoleRecorder.PoC.csproj (in 493 ms).\nC:\\Program Files\\dotnet\\sdk\\10.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework 'net6.0' is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1167\\MyApp\\MyApp.csproj]\n  MyApp -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1167\\MyApp\\bin\\Debug\\net6.0\\MyApp.dll\n  ConsoleRecorder.PoC -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1167\\ConsoleRecorder.PoC\\bin\\Debug\\net10.0\\ConsoleRecorder.PoC.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1167\\ConsoleRecorder.PoC\\bin\\Debug\\net10.0\\ConsoleRecorder.PoC.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\nWarning: Ignoring excess arguments.\nWarning: Ignoring excess arguments.\nWarning: Ignoring excess arguments.\n\nPassed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 153 ms - ConsoleRecorder.PoC.dll (net10.0)\n",
+    "test_error": "",
+    "test_conclusion": "Open issue, but test succeeds."
+  }
+]

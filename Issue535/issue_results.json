@@ -1,0 +1,22 @@
+[
+  {
+    "number": 535,
+    "project_path": "Repro_535_2/Tests/Issue535_Tests.csproj",
+    "project_style": "sdk",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=18.0.1",
+      "NUnit=4.4.0",
+      "NUnit3TestAdapter=6.0.0"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.2388981\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.6621639\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "success",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Project\\Project.csproj (in 139 ms).\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\Issue535_Tests.csproj (in 343 ms).\n  Project -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Project\\bin\\Debug\\net10.0\\Project.dll\n  Issue535_Tests -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\bin\\Debug\\net10.0\\Issue535_Tests.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\bin\\Debug\\net10.0\\Issue535_Tests.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     5, Skipped:     0, Total:     5, Duration: 102 ms - Issue535_Tests.dll (net10.0)\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure"
+  }
+]

@@ -11,20 +11,20 @@
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1265",
     "project_path": "mtp/mtp.csproj",
     "target_frameworks": [
-      "net9.0"
+      "net10.0"
     ],
     "packages": [
       {
         "name": "Microsoft.Testing.Extensions.VSTestBridge",
-        "version": "1.8.2"
+        "version": "2.0.2"
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "5.1.0"
+        "version": "6.0.0"
       },
       {
         "name": "Microsoft.Testing.Extensions.TrxReport",
-        "version": "1.8.2"
+        "version": "2.0.2"
       },
       {
         "name": "NUnit",

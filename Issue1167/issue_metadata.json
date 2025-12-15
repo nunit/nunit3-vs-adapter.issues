@@ -10,20 +10,20 @@
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1167",
     "project_path": "ConsoleRecorder.PoC/ConsoleRecorder.PoC.csproj",
     "target_frameworks": [
-      "net6.0"
+      "net10.0"
     ],
     "packages": [
       {
         "name": "Microsoft.NET.Test.Sdk",
-        "version": "17.9.0"
+        "version": "18.0.1"
       },
       {
         "name": "NUnit",
-        "version": "4.1.0"
+        "version": "4.4.0"
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "4.5.0"
+        "version": "6.0.0"
       }
     ]
   },

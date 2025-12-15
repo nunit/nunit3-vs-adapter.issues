@@ -1,0 +1,22 @@
+[
+  {
+    "number": 935,
+    "project_path": "NunitFSharpTestCaseSource/CSharpTest/CSharpTest.csproj",
+    "project_style": "sdk",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "NUnit=4.4.0",
+      "NUnit3TestAdapter=6.0.0",
+      "Microsoft.NET.Test.Sdk=18.0.1"
+    ],
+    "update_result": "fail",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.2133693\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\n\u00c2\u00bb FSharpType\n  [.NETCoreApp,Version=v3.1]\n  FSharp.Core  10.0.100 -> 10.0.101\n\nVersion color legend:\n<red>   : Major version update or pre-release version. Possible breaking changes.\n<yellow>: Minor version update. Backwards-compatible features added.\n<green> : Patch version update. Backwards-compatible bug fixes.\n\nUpgrading package FSharp.Core...\nAn error occurred while upgrading FSharpType\n\n\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "success",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\CSharpTest\\CSharpTest.csproj (in 512 ms).\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\FSharpType\\FSharpType.fsproj (in 507 ms).\n  FSharpType -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\FSharpType\\bin\\Debug\\netcoreapp3.1\\FSharpType.dll\n  CSharpTest -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\CSharpTest\\bin\\Debug\\net10.0\\CSharpTest.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\CSharpTest\\bin\\Debug\\net10.0\\CSharpTest.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     2, Skipped:     0, Total:     2, Duration: 49 ms - CSharpTest.dll (net10.0)\n",
+    "test_error": "",
+    "test_conclusion": "Open issue, but test succeeds."
+  }
+]

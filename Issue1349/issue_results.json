@@ -1,0 +1,21 @@
+[
+  {
+    "number": 1349,
+    "project_path": "Issue1349.csproj",
+    "project_style": "sdk",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "NUnit=4.4.0",
+      "NUnit3TestAdapter=6.0.0"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.1446641\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.0288237\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "fail",
+    "test_output": "",
+    "test_error": "Specifying a solution for 'dotnet test' should be via '--solution'.\n",
+    "test_conclusion": "Failure: Open issue, repro fails."
+  }
+]

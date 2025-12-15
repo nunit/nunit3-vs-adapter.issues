@@ -1,0 +1,24 @@
+[
+  {
+    "number": 1264,
+    "project_path": "Issue1264.csproj",
+    "project_style": "sdk",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "coverlet.collector=6.0.4",
+      "Microsoft.NET.Test.Sdk=18.0.1",
+      "NUnit=4.4.0",
+      "NUnit.Analyzers=4.11.2",
+      "NUnit3TestAdapter=6.0.0"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3291378\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.2316367\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "success",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1264\\Issue1264.csproj (in 546 ms).\n  Issue1264 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1264\\bin\\Debug\\net10.0\\Issue1264.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1264\\bin\\Debug\\net10.0\\Issue1264.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 51 ms - Issue1264.dll (net10.0)\n",
+    "test_error": "",
+    "test_conclusion": "Open issue, but test succeeds."
+  }
+]

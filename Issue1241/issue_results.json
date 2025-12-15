@@ -1,0 +1,22 @@
+[
+  {
+    "number": 1241,
+    "project_path": "Repro1/TestProject3.csproj",
+    "project_style": "sdk",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=18.0.1",
+      "NUnit3TestAdapter=6.0.0",
+      "NUnit=4.4.0"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.0258203\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:06.5525607\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "fail",
+    "test_output": "",
+    "test_error": "Specifying a solution for 'dotnet test' should be via '--solution'.\n",
+    "test_conclusion": "Failure: Regression failure."
+  }
+]

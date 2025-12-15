@@ -11,20 +11,20 @@
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/881",
     "project_path": "TestProject1/TestProject1.csproj",
     "target_frameworks": [
-      "net6.0"
+      "net10.0"
     ],
     "packages": [
       {
         "name": "NUnit",
-        "version": "3.13.2"
+        "version": "4.4.0"
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "4.0.0"
+        "version": "6.0.0"
       },
       {
         "name": "Microsoft.NET.Test.Sdk",
-        "version": "16.10.0"
+        "version": "18.0.1"
       }
     ]
   }

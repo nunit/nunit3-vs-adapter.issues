@@ -1,0 +1,22 @@
+[
+  {
+    "number": 497,
+    "project_path": "Issue497_Filtering.csproj",
+    "project_style": "sdk",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=18.0.1",
+      "NUnit=4.4.0",
+      "NUnit3TestAdapter=6.0.0"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.1100868\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.0585914\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "success",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Issue497_Filtering.csproj (in 447 ms).\n  Issue497_Filtering -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\bin\\Debug\\net10.0\\Issue497_Filtering.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\bin\\Debug\\net10.0\\Issue497_Filtering.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n  Skipped TestExplicitTest [1 ms]\n  Skipped TestExplicitTestSlow [< 1 ms]\n\nPassed!  - Failed:     0, Passed: 20002, Skipped:     0, Total: 20002, Duration: 2 s - Issue497_Filtering.dll (net10.0)\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure"
+  }
+]

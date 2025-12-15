@@ -1,0 +1,33 @@
+[
+  {
+    "number": 1132,
+    "project_path": "NUnitAdapterIssue.csproj",
+    "project_style": "sdk",
+    "target_frameworks": [
+      "net10.0;10.0.22621.0"
+    ],
+    "packages": [
+      "Autofac=7.0.1",
+      "FakeItEasy=7.4.0",
+      "Microsoft.NET.Test.Sdk=17.7.2",
+      "NUnit=3.13.3",
+      "NUnit3TestAdapter=4.5.0",
+      "NUnitLite=3.13.3",
+      "System.Configuration.ConfigurationManager=7.0.0",
+      "System.Resources.Extensions=7.0.0",
+      "System.ServiceModel.Http=6.0.0",
+      "System.ServiceModel.NetNamedPipe=6.0.0",
+      "System.ServiceModel.NetTcp=6.0.0",
+      "System.ServiceModel.Primitives=6.0.0",
+      "coverlet.collector=3.2.0",
+      "NUnit.Analyzers=3.5.0"
+    ],
+    "update_result": "fail",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\n",
+    "update_error": "[nunit]\nUnable to process the project `C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln. Are you sure this is a valid .NET Core or .NET Standard project type?\n\nHere is the full error message returned from the Microsoft Build Engine:\n\nMSBuild version 18.0.2+b0f34d51f for .NET\n  Determining projects to restore...\nC:\\Program Files\\dotnet\\sdk\\10.0.100\\NuGet.targets(196,5): error : Operation is not valid due to the current state of the object. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln]\n -  - exit code: 1\n\n[other]\nUnable to process the project `C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln. Are you sure this is a valid .NET Core or .NET Standard project type?\n\nHere is the full error message returned from the Microsoft Build Engine:\n\nMSBuild version 18.0.2+b0f34d51f for .NET\n  Determining projects to restore...\nC:\\Program Files\\dotnet\\sdk\\10.0.100\\NuGet.targets(196,5): error : Operation is not valid due to the current state of the object. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln]\n -  - exit code: 1\n",
+    "test_result": "fail",
+    "test_output": "  Determining projects to restore...\nC:\\Program Files\\dotnet\\sdk\\10.0.100\\NuGet.targets(196,5): error : Operation is not valid due to the current state of the object. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln]\n",
+    "test_error": "",
+    "test_conclusion": "Failure: Regression failure."
+  }
+]

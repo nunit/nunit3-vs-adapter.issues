@@ -1,0 +1,25 @@
+[
+  {
+    "number": 846,
+    "project_path": "Issue846/Issue846.csproj",
+    "project_style": "sdk",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "AutoFixture=4.18.1",
+      "AutoFixture.AutoNSubstitute=4.18.1",
+      "NUnit=4.4.0",
+      "NUnit.Analyzers=4.11.2",
+      "NUnit3TestAdapter=6.0.0",
+      "Microsoft.NET.Test.Sdk=18.0.1"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3152018\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.6997363\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "fail",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\Issue846.csproj (in 586 ms).\n  Issue846 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\bin\\Debug\\net10.0\\Issue846.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\bin\\Debug\\net10.0\\Issue846.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n  Failed TestCulture(\"sv-SE\") [115 ms]\n  Error Message:\n     Has not been sorted at all\nAssert.That(result, Is.EqualTo(input).AsCollection)\n  Expected and actual are both <System.Collections.Generic.List`1[System.String]> with 5 elements\n  Values differ at index [0]\n  String lengths are both 3. Strings differ at index 0.\n  Expected: < \"XXX\", \"AAA\", \"BBB\", \"AAB\", \"ABA\" >\n  But was:  < \"AAA\", \"AAB\", \"ABA\", \"BBB\", \"XXX\" >\n  First non-matching item at index [0]: \"XXX\"\n\n  Stack Trace:\n     at Issue846.Tests.TestCulture(String culture) in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 40\n\n1)    at Issue846.Tests.<>c__DisplayClass2_0.<TestCulture>b__2() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 44\n   at NUnit.Framework.Assert.Multiple(TestDelegate testDelegate)\n   at Issue846.Tests.TestCulture(String culture) in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 40\n\n\n  Failed TestCulture(\"nb-NO\") [4 ms]\n  Error Message:\n     Has not been sorted at all\nAssert.That(result, Is.EqualTo(input).AsCollection)\n  Expected and actual are both <System.Collections.Generic.List`1[System.String]> with 5 elements\n  Values differ at index [0]\n  String lengths are both 3. Strings differ at index 0.\n  Expected: < \"XXX\", \"AAA\", \"BBB\", \"AAB\", \"ABA\" >\n  But was:  < \"AAA\", \"AAB\", \"ABA\", \"BBB\", \"XXX\" >\n  First non-matching item at index [0]: \"XXX\"\n\n  Stack Trace:\n     at Issue846.Tests.TestCulture(String culture) in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 40\n   at InvokeStub_Tests.TestCulture(Object, Span`1)\n\n1)    at Issue846.Tests.<>c__DisplayClass2_0.<TestCulture>b__2() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 44\n   at NUnit.Framework.Assert.Multiple(TestDelegate testDelegate)\n   at Issue846.Tests.TestCulture(String culture) in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 40\n   at InvokeStub_Tests.TestCulture(Object, Span`1)\n\n\n  Skipped TestCulture(\"nn-NO\") [< 1 ms]\n  Failed TestCulture(\"da-DK\") [2 ms]\n  Error Message:\n     Has not been sorted at all\nAssert.That(result, Is.EqualTo(input).AsCollection)\n  Expected and actual are both <System.Collections.Generic.List`1[System.String]> with 5 elements\n  Values differ at index [0]\n  String lengths are both 3. Strings differ at index 0.\n  Expected: < \"XXX\", \"AAA\", \"BBB\", \"AAB\", \"ABA\" >\n  But was:  < \"AAA\", \"AAB\", \"ABA\", \"BBB\", \"XXX\" >\n  First non-matching item at index [0]: \"XXX\"\n\n  Stack Trace:\n     at Issue846.Tests.TestCulture(String culture) in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 40\n   at InvokeStub_Tests.TestCulture(Object, Span`1)\n\n1)    at Issue846.Tests.<>c__DisplayClass2_0.<TestCulture>b__2() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 44\n   at NUnit.Framework.Assert.Multiple(TestDelegate testDelegate)\n   at Issue846.Tests.TestCulture(String culture) in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 40\n   at InvokeStub_Tests.TestCulture(Object, Span`1)\n\n\n\nFailed!  - Failed:     3, Passed:     2, Skipped:     0, Total:     5, Duration: 715 ms - Issue846.dll (net10.0)\n",
+    "test_error": "",
+    "test_conclusion": "Failure: Regression failure."
+  }
+]
