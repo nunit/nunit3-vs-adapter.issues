@@ -162,6 +162,72 @@ def find_custom_runners(start_dir: Path, issue_dir: Path) -> list[Path]:
     return found
 
 
+def align_target_frameworks_and_references(
+    num: int, csproj: Path, rel_proj: Path, root: Path, log_fn, record: dict
+) -> None:
+    """Upgrade target frameworks in the project and any referenced projects."""
+    try:
+        tfm_changed = update_target_frameworks(csproj)
+        if tfm_changed:
+            log_fn(f"[{num}] Updated target framework(s) to net10.0 in {rel_proj}")
+    except Exception as exc:  # noqa: BLE001
+        record["notes"] = f"Failed to update target frameworks: {exc}"
+    try:
+        for ref in read_project_references(csproj):
+            ref_rel = ref.relative_to(root)
+            if update_target_frameworks(ref):
+                log_fn(f"[{num}] Updated target framework(s) to net10.0 in {ref_rel}")
+    except Exception as exc:  # noqa: BLE001
+        record["notes"] = f"Failed to update referenced project frameworks: {exc}"
+
+
+def run_tests_for_issue(
+    num: int,
+    rel_proj: Path,
+    target: Path,
+    workdir: Path,
+    issue_dir: Path,
+    timeout: int | None,
+    log_fn,
+) -> tuple[int, str, str, Path | None, list[str]]:
+    """Run tests via custom runners (if any) or dotnet test, returning exit code and output."""
+    runsettings_path = find_runsettings(issue_dir)
+    runner_scripts = find_custom_runners(workdir, issue_dir)
+
+    combined_stdout: list[str] = []
+    combined_stderr: list[str] = []
+    test_code = 0
+    runner_paths: list[str] = []
+
+    if runner_scripts:
+        log_fn(f"[{num}] Found custom test scripts: {', '.join(p.name for p in runner_scripts)}")
+        runner_paths = [str(p) for p in runner_scripts]
+        for runner_script in runner_scripts:
+            log_fn(f"[{num}] Running custom test script {runner_script.name}")
+            if platform.system().lower().startswith("win"):
+                test_cmd = ["cmd", "/c", runner_script.name]
+            else:
+                test_cmd = ["bash", runner_script.name]
+            out, err, code = run_cmd(test_cmd, runner_script.parent, timeout=timeout)
+            combined_stdout.append(out)
+            combined_stderr.append(err)
+            if code != 0:
+                test_code = code
+    else:
+        log_fn(f"[{num}] Running tests in {rel_proj}")
+        test_cmd = ["dotnet", "test", target.name]
+        if runsettings_path:
+            test_cmd.extend(["--settings", str(runsettings_path)])
+        out, err, code = run_cmd(test_cmd, workdir, timeout=timeout)
+        combined_stdout.append(out)
+        combined_stderr.append(err)
+        test_code = code
+
+    test_stdout = "\n".join([part for part in combined_stdout if part])
+    test_stderr = "\n".join([part for part in combined_stderr if part])
+    return test_code, test_stdout, test_stderr, runsettings_path, runner_paths
+
+
 def ensure_nugetc_and_myget(root: Path, log_fn) -> None:
     """Ensure nugetc tool is available and myget feed is added."""
     out, err, code = run_cmd(["dotnet", "tool", "update", "-g", "nugetc"], root, None)
@@ -651,6 +717,11 @@ def main() -> int:
     else:
         pre_mode = "Always"
 
+    # Avoid failing on missing local feeds (e.g., machine-specific paths in NuGet.config).
+    os.environ.setdefault("RestoreIgnoreFailedSources", "true")
+    os.environ.setdefault("NUGET_RESTORE_IGNORE_FAILED_SOURCES", "true")
+    os.environ.setdefault("DOTNET_RESTORE_IGNORE_FAILED_SOURCES", "true")
+
     if feed == "myget-alpha":
         ensure_nugetc_and_myget(root, log)
     run_nunit_versions: list[str] = []
@@ -879,23 +950,10 @@ def main() -> int:
                     }
                 )
 
-        try:
-            tfm_changed = update_target_frameworks(csproj)
-            if tfm_changed:
-                log(f"[{num}] Updated target framework(s) to net10.0 in {rel_proj}")
-        except Exception as exc:  # noqa: BLE001
-            record["notes"] = f"Failed to update target frameworks: {exc}"
-            record_changed = True
-
-        # Align any referenced projects to the upgraded target frameworks to avoid restore mismatch.
-        try:
-            for ref in read_project_references(csproj):
-                ref_rel = ref.relative_to(root)
-                if update_target_frameworks(ref):
-                    log(f"[{num}] Updated target framework(s) to net10.0 in {ref_rel}")
-        except Exception as exc:  # noqa: BLE001
-            record["notes"] = f"Failed to update referenced project frameworks: {exc}"
-            record_changed = True
+        align_target_frameworks_and_references(
+            num=int(num), csproj=csproj, rel_proj=rel_proj, root=root, log_fn=log, record=record
+        )
+        record_changed = True
 
         try:
             global_json = find_global_json(issue_dir, workdir)
@@ -1012,47 +1070,22 @@ def main() -> int:
             record["update_error"] = "[nunit]\n" + nunit_stderr + "\n[other]\n" + other_stderr
         record_changed = True
 
-        runsettings_path = find_runsettings(issue_dir)
-        runner_scripts = find_custom_runners(workdir, issue_dir)
-
-        combined_stdout: list[str] = []
-        combined_stderr: list[str] = []
-        test_code = 0
-
-        if runner_scripts:
-            log(f"[{num}] Found custom test scripts: {', '.join(p.name for p in runner_scripts)}")
-            record["runner_scripts"] = [str(p) for p in runner_scripts]
-            for runner_script in runner_scripts:
-                log(f"[{num}] Running custom test script {runner_script.name}")
-                if platform.system().lower().startswith("win"):
-                    test_cmd = ["cmd", "/c", runner_script.name]
-                else:
-                    test_cmd = ["bash", runner_script.name]
-                test_cwd = runner_script.parent
-                out, err, code = run_cmd(test_cmd, test_cwd, timeout=args.timeout)
-                combined_stdout.append(out)
-                combined_stderr.append(err)
-                if code != 0:
-                    test_code = code
-        else:
-            log(f"[{num}] Running tests in {rel_proj}")
-            # dotnet test
-            # Use plain path for both csproj and sln to avoid MSBuild switch issues on newer SDKs.
-            test_cmd = ["dotnet", "test", target.name]
-            if runsettings_path:
-                test_cmd.extend(["--settings", str(runsettings_path)])
-            out, err, code = run_cmd(test_cmd, workdir, timeout=args.timeout)
-            combined_stdout.append(out)
-            combined_stderr.append(err)
-            test_code = code
-
-        test_stdout = "\n".join([part for part in combined_stdout if part])
-        test_stderr = "\n".join([part for part in combined_stderr if part])
+        test_code, test_stdout, test_stderr, runsettings_path, runner_paths = run_tests_for_issue(
+            num=int(num),
+            rel_proj=rel_proj,
+            target=target,
+            workdir=workdir,
+            issue_dir=issue_dir,
+            timeout=args.timeout,
+            log_fn=log,
+        )
         record["test_result"] = "success" if test_code == 0 else "fail"
         record["test_output"] = test_stdout
         record["test_error"] = test_stderr
         if runsettings_path:
             record["runsettings"] = str(runsettings_path)
+        if runner_paths:
+            record["runner_scripts"] = runner_paths
 
         state = (record.get("state") or "").lower()
         if state == "closed":

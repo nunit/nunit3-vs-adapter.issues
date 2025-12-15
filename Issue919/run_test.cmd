@@ -1,0 +1,1 @@
+dotnet test --filter "FullyQualifiedName~Baz\(1\)"
