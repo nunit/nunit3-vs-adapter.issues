@@ -117,6 +117,27 @@ def read_project_references(csproj: Path) -> list[Path]:
     return refs
 
 
+def find_runsettings(issue_dir: Path) -> Path | None:
+    """Find a .runsettings file in the issue folder (named *.runsettings or .runsettings)."""
+    candidates = list(issue_dir.glob("*.runsettings"))
+    explicit = issue_dir / ".runsettings"
+    if explicit.exists():
+        candidates.append(explicit)
+    if not candidates:
+        return None
+    return sorted(candidates)[0]
+
+
+def find_custom_runner(issue_dir: Path) -> Path | None:
+    """Find a custom runner script (run_*.sh on Linux, run_*.cmd on Windows)."""
+    import platform
+
+    is_windows = platform.system().lower().startswith("win")
+    pattern = "run_*.cmd" if is_windows else "run_*.sh"
+    candidates = sorted(issue_dir.glob(pattern))
+    return candidates[0] if candidates else None
+
+
 def ensure_nugetc_and_myget(root: Path, log_fn) -> None:
     """Ensure nugetc tool is available and myget feed is added."""
     out, err, code = run_cmd(["dotnet", "tool", "update", "-g", "nugetc"], root, None)
@@ -967,15 +988,33 @@ def main() -> int:
             record["update_error"] = "[nunit]\n" + nunit_stderr + "\n[other]\n" + other_stderr
         record_changed = True
 
-        log(f"[{num}] Running tests in {rel_proj}")
+        runsettings_path = find_runsettings(issue_dir)
+        runner_script = find_custom_runner(issue_dir)
 
-        # dotnet test
-        # Use plain path for both csproj and sln to avoid MSBuild switch issues on newer SDKs.
-        test_cmd = ["dotnet", "test", target.name]
-        test_stdout, test_stderr, test_code = run_cmd(test_cmd, workdir, timeout=args.timeout)
+        if runner_script:
+            log(f"[{num}] Running custom test script {runner_script.name}")
+            if platform.system().lower().startswith("win"):
+                test_cmd = ["cmd", "/c", runner_script.name]
+            else:
+                test_cmd = ["bash", runner_script.name]
+            test_cwd = runner_script.parent
+        else:
+            log(f"[{num}] Running tests in {rel_proj}")
+            # dotnet test
+            # Use plain path for both csproj and sln to avoid MSBuild switch issues on newer SDKs.
+            test_cmd = ["dotnet", "test", target.name]
+            if runsettings_path:
+                test_cmd.extend(["--settings", str(runsettings_path)])
+            test_cwd = workdir
+
+        test_stdout, test_stderr, test_code = run_cmd(test_cmd, test_cwd, timeout=args.timeout)
         record["test_result"] = "success" if test_code == 0 else "fail"
         record["test_output"] = test_stdout
         record["test_error"] = test_stderr
+        if runsettings_path:
+            record["runsettings"] = str(runsettings_path)
+        if runner_script:
+            record["runner_script"] = str(runner_script)
 
         state = (record.get("state") or "").lower()
         if state == "closed":
