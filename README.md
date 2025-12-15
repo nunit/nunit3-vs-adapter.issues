@@ -22,7 +22,7 @@ Examples and repros of issues found in the NUnit Adapter
 - Issues with marker files `ignore`, `ignore.md`, `explicit`, `explicit.md`, `wip`, or `wip.md` are skipped.
 - Test execution:
   - If a `.runsettings` (or `*.runsettings`) file exists in the issue folder, it is passed to `dotnet test` via `--settings`.
-  - If a custom runner script is present (Linux: `run_*.sh`; Windows: `run_*.cmd`), that script is executed instead of `dotnet test`. The script runs from its own folder.
+  - If a custom runner script is present (Linux: `run_*.sh`; Windows: `run_*.cmd`) in the project folder or its parents up to the issue root, that script is executed instead of `dotnet test`. The script runs from its own folder.
 
 Examples:
 

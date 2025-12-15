@@ -20,6 +20,7 @@ import subprocess
 import sys
 import xml.etree.ElementTree as ET
 import urllib.request
+import platform
 from pathlib import Path
 from typing import Iterable, Optional, Sequence
 
@@ -110,8 +111,8 @@ def read_project_references(csproj: Path) -> list[Path]:
             if not include:
                 continue
             ref_path = (csproj.parent / include).resolve()
-              if ref_path.exists():
-                  refs.append(ref_path)
+            if ref_path.exists():
+                refs.append(ref_path)
     except Exception:
         pass
     return refs
@@ -128,14 +129,37 @@ def find_runsettings(issue_dir: Path) -> Path | None:
     return sorted(candidates)[0]
 
 
-def find_custom_runner(issue_dir: Path) -> Path | None:
-    """Find a custom runner script (run_*.sh on Linux, run_*.cmd on Windows)."""
-    import platform
+def find_custom_runners(start_dir: Path, issue_dir: Path) -> list[Path]:
+    """Find all custom runner scripts (run_*.sh on Linux, run_*.cmd on Windows).
 
+    Searches from the project directory upward to the issue root, then the issue root itself.
+    Returns sorted unique paths.
+    """
     is_windows = platform.system().lower().startswith("win")
     pattern = "run_*.cmd" if is_windows else "run_*.sh"
-    candidates = sorted(issue_dir.glob(pattern))
-    return candidates[0] if candidates else None
+    search_paths: list[Path] = []
+    current = start_dir
+    while True:
+        search_paths.append(current)
+        if current == issue_dir:
+            break
+        if issue_dir in current.parents:
+            current = current.parent
+        else:
+            break
+    if issue_dir not in search_paths:
+        search_paths.append(issue_dir)
+
+    found: list[Path] = []
+    seen: set[Path] = set()
+    for folder in search_paths:
+        for candidate in sorted(folder.glob(pattern)):
+            real = candidate.resolve()
+            if real in seen:
+                continue
+            seen.add(real)
+            found.append(candidate)
+    return found
 
 
 def ensure_nugetc_and_myget(root: Path, log_fn) -> None:
@@ -989,15 +1013,27 @@ def main() -> int:
         record_changed = True
 
         runsettings_path = find_runsettings(issue_dir)
-        runner_script = find_custom_runner(issue_dir)
+        runner_scripts = find_custom_runners(workdir, issue_dir)
 
-        if runner_script:
-            log(f"[{num}] Running custom test script {runner_script.name}")
-            if platform.system().lower().startswith("win"):
-                test_cmd = ["cmd", "/c", runner_script.name]
-            else:
-                test_cmd = ["bash", runner_script.name]
-            test_cwd = runner_script.parent
+        combined_stdout: list[str] = []
+        combined_stderr: list[str] = []
+        test_code = 0
+
+        if runner_scripts:
+            log(f"[{num}] Found custom test scripts: {', '.join(p.name for p in runner_scripts)}")
+            record["runner_scripts"] = [str(p) for p in runner_scripts]
+            for runner_script in runner_scripts:
+                log(f"[{num}] Running custom test script {runner_script.name}")
+                if platform.system().lower().startswith("win"):
+                    test_cmd = ["cmd", "/c", runner_script.name]
+                else:
+                    test_cmd = ["bash", runner_script.name]
+                test_cwd = runner_script.parent
+                out, err, code = run_cmd(test_cmd, test_cwd, timeout=args.timeout)
+                combined_stdout.append(out)
+                combined_stderr.append(err)
+                if code != 0:
+                    test_code = code
         else:
             log(f"[{num}] Running tests in {rel_proj}")
             # dotnet test
@@ -1005,16 +1041,18 @@ def main() -> int:
             test_cmd = ["dotnet", "test", target.name]
             if runsettings_path:
                 test_cmd.extend(["--settings", str(runsettings_path)])
-            test_cwd = workdir
+            out, err, code = run_cmd(test_cmd, workdir, timeout=args.timeout)
+            combined_stdout.append(out)
+            combined_stderr.append(err)
+            test_code = code
 
-        test_stdout, test_stderr, test_code = run_cmd(test_cmd, test_cwd, timeout=args.timeout)
+        test_stdout = "\n".join([part for part in combined_stdout if part])
+        test_stderr = "\n".join([part for part in combined_stderr if part])
         record["test_result"] = "success" if test_code == 0 else "fail"
         record["test_output"] = test_stdout
         record["test_error"] = test_stderr
         if runsettings_path:
             record["runsettings"] = str(runsettings_path)
-        if runner_script:
-            record["runner_script"] = str(runner_script)
 
         state = (record.get("state") or "").lower()
         if state == "closed":
@@ -1043,12 +1081,14 @@ def main() -> int:
             "target_frameworks": tfms,
             "packages": all_packages,
             "update_result": record["update_result"],
-            "update_output": record["update_output"],
-            "update_error": record["update_error"],
+            "update_output": record.get("update_output", ""),
+            "update_error": record.get("update_error", ""),
             "test_result": record["test_result"],
-            "test_output": record["test_output"],
-            "test_error": record["test_error"],
-            "test_conclusion": record["test_conclusion"],
+            "test_output": record.get("test_output", ""),
+            "test_error": record.get("test_error", ""),
+            "test_conclusion": record.get("test_conclusion", ""),
+            "runner_scripts": record.get("runner_scripts", []),
+            "runsettings": record.get("runsettings"),
         }
         upsert_result(entry)
 

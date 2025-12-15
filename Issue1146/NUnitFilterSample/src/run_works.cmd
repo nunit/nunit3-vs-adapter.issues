@@ -1,0 +1,1 @@
+dotnet test NUnitFilterSample.csproj -c Release -s .runsettings --filter "TestCategory!=Sample" --logger "Console;verbosity=normal" 
