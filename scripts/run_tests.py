@@ -110,11 +110,27 @@ def read_project_references(csproj: Path) -> list[Path]:
             if not include:
                 continue
             ref_path = (csproj.parent / include).resolve()
-            if ref_path.exists():
-                refs.append(ref_path)
+              if ref_path.exists():
+                  refs.append(ref_path)
     except Exception:
         pass
     return refs
+
+
+def ensure_nugetc_and_myget(root: Path, log_fn) -> None:
+    """Ensure nugetc tool is available and myget feed is added."""
+    out, err, code = run_cmd(["dotnet", "tool", "update", "-g", "nugetc"], root, None)
+    if out.strip():
+        log_fn(out.strip())
+    if err.strip():
+        log_fn(err.strip())
+    if code != 0:
+        return
+    out, err, _ = run_cmd(["nugetc", "add", "myget"], root, None)
+    if out.strip():
+        log_fn(out.strip())
+    if err.strip():
+        log_fn(err.strip())
 
 
 def choose_dotnet_target(workdir: Path, csproj: Path) -> Path:
@@ -464,7 +480,7 @@ def main() -> int:
     parser.add_argument(
         "--pre-release",
         action="store_true",
-        help="Allow pre-release updates (default: disabled)",
+        help="(Deprecated) Allow pre-release updates. Use --feed instead.",
     )
     parser.add_argument(
         "--scope",
@@ -489,6 +505,12 @@ def main() -> int:
         "--only-netfx",
         action="store_true",
         help="Process only issues where all target frameworks are classic .NET Framework (net2*/net3*/net4*).",
+    )
+    parser.add_argument(
+        "--feed",
+        choices=["stable", "nuget-prerelease", "myget-alpha"],
+        default="stable",
+        help="Package feed/versions: stable (nuget.org), nuget-prerelease (nuget.org prerelease), myget-alpha (adds myget feed with prerelease).",
     )
     args = parser.parse_args()
 
@@ -575,7 +597,17 @@ def main() -> int:
         except ValueError:
             sys.stderr.write("Could not parse --issues (expected comma-separated integers)\n")
             return 1
-    nunit_pre_mode = "Always" if args.pre_release else "Auto"
+    # Resolve feed/pre-release behavior.
+    feed = args.feed
+    if args.pre_release and feed == "stable":
+        feed = "nuget-prerelease"
+    if feed == "stable":
+        pre_mode = "Never"
+    else:
+        pre_mode = "Always"
+
+    if feed == "myget-alpha":
+        ensure_nugetc_and_myget(root, log)
     run_nunit_versions: list[str] = []
     run_nunit_map: dict[str, str] = {}
 
@@ -605,15 +637,13 @@ def main() -> int:
             continue
         workdir = csproj.parent
         target = choose_dotnet_target(workdir, csproj)
-        log(
-            f"[{num_val}] NUnit package version check (pre-release mode {nunit_pre_mode})"
-        )
+        log(f"[{num_val}] NUnit package version check (pre-release mode {pre_mode})")
         nu_stdout, nu_stderr, _ = run_cmd(
             [
                 "dotnet",
                 "outdated",
                 "--pre-release",
-                nunit_pre_mode,
+                pre_mode,
                 "--include",
                 "nunit",
                 target.name,
@@ -672,7 +702,8 @@ def main() -> int:
                 "phase": "initial-nunit-check",
                 "issue": num_val,
                 "target": str(target),
-                "pre_release": args.pre_release,
+                "feed": feed,
+                "pre_mode": pre_mode,
                 "stdout": nu_stdout,
                 "stderr": nu_stderr,
                 "current_versions": current_versions,
@@ -879,7 +910,7 @@ def main() -> int:
                     "dotnet",
                     "outdated",
                     "--pre-release",
-                    nunit_pre_mode,
+                    pre_mode,
                     "--upgrade",
                     "--include",
                     "nunit",
@@ -894,7 +925,8 @@ def main() -> int:
                     "scope": "nunit",
                     "issue": int(num),
                     "target": str(target),
-                    "pre_release": args.pre_release,
+                    "feed": feed,
+                    "pre_mode": pre_mode,
                     "exit_code": nunit_code,
                     "stdout": nunit_stdout,
                     "stderr": nunit_stderr,
@@ -905,7 +937,7 @@ def main() -> int:
                     "dotnet",
                     "outdated",
                     "--pre-release",
-                    "Never",
+                    pre_mode,
                     "--upgrade",
                     "--exclude",
                     "nunit",
@@ -920,7 +952,8 @@ def main() -> int:
                     "scope": "other",
                     "issue": int(num),
                     "target": str(target),
-                    "pre_release": False,
+                    "feed": feed,
+                    "pre_mode": pre_mode,
                     "exit_code": other_code,
                     "stdout": other_stdout,
                     "stderr": other_stderr,
