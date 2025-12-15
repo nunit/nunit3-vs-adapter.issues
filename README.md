@@ -4,8 +4,11 @@ Examples and repros of issues found in the NUnit Adapter
 
 ## Regression testing (run_tests.py)
 
-- From repo root: `python scripts/run_tests.py [--issues 228,343] [--timeout 600] [--pre-release] [--scope all|new|new-and-failed|regression-only|open-only] [--skip-netfx|--only-netfx] [--nunit-only]`
-- Pre-release packages are **off by default**; add `--pre-release` to allow prerelease versions (NUnit packages only; others stay stable).
+- From repo root: `python scripts/run_tests.py [--issues 228,343] [--timeout 600] [--scope all|new|new-and-failed|regression-only|open-only] [--skip-netfx|--only-netfx] [--nunit-only] [--feed stable|nuget-prerelease|myget-alpha]`
+- Package feed options (`--feed`, default `stable`):
+  - `stable` – nuget.org stable only (pre-release disabled)
+  - `nuget-prerelease` – nuget.org with pre-release enabled
+  - `myget-alpha` – adds myget via `nugetc add myget`, uses pre-release
 - Timeout applies per external command (`dotnet outdated` and `dotnet test`) per issue.
 - Scope options:
   - `all` (default) - process every issue.
