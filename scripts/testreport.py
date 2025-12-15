@@ -20,6 +20,7 @@ from typing import Dict, List, Optional, Tuple
 ROOT = Path(__file__).resolve().parent.parent
 METADATA_PATH = ROOT / "scripts" / "issues_metadata.json"
 UPDATE_LOG_PATH = ROOT / "testupdate.json"
+RESULTS_PATH = ROOT / "results.json"
 REPORT_PATH = ROOT / "TestReport.md"
 
 
@@ -90,9 +91,18 @@ def failure_detail(item: dict) -> str:
 
 
 def main() -> int:
-    data = load_json(METADATA_PATH)
-    if not isinstance(data, list):
+    metadata = load_json(METADATA_PATH)
+    if not isinstance(metadata, list):
         raise SystemExit(f"Could not read metadata from {METADATA_PATH}")
+    results = load_json(RESULTS_PATH)
+    if not isinstance(results, list):
+        results = []
+    results_by_issue = {}
+    for entry in results:
+        num = entry.get("number")
+        if num is None:
+            continue
+        results_by_issue.setdefault(num, []).append(entry)
 
     versions = collect_versions()
 
@@ -102,23 +112,31 @@ def main() -> int:
     open_success: List[Tuple[str, ...]] = []
     open_fail: List[Tuple[str, ...]] = []
 
-    for item in data:
+    def project_status(num: int) -> tuple[str, str, str]:
+        entries = results_by_issue.get(num, [])
+        if not entries:
+            return "unknown", "", "n/a"
+        # Prefer fail if any.
+        for e in entries:
+            if e.get("test_result") == "fail":
+                return "fail", e.get("test_conclusion") or "Failure", failure_detail(e)
+        for e in entries:
+            if e.get("test_result") == "success":
+                return "success", e.get("test_conclusion") or "Success", failure_detail(e)
+        return "unknown", "", "n/a"
+
+    for item in metadata:
         number = item.get("number")
         if number is None:
             continue
         issue = f"#{number}"
         url = item.get("url") or ""
         state = (item.get("state") or "").lower()
-        result = item.get("test_result") or "unknown"
-        conclusion = item.get("test_conclusion") or ""
+        result, conclusion, detail = project_status(int(number))
         short = f"{result}"
         if conclusion:
             short = f"{result} - {conclusion}"
-        detail_row = (
-            f"{issue} {url}".strip(),
-            conclusion or result or "n/a",
-            failure_detail(item),
-        )
+        detail_row = (f"{issue} {url}".strip(), conclusion or result or "n/a", detail)
         icon = ""
         if state == "closed":
             if result == "success":

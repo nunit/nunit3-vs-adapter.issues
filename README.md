@@ -4,16 +4,18 @@ Examples and repros of issues found in the NUnit Adapter
 
 ## Regression testing (run_tests.py)
 
-- From repo root: `python scripts/run_tests.py [--issues 228,343] [--timeout 600] [--pre-release] [--scope all|new|new-and-failed|regression-only|open-only]`
+- From repo root: `python scripts/run_tests.py [--issues 228,343] [--timeout 600] [--pre-release] [--scope all|new|new-and-failed|regression-only|open-only] [--skip-netfx|--only-netfx] [--nunit-only]`
 - Pre-release packages are **off by default**; add `--pre-release` to allow prerelease versions (NUnit packages only; others stay stable).
 - Timeout applies per external command (`dotnet outdated` and `dotnet test`) per issue.
 - Scope options:
-  - `all` (default) – process every issue.
-  - `new` – only issues without `test_result`.
-  - `new-and-failed` – issues without `test_result` or with a previous `test_result == fail`.
-  - `regression-only` – only closed issues.
-  - `open-only` – only open issues.
-- Results go to `scripts/issues_metadata.json` and each issue's `issue_metadata.json`; console conclusions are mirrored to `TestResults-consolelog.md`. Package versions and framework info are captured in `testupdate.json`.
+  - `all` (default) - process every issue.
+  - `new` - only issues without `test_result`.
+  - `new-and-failed` - issues without `test_result` or with a previous `test_result == fail`.
+  - `regression-only` - only closed issues.
+  - `open-only` - only open issues.
+- NetFx filters: `--skip-netfx` (skip netfx-only projects) or `--only-netfx` (process only netfx-only projects).
+- NUnit-only updates: add `--nunit-only` to bump only NUnit/NUnit.Framework/NUnit3TestAdapter/Microsoft.NET.Test.Sdk to the captured target versions; other packages are left as-is.
+- Results go to `results.json` (plus per-issue `issue_results.json`); console conclusions are mirrored to `TestResults-consolelog.md`. Package versions and framework info are captured in `testupdate.json`. The central metadata files are read-only during test runs.
 - Issues with marker files `ignore`, `ignore.md`, `explicit`, `explicit.md`, `wip`, or `wip.md` are skipped.
 
 Examples:
@@ -24,6 +26,9 @@ Examples:
 - New or previously failing: `python scripts/run_tests.py --scope new-and-failed`
 - Only closed (regressions): `python scripts/run_tests.py --scope regression-only`
 - Only open issues: `python scripts/run_tests.py --scope open-only`
+- Skip netfx-only on Linux: `python scripts/run_tests.py --skip-netfx`
+- Only netfx (e.g., on Windows): `python scripts/run_tests.py --only-netfx`
+- NUnit-only package updates: `python scripts/run_tests.py --nunit-only`
 - Allow prerelease for NUnit packages: add `--pre-release`
 
 ## Reporting
@@ -68,4 +73,3 @@ scripts\Update_all_from_github.cmd
 ### Other maintenance tasks
 
 - To ignore a repro folder for test/update runs, drop one of these files into the issue folder: `ignore`, `ignore.md`, `explicit`, `explicit.md`, `wip`, or `wip.md`.
-

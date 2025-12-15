@@ -62,6 +62,13 @@ jobs:
         run: |
           python -u scripts/run_tests.py --timeout 900 --only-netfx
 
+      - name: Upload test console log
+        uses: actions/upload-artifact@v4
+        with:
+            name: TestResults-consolelog-${{ matrix.os }}
+            path: TestResults-consolelog.md
+            if-no-files-found: warn
+
       - name: Generate test report
         run: |
           python scripts/testreport.py

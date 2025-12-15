@@ -67,13 +67,54 @@ def find_issue_dir(root: Path, number: int) -> Optional[Path]:
 
 
 def find_csproj(issue_dir: Path) -> Optional[Path]:
-    """Find a .csproj anywhere under the issue dir, skipping bin/obj output trees."""
+    """Find a .csproj anywhere under the issue dir, skipping bin/obj output trees.
+
+    Prefer a project that looks like an NUnit test project; otherwise return the first match.
+    """
+    candidates = []
     for candidate in sorted(issue_dir.rglob("*.csproj")):
         parts = {part.lower() for part in candidate.parts}
         if {"bin", "obj"} & parts:
             continue
-        return candidate
+        candidates.append(candidate)
+    if not candidates:
+        return None
+    # Prefer the first NUnit-looking project.
+    for cand in candidates:
+        _, packages = read_tfms_and_packages(cand)
+        if is_nunit_project(packages):
+            return cand
+    return candidates[0]
+
+
+def find_first_nunit_csproj(issue_dir: Path) -> Optional[Path]:
+    """Return the first .csproj that looks like an NUnit test project, or None."""
+    for candidate in sorted(issue_dir.rglob("*.csproj")):
+        parts = {part.lower() for part in candidate.parts}
+        if {"bin", "obj"} & parts:
+            continue
+        _, packages = read_tfms_and_packages(candidate)
+        if is_nunit_project(packages):
+            return candidate
     return None
+
+
+def read_project_references(csproj: Path) -> list[Path]:
+    """Return project reference paths resolved relative to the csproj."""
+    refs: list[Path] = []
+    try:
+        tree = ET.parse(csproj)
+        root = tree.getroot()
+        for pref in root.findall(".//{*}ProjectReference"):
+            include = pref.attrib.get("Include")
+            if not include:
+                continue
+            ref_path = (csproj.parent / include).resolve()
+            if ref_path.exists():
+                refs.append(ref_path)
+    except Exception:
+        pass
+    return refs
 
 
 def choose_dotnet_target(workdir: Path, csproj: Path) -> Path:
@@ -387,6 +428,13 @@ def detect_project_style(csproj: Path) -> str:
     return "classic"
 
 
+def load_json(path: Path) -> object | None:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Update packages and run tests for Issue* repros.")
     parser.add_argument(
@@ -428,6 +476,11 @@ def main() -> int:
         ),
     )
     parser.add_argument(
+        "--nunit-only",
+        action="store_true",
+        help="Only update NUnit-related packages (NUnit/NUnit.Framework/NUnit3TestAdapter/Microsoft.NET.Test.Sdk) to the captured target versions; skip other packages.",
+    )
+    parser.add_argument(
         "--skip-netfx",
         action="store_true",
         help="Skip issues where all target frameworks are classic .NET Framework (net2*/net3*/net4*).",
@@ -441,12 +494,23 @@ def main() -> int:
 
     root = args.root.resolve()
     metadata_path = args.metadata or (root / "scripts" / "issues_metadata.json")
+    results_path = root / "results.json"
+    log_path = root / "TestResults-consolelog.md"
     log_lines: list[str] = []
     update_records: list[dict] = []
+    existing_results = load_json(results_path)
+    if not isinstance(existing_results, list):
+        existing_results = []
 
     def log(msg: str) -> None:
         print(msg)
         log_lines.append(msg)
+
+    def persist_logs() -> None:
+        try:
+            log_path.write_text("\n".join(log_lines) + "\n", encoding="utf-8")
+        except Exception:
+            pass
 
     if not metadata_path.exists():
         sys.stderr.write(f"Metadata file not found: {metadata_path}\n")
@@ -459,12 +523,32 @@ def main() -> int:
         return 1
 
     def persist_metadata() -> None:
-        metadata_path.write_text(json.dumps(records, indent=2), encoding="utf-8")
+        # Do not overwrite central metadata here.
+        return
 
     def persist_update_records() -> None:
         (root / "testupdate.json").write_text(
             json.dumps(update_records, indent=2), encoding="utf-8"
         )
+
+    def upsert_result(entry: dict) -> None:
+        key = (entry.get("number"), entry.get("project_path"))
+        replaced = False
+        for idx, item in enumerate(existing_results):
+            if (item.get("number"), item.get("project_path")) == key:
+                existing_results[idx] = entry
+                replaced = True
+                break
+        if not replaced:
+            existing_results.append(entry)
+        results_path.write_text(json.dumps(existing_results, indent=2), encoding="utf-8")
+        issue_num = entry.get("number")
+        issue_dir = find_issue_dir(root, int(issue_num)) if issue_num is not None else None
+        if issue_dir:
+            per_issue = [e for e in existing_results if e.get("number") == issue_num]
+            (issue_dir / "issue_results.json").write_text(
+                json.dumps(per_issue, indent=2), encoding="utf-8"
+            )
 
     # Seed metadata entries for Issue* folders that are missing.
     meta_numbers = {int(it["number"]) for it in records if isinstance(it, dict) and "number" in it}
@@ -493,6 +577,7 @@ def main() -> int:
             return 1
     nunit_pre_mode = "Always" if args.pre_release else "Auto"
     run_nunit_versions: list[str] = []
+    run_nunit_map: dict[str, str] = {}
 
     # One-time NUnit version check on the lowest-numbered eligible issue (by folder) to capture versions up front.
     checked_nunit_versions = False
@@ -602,6 +687,8 @@ def main() -> int:
             log(nu_stderr.strip())
         if current_versions:
             run_nunit_versions = current_versions
+            if nunit_versions:
+                run_nunit_map = {k.lower(): v for k, v in nunit_versions.items()}
             log(f"[{num_val}] Testing with NUnit package versions: {', '.join(current_versions)}")
             update_records.append(
                 {
@@ -670,8 +757,17 @@ def main() -> int:
         target = choose_dotnet_target(workdir, csproj)
         tfms, all_packages = read_tfms_and_packages(csproj)
         if not is_nunit_project(all_packages):
-            log(f"[{num}] Skipped (not an NUnit test project)")
-            continue
+            # Try another candidate that does look like an NUnit project before skipping.
+            fallback = find_first_nunit_csproj(issue_dir)
+            if fallback and fallback != csproj:
+                csproj = fallback
+                workdir = csproj.parent
+                rel_proj = csproj.relative_to(root)
+                target = choose_dotnet_target(workdir, csproj)
+                tfms, all_packages = read_tfms_and_packages(csproj)
+            if not is_nunit_project(all_packages):
+                log(f"[{num}] Skipped (not an NUnit test project)")
+                continue
         if args.only_netfx and tfms and not all(is_netfx_tfm(t) for t in tfms):
             log(f"[{num}] Skipped (not netfx-only; --only-netfx enabled)")
             continue
@@ -715,6 +811,16 @@ def main() -> int:
             record["notes"] = f"Failed to update target frameworks: {exc}"
             record_changed = True
 
+        # Align any referenced projects to the upgraded target frameworks to avoid restore mismatch.
+        try:
+            for ref in read_project_references(csproj):
+                ref_rel = ref.relative_to(root)
+                if update_target_frameworks(ref):
+                    log(f"[{num}] Updated target framework(s) to net10.0 in {ref_rel}")
+        except Exception as exc:  # noqa: BLE001
+            record["notes"] = f"Failed to update referenced project frameworks: {exc}"
+            record_changed = True
+
         try:
             global_json = find_global_json(issue_dir, workdir)
             if global_json and update_global_json(global_json):
@@ -725,65 +831,107 @@ def main() -> int:
 
         log(f"[{num}] Updating packages in {rel_proj}")
 
-        # dotnet outdated (NUnit packages first, optionally with prerelease; then others without)
-        nunit_stdout, nunit_stderr, nunit_code = run_cmd(
-            [
-                "dotnet",
-                "outdated",
-                "--pre-release",
-                nunit_pre_mode,
-                "--upgrade",
-                "--include",
-                "nunit",
-                target.name,
-            ],
-            workdir,
-            timeout=args.timeout,
-        )
-        update_records.append(
-            {
-                "phase": "issue-update",
-                "scope": "nunit",
-                "issue": int(num),
-                "target": str(target),
-                "pre_release": args.pre_release,
-                "exit_code": nunit_code,
-                "stdout": nunit_stdout,
-                "stderr": nunit_stderr,
-            }
-        )
-        other_stdout, other_stderr, other_code = run_cmd(
-            [
-                "dotnet",
-                "outdated",
-                "--pre-release",
-                "Never",
-                "--upgrade",
-                "--exclude",
-                "nunit",
-                target.name,
-            ],
-            workdir,
-            timeout=args.timeout,
-        )
-        update_records.append(
-            {
-                "phase": "issue-update",
-                "scope": "other",
-                "issue": int(num),
-                "target": str(target),
-                "pre_release": False,
-                "exit_code": other_code,
-                "stdout": other_stdout,
-                "stderr": other_stderr,
-            }
-        )
+        if args.nunit_only and run_nunit_map:
+            outputs = []
+            errors = []
+            codes = []
+            for pkg in all_packages:
+                name, _, ver = pkg.partition("=")
+                target_ver = run_nunit_map.get(name.lower())
+                if not target_ver:
+                    continue
+                if ver == target_ver:
+                    continue
+                log(f"[{num}] Bumping {name} from {ver} to {target_ver} (nunit-only)")
+                upd_stdout, upd_stderr, upd_code = run_cmd(
+                    ["dotnet", "add", target.name, "package", name, "--version", target_ver],
+                    workdir,
+                    timeout=args.timeout,
+                )
+                outputs.append(upd_stdout)
+                errors.append(upd_stderr)
+                codes.append(upd_code)
+                update_records.append(
+                    {
+                        "phase": "issue-update",
+                        "scope": "nunit-only",
+                        "issue": int(num),
+                        "target": str(target),
+                        "package": name,
+                        "to_version": target_ver,
+                        "exit_code": upd_code,
+                        "stdout": upd_stdout,
+                        "stderr": upd_stderr,
+                    }
+                )
+            if not codes:
+                record["update_result"] = "success"
+                record["update_output"] = "nunit-only: no changes (already at target versions)"
+                record["update_error"] = ""
+            else:
+                record["update_result"] = "success" if all(c == 0 for c in codes) else "fail"
+                record["update_output"] = "\n".join(outputs)
+                record["update_error"] = "\n".join(errors)
+        else:
+            # dotnet outdated (NUnit packages first, optionally with prerelease; then others without)
+            nunit_stdout, nunit_stderr, nunit_code = run_cmd(
+                [
+                    "dotnet",
+                    "outdated",
+                    "--pre-release",
+                    nunit_pre_mode,
+                    "--upgrade",
+                    "--include",
+                    "nunit",
+                    target.name,
+                ],
+                workdir,
+                timeout=args.timeout,
+            )
+            update_records.append(
+                {
+                    "phase": "issue-update",
+                    "scope": "nunit",
+                    "issue": int(num),
+                    "target": str(target),
+                    "pre_release": args.pre_release,
+                    "exit_code": nunit_code,
+                    "stdout": nunit_stdout,
+                    "stderr": nunit_stderr,
+                }
+            )
+            other_stdout, other_stderr, other_code = run_cmd(
+                [
+                    "dotnet",
+                    "outdated",
+                    "--pre-release",
+                    "Never",
+                    "--upgrade",
+                    "--exclude",
+                    "nunit",
+                    target.name,
+                ],
+                workdir,
+                timeout=args.timeout,
+            )
+            update_records.append(
+                {
+                    "phase": "issue-update",
+                    "scope": "other",
+                    "issue": int(num),
+                    "target": str(target),
+                    "pre_release": False,
+                    "exit_code": other_code,
+                    "stdout": other_stdout,
+                    "stderr": other_stderr,
+                }
+            )
 
-        record["update_result"] = "success" if (nunit_code == 0 and other_code == 0) else "fail"
-        record["update_output"] = (
-            "[nunit]\n" + nunit_stdout + "\n[other]\n" + other_stdout
-        )
-        record["update_error"] = "[nunit]\n" + nunit_stderr + "\n[other]\n" + other_stderr
+            record["update_result"] = "success" if (nunit_code == 0 and other_code == 0) else "fail"
+            record["update_output"] = (
+                "[nunit]\n" + nunit_stdout + "\n[other]\n" + other_stdout
+            )
+            record["update_error"] = "[nunit]\n" + nunit_stderr + "\n[other]\n" + other_stderr
         record_changed = True
 
         log(f"[{num}] Running tests in {rel_proj}")
@@ -816,25 +964,21 @@ def main() -> int:
         log(f"[{num}] {test_conclusion}")
         record_changed = True
 
-        # Mirror results into the per-issue metadata file.
-        try:
-            update_issue_metadata_file(
-                issue_dir,
-                csproj.relative_to(issue_dir).as_posix(),
-                int(num),
-                {
-                    "update_result": record["update_result"],
-                    "update_output": record["update_output"],
-                    "update_error": record["update_error"],
-                    "test_result": record["test_result"],
-                    "test_output": record["test_output"],
-                    "test_error": record["test_error"],
-                    "test_conclusion": record["test_conclusion"],
-                },
-            )
-        except Exception as exc:  # noqa: BLE001
-            record["notes"] = f"Failed to write issue_metadata.json: {exc}"
-            record_changed = True
+        entry = {
+            "number": int(num),
+            "project_path": csproj.relative_to(issue_dir).as_posix(),
+            "project_style": detect_project_style(csproj),
+            "target_frameworks": tfms,
+            "packages": all_packages,
+            "update_result": record["update_result"],
+            "update_output": record["update_output"],
+            "update_error": record["update_error"],
+            "test_result": record["test_result"],
+            "test_output": record["test_output"],
+            "test_error": record["test_error"],
+            "test_conclusion": record["test_conclusion"],
+        }
+        upsert_result(entry)
 
         if test_code != 0:
             # On failure, surface both stdout and stderr for visibility.
@@ -847,11 +991,10 @@ def main() -> int:
 
         if record_changed:
             persist_metadata()
+        # Persist logs after each issue iteration so partial progress is retained.
+        persist_logs()
 
-    # Write back updated metadata
-    metadata_path.write_text(json.dumps(records, indent=2), encoding="utf-8")
-    log_path = root / "TestResults-consolelog.md"
-    log_path.write_text("\n".join(log_lines) + "\n", encoding="utf-8")
+    persist_logs()
     (root / "testupdate.json").write_text(
         json.dumps(update_records, indent=2), encoding="utf-8"
     )
