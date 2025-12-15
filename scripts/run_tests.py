@@ -830,6 +830,31 @@ def main() -> int:
                 json.dumps(per_issue, indent=2), encoding="utf-8"
             )
 
+    def record_skip_result(
+        num: int,
+        issue_dir: Path,
+        csproj: Path | None,
+        tfms: list[str] | None,
+        packages: list[str] | None,
+        reason: str,
+    ) -> None:
+        entry = {
+            "number": num,
+            "project_path": csproj.relative_to(issue_dir).as_posix() if csproj else "",
+            "project_style": detect_project_style(csproj) if csproj else "",
+            "target_frameworks": tfms or [],
+            "packages": packages or [],
+            "update_result": "skipped",
+            "update_output": "",
+            "update_error": "",
+            "test_result": "skipped",
+            "test_output": "",
+            "test_error": "",
+            "test_conclusion": "Skipped",
+            "notes": reason,
+        }
+        upsert_result(entry)
+
     # Seed metadata entries for Issue* folders that are missing.
     meta_numbers = {int(it["number"]) for it in records if isinstance(it, dict) and "number" in it}
     issue_dirs = sorted([p for p in root.iterdir() if p.is_dir() and p.name.startswith("Issue")])
@@ -1028,13 +1053,15 @@ def main() -> int:
             continue
 
         if should_skip_issue(issue_dir):
+            reason = "Skipped due to marker file (ignore/explicit/wip)"
             record["update_result"] = "skipped"
             record["test_result"] = "skipped"
-            record["notes"] = "Skipped due to marker file (ignore/explicit/wip)"
+            record["notes"] = reason
             record["test_conclusion"] = "Skipped"
-            log(f"[{num}] Skipped")
+            log(f"[{num}] {reason}")
             record_changed = True
             persist_metadata()
+            record_skip_result(int(num), issue_dir, None, None, None, reason)
             continue
 
         csproj = find_csproj(issue_dir)
@@ -1062,19 +1089,27 @@ def main() -> int:
                 tfms, all_packages = read_tfms_and_packages(csproj)
                 is_netfx_only = bool(tfms) and all(is_netfx_tfm(t) for t in tfms)
             if not is_nunit_project(all_packages):
-                log(f"[{num}] Skipped (not an NUnit test project)")
+                reason = "Skipped (not an NUnit test project)"
+                log(f"[{num}] {reason}")
+                record_skip_result(int(num), issue_dir, csproj, tfms, all_packages, reason)
                 continue
         if args.only_netfx:
             if is_netfx_only:
                 pass
             elif not tfms:
-                log(f"[{num}] Skipped (no target framework detected; --only-netfx enabled)")
+                reason = "Skipped (no target framework detected; --only-netfx enabled)"
+                log(f"[{num}] {reason}")
+                record_skip_result(int(num), issue_dir, csproj, tfms, all_packages, reason)
                 continue
             else:
-                log(f"[{num}] Skipped (not netfx-only; --only-netfx enabled)")
+                reason = "Skipped (not netfx-only; --only-netfx enabled)"
+                log(f"[{num}] {reason}")
+                record_skip_result(int(num), issue_dir, csproj, tfms, all_packages, reason)
                 continue
         if args.skip_netfx and is_netfx_only:
-            log(f"[{num}] Skipped (netfx-only project; --skip-netfx enabled)")
+            reason = "Skipped (netfx-only project; --skip-netfx enabled)"
+            log(f"[{num}] {reason}")
+            record_skip_result(int(num), issue_dir, csproj, tfms, all_packages, reason)
             continue
         record["project_style"] = detect_project_style(csproj)
         record_changed = True
