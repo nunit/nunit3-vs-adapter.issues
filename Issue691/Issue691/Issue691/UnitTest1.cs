@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 
 namespace Issue691
 {
@@ -28,7 +29,7 @@ namespace Issue691
         [Test]
         public void TestMethod1()
         {
-            Assert.AreEqual("hi", "hi");
+            ClassicAssert.AreEqual("hi", "hi");
         }
     }
 }
