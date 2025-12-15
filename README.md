@@ -20,6 +20,9 @@ Examples and repros of issues found in the NUnit Adapter
 - NUnit-only updates: add `--nunit-only` to bump only NUnit/NUnit.Framework/NUnit3TestAdapter/Microsoft.NET.Test.Sdk to the captured target versions; other packages are left as-is.
 - Results go to `results.json` (plus per-issue `issue_results.json`); console conclusions are mirrored to `TestResults-consolelog.md`. Package versions and framework info are captured in `testupdate.json`. The central metadata files are read-only during test runs.
 - Issues with marker files `ignore`, `ignore.md`, `explicit`, `explicit.md`, `wip`, or `wip.md` are skipped.
+- Test execution:
+  - If a `.runsettings` (or `*.runsettings`) file exists in the issue folder, it is passed to `dotnet test` via `--settings`.
+  - If a custom runner script is present (Linux: `run_*.sh`; Windows: `run_*.cmd`), that script is executed instead of `dotnet test`. The script runs from its own folder.
 
 Examples:
 
