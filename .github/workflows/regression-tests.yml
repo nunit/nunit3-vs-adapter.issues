@@ -8,14 +8,8 @@ on:
       - master
 
 jobs:
-  run-tests:
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-          - windows-latest
-    runs-on: ${{ matrix.os }}
+  run-tests-linux:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,7 +25,7 @@ jobs:
       - name: Cache NuGet packages
         uses: actions/cache@v4
         with:
-          path: ${{ runner.os == 'Windows' && 'C:\\Users\\runneradmin\\.nuget\\packages' || '~/.nuget/packages' }}
+          path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/global.json', '**/packages.lock.json') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
@@ -47,27 +41,153 @@ jobs:
           python-version: "3.x"
 
       - name: Run regression tests (no prerelease) [Linux]
-        if: matrix.os == 'ubuntu-latest'
         shell: bash
         env:
           PYTHONUNBUFFERED: "1"
         run: |
           python -u scripts/run_tests.py --timeout 900 --skip-netfx
 
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-results
+          path: |
+            results.json
+            testupdate.json
+            TestResults-consolelog.md
+          if-no-files-found: error
+
+  run-tests-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDKs
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            10.0.x
+            8.0.x
+            6.0.x
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: C:\Users\runneradmin\.nuget\packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/global.json', '**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Install dotnet-outdated
+        run: |
+          dotnet tool install --global dotnet-outdated-tool
+          echo "$HOME\\.dotnet\\tools" >> "$GITHUB_PATH"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
       - name: Run regression tests (no prerelease) [Windows]
-        if: matrix.os == 'windows-latest'
         shell: pwsh
         env:
           PYTHONUNBUFFERED: "1"
         run: |
           python -u scripts/run_tests.py --timeout 900 --only-netfx
 
-      - name: Upload test console log
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-            name: TestResults-consolelog-${{ matrix.os }}
-            path: TestResults-consolelog.md
-            if-no-files-found: warn
+          name: windows-results
+          path: |
+            results.json
+            testupdate.json
+            TestResults-consolelog.md
+          if-no-files-found: error
+
+  aggregate-report:
+    runs-on: ubuntu-latest
+    needs:
+      - run-tests-linux
+      - run-tests-windows
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download Linux artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: linux-results
+          path: artifacts-linux
+
+      - name: Download Windows artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: windows-results
+          path: artifacts-windows
+
+      - name: Merge results and logs
+        run: |
+          python - <<'PY'
+import json
+from pathlib import Path
+
+def load_json(path):
+    try:
+        return json.loads(Path(path).read_text(encoding="utf-8"))
+    except Exception:
+        return []
+
+def merge_results(paths):
+    merged = []
+    seen = set()
+    for p in paths:
+        data = load_json(p)
+        if not isinstance(data, list):
+            continue
+        for item in data:
+            key = (item.get("number"), item.get("project_path"))
+            if key in seen:
+                continue
+            seen.add(key)
+            merged.append(item)
+    return merged
+
+def merge_updates(paths):
+    merged = []
+    seen = set()
+    for p in paths:
+        data = load_json(p)
+        if not isinstance(data, list):
+            continue
+        for item in data:
+            key = (
+                item.get("phase"),
+                item.get("issue"),
+                item.get("target"),
+                item.get("package"),
+                item.get("to") or item.get("to_version"),
+            )
+            if key in seen:
+                continue
+            seen.add(key)
+            merged.append(item)
+    return merged
+
+root = Path(".")
+results = merge_results([root/"artifacts-linux"/"results.json", root/"artifacts-windows"/"results.json"])
+Path("results.json").write_text(json.dumps(results, indent=2), encoding="utf-8")
+
+updates = merge_updates([root/"artifacts-linux"/"testupdate.json", root/"artifacts-windows"/"testupdate.json"])
+Path("testupdate.json").write_text(json.dumps(updates, indent=2), encoding="utf-8")
+
+logs = []
+for p in [root/"artifacts-linux"/"TestResults-consolelog.md", root/"artifacts-windows"/"TestResults-consolelog.md"]:
+    if p.exists():
+        logs.append(p.read_text(encoding="utf-8"))
+Path("TestResults-consolelog.md").write_text("\n\n".join(logs), encoding="utf-8")
+PY
 
       - name: Generate test report
         run: |

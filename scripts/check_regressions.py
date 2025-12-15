@@ -9,19 +9,33 @@ import sys
 
 
 def main() -> int:
-    path = Path("scripts/issues_metadata.json")
+    meta_path = Path("scripts/issues_metadata.json")
+    results_path = Path("results.json")
     try:
-        data = json.loads(path.read_text(encoding="utf-8"))
+        metadata = json.loads(meta_path.read_text(encoding="utf-8"))
     except Exception as exc:  # noqa: BLE001
         sys.stderr.write(f"Failed to read metadata: {exc}\n")
         return 1
+    try:
+        results = json.loads(results_path.read_text(encoding="utf-8"))
+    except Exception as exc:  # noqa: BLE001
+        sys.stderr.write(f"Failed to read results: {exc}\n")
+        return 1
 
-    failed = [
-        item
-        for item in data
-        if (item.get("state") or "").lower() == "closed"
-        and item.get("test_result") == "fail"
-    ]
+    state_map = {int(m["number"]): (m.get("state") or "").lower() for m in metadata if "number" in m}
+    failed = []
+    for entry in results:
+        num = entry.get("number")
+        if num is None:
+            continue
+        try:
+            num_int = int(num)
+        except Exception:
+            continue
+        if state_map.get(num_int) != "closed":
+            continue
+        if entry.get("test_result") == "fail":
+            failed.append(entry)
 
     if failed:
         print("Regression failures detected:")
