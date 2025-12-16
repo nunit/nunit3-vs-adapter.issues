@@ -125,6 +125,22 @@ def main() -> int:
                 return "success", e.get("test_conclusion") or "Success", failure_detail(e)
         return "unknown", "", "n/a"
 
+    def project_framework(num: int) -> str:
+        entries = results_by_issue.get(num, [])
+        tfm_set = set()
+        for e in entries:
+            for tfm in e.get("target_frameworks") or []:
+                tfm_set.add((tfm or "").lower())
+        if not tfm_set:
+            return "unknown"
+        is_netfx = any(t.startswith(("net2", "net3", "net4")) for t in tfm_set)
+        is_modern = any(t.startswith("net") and not t.startswith(("net2", "net3", "net4")) for t in tfm_set)
+        if is_netfx and is_modern:
+            return "mixed"
+        if is_netfx:
+            return "netfx"
+        return ".NET"
+
     for item in metadata:
         number = item.get("number")
         if number is None:
@@ -133,10 +149,11 @@ def main() -> int:
         url = item.get("url") or ""
         state = (item.get("state") or "").lower()
         result, conclusion, detail = project_status(int(number))
+        framework = project_framework(int(number))
         short = f"{result}"
         if conclusion:
             short = f"{result} - {conclusion}"
-        detail_row = (f"{issue} {url}".strip(), conclusion or result or "n/a", detail)
+        detail_row = (f"{issue} {url}".strip(), framework, conclusion or result or "n/a", detail)
         icon = ""
         if state == "closed":
             if result == "success":
@@ -146,7 +163,7 @@ def main() -> int:
         elif state == "open":
             if result == "success":
                 icon = "🟢❓ "
-        summary_row = (f"{icon}{issue}", result, conclusion or "")
+        summary_row = (f"{icon}{issue}", result, framework, conclusion or "")
 
         if state == "closed":
             closed_all.append(summary_row)
@@ -197,14 +214,14 @@ def main() -> int:
     )
     lines.append("")
     if closed_all:
-        lines.extend(format_table(["Issue", "Test", "Conclusion"], closed_all))
+        lines.extend(format_table(["Issue", "Test", "Framework", "Conclusion"], closed_all))
     else:
         lines.append("- None")
     lines.append("")
     lines.append("### Closed failures (details)")
     lines.append("")
     if closed_fail:
-        lines.extend(format_table(["Issue", "Conclusion", "Details"], closed_fail))
+        lines.extend(format_table(["Issue", "Framework", "Conclusion", "Details"], closed_fail))
     else:
         lines.append("- None")
     lines.append("")

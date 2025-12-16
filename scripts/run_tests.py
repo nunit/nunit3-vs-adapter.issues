@@ -271,6 +271,25 @@ def align_target_frameworks_and_references(
         record["notes"] = f"Failed to update referenced project frameworks: {exc}"
 
 
+def upgrade_all_project_tfms(issue_dir: Path, root: Path, num: int, log_fn) -> None:
+    """Upgrade target frameworks in all csproj under the issue directory."""
+    visited: set[Path] = set()
+    for csproj in sorted(issue_dir.rglob("*.csproj")):
+        parts = {p.lower() for p in csproj.parts}
+        if {"bin", "obj"} & parts:
+            continue
+        csproj = csproj.resolve()
+        if csproj in visited:
+            continue
+        visited.add(csproj)
+        rel_proj = csproj.relative_to(root)
+        try:
+            if update_target_frameworks(csproj):
+                log_fn(f"[{num}] Updated target framework(s) to net10.0 in {rel_proj}")
+        except Exception:
+            continue
+
+
 def run_tests_for_issue(
     num: int,
     rel_proj: Path,
@@ -1072,6 +1091,9 @@ def main() -> int:
             record_changed = True
             persist_metadata()
             continue
+
+        # Pre-upgrade all TFMs in the issue folder to avoid netcoreapp3.1 remnants (especially on CI).
+        upgrade_all_project_tfms(issue_dir, root, int(num), log)
 
         workdir = csproj.parent
         rel_proj = csproj.relative_to(root)
