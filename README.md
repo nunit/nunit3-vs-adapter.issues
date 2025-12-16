@@ -2,6 +2,71 @@
 
 Examples and repros of issues found in the NUnit Adapter
 
+## Test Automation
+
+### Using C# IssueRunner (Recommended)
+
+The new C# tool provides better performance and maintainability. Build it first:
+
+```bash
+cd Tools
+dotnet build -c Release
+```
+
+Then run tests:
+
+```bash
+cd Tools/IssueRunner/bin/Release/net10.0
+./IssueRunner run [options]
+```
+
+**Options:**
+- `--root <path>` - Repository root path (default: current directory)
+- `--scope <All|New|NewAndFailed|RegressionOnly|OpenOnly>` - Test scope (default: All)
+- `--issues <numbers>` - Comma-separated issue numbers to run
+- `--timeout <seconds>` - Timeout per command (default: 600)
+- `--skip-netfx` - Skip .NET Framework tests
+- `--only-netfx` - Run only .NET Framework tests
+- `--nunit-only` - Update only NUnit packages (faster)
+- `--execution-mode <All|Direct|Custom>` - Filter by execution method
+
+**Examples:**
+```bash
+# Run all regression tests
+./IssueRunner run --scope RegressionOnly
+
+# Run specific issues
+./IssueRunner run --issues 228,343,1015
+
+# Run only .NET Core tests (on Linux)
+./IssueRunner run --skip-netfx
+
+# Run only custom script tests
+./IssueRunner run --execution-mode Custom
+```
+
+**Other Commands:**
+```bash
+# Sync metadata from GitHub
+./IssueRunner metadata sync-from-github
+
+# Distribute metadata to issue folders
+./IssueRunner metadata sync-to-folders
+
+# Generate test report
+./IssueRunner report generate
+
+# Check for regression failures (CI)
+./IssueRunner report check-regressions
+
+# Merge results from multiple runs
+./IssueRunner merge --linux <path> --windows <path>
+```
+
+### Using Python scripts (Legacy)
+
+The Python scripts are still available but will be deprecated:
+
 ## Regression testing (run_tests.py)
 
 - From repo root: `python scripts/run_tests.py [--issues 228,343] [--timeout 600] [--scope all|new|new-and-failed|regression-only|open-only] [--skip-netfx|--only-netfx] [--nunit-only] [--feed stable|nuget-prerelease|myget-alpha]`
@@ -45,9 +110,30 @@ Examples:
 
 ## Reporting
 
+### C# Tool
+```bash
+cd Tools/IssueRunner/bin/Release/net10.0
+./IssueRunner report generate
+```
+
+### Python (Legacy)
 - Generate the Markdown test report: `python scripts/testreport.py` (writes `TestReport.md` at repo root).
 
 ## Maintaining metadata
+
+### Using C# Tool (Recommended)
+
+```bash
+cd Tools/IssueRunner/bin/Release/net10.0
+
+# Sync from GitHub
+./IssueRunner metadata sync-from-github --root /path/to/repo
+
+# Distribute to folders
+./IssueRunner metadata sync-to-folders --root /path/to/repo
+```
+
+### Using Python Scripts (Legacy)
 
 ### Syncing metadata from GitHub
 
