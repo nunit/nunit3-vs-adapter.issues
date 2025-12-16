@@ -160,7 +160,7 @@ public sealed class RunTestsCommand
         // Re-parse after framework upgrade
         var (frameworks, packages) = _projectAnalyzer.ParseProjectFile(projectFile);
 
-        if (ShouldSkipFramework(frameworks, options))
+        if (ShouldSkipFramework(frameworks, folderPath, options))
         {
             Console.WriteLine($"[{issueNumber}] Skipped (not netfx-only; --only-netfx enabled)");
             return null;
@@ -307,6 +307,7 @@ public sealed class RunTestsCommand
 
     private static bool ShouldSkipFramework(
         List<string> frameworks,
+        string issueFolderPath,
         RunOptions options)
     {
         if (!options.SkipNetFx && !options.OnlyNetFx)
@@ -314,15 +315,25 @@ public sealed class RunTestsCommand
             return false;
         }
 
+        // Check for Windows marker file (case insensitive)
+        var hasWindowsMarker = Directory.GetFiles(issueFolderPath)
+            .Select(Path.GetFileName)
+            .Any(f => f != null && 
+                (f.Equals("windows", StringComparison.OrdinalIgnoreCase) || 
+                 f.Equals("windows.md", StringComparison.OrdinalIgnoreCase)));
+
         var hasNetFx = frameworks.Any(f =>
             f.StartsWith("net4") || f.StartsWith("net3") || f.StartsWith("net2"));
 
-        if (options.SkipNetFx && hasNetFx)
+        // Treat Windows marker as if it's netfx for workflow filtering purposes
+        var treatAsNetFx = hasNetFx || hasWindowsMarker;
+
+        if (options.SkipNetFx && treatAsNetFx)
         {
             return true;
         }
 
-        if (options.OnlyNetFx && !hasNetFx)
+        if (options.OnlyNetFx && !treatAsNetFx)
         {
             return true;
         }

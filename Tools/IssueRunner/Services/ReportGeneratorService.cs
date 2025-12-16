@@ -174,6 +174,11 @@ public sealed class ReportGeneratorService
                 sb.AppendLine();
                 sb.AppendLine($"**Link**: https://github.com/nunit/nunit3-vs-adapter/issues/{result.Number}");
                 sb.AppendLine();
+                if (meta.Labels != null && meta.Labels.Count > 0)
+                {
+                    sb.AppendLine($"**Labels**: {string.Join(", ", meta.Labels)}");
+                    sb.AppendLine();
+                }
                 sb.AppendLine($"**Conclusion**: Failure: Regression failure.");
                 sb.AppendLine();
                 sb.AppendLine("**Details**:");
@@ -255,6 +260,11 @@ public sealed class ReportGeneratorService
                     sb.AppendLine();
                     sb.AppendLine($"**Link**: https://github.com/nunit/nunit3-vs-adapter/issues/{result.Number}");
                     sb.AppendLine();
+                    if (meta.Labels != null && meta.Labels.Count > 0)
+                    {
+                        sb.AppendLine($"**Labels**: {string.Join(", ", meta.Labels)}");
+                        sb.AppendLine();
+                    }
                     sb.AppendLine($"**Conclusion**: Failure: Open issue, repro fails.");
                     sb.AppendLine();
                     sb.AppendLine("**Details**:");

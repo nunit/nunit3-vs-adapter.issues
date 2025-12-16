@@ -15,6 +15,11 @@ public sealed partial class IssueDiscoveryService : IIssueDiscoveryService
         "wip", "wip.md"
     ];
 
+    private static readonly string[] WindowsMarkerFiles =
+    [
+        "windows", "windows.md"
+    ];
+
     private readonly ILogger<IssueDiscoveryService> _logger;
 
     /// <summary>
@@ -70,6 +75,25 @@ public sealed partial class IssueDiscoveryService : IIssueDiscoveryService
             {
                 _logger.LogDebug(
                     "Skipping issue at {Path} due to marker file {Marker}",
+                    issueFolderPath,
+                    markerFile);
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    /// <inheritdoc />
+    public bool RequiresWindows(string issueFolderPath)
+    {
+        foreach (var markerFile in WindowsMarkerFiles)
+        {
+            var markerPath = Path.Combine(issueFolderPath, markerFile);
+            if (File.Exists(markerPath))
+            {
+                _logger.LogDebug(
+                    "Issue at {Path} requires Windows due to marker file {Marker}",
                     issueFolderPath,
                     markerFile);
                 return true;

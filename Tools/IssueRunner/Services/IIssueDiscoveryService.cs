@@ -18,4 +18,11 @@ public interface IIssueDiscoveryService
     /// <param name="issueFolderPath">Path to the issue folder.</param>
     /// <returns>True if the folder should be skipped.</returns>
     bool ShouldSkipIssue(string issueFolderPath);
+
+    /// <summary>
+    /// Checks if an issue requires Windows (netfx workflow) even if it's a .NET Core project.
+    /// </summary>
+    /// <param name="issueFolderPath">Path to the issue folder.</param>
+    /// <returns>True if the issue requires Windows.</returns>
+    bool RequiresWindows(string issueFolderPath);
 }
