@@ -6,6 +6,11 @@ on:
     branches:
       - main
       - master
+      - report
+  pull_request:
+    branches:
+      - main
+      - master
 
 jobs:
   run-regression-tests-dotnet:
@@ -41,6 +46,17 @@ jobs:
           cd Tools/IssueRunner/bin/Release/net10.0
           ./IssueRunner run --scope RegressionOnly --skip-netfx --timeout 900 --nunit-only --root $GITHUB_WORKSPACE
 
+      - name: Generate test report
+        if: always()
+        run: |
+          cd Tools/IssueRunner/bin/Release/net10.0
+          ./IssueRunner report generate --root $GITHUB_WORKSPACE
+
+      - name: Publish summary
+        if: always()
+        run: |
+          cat TestReport.md >> "$GITHUB_STEP_SUMMARY"
+
       - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@v4
@@ -49,4 +65,5 @@ jobs:
           path: |
             results.json
             TestResults-consolelog.md
+            TestReport.md
           if-no-files-found: error
