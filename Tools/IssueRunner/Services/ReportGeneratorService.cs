@@ -40,8 +40,20 @@ public sealed class ReportGeneratorService
         sb.AppendLine("Package versions under test:");
         sb.AppendLine();
         AppendPackageVersions(sb, results);
-        AppendRegressionTests(sb, results, metadataDict);
-        AppendOpenIssues(sb, results, metadataDict);
+        
+        // Only show regression section if there are actually closed issues tested
+        var hasClosedIssues = results.Any(r => metadataDict.TryGetValue(r.Number, out var m) && m.State == "closed");
+        if (hasClosedIssues)
+        {
+            AppendRegressionTests(sb, results, metadataDict);
+        }
+        
+        // Only show open issues section if there are actually open issues tested
+        var hasOpenIssues = results.Any(r => metadataDict.TryGetValue(r.Number, out var m) && m.State == "open");
+        if (hasOpenIssues)
+        {
+            AppendOpenIssues(sb, results, metadataDict);
+        }
 
         return sb.ToString();
     }
@@ -72,10 +84,13 @@ public sealed class ReportGeneratorService
         StringBuilder sb,
         List<IssueResult> results)
     {
+        // Only show the packages we're actually testing: NUnit, NUnit.Analyzers, and NUnit3TestAdapter
+        var relevantPackages = new[] { "NUnit", "NUnit.Analyzers", "NUnit3TestAdapter" };
+        
         var packages = results
             .SelectMany(r => r.Packages)
             .Select(p => p.Split('='))
-            .Where(parts => parts.Length == 2)
+            .Where(parts => parts.Length == 2 && relevantPackages.Contains(parts[0]))
             .GroupBy(parts => parts[0])
             .Select(g => new { Name = g.Key, Versions = g.Select(p => p[1]).Distinct().ToList() })
             .OrderBy(p => p.Name)
@@ -147,8 +162,6 @@ public sealed class ReportGeneratorService
         {
             sb.AppendLine("### Closed failures (details)");
             sb.AppendLine();
-            sb.AppendLine("| Issue | Conclusion | Details |");
-            sb.AppendLine("| --- | --- | --- |");
 
             foreach (var result in failed)
             {
@@ -157,39 +170,34 @@ public sealed class ReportGeneratorService
                     continue;
                 }
 
-                var conclusion = "Failure: Regression failure.";
-                var details = FormatDetailsForTable(result.TestError, result.TestOutput);
-                sb.AppendLine($"| #{result.Number} https://github.com/nunit/nunit3-vs-adapter/issues/{result.Number} | {conclusion} | {details} |");
+                sb.AppendLine($"#### Issue #{result.Number}: {meta.Title}");
+                sb.AppendLine();
+                sb.AppendLine($"**Link**: https://github.com/nunit/nunit3-vs-adapter/issues/{result.Number}");
+                sb.AppendLine();
+                sb.AppendLine($"**Conclusion**: Failure: Regression failure.");
+                sb.AppendLine();
+                sb.AppendLine("**Details**:");
+                sb.AppendLine();
+                sb.AppendLine("```");
+                
+                if (!string.IsNullOrWhiteSpace(result.TestError))
+                {
+                    sb.AppendLine(result.TestError.Trim());
+                }
+                
+                if (!string.IsNullOrWhiteSpace(result.TestOutput))
+                {
+                    if (!string.IsNullOrWhiteSpace(result.TestError))
+                    {
+                        sb.AppendLine();
+                    }
+                    sb.AppendLine(result.TestOutput.Trim());
+                }
+                
+                sb.AppendLine("```");
+                sb.AppendLine();
             }
-
-            sb.AppendLine();
         }
-    }
-
-    private string FormatDetailsForTable(string? error, string? output)
-    {
-        var combined = new StringBuilder();
-        
-        if (!string.IsNullOrWhiteSpace(error))
-        {
-            combined.Append(error.Trim());
-        }
-        
-        if (!string.IsNullOrWhiteSpace(output))
-        {
-            if (combined.Length > 0)
-            {
-                combined.Append(" ");
-            }
-            combined.Append(output.Trim());
-        }
-
-        var result = combined.ToString();
-        
-        // Replace line breaks with <br/> for markdown table cells
-        result = result.Replace("\r\n", "<br/>").Replace("\n", "<br/>").Replace("\r", "<br/>");
-        
-        return result;
     }
 
     private void AppendOpenIssues(
@@ -204,13 +212,6 @@ public sealed class ReportGeneratorService
             .Where(r => metadata.TryGetValue(r.Number, out var m) && m.State == "open")
             .OrderBy(r => r.Number)
             .ToList();
-
-        if (openResults.Count == 0)
-        {
-            sb.AppendLine("*No open issues tested*");
-            sb.AppendLine();
-            return;
-        }
 
         var succeeded = openResults
             .Where(r => r.TestResult == "success")
@@ -245,20 +246,39 @@ public sealed class ReportGeneratorService
         {
             sb.AppendLine("### Failing (confirmed repros)");
             sb.AppendLine();
-            sb.AppendLine("| Issue | Conclusion | Details |");
-            sb.AppendLine("| --- | --- | --- |");
 
             foreach (var result in failed)
             {
                 if (metadata.TryGetValue(result.Number, out var meta))
                 {
-                    var conclusion = "Failure: Open issue, repro fails.";
-                    var details = FormatDetailsForTable(result.TestError, result.TestOutput);
-                    sb.AppendLine($"| #{result.Number} https://github.com/nunit/nunit3-vs-adapter/issues/{result.Number} | {conclusion} | {details} |");
+                    sb.AppendLine($"#### Issue #{result.Number}: {meta.Title}");
+                    sb.AppendLine();
+                    sb.AppendLine($"**Link**: https://github.com/nunit/nunit3-vs-adapter/issues/{result.Number}");
+                    sb.AppendLine();
+                    sb.AppendLine($"**Conclusion**: Failure: Open issue, repro fails.");
+                    sb.AppendLine();
+                    sb.AppendLine("**Details**:");
+                    sb.AppendLine();
+                    sb.AppendLine("```");
+                    
+                    if (!string.IsNullOrWhiteSpace(result.TestError))
+                    {
+                        sb.AppendLine(result.TestError.Trim());
+                    }
+                    
+                    if (!string.IsNullOrWhiteSpace(result.TestOutput))
+                    {
+                        if (!string.IsNullOrWhiteSpace(result.TestError))
+                        {
+                            sb.AppendLine();
+                        }
+                        sb.AppendLine(result.TestOutput.Trim());
+                    }
+                    
+                    sb.AppendLine("```");
+                    sb.AppendLine();
                 }
             }
-
-            sb.AppendLine();
         }
     }
 }

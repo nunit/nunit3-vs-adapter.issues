@@ -67,3 +67,8 @@ jobs:
             TestResults-consolelog.md
             TestReport.md
           if-no-files-found: error
+
+      - name: Check for regressions
+        run: |
+          cd Tools/IssueRunner/bin/Release/net10.0
+          ./IssueRunner report check-regressions --root $GITHUB_WORKSPACE

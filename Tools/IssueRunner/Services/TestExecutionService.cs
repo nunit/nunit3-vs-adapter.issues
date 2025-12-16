@@ -124,7 +124,23 @@ public sealed partial class TestExecutionService : ITestExecutionService
         var runSettings = FindRunSettings(issueFolderPath);
         var workingDir = Path.GetDirectoryName(projectPath)!;
 
-        var args = $"test \"{projectPath}\"";
+        // Check if both .sln and .csproj exist in the same directory
+        // If so, we need to be explicit with --solution or --project flags
+        var hasMultipleProjectTypes = HasBothSolutionAndProject(workingDir);
+        
+        string args;
+        if (hasMultipleProjectTypes)
+        {
+            var isSolution = projectPath.EndsWith(".sln", StringComparison.OrdinalIgnoreCase);
+            args = isSolution 
+                ? $"test --solution \"{projectPath}\"" 
+                : $"test --project \"{projectPath}\"";
+        }
+        else
+        {
+            args = $"test \"{projectPath}\"";
+        }
+        
         if (!string.IsNullOrEmpty(runSettings))
         {
             args += $" --settings \"{runSettings}\"";
@@ -145,6 +161,15 @@ public sealed partial class TestExecutionService : ITestExecutionService
             exitCode);
 
         return (success, output, error, runSettings, null);
+    }
+
+    private static bool HasBothSolutionAndProject(string directory)
+    {
+        var hasSolution = Directory.GetFiles(directory, "*.sln").Length > 0;
+        var hasProject = Directory.GetFiles(directory, "*.csproj").Length > 0 ||
+                        Directory.GetFiles(directory, "*.vbproj").Length > 0 ||
+                        Directory.GetFiles(directory, "*.fsproj").Length > 0;
+        return hasSolution && hasProject;
     }
 
     private static string? FindRunSettings(string issueFolderPath)

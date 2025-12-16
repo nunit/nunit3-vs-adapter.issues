@@ -70,3 +70,9 @@ jobs:
             TestResults-consolelog.md
             TestReport.md
           if-no-files-found: error
+
+      - name: Check for regressions
+        shell: pwsh
+        run: |
+          cd Tools\IssueRunner\bin\Release\net10.0
+          .\IssueRunner.exe report check-regressions --root $env:GITHUB_WORKSPACE

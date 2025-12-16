@@ -2,6 +2,15 @@ name: Open Issues Tests - .NET Framework
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+      - report
+  pull_request:
+    branches:
+      - main
+      - master
   schedule:
     - cron: '0 2 * * 1' # Weekly on Monday at 2 AM UTC
 
@@ -40,6 +49,19 @@ jobs:
           cd Tools\IssueRunner\bin\Release\net10.0
           .\IssueRunner.exe run --scope OpenOnly --only-netfx --timeout 900 --nunit-only --root $env:GITHUB_WORKSPACE
 
+      - name: Generate test report
+        if: always()
+        shell: pwsh
+        run: |
+          cd Tools\IssueRunner\bin\Release\net10.0
+          .\IssueRunner.exe report generate --root $env:GITHUB_WORKSPACE
+
+      - name: Publish summary
+        if: always()
+        shell: pwsh
+        run: |
+          Get-Content TestReport.md | Out-File -Append -FilePath $env:GITHUB_STEP_SUMMARY
+
       - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@v4
@@ -48,4 +70,5 @@ jobs:
           path: |
             results.json
             TestResults-consolelog.md
+            TestReport.md
           if-no-files-found: error
