@@ -45,7 +45,7 @@ jobs:
         shell: pwsh
         run: |
           cd Tools\IssueRunner\bin\Release\net10.0
-          .\IssueRunner.exe run --scope RegressionOnly --only-netfx --timeout 900 --nunit-only --root $env:GITHUB_WORKSPACE
+          .\IssueRunner.exe run --scope RegressionOnly --only-netfx --timeout 900 --nunit-only --verbosity Verbose --root $env:GITHUB_WORKSPACE | Tee-Object -FilePath $env:GITHUB_WORKSPACE\TestResults-consolelog.md
 
       - name: Generate test report
         if: always()
@@ -67,9 +67,9 @@ jobs:
           name: netfx-regression-results
           path: |
             results.json
-            TestResults-consolelog.md
             TestReport.md
-          if-no-files-found: error
+            TestResults-consolelog.md
+          if-no-files-found: warn
 
       - name: Check for regressions
         shell: pwsh

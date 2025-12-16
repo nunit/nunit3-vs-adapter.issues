@@ -44,7 +44,7 @@ jobs:
         continue-on-error: true
         run: |
           cd Tools/IssueRunner/bin/Release/net10.0
-          ./IssueRunner run --scope RegressionOnly --skip-netfx --timeout 900 --nunit-only --root $GITHUB_WORKSPACE
+          ./IssueRunner run --scope RegressionOnly --skip-netfx --timeout 900 --nunit-only --verbosity Verbose --root $GITHUB_WORKSPACE | tee $GITHUB_WORKSPACE/TestResults-consolelog.md
 
       - name: Generate test report
         if: always()
@@ -64,9 +64,9 @@ jobs:
           name: dotnet-regression-results
           path: |
             results.json
-            TestResults-consolelog.md
             TestReport.md
-          if-no-files-found: error
+            TestResults-consolelog.md
+          if-no-files-found: warn
 
       - name: Check for regressions
         run: |
