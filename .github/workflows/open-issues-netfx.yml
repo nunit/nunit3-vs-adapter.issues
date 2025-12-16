@@ -1,0 +1,51 @@
+name: Open Issues Tests - .NET Framework
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * 1' # Weekly on Monday at 2 AM UTC
+
+jobs:
+  run-open-issues-netfx:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDKs
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            10.0.x
+            8.0.x
+            6.0.x
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: C:\Users\runneradmin\.nuget\packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/global.json', '**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Build IssueRunner
+        run: |
+          cd Tools
+          dotnet build -c Release
+
+      - name: Run open issues tests (.NET Framework)
+        continue-on-error: true
+        shell: pwsh
+        run: |
+          cd Tools\IssueRunner\bin\Release\net10.0
+          .\IssueRunner.exe run --scope OpenOnly --only-netfx --timeout 900 --nunit-only --root $env:GITHUB_WORKSPACE
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: netfx-open-results
+          path: |
+            results.json
+            TestResults-consolelog.md
+          if-no-files-found: error

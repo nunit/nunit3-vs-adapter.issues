@@ -1,0 +1,1289 @@
+[
+  {
+    "number": 1,
+    "title": "Upgrade vsix file to the 2.0 format",
+    "state": "closed",
+    "milestone": "3.5.1",
+    "labels": [
+      "closed:done",
+      "pri:normal",
+      "is:build"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/0001"
+  },
+  {
+    "number": 228,
+    "title": "Tests inherited from Generic test fixture",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "pri:normal",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/228"
+  },
+  {
+    "number": 241,
+    "title": "Nunit test runner picking up ignored tests (ish) in tfs",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "confirm",
+      "closed:norepro"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/241"
+  },
+  {
+    "number": 261,
+    "title": "NUnit3TestDiscoverer unable to load nunit.engine",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/261"
+  },
+  {
+    "number": 266,
+    "title": "Console.WriteLine statements in \"OneTimeSetUp\" and \"OneTimeTearDown\" is not captured",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "pri:normal"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/266"
+  },
+  {
+    "number": 343,
+    "title": "Console.WriteLine() does not write to console when running`dotnet test`",
+    "state": "closed",
+    "milestone": "3.17",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:normal"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/343"
+  },
+  {
+    "number": 364,
+    "title": "Inherited Testcase does not open source file on double click",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/364"
+  },
+  {
+    "number": 425,
+    "title": "Run only specific tests when using dotnet test?",
+    "state": "closed",
+    "milestone": "3.16",
+    "labels": [
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/425"
+  },
+  {
+    "number": 484,
+    "title": "Cannot run an individual test whose TestCase parameter contains characters from the range [U+0001..U+001F]",
+    "state": "closed",
+    "milestone": "3.16",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:normal"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/484"
+  },
+  {
+    "number": 497,
+    "title": "dotnet test with category filter is slow with a lot of tests",
+    "state": "closed",
+    "milestone": "4.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:normal"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/497"
+  },
+  {
+    "number": 516,
+    "title": "ArgumentException when whitespace sent to logger",
+    "state": "closed",
+    "milestone": "4.1",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/516"
+  },
+  {
+    "number": 530,
+    "title": "Adapter discovers explicit TestCase without skip details",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/530"
+  },
+  {
+    "number": 535,
+    "title": "Test list not refreshing if test project is not rebuilt",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "External",
+      "closed:SomebodyElsesProblem",
+      "ReportedToMS"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/535"
+  },
+  {
+    "number": 545,
+    "title": "Setting [TestCaseSource] to [Explicit] makes other tests in fixture explicit.",
+    "state": "closed",
+    "milestone": "4.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "External"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/545"
+  },
+  {
+    "number": 618,
+    "title": "Description from TestContext.AddTestAttachment does not displays in TEst Output window",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "VS Issue",
+      "External",
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/618"
+  },
+  {
+    "number": 640,
+    "title": "Allow use of FullName as the DisplayName for Converted Tests",
+    "state": "closed",
+    "milestone": "3.17",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/640"
+  },
+  {
+    "number": 658,
+    "title": "Explicit tests are automatically run in Visual Studio 2019",
+    "state": "closed",
+    "milestone": "4.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:high",
+      "VS Issue"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/658"
+  },
+  {
+    "number": 667,
+    "title": "Add a way to specify a custom resultwriter in .runsettings w/ TestOutputXml",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:enhancement"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/667"
+  },
+  {
+    "number": 671,
+    "title": "Exception in OneTimeSetUp has no stack trace",
+    "state": "closed",
+    "milestone": "4.0",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/671"
+  },
+  {
+    "number": 687,
+    "title": "Test discovery fails when using TestCaseSource in RIDER and VS2017 with Resharper Unit Tests",
+    "state": "closed",
+    "milestone": "3.16.1",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "External"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/687"
+  },
+  {
+    "number": 691,
+    "title": "Incorrect format for TestCaseFilter Error: Missing '('",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "External",
+      "is:FQNIssue",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/691"
+  },
+  {
+    "number": 709,
+    "title": "TestCases not grouped using TestCaseSource \"SetName\" property in v3.16.1",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "External"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/709"
+  },
+  {
+    "number": 711,
+    "title": "Incorrect format for TestCaseFilter Error: Invalid Condition - Using = in SetName",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "closed:fixedinnewversion",
+      "FailsWithRealTimeTestDiscovery"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/711"
+  },
+  {
+    "number": 718,
+    "title": "Trace and Debug output is not displayed",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:docs"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/718"
+  },
+  {
+    "number": 729,
+    "title": "TestFixture with TestName displayed twice in TestExplorer",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "is:FQNIssue"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/729"
+  },
+  {
+    "number": 735,
+    "title": "TestCaseData: Missing Feature \"Jump to File\"",
+    "state": "closed",
+    "milestone": "3.17",
+    "labels": [
+      "closed:done",
+      "is:idea"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/735"
+  },
+  {
+    "number": 740,
+    "title": "Allow Warnings to be mapped to any outcome",
+    "state": "closed",
+    "milestone": "3.17",
+    "labels": [
+      "closed:done",
+      "is:feature"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/740"
+  },
+  {
+    "number": 744,
+    "title": "Setting TestCaseAttribute.TestName in .NET Core project causes not running tests",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:norepro",
+      "closed:noresponse"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/744"
+  },
+  {
+    "number": 758,
+    "title": "Feature Request: Adapter to support NonTestAssemblyAttribute",
+    "state": "closed",
+    "milestone": "3.17",
+    "labels": [
+      "closed:done",
+      "is:idea"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/758"
+  },
+  {
+    "number": 760,
+    "title": "Syntax for auto-removable test suffix",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:feature",
+      "soon:closing",
+      "closed:noresponse",
+      "is:discussion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/760"
+  },
+  {
+    "number": 765,
+    "title": "TestCaseSource + NSubstitute + Async = Skipped Tests in VS 2019",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/765"
+  },
+  {
+    "number": 768,
+    "title": "NRE at NUnit.VisualStudio.TestAdapter.NUnitEventListener.TestFinished(INUnitTestEventTestCase resultNode) When Referencing NUnit 3.11",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/768"
+  },
+  {
+    "number": 770,
+    "title": "\"Not a TestFixture, but TestSuite\" error when using un-namespaced SetupFixture",
+    "state": "closed",
+    "milestone": "4.0.0-beta.1",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/770"
+  },
+  {
+    "number": 774,
+    "title": "Tests not executed if Console.WriteLine() is used",
+    "state": "closed",
+    "milestone": "4.0.0-beta.1",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/774"
+  },
+  {
+    "number": 775,
+    "title": "When group of tests contains sub-group, VS 2019 Test Explorer shows Not Run, while all tests pass separately",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/775"
+  },
+  {
+    "number": 779,
+    "title": "Filtering tests with any \"PropertyAttribute\"",
+    "state": "closed",
+    "milestone": "4.0",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/779"
+  },
+  {
+    "number": 780,
+    "title": "NUnit3TestAdapter 3.17.0 empty output file regression?",
+    "state": "closed",
+    "milestone": "4.0.0-beta.1",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/780"
+  },
+  {
+    "number": 781,
+    "title": "An exception occurred while test discoverer 'NUnit3TestDiscoverer' was loading tests. Exception: Object reference not set to an instance of an object, with VS2015",
+    "state": "closed",
+    "milestone": "4.0.0-beta.1",
+    "labels": [
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/781"
+  },
+  {
+    "number": 782,
+    "title": "Test not run with IEnumerable tuple arguments from TestCaseSource",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "is:FQNIssue"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/782"
+  },
+  {
+    "number": 784,
+    "title": "Explicit tests are automatically run in Visual Studio 2019 after upgrading from 3.17.0 to 4.0.0-alpha.1",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/784"
+  },
+  {
+    "number": 786,
+    "title": "When using TRX logger, should warn about incompatible test adapter across .NET Framework and .NET Core and/or log where an adapter is located",
+    "state": "closed",
+    "milestone": "4.0.0-beta.1",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/786"
+  },
+  {
+    "number": 811,
+    "title": "\"System.FormatException: The UTC representation of the date falls outside the year range 1-9999\" from skipped test in Eastern European time zone",
+    "state": "closed",
+    "milestone": "4.0.0-beta.2",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/811"
+  },
+  {
+    "number": 817,
+    "title": "[Azure Devops Pipeline]: Error re-running test with TestCase Attribute",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "Investigate",
+      "is:FQNIssue",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/817"
+  },
+  {
+    "number": 822,
+    "title": "dotnet test not working for net35",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "External"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/822"
+  },
+  {
+    "number": 824,
+    "title": "\"Not a TestFixture or TestSuite, but SetUpFixture\" exception is being thrown in case of more than one [SetUpFixture]",
+    "state": "closed",
+    "milestone": "4.0.0-beta.2",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/824"
+  },
+  {
+    "number": 833,
+    "title": "NuGet library Shouldly will cause \"No source available\", so that double click on test fails.",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "External",
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/833"
+  },
+  {
+    "number": 843,
+    "title": "Reporting random seed for a test case",
+    "state": "closed",
+    "milestone": "4.0",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/843"
+  },
+  {
+    "number": 846,
+    "title": "NUnit3TestAdapter 4.0.0-beta.2 fails with Resharper",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "External",
+      "closed:SomebodyElsesProblem",
+      "external:fixedInNewVersion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/846"
+  },
+  {
+    "number": 847,
+    "title": "Adapter doesn't report TestCase properties",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug",
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/847"
+  },
+  {
+    "number": 854,
+    "title": "[BUG] incorrect grouping of ValueTuple<> array TestCase parameters",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "External",
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/854"
+  },
+  {
+    "number": 871,
+    "title": "Duplicated message when in TearDown when Assert.Fail is called.",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/871"
+  },
+  {
+    "number": 873,
+    "title": "Parametrized test not run from TestCaseSource when one argument is an array of tuple",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "is:FQNIssue",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/873"
+  },
+  {
+    "number": 874,
+    "title": "Explicit tests executed when running with dotnet test and a filter",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/874"
+  },
+  {
+    "number": 878,
+    "title": "NUnit3TestAdapter 4.0.0: test owner no longer is written to .trx file",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "pri:high",
+      "External",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/878"
+  },
+  {
+    "number": 881,
+    "title": "Cannot run tests where test name gets changed by code. Test run is just skipped",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "VS Issue",
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/881"
+  },
+  {
+    "number": 891,
+    "title": "The same object instance is used when running tests in parallel",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/891"
+  },
+  {
+    "number": 894,
+    "title": "Tests marked with ExplicitAttribute don't always run with category filter",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/894"
+  },
+  {
+    "number": 909,
+    "title": "Tests marked as \"Explicit\" are reported as \"Inconclusive\"",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "VS Issue",
+      "External",
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/909"
+  },
+  {
+    "number": 912,
+    "title": "Explicit runs when using NUnit-filters 'cat!=FOO'",
+    "state": "closed",
+    "milestone": "4.2",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:high"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/912"
+  },
+  {
+    "number": 914,
+    "title": "AddTestAttachment does not work anymore in VS2022",
+    "state": "closed",
+    "milestone": "4.2",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/914"
+  },
+  {
+    "number": 918,
+    "title": "New DiscoveryMode doesn't play nicely with `TestFixtureSource` - Missing GenericFixture",
+    "state": "closed",
+    "milestone": "4.2",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:high"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/918"
+  },
+  {
+    "number": 919,
+    "title": "VSTest test case filter does not work with parenthesis",
+    "state": "closed",
+    "milestone": "4.2",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/919"
+  },
+  {
+    "number": 935,
+    "title": "An exception occurred while invoking executor 'executor://nunit3testexecutor/': Incorrect format for TestCaseFilter Error when using Real Time Discovery",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "External"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/935"
+  },
+  {
+    "number": 941,
+    "title": "When running dotnet test with filter, all tests are run and all console output is logged.",
+    "state": "closed",
+    "milestone": "4.2.1",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:critical"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/941"
+  },
+  {
+    "number": 954,
+    "title": "Test generated by IFixtureBuilder is skipped the first time when its name changes",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:experimental"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/954"
+  },
+  {
+    "number": 972,
+    "title": "Nunit won't discover working non explicit tests Visual studio 2022",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/972"
+  },
+  {
+    "number": 973,
+    "title": "Unable to cast transparent proxy to type System.Web.UI.ICallbackEventHandler",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/973"
+  },
+  {
+    "number": 987,
+    "title": "System.ArgumentException: Unknown framework version 7.0",
+    "state": "closed",
+    "milestone": "4.3",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/987"
+  },
+  {
+    "number": 1015,
+    "title": "F# Range Attribute causes tests to be skipped",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1015"
+  },
+  {
+    "number": 1027,
+    "title": "Test Explorer is finding tests, but not running them after upgrading to NUnit3TestAdapter v4.3.0",
+    "state": "closed",
+    "milestone": "4.3.1",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1027"
+  },
+  {
+    "number": 1039,
+    "title": "Exception while loading tests; tests don't run. Since 4.3.1",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1039"
+  },
+  {
+    "number": 1041,
+    "title": "How to append date_timestamp in the test result file name?",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question",
+      "closed:wontfix"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1041"
+  },
+  {
+    "number": 1044,
+    "title": "Explicit tests executed when TestName is set on TestCaseData",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1044"
+  },
+  {
+    "number": 1053,
+    "title": "First unit test console entry causes VS Test Explorer Warning",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:discussion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1053"
+  },
+  {
+    "number": 1065,
+    "title": "WebHostBuilder.ConfigureServices method not found when using nunit3testadapter 4.4.0 ",
+    "state": "closed",
+    "milestone": "4.4.1",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1065"
+  },
+  {
+    "number": 1078,
+    "title": "Tests with the Explicit attribute are run when all test case filters are using the operator !~",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:idea",
+      "closed:norepro",
+      "reproNeeded"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1078"
+  },
+  {
+    "number": 1083,
+    "title": "Abstract Fixture with Tests and Derived Fixture without Tests",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:norepro",
+      "Investigate",
+      "reproNeeded"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1083"
+  },
+  {
+    "number": 1089,
+    "title": "TextContext.Progress.Writeline does not work in 4.4.2 when running dotnet test",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug",
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1089"
+  },
+  {
+    "number": 1096,
+    "title": "Parsing error when namespace contains 0",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1096"
+  },
+  {
+    "number": 1097,
+    "title": "NUnit test adapter does not detect test cases that contain \").\" in a string",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "Investigate"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1097"
+  },
+  {
+    "number": 1102,
+    "title": "Console output from application is logged as warnings",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1102"
+  },
+  {
+    "number": 1111,
+    "title": "New Mode that completely excludes explicit tests",
+    "state": "closed",
+    "milestone": "5.2",
+    "labels": [
+      "is:enhancement"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1111"
+  },
+  {
+    "number": 1127,
+    "title": "Unable to work with Test Driven tests after latest Visual Studio Preview.",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1127"
+  },
+  {
+    "number": 1132,
+    "title": "VS22 seems to be ignoring settings defined in the settings file",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1132"
+  },
+  {
+    "number": 1144,
+    "title": "dotnet test with .NET 8 SDK installed",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "closed:noresponse"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1144"
+  },
+  {
+    "number": 1146,
+    "title": "Exception when using test filters from .runsettings or --filter argument from dotnet test",
+    "state": "closed",
+    "milestone": "4.2",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1146"
+  },
+  {
+    "number": 1152,
+    "title": "Microsoft Testing Platform for NUnit",
+    "state": "closed",
+    "milestone": "5.0",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1152"
+  },
+  {
+    "number": 1166,
+    "title": "TestAdapter and overloaded parametrized test methods creates warnings and marks wrong status",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1166"
+  },
+  {
+    "number": 1167,
+    "title": "Console output handling reimagined",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:idea"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1167"
+  },
+  {
+    "number": 1182,
+    "title": "Category (Traits) should differentiate test cases even when they have same data name",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:wontfix",
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1182"
+  },
+  {
+    "number": 1183,
+    "title": "dotnet test -- NUnit.Where works but dotnet test --list-tests -- NUnit.Where does not",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:bydesign"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1183"
+  },
+  {
+    "number": 1186,
+    "title": "Failure during unit test discovery doesn't cause entire test suite to fail",
+    "state": "closed",
+    "milestone": "4.6",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1186"
+  },
+  {
+    "number": 1213,
+    "title": "Test discovery fails with exception when test project uses .NET 6+ but references a project using .NET Standard",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:docs"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1213"
+  },
+  {
+    "number": 1224,
+    "title": "TestCaseSource generates incorrect tests when used with tuples within tuples in Visual Studio Test Explorer",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1224"
+  },
+  {
+    "number": 1225,
+    "title": "Wish: Ability to get the test cases selected for execution",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1225"
+  },
+  {
+    "number": 1231,
+    "title": "/TestCaseFilter does not support ClassName property",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1231"
+  },
+  {
+    "number": 1240,
+    "title": "NUnit3TestAdapter v5 launches executables in the background",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1240"
+  },
+  {
+    "number": 1241,
+    "title": "VS Test Explorer NUnit error: \"TestPlatformFormatException: Filter string ... includes unrecognized escape sequence\"",
+    "state": "closed",
+    "milestone": "6.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1241"
+  },
+  {
+    "number": 1242,
+    "title": "Visual Studio Test Explorer doesnt show all tests",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1242"
+  },
+  {
+    "number": 1243,
+    "title": "NUnit3TestAdapter v5 Does Not Display Console.WriteLine in Azure Pipelines",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:wontfix"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1243"
+  },
+  {
+    "number": 1254,
+    "title": "Apparent test duplication when renaming tests",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "VS Issue",
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1254"
+  },
+  {
+    "number": 1258,
+    "title": "Categories aren't shown in Visual Studio when MTP is on",
+    "state": "closed",
+    "milestone": "5.1",
+    "labels": [
+      "is:bug",
+      "pri:critical",
+      "VS Issue",
+      "ReportedToMS",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1258"
+  },
+  {
+    "number": 1261,
+    "title": "Retry extension - no tests discovered with NUnit runner",
+    "state": "closed",
+    "milestone": "5.1",
+    "labels": [
+      "is:bug",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1261"
+  },
+  {
+    "number": 1264,
+    "title": "Tests are not discovered in VS when the NUnit version is 3.11 or less",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1264"
+  },
+  {
+    "number": 1265,
+    "title": "In Microsoft.Testing.Platform  , using dotnet test, the testResults folder is not created, but it is created when run test from the  TestExplorer of vs 2022",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1265"
+  },
+  {
+    "number": 1290,
+    "title": "OneTimeTeardown failures don't show up in results   (formerly: Include TearDown errors on stdout)",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1290"
+  },
+  {
+    "number": 1332,
+    "title": "[MTP] OutOfMemoryException in VS Test Explorer from TestFilterConverter.Tokenizer",
+    "state": "closed",
+    "milestone": "6.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1332"
+  },
+  {
+    "number": 1336,
+    "title": "[MTP] No output from `TestContext.Progress`",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "Investigate",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1336"
+  },
+  {
+    "number": 1348,
+    "title": "[MTP] AwesomeAssertions throws different NUnit.Framework.AssertionException than expected at runtime",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "pri:high",
+      "Investigate",
+      "closed:SomebodyElsesProblem",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1348"
+  },
+  {
+    "number": 1349,
+    "title": "[MTP] Filter string includes unrecognized escape sequence",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "Investigate",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1349"
+  },
+  {
+    "number": 1351,
+    "title": "Test class name missing in TRX report for parametrized fixture when running through MTP",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "Investigate",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1351"
+  },
+  {
+    "number": 1357,
+    "title": "Test cases with ArgDisplayNames containing closing braces `)` are recognized as a different test and names are truncated after first closing brace",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1357"
+  },
+  {
+    "number": 1360,
+    "title": "Cannot run (and debug) NUnit tests in Visual Studio 2022 after upgrade NUnit3TestAdapter to version 5.0.0 when using .NET 4.7.2 Framework",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1360"
+  },
+  {
+    "number": 1367,
+    "title": "v10 of Microsoft.* nugets makes it more difficult to support older nugets and runtime",
+    "state": "open",
+    "milestone": "6.0.1",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1367"
+  },
+  {
+    "number": 1371,
+    "title": ":test_tube: V6 - assembly loading issue",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1371"
+  },
+  {
+    "number": 1374,
+    "title": ":test_tube: System.Diagnostics.Trace.Assert crashes the test process after updating to NUnit3TestAdapter 6.0.0",
+    "state": "open",
+    "milestone": "6.0.1",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1374"
+  },
+  {
+    "number": 1375,
+    "title": ":test_tube: New failures in dynamic code evaluation in v6",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1375"
+  }
+]
