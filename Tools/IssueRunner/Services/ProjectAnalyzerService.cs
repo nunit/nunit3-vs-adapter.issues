@@ -83,6 +83,28 @@ public sealed class ProjectAnalyzerService : IProjectAnalyzerService
         }
     }
 
+    /// <inheritdoc />
+    public bool UsesTestingPlatform(string projectFilePath)
+    {
+        try
+        {
+            var doc = XDocument.Load(projectFilePath);
+            var root = doc.Root;
+
+            if (root == null)
+            {
+                return false;
+            }
+
+            var enableNUnitRunner = root.Descendants("EnableNUnitRunner").FirstOrDefault();
+            return enableNUnitRunner != null && enableNUnitRunner.Value.Equals("true", StringComparison.OrdinalIgnoreCase);
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
     private static List<string> ParseTargetFrameworks(XElement root)
     {
         var frameworks = new List<string>();

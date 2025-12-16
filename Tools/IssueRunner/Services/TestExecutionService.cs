@@ -9,6 +9,7 @@ namespace IssueRunner.Services;
 public sealed partial class TestExecutionService : ITestExecutionService
 {
     private readonly ProcessExecutor _processExecutor;
+    private readonly IProjectAnalyzerService _projectAnalyzer;
     private readonly ILogger<TestExecutionService> _logger;
 
     /// <summary>
@@ -16,9 +17,11 @@ public sealed partial class TestExecutionService : ITestExecutionService
     /// </summary>
     public TestExecutionService(
         ProcessExecutor processExecutor,
+        IProjectAnalyzerService projectAnalyzer,
         ILogger<TestExecutionService> logger)
     {
         _processExecutor = processExecutor;
+        _projectAnalyzer = projectAnalyzer;
         _logger = logger;
     }
 
@@ -124,21 +127,41 @@ public sealed partial class TestExecutionService : ITestExecutionService
         var runSettings = FindRunSettings(issueFolderPath);
         var workingDir = Path.GetDirectoryName(projectPath)!;
 
-        // Check if both .sln and .csproj exist in the same directory
-        // If so, we need to be explicit with --solution or --project flags
-        var hasMultipleProjectTypes = HasBothSolutionAndProject(workingDir);
+        // Check if this is an MTP project - they require --solution/--project flags
+        var usesMtp = _projectAnalyzer.UsesTestingPlatform(projectPath);
+        
+        // Look for a solution file in the same directory
+        var projectDir = Path.GetDirectoryName(projectPath)!;
+        var solutionFiles = Directory.GetFiles(projectDir, "*.sln");
         
         string args;
-        if (hasMultipleProjectTypes)
+        if (usesMtp)
         {
-            var isSolution = projectPath.EndsWith(".sln", StringComparison.OrdinalIgnoreCase);
-            args = isSolution 
-                ? $"test --solution \"{projectPath}\"" 
-                : $"test --project \"{projectPath}\"";
+            // MTP requires explicit flags
+            if (solutionFiles.Length == 1)
+            {
+                var solutionFileName = Path.GetFileName(solutionFiles[0]);
+                args = $"test --solution \"{solutionFileName}\"";
+            }
+            else
+            {
+                var projectFileName = Path.GetFileName(projectPath);
+                args = $"test --project \"{projectFileName}\"";
+            }
         }
         else
         {
-            args = $"test \"{projectPath}\"";
+            // Traditional VSTest - use positional arguments
+            if (solutionFiles.Length == 1)
+            {
+                var solutionFileName = Path.GetFileName(solutionFiles[0]);
+                args = $"test \"{solutionFileName}\"";
+            }
+            else
+            {
+                var projectFileName = Path.GetFileName(projectPath);
+                args = $"test \"{projectFileName}\"";
+            }
         }
         
         if (!string.IsNullOrEmpty(runSettings))
@@ -161,15 +184,6 @@ public sealed partial class TestExecutionService : ITestExecutionService
             exitCode);
 
         return (success, output, error, runSettings, null);
-    }
-
-    private static bool HasBothSolutionAndProject(string directory)
-    {
-        var hasSolution = Directory.GetFiles(directory, "*.sln").Length > 0;
-        var hasProject = Directory.GetFiles(directory, "*.csproj").Length > 0 ||
-                        Directory.GetFiles(directory, "*.vbproj").Length > 0 ||
-                        Directory.GetFiles(directory, "*.fsproj").Length > 0;
-        return hasSolution && hasProject;
     }
 
     private static string? FindRunSettings(string issueFolderPath)

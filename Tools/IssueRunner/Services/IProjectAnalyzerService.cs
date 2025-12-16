@@ -28,4 +28,11 @@ public interface IProjectAnalyzerService
     /// <param name="projectFilePath">Path to the csproj file.</param>
     /// <returns>"SDK-style" or "classic".</returns>
     string GetProjectStyle(string projectFilePath);
+
+    /// <summary>
+    /// Checks if a project uses the Testing Platform (EnableNUnitRunner).
+    /// </summary>
+    /// <param name="projectFilePath">Path to the csproj file.</param>
+    /// <returns>True if project uses Testing Platform.</returns>
+    bool UsesTestingPlatform(string projectFilePath);
 }

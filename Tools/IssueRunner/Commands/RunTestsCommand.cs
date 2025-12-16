@@ -197,9 +197,17 @@ public sealed class RunTestsCommand
         
         Console.WriteLine($"[{issueNumber}] Running tests in {relativeProjectPath} ({executionMethod})");
 
-        if (options.Verbosity == LogVerbosity.Verbose && !string.IsNullOrWhiteSpace(testOutput))
+        if (options.Verbosity == LogVerbosity.Verbose)
         {
-            Console.WriteLine(testOutput);
+            if (!string.IsNullOrWhiteSpace(testOutput))
+            {
+                Console.WriteLine(testOutput);
+            }
+            if (!string.IsNullOrWhiteSpace(testError))
+            {
+                Console.WriteLine("--- Test stderr ---");
+                Console.WriteLine(testError);
+            }
         }
 
         // Show result
