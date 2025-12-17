@@ -2,8 +2,21 @@ using IssueRunner.Models;
 using IssueRunner.Services;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace IssueRunner.Commands;
+
+/// <summary>
+/// Repository configuration model.
+/// </summary>
+internal class RepositoryConfig
+{
+    [JsonPropertyName("owner")]
+    public string? Owner { get; set; }
+    
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
+}
 
 /// <summary>
 /// Command to sync metadata from GitHub to central file.
@@ -39,27 +52,111 @@ public sealed class SyncFromGitHubCommand
         string? outputPath,
         CancellationToken cancellationToken)
     {
-        Console.WriteLine("Syncing issue metadata from GitHub...");
+        try
+        {
+            // Load repository configuration
+            var (owner, name) = LoadRepositoryConfig(repositoryRoot);
+            Console.WriteLine($"Syncing from {owner}/{name}...");
+            Console.WriteLine();
+            
+            // Configure the GitHub API service with the repository
+            _githubApi.SetRepository(owner, name);
 
-        var issueFolders = _issueDiscovery.DiscoverIssueFolders(repositoryRoot);
-        var issueNumbers = issueFolders.Keys.OrderBy(n => n);
+            var issueFolders = _issueDiscovery.DiscoverIssueFolders(repositoryRoot);
+            var issueNumbers = issueFolders.Keys.OrderBy(n => n).ToList();
 
-        Console.WriteLine($"Found {issueFolders.Count} issue folders, fetching metadata...");
+            var successCount = 0;
+            var failCount = 0;
+            var metadata = new List<IssueMetadata>();
 
-        var metadata = await _githubApi.FetchMultipleIssuesAsync(
-            issueNumbers,
-            cancellationToken);
+            foreach (var issueNumber in issueNumbers)
+            {
+                var result = await _githubApi.FetchIssueMetadataAsync(
+                    issueNumber,
+                    cancellationToken);
+                
+                if (result != null)
+                {
+                    metadata.Add(result);
+                    Console.WriteLine($"[{issueNumber}]: Synced - {result.Title}");
+                    successCount++;
+                }
+                else
+                {
+                    Console.WriteLine($"[{issueNumber}]: Failed");
+                    Console.WriteLine($"  Issue not found in repository {owner}/{name}");
+                    failCount++;
+                }
+                
+                await Task.Delay(100, cancellationToken);
+            }
 
-        outputPath ??= Path.Combine(
-            repositoryRoot,
-            "Tools",
-            "issues_metadata.json");
+            Console.WriteLine();
+            Console.WriteLine($"Sync complete: {successCount} succeeded, {failCount} failed");
 
-        await WriteMetadataFileAsync(outputPath, metadata, cancellationToken);
+            if (metadata.Count > 0)
+            {
+                outputPath ??= Path.Combine(
+                    repositoryRoot,
+                    "Tools",
+                    "issues_metadata.json");
 
-        Console.WriteLine($"Successfully synced {metadata.Count} issues to {outputPath}");
+                await WriteMetadataFileAsync(outputPath, metadata, cancellationToken);
+                Console.WriteLine($"Wrote metadata to {Path.GetFileName(outputPath)}");
+            }
 
-        return 0;
+            return failCount > 0 ? 1 : 0;
+        }
+        catch (FileNotFoundException)
+        {
+            return 1;
+        }
+    }
+
+    private (string owner, string name) LoadRepositoryConfig(string repositoryRoot)
+    {
+        // Try Tools/repository.json first, then root/repository.json
+        var configPath = Path.Combine(repositoryRoot, "Tools", "repository.json");
+        if (!File.Exists(configPath))
+        {
+            configPath = Path.Combine(repositoryRoot, "repository.json");
+        }
+        
+        if (!File.Exists(configPath))
+        {
+            Console.WriteLine("ERROR: Repository configuration file not found");
+            Console.WriteLine();
+            Console.WriteLine("Create repository.json at one of these locations:");
+            Console.WriteLine($"  - {Path.Combine(repositoryRoot, "Tools", "repository.json")}");
+            Console.WriteLine($"  - {Path.Combine(repositoryRoot, "repository.json")}");
+            Console.WriteLine();
+            Console.WriteLine("Content should be:");
+            Console.WriteLine("{");
+            Console.WriteLine("  \"owner\": \"nunit\",");
+            Console.WriteLine("  \"name\": \"nunit\"");
+            Console.WriteLine("}");
+            throw new FileNotFoundException("Repository configuration file (repository.json) is required");
+        }
+
+        try
+        {
+            var json = File.ReadAllText(configPath);
+            var config = JsonSerializer.Deserialize<RepositoryConfig>(json);
+            
+            if (config?.Owner == null || config?.Name == null)
+            {
+                throw new InvalidOperationException("Invalid repository.json: owner and name are required");
+            }
+
+            return (config.Owner, config.Name);
+        }
+        catch (JsonException ex)
+        {
+            _logger.LogError(ex, "Failed to parse repository config from {Path}", configPath);
+            Console.WriteLine($"ERROR: Invalid JSON in {configPath}");
+            Console.WriteLine($"Details: {ex.Message}");
+            throw;
+        }
     }
 
     private async Task WriteMetadataFileAsync(

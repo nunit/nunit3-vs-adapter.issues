@@ -9,7 +9,7 @@
       "pri:normal",
       "is:build"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/0001"
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1"
   },
   {
     "number": 228,
@@ -46,7 +46,7 @@
   },
   {
     "number": 266,
-    "title": "Console.WriteLine statements in \"OneTimeSetUp\" and \"OneTimeTearDown\" is not captured",
+    "title": "Console.WriteLine statements in \u0022OneTimeSetUp\u0022 and \u0022OneTimeTearDown\u0022 is not captured",
     "state": "open",
     "milestone": "No milestone",
     "labels": [
@@ -57,7 +57,7 @@
   },
   {
     "number": 343,
-    "title": "Console.WriteLine() does not write to console when running`dotnet test`",
+    "title": "Console.WriteLine() does not write to console when running\u0060dotnet test\u0060",
     "state": "closed",
     "milestone": "3.17",
     "labels": [
@@ -90,7 +90,7 @@
   },
   {
     "number": 484,
-    "title": "Cannot run an individual test whose TestCase parameter contains characters from the range [U+0001..U+001F]",
+    "title": "Cannot run an individual test whose TestCase parameter contains characters from the range [U\u002B0001..U\u002B001F]",
     "state": "closed",
     "milestone": "3.16",
     "labels": [
@@ -143,7 +143,8 @@
       "VS Issue",
       "External",
       "closed:SomebodyElsesProblem",
-      "ReportedToMS"
+      "ReportedToMS",
+      "closed:fixedinnewversion"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/535"
   },
@@ -230,7 +231,7 @@
   },
   {
     "number": 691,
-    "title": "Incorrect format for TestCaseFilter Error: Missing '('",
+    "title": "Incorrect format for TestCaseFilter Error: Missing \u0027(\u0027",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
@@ -244,7 +245,7 @@
   },
   {
     "number": 709,
-    "title": "TestCases not grouped using TestCaseSource \"SetName\" property in v3.16.1",
+    "title": "TestCases not grouped using TestCaseSource \u0022SetName\u0022 property in v3.16.1",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
@@ -291,7 +292,7 @@
   },
   {
     "number": 735,
-    "title": "TestCaseData: Missing Feature \"Jump to File\"",
+    "title": "TestCaseData: Missing Feature \u0022Jump to File\u0022",
     "state": "closed",
     "milestone": "3.17",
     "labels": [
@@ -348,7 +349,7 @@
   },
   {
     "number": 765,
-    "title": "TestCaseSource + NSubstitute + Async = Skipped Tests in VS 2019",
+    "title": "TestCaseSource \u002B NSubstitute \u002B Async = Skipped Tests in VS 2019",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
@@ -368,7 +369,7 @@
   },
   {
     "number": 770,
-    "title": "\"Not a TestFixture, but TestSuite\" error when using un-namespaced SetupFixture",
+    "title": "\u0022Not a TestFixture, but TestSuite\u0022 error when using un-namespaced SetupFixture",
     "state": "closed",
     "milestone": "4.0.0-beta.1",
     "labels": [
@@ -391,16 +392,18 @@
   {
     "number": 775,
     "title": "When group of tests contains sub-group, VS 2019 Test Explorer shows Not Run, while all tests pass separately",
-    "state": "open",
+    "state": "closed",
     "milestone": "No milestone",
     "labels": [
-      "is:bug"
+      "is:bug",
+      "closed:norepro",
+      "closed:noresponse"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/775"
   },
   {
     "number": 779,
-    "title": "Filtering tests with any \"PropertyAttribute\"",
+    "title": "Filtering tests with any \u0022PropertyAttribute\u0022",
     "state": "closed",
     "milestone": "4.0",
     "labels": [
@@ -422,7 +425,7 @@
   },
   {
     "number": 781,
-    "title": "An exception occurred while test discoverer 'NUnit3TestDiscoverer' was loading tests. Exception: Object reference not set to an instance of an object, with VS2015",
+    "title": "An exception occurred while test discoverer \u0027NUnit3TestDiscoverer\u0027 was loading tests. Exception: Object reference not set to an instance of an object, with VS2015",
     "state": "closed",
     "milestone": "4.0.0-beta.1",
     "labels": [
@@ -464,7 +467,7 @@
   },
   {
     "number": 811,
-    "title": "\"System.FormatException: The UTC representation of the date falls outside the year range 1-9999\" from skipped test in Eastern European time zone",
+    "title": "\u0022System.FormatException: The UTC representation of the date falls outside the year range 1-9999\u0022 from skipped test in Eastern European time zone",
     "state": "closed",
     "milestone": "4.0.0-beta.2",
     "labels": [
@@ -499,7 +502,7 @@
   },
   {
     "number": 824,
-    "title": "\"Not a TestFixture or TestSuite, but SetUpFixture\" exception is being thrown in case of more than one [SetUpFixture]",
+    "title": "\u0022Not a TestFixture or TestSuite, but SetUpFixture\u0022 exception is being thrown in case of more than one [SetUpFixture]",
     "state": "closed",
     "milestone": "4.0.0-beta.2",
     "labels": [
@@ -510,7 +513,7 @@
   },
   {
     "number": 833,
-    "title": "NuGet library Shouldly will cause \"No source available\", so that double click on test fails.",
+    "title": "NuGet library Shouldly will cause \u0022No source available\u0022, so that double click on test fails.",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
@@ -544,7 +547,7 @@
   },
   {
     "number": 847,
-    "title": "Adapter doesn't report TestCase properties",
+    "title": "Adapter doesn\u0027t report TestCase properties",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
@@ -555,7 +558,7 @@
   },
   {
     "number": 854,
-    "title": "[BUG] incorrect grouping of ValueTuple<> array TestCase parameters",
+    "title": "[BUG] incorrect grouping of ValueTuple\u003C\u003E array TestCase parameters",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
@@ -565,12 +568,12 @@
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/854"
   },
   {
-    "number": 871,
+    "number": 3957,
     "title": "Duplicated message when in TearDown when Assert.Fail is called.",
     "state": "open",
     "milestone": "No milestone",
     "labels": [],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/871"
+    "url": "https://github.com/nunit/nunit/issues/3957"
   },
   {
     "number": 873,
@@ -629,18 +632,18 @@
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/891"
   },
   {
-    "number": 894,
-    "title": "Tests marked with ExplicitAttribute don't always run with category filter",
+    "number": 3979,
+    "title": "Tests marked with ExplicitAttribute don\u0027t always run with category filter",
     "state": "open",
     "milestone": "No milestone",
     "labels": [
       "is:bug"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/894"
+    "url": "https://github.com/nunit/nunit/issues/3979"
   },
   {
     "number": 909,
-    "title": "Tests marked as \"Explicit\" are reported as \"Inconclusive\"",
+    "title": "Tests marked as \u0022Explicit\u0022 are reported as \u0022Inconclusive\u0022",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
@@ -652,7 +655,7 @@
   },
   {
     "number": 912,
-    "title": "Explicit runs when using NUnit-filters 'cat!=FOO'",
+    "title": "Explicit runs when using NUnit-filters \u0027cat!=FOO\u0027",
     "state": "closed",
     "milestone": "4.2",
     "labels": [
@@ -675,7 +678,7 @@
   },
   {
     "number": 918,
-    "title": "New DiscoveryMode doesn't play nicely with `TestFixtureSource` - Missing GenericFixture",
+    "title": "New DiscoveryMode doesn\u0027t play nicely with \u0060TestFixtureSource\u0060 - Missing GenericFixture",
     "state": "closed",
     "milestone": "4.2",
     "labels": [
@@ -698,7 +701,7 @@
   },
   {
     "number": 935,
-    "title": "An exception occurred while invoking executor 'executor://nunit3testexecutor/': Incorrect format for TestCaseFilter Error when using Real Time Discovery",
+    "title": "An exception occurred while invoking executor \u0027executor://nunit3testexecutor/\u0027: Incorrect format for TestCaseFilter Error when using Real Time Discovery",
     "state": "open",
     "milestone": "No milestone",
     "labels": [
@@ -732,7 +735,7 @@
   },
   {
     "number": 972,
-    "title": "Nunit won't discover working non explicit tests Visual studio 2022",
+    "title": "Nunit won\u0027t discover working non explicit tests Visual studio 2022",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
@@ -762,14 +765,14 @@
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/987"
   },
   {
-    "number": 1015,
+    "number": 4226,
     "title": "F# Range Attribute causes tests to be skipped",
     "state": "open",
     "milestone": "No milestone",
     "labels": [
       "is:bug"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1015"
+    "url": "https://github.com/nunit/nunit/issues/4226"
   },
   {
     "number": 1027,
@@ -784,13 +787,24 @@
   },
   {
     "number": 1039,
-    "title": "Exception while loading tests; tests don't run. Since 4.3.1",
+    "title": "Exception while loading tests; tests don\u0027t run. Since 4.3.1",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1039"
+  },
+  {
+    "number": 1040,
+    "title": "net461 tests don\u0027t run with Nunit3TestAdapter 4.3.x",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug",
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1040"
   },
   {
     "number": 1041,
@@ -881,7 +895,7 @@
   },
   {
     "number": 1097,
-    "title": "NUnit test adapter does not detect test cases that contain \").\" in a string",
+    "title": "NUnit test adapter does not detect test cases that contain \u0022).\u0022 in a string",
     "state": "open",
     "milestone": "No milestone",
     "labels": [
@@ -945,7 +959,7 @@
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1144"
   },
   {
-    "number": 1146,
+    "number": 4589,
     "title": "Exception when using test filters from .runsettings or --filter argument from dotnet test",
     "state": "closed",
     "milestone": "4.2",
@@ -953,7 +967,7 @@
       "is:bug",
       "closed:done"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1146"
+    "url": "https://github.com/nunit/nunit/issues/4589"
   },
   {
     "number": 1152,
@@ -1009,7 +1023,7 @@
   },
   {
     "number": 1186,
-    "title": "Failure during unit test discovery doesn't cause entire test suite to fail",
+    "title": "Failure during unit test discovery doesn\u0027t cause entire test suite to fail",
     "state": "closed",
     "milestone": "4.6",
     "labels": [
@@ -1019,7 +1033,7 @@
   },
   {
     "number": 1213,
-    "title": "Test discovery fails with exception when test project uses .NET 6+ but references a project using .NET Standard",
+    "title": "Test discovery fails with exception when test project uses .NET 6\u002B but references a project using .NET Standard",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
@@ -1069,7 +1083,7 @@
   },
   {
     "number": 1241,
-    "title": "VS Test Explorer NUnit error: \"TestPlatformFormatException: Filter string ... includes unrecognized escape sequence\"",
+    "title": "VS Test Explorer NUnit error: \u0022TestPlatformFormatException: Filter string ... includes unrecognized escape sequence\u0022",
     "state": "closed",
     "milestone": "6.0",
     "labels": [
@@ -1112,7 +1126,7 @@
   },
   {
     "number": 1258,
-    "title": "Categories aren't shown in Visual Studio when MTP is on",
+    "title": "Categories aren\u0027t shown in Visual Studio when MTP is on",
     "state": "closed",
     "milestone": "5.1",
     "labels": [
@@ -1158,7 +1172,7 @@
   },
   {
     "number": 1290,
-    "title": "OneTimeTeardown failures don't show up in results   (formerly: Include TearDown errors on stdout)",
+    "title": "OneTimeTeardown failures don\u0027t show up in results   (formerly: Include TearDown errors on stdout)",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
@@ -1182,7 +1196,7 @@
   },
   {
     "number": 1336,
-    "title": "[MTP] No output from `TestContext.Progress`",
+    "title": "[MTP] No output from \u0060TestContext.Progress\u0060",
     "state": "open",
     "milestone": "No milestone",
     "labels": [
@@ -1228,7 +1242,7 @@
   },
   {
     "number": 1357,
-    "title": "Test cases with ArgDisplayNames containing closing braces `)` are recognized as a different test and names are truncated after first closing brace",
+    "title": "Test cases with ArgDisplayNames containing closing braces \u0060)\u0060 are recognized as a different test and names are truncated after first closing brace",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [

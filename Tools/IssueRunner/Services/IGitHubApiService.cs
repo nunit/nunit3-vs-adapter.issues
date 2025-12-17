@@ -8,6 +8,13 @@ namespace IssueRunner.Services;
 public interface IGitHubApiService
 {
     /// <summary>
+    /// Sets the repository configuration.
+    /// </summary>
+    /// <param name="owner">Repository owner.</param>
+    /// <param name="name">Repository name.</param>
+    void SetRepository(string owner, string name);
+
+    /// <summary>
     /// Fetches issue metadata from GitHub for the specified issue number.
     /// </summary>
     /// <param name="issueNumber">The issue number to fetch.</param>

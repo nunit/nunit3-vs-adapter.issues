@@ -17,7 +17,7 @@ public sealed class RunTestsCommand
     private readonly ITestExecutionService _testExecution;
     private readonly ILogger<RunTestsCommand> _logger;
     private readonly ILoggerFactory _loggerFactory;
-    private readonly ProcessExecutor _processExecutor;
+    private readonly IProcessExecutor _processExecutor;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="RunTestsCommand"/> class.
@@ -30,7 +30,7 @@ public sealed class RunTestsCommand
         ITestExecutionService testExecution,
         ILogger<RunTestsCommand> logger,
         ILoggerFactory loggerFactory,
-        ProcessExecutor processExecutor)
+        IProcessExecutor processExecutor)
     {
         _issueDiscovery = issueDiscovery;
         _projectAnalyzer = projectAnalyzer;
@@ -52,6 +52,9 @@ public sealed class RunTestsCommand
     {
         try
         {
+            Console.WriteLine($"Repository root: {repositoryRoot}");
+            Console.WriteLine();
+
             var issueFolders = _issueDiscovery.DiscoverIssueFolders(repositoryRoot);
             var centralMetadata = await LoadCentralMetadataAsync(repositoryRoot, cancellationToken);
             var metadataDict = centralMetadata.ToDictionary(m => m.Number);
@@ -393,7 +396,10 @@ public sealed class RunTestsCommand
         if (!File.Exists(path))
         {
             Console.WriteLine($"ERROR: Metadata file not found: {path}");
-            Console.WriteLine("Please run: IssueRunner metadata sync-from-github");
+            Console.WriteLine();
+            Console.WriteLine("Please run the sync scripts to create metadata:");
+            Console.WriteLine("  Windows:    ..\\nunit3-vs-adapter.issues\\Tools\\sync-from-github.cmd");
+            Console.WriteLine("  Linux/macOS: ../nunit3-vs-adapter.issues/Tools/sync-from-github.sh");
             throw new FileNotFoundException($"Metadata file not found: {path}", path);
         }
 

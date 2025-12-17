@@ -10,12 +10,12 @@ namespace IssueRunner.Services;
 /// </summary>
 public sealed class GitHubApiService : IGitHubApiService
 {
-    private const string RepoOwner = "nunit";
-    private const string RepoName = "nunit3-vs-adapter";
     private const string ApiBaseUrl = "https://api.github.com";
     
     private readonly HttpClient _httpClient;
     private readonly ILogger<GitHubApiService> _logger;
+    private string _repoOwner = "nunit";
+    private string _repoName = "nunit3-vs-adapter";
 
     /// <summary>
     /// Initializes a new instance of the <see cref="GitHubApiService"/> class.
@@ -30,12 +30,21 @@ public sealed class GitHubApiService : IGitHubApiService
         ConfigureHttpClient();
     }
 
+    /// <summary>
+    /// Sets the repository configuration.
+    /// </summary>
+    public void SetRepository(string owner, string name)
+    {
+        _repoOwner = owner;
+        _repoName = name;
+    }
+
     /// <inheritdoc />
     public async Task<IssueMetadata?> FetchIssueMetadataAsync(
         int issueNumber,
         CancellationToken cancellationToken = default)
     {
-        var url = $"{ApiBaseUrl}/repos/{RepoOwner}/{RepoName}/issues/{issueNumber}";
+        var url = $"{ApiBaseUrl}/repos/{_repoOwner}/{_repoName}/issues/{issueNumber}";
         
         try
         {
@@ -43,7 +52,7 @@ public sealed class GitHubApiService : IGitHubApiService
             
             if (!response.IsSuccessStatusCode)
             {
-                _logger.LogWarning(
+                _logger.LogDebug(
                     "Failed to fetch issue {IssueNumber}: {StatusCode}",
                     issueNumber,
                     response.StatusCode);
@@ -62,7 +71,7 @@ public sealed class GitHubApiService : IGitHubApiService
         }
         catch (Exception ex)
         {
-            _logger.LogError(
+            _logger.LogDebug(
                 ex,
                 "Error fetching issue {IssueNumber}",
                 issueNumber);
@@ -86,10 +95,6 @@ public sealed class GitHubApiService : IGitHubApiService
             if (metadata != null)
             {
                 results.Add(metadata);
-                _logger.LogDebug(
-                    "Fetched issue {Number}: {Title}",
-                    metadata.Number,
-                    metadata.Title);
             }
             
             await Task.Delay(100, cancellationToken);

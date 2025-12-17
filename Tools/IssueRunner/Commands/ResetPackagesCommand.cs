@@ -7,7 +7,7 @@ using System.Xml.Linq;
 namespace IssueRunner.Commands;
 
 /// <summary>
-/// Full issue metadata including packages (from issue folder).
+/// Full issue metadata including packages and frameworks (from issue folder).
 /// </summary>
 internal sealed class IssueMetadataFull
 {
@@ -16,6 +16,9 @@ internal sealed class IssueMetadataFull
 
     [JsonPropertyName("title")]
     public string? Title { get; init; }
+
+    [JsonPropertyName("target_frameworks")]
+    public List<string>? TargetFrameworks { get; init; }
 
     [JsonPropertyName("packages")]
     public List<PackageInfo>? Packages { get; init; }
@@ -142,25 +145,78 @@ public sealed class ResetPackagesCommand
                 return;
             }
 
-            var metadataPackages = metadata.Packages.ToDictionary(p => p.Name, p => p.Version);
             var updated = false;
 
-            foreach (var packageRef in root.Descendants("PackageReference"))
+            // Reset frameworks if metadata has them
+            if (metadata.TargetFrameworks != null && metadata.TargetFrameworks.Count > 0)
             {
-                var name = packageRef.Attribute("Include")?.Value;
-
-                if (name != null && metadataPackages.TryGetValue(name, out var version))
+                var metadataFrameworks = string.Join(";", metadata.TargetFrameworks);
+                
+                // Check for TargetFrameworks (plural) first
+                var targetFrameworksElement = root.Descendants("TargetFrameworks").FirstOrDefault();
+                var targetFrameworkElement = root.Descendants("TargetFramework").FirstOrDefault();
+                
+                if (metadata.TargetFrameworks.Count > 1)
                 {
-                    var versionAttr = packageRef.Attribute("Version");
-                    if (versionAttr != null && versionAttr.Value != version)
+                    // Should use TargetFrameworks (plural)
+                    if (targetFrameworkElement != null)
                     {
-                        versionAttr.Value = version;
+                        // Convert from singular to plural
+                        targetFrameworkElement.Name = "TargetFrameworks";
+                        targetFrameworkElement.Value = metadataFrameworks;
                         updated = true;
-                        _logger.LogDebug(
-                            "[{Issue}] Reset {Package} to {Version}",
-                            issueNumber,
-                            name,
-                            version);
+                        _logger.LogDebug("[{Issue}] Converted TargetFramework to TargetFrameworks: {Frameworks}", issueNumber, metadataFrameworks);
+                    }
+                    else if (targetFrameworksElement != null && targetFrameworksElement.Value != metadataFrameworks)
+                    {
+                        targetFrameworksElement.Value = metadataFrameworks;
+                        updated = true;
+                        _logger.LogDebug("[{Issue}] Reset TargetFrameworks to {Frameworks}", issueNumber, metadataFrameworks);
+                    }
+                }
+                else
+                {
+                    // Should use TargetFramework (singular)
+                    var singleFramework = metadata.TargetFrameworks[0];
+                    
+                    if (targetFrameworksElement != null)
+                    {
+                        // Convert from plural to singular
+                        targetFrameworksElement.Name = "TargetFramework";
+                        targetFrameworksElement.Value = singleFramework;
+                        updated = true;
+                        _logger.LogDebug("[{Issue}] Converted TargetFrameworks to TargetFramework: {Framework}", issueNumber, singleFramework);
+                    }
+                    else if (targetFrameworkElement != null && targetFrameworkElement.Value != singleFramework)
+                    {
+                        targetFrameworkElement.Value = singleFramework;
+                        updated = true;
+                        _logger.LogDebug("[{Issue}] Reset TargetFramework to {Framework}", issueNumber, singleFramework);
+                    }
+                }
+            }
+
+            // Reset packages
+            var metadataPackages = metadata.Packages?.ToDictionary(p => p.Name, p => p.Version);
+            if (metadataPackages != null)
+            {
+                foreach (var packageRef in root.Descendants("PackageReference"))
+                {
+                    var name = packageRef.Attribute("Include")?.Value;
+
+                    if (name != null && metadataPackages.TryGetValue(name, out var version))
+                    {
+                        var versionAttr = packageRef.Attribute("Version");
+                        if (versionAttr != null && versionAttr.Value != version)
+                        {
+                            versionAttr.Value = version;
+                            updated = true;
+                            _logger.LogDebug(
+                                "[{Issue}] Reset {Package} to {Version}",
+                                issueNumber,
+                                name,
+                                version);
+                        }
                     }
                 }
             }
@@ -168,7 +224,7 @@ public sealed class ResetPackagesCommand
             if (updated)
             {
                 doc.Save(projectFile);
-                Console.WriteLine($"[{issueNumber}] Reset packages to metadata versions");
+                Console.WriteLine($"[{issueNumber}] Reset to metadata versions");
             }
             else
             {
@@ -177,7 +233,7 @@ public sealed class ResetPackagesCommand
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "[{Issue}] Error resetting packages", issueNumber);
+            _logger.LogError(ex, "[{Issue}] Error resetting project", issueNumber);
             Console.WriteLine($"[{issueNumber}] Error: {ex.Message}");
         }
 

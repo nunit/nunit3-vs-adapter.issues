@@ -27,13 +27,13 @@ public class IssueMetadataTests
         var deserialized = JsonSerializer.Deserialize<IssueMetadata>(json);
 
         // Assert
-        deserialized.Should().NotBeNull();
-        deserialized!.Number.Should().Be(228);
-        deserialized.Title.Should().Be("Tests inherited from Generic test fixture");
-        deserialized.State.Should().Be("closed");
-        deserialized.Milestone.Should().Be("No milestone");
-        deserialized.Labels.Should().BeEquivalentTo(["is:bug", "pri:normal"]);
-        deserialized.Url.Should().Be("https://github.com/nunit/nunit3-vs-adapter/issues/228");
+        Assert.That(deserialized, Is.Not.Null);
+        Assert.That(deserialized!.Number, Is.EqualTo(228));
+        Assert.That(deserialized.Title, Is.EqualTo("Tests inherited from Generic test fixture"));
+        Assert.That(deserialized.State, Is.EqualTo("closed"));
+        Assert.That(deserialized.Milestone, Is.EqualTo("No milestone"));
+        Assert.That(deserialized.Labels, Is.EquivalentTo(new[] { "is:bug", "pri:normal" }));
+        Assert.That(deserialized.Url, Is.EqualTo("https://github.com/nunit/nunit3-vs-adapter/issues/228"));
     }
 
     [Test]
@@ -55,10 +55,10 @@ public class IssueMetadataTests
         var metadata = JsonSerializer.Deserialize<IssueMetadata>(json);
 
         // Assert
-        metadata.Should().NotBeNull();
-        metadata!.Number.Should().Be(228);
-        metadata.Title.Should().Be("Tests inherited from Generic test fixture");
-        metadata.State.Should().Be("closed");
-        metadata.Labels.Should().HaveCount(3);
+        Assert.That(metadata, Is.Not.Null);
+        Assert.That(metadata!.Number, Is.EqualTo(228));
+        Assert.That(metadata.Title, Is.EqualTo("Tests inherited from Generic test fixture"));
+        Assert.That(metadata.State, Is.EqualTo("closed"));
+        Assert.That(metadata.Labels, Has.Count.EqualTo(3));
     }
 }

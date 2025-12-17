@@ -40,6 +40,7 @@ public sealed class SyncToFoldersCommand
         CancellationToken cancellationToken)
     {
         Console.WriteLine("Syncing metadata to issue folders...");
+        Console.WriteLine();
 
         centralMetadataPath ??= Path.Combine(
             repositoryRoot,
@@ -48,7 +49,7 @@ public sealed class SyncToFoldersCommand
 
         if (!File.Exists(centralMetadataPath))
         {
-            Console.WriteLine($"Central metadata file not found: {centralMetadataPath}");
+            Console.WriteLine($"ERROR: Central metadata file not found: {centralMetadataPath}");
             return 1;
         }
 
@@ -59,23 +60,34 @@ public sealed class SyncToFoldersCommand
         var metadataByNumber = centralMetadata.ToDictionary(m => m.Number);
         var issueFolders = _issueDiscovery.DiscoverIssueFolders(repositoryRoot);
 
-        var processedCount = 0;
-        foreach (var (issueNumber, folderPath) in issueFolders)
+        var successCount = 0;
+        var skippedCount = 0;
+
+        foreach (var (issueNumber, folderPath) in issueFolders.OrderBy(kvp => kvp.Key))
         {
             if (!metadataByNumber.TryGetValue(issueNumber, out var metadata))
             {
-                Console.WriteLine($"[{issueNumber}] No metadata found");
+                Console.WriteLine($"[{issueNumber}]: Skipped");
+                Console.WriteLine($"  No metadata found in central file");
+                skippedCount++;
                 continue;
             }
 
-            await ProcessIssueFolderAsync(
+            var projectCount = await ProcessIssueFolderAsync(
                 folderPath,
                 metadata,
                 cancellationToken);
-            processedCount++;
+            
+            Console.WriteLine($"[{issueNumber}]: Updated - {metadata.Title}");
+            if (projectCount > 1)
+            {
+                Console.WriteLine($"  {projectCount} projects processed");
+            }
+            successCount++;
         }
 
-        Console.WriteLine($"Successfully processed {processedCount} issue folders");
+        Console.WriteLine();
+        Console.WriteLine($"Sync complete: {successCount} updated, {skippedCount} skipped");
 
         return 0;
     }
@@ -88,7 +100,7 @@ public sealed class SyncToFoldersCommand
         return JsonSerializer.Deserialize<List<IssueMetadata>>(json) ?? [];
     }
 
-    private async Task ProcessIssueFolderAsync(
+    private async Task<int> ProcessIssueFolderAsync(
         string folderPath,
         IssueMetadata metadata,
         CancellationToken cancellationToken)
@@ -123,10 +135,7 @@ public sealed class SyncToFoldersCommand
             projectMetadataList,
             cancellationToken);
 
-        _logger.LogDebug(
-            "Updated metadata for issue {Number} ({ProjectCount} projects)",
-            metadata.Number,
-            projectMetadataList.Count);
+        return projectMetadataList.Count;
     }
 
     private static async Task WriteIssueMetadataAsync(

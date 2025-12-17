@@ -5,9 +5,25 @@ using System.Text;
 namespace IssueRunner.Services;
 
 /// <summary>
+/// Interface for executing external processes.
+/// </summary>
+public interface IProcessExecutor
+{
+    /// <summary>
+    /// Executes a command and returns the result.
+    /// </summary>
+    Task<(int ExitCode, string Output, string Error)> ExecuteAsync(
+        string fileName,
+        string arguments,
+        string workingDirectory,
+        int timeoutSeconds,
+        CancellationToken cancellationToken);
+}
+
+/// <summary>
 /// Helper service for executing external processes.
 /// </summary>
-public sealed class ProcessExecutor
+public sealed class ProcessExecutor : IProcessExecutor
 {
     private readonly ILogger<ProcessExecutor> _logger;
 

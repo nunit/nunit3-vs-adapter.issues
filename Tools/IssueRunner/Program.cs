@@ -42,6 +42,9 @@ internal static class Program
                 options.TimestampFormat = null;
             });
             builder.SetMinimumLevel(LogLevel.Information);
+            
+            // Suppress noisy HttpClient logging
+            builder.AddFilter("System.Net.Http.HttpClient", LogLevel.Warning);
         });
 
         services.AddHttpClient<IGitHubApiService, GitHubApiService>();
@@ -49,7 +52,7 @@ internal static class Program
         services.AddSingleton<IIssueDiscoveryService, IssueDiscoveryService>();
         services.AddSingleton<IProjectAnalyzerService, ProjectAnalyzerService>();
         services.AddSingleton<IFrameworkUpgradeService, FrameworkUpgradeService>();
-        services.AddSingleton<ProcessExecutor>();
+        services.AddSingleton<IProcessExecutor, ProcessExecutor>();
         services.AddSingleton<IPackageUpdateService, PackageUpdateService>();
         services.AddSingleton<ITestExecutionService, TestExecutionService>();
         services.AddSingleton<ReportGeneratorService>();
@@ -119,8 +122,8 @@ internal static class Program
 
         var rootOption = new Option<string>(
             "--root",
-            () => Directory.GetCurrentDirectory(),
-            "Repository root path");
+            () => Environment.GetEnvironmentVariable("ISSUERUNNER_ROOT") ?? Directory.GetCurrentDirectory(),
+            "Repository root path (can also set ISSUERUNNER_ROOT environment variable)");
         var scopeOption = new Option<TestScope>(
             "--scope",
             () => TestScope.All,
