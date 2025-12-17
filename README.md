@@ -13,7 +13,74 @@ cd Tools
 dotnet build -c Release
 ```
 
-Then run tests:
+#### Using IssueRunner Across Repositories
+
+IssueRunner can test issues in any repository, not just nunit3-vs-adapter.issues. This is useful for testing other issue repositories like nunit.issues.
+
+**Three ways to specify the target repository:**
+
+1. **Navigate to the target repository** (simplest):
+   ```cmd
+   cd C:\repos\nunit\nunit.issues
+   ..\nunit3-vs-adapter.issues\Tools\run-tests.cmd --issues 1
+   ```
+
+2. **Set ISSUERUNNER_ROOT environment variable**:
+   ```cmd
+   # Windows
+   set ISSUERUNNER_ROOT=C:\repos\nunit\nunit.issues
+   ..\nunit3-vs-adapter.issues\Tools\run-tests.cmd --issues 1
+   
+   # Linux/macOS
+   export ISSUERUNNER_ROOT=/home/user/repos/nunit.issues
+   ../nunit3-vs-adapter.issues/Tools/run-tests.sh --issues 1
+   ```
+
+3. **Use --root parameter explicitly**:
+   ```cmd
+   IssueRunner run --root C:\repos\nunit\nunit.issues --issues 1
+   ```
+
+All wrapper scripts (run-tests, sync-from-github, sync-to-folders) support these methods.
+
+#### Wrapper Scripts
+
+For convenience, use the wrapper scripts that handle the full path to IssueRunner:
+
+**Windows:**
+```cmd
+cd /path/to/your/test/repository
+..\nunit3-vs-adapter.issues\Tools\run-tests.cmd [options]
+..\nunit3-vs-adapter.issues\Tools\sync-from-github.cmd
+..\nunit3-vs-adapter.issues\Tools\sync-to-folders.cmd
+```
+
+**Linux/macOS:**
+```bash
+cd /path/to/your/test/repository
+../nunit3-vs-adapter.issues/Tools/run-tests.sh [options]
+../nunit3-vs-adapter.issues/Tools/sync-from-github.sh
+../nunit3-vs-adapter.issues/Tools/sync-to-folders.sh
+```
+
+#### IssueRunner Command Structure
+
+```
+issuerunner
+├── metadata
+│   ├── sync-from-github    Sync metadata from GitHub to central file
+│   └── sync-to-folders     Sync metadata from central file to issue folders
+├── run                      Run tests for issues
+├── reset                    Reset package versions to metadata values
+├── report
+│   ├── generate            Generate test report
+│   └── check-regressions   Check for regression failures
+└── merge                    Merge multiple results files
+```
+
+#### Direct IssueRunner Usage
+
+Alternatively, run IssueRunner directly:
 
 ```bash
 cd Tools/IssueRunner/bin/Release/net10.0
@@ -21,7 +88,7 @@ cd Tools/IssueRunner/bin/Release/net10.0
 ```
 
 **Options:**
-- `--root <path>` - Repository root path (default: current directory)
+- `--root <path>` - Repository root path (default: current directory, or ISSUERUNNER_ROOT environment variable)
 - `--scope <All|New|NewAndFailed|RegressionOnly|OpenOnly>` - Test scope (default: All)
 - `--issues <numbers>` - Comma-separated issue numbers to run
 - `--timeout <seconds>` - Timeout per command (default: 600)
@@ -29,6 +96,13 @@ cd Tools/IssueRunner/bin/Release/net10.0
 - `--only-netfx` - Run only .NET Framework tests
 - `--nunit-only` - Update only NUnit packages (faster)
 - `--execution-mode <All|Direct|Custom>` - Filter by execution method
+- `--feed <Stable|Beta|Alpha>` - Package feed (default: Stable)
+- `--verbosity <Normal|Verbose>` - Logging verbosity
+
+**Package Feed Options:**
+- `Stable` (default): nuget.org with stable packages only
+- `Beta`: nuget.org with prerelease packages enabled
+- `Alpha`: nuget.org + MyGet feed with prerelease packages enabled
 
 **Examples:**
 ```bash
@@ -43,15 +117,25 @@ cd Tools/IssueRunner/bin/Release/net10.0
 
 # Run only custom script tests
 ./IssueRunner run --execution-mode Custom
+
+# Test with beta/prerelease packages
+./IssueRunner run --feed Beta --issues 1039
+
+# Test with alpha packages from MyGet
+./IssueRunner run --feed Alpha --issues 228
 ```
 
 **Other Commands:**
 ```bash
-# Sync metadata from GitHub
+# Sync metadata from GitHub (or use sync-from-github.cmd/sh)
 ./IssueRunner metadata sync-from-github
 
-# Distribute metadata to issue folders
+# Distribute metadata to issue folders (or use sync-to-folders.cmd/sh)
 ./IssueRunner metadata sync-to-folders
+
+# Reset packages and frameworks to metadata versions (or use reset-packages.cmd/sh)
+./IssueRunner reset                    # Reset all issues
+./IssueRunner reset --issues 228,711   # Reset specific issues
 
 # Generate test report
 ./IssueRunner report generate
@@ -61,6 +145,23 @@ cd Tools/IssueRunner/bin/Release/net10.0
 
 # Merge results from multiple runs
 ./IssueRunner merge --linux <path> --windows <path>
+```
+
+#### Reset Command
+
+The `reset` command restores projects to their original state from metadata:
+- Resets **TargetFramework(s)** to original values
+- Resets **package versions** to original values
+- Converts between `<TargetFramework>` (singular) and `<TargetFrameworks>` (plural) as needed
+- Useful after testing with different feeds or when projects get out of sync
+
+**Wrapper scripts:**
+```cmd
+# Windows
+.\Tools\reset-packages.cmd
+
+# Linux/macOS
+./Tools/reset-packages.sh
 ```
 
 ### Using Python scripts (Legacy)
@@ -123,6 +224,24 @@ cd Tools/IssueRunner/bin/Release/net10.0
 
 ### Using C# Tool (Recommended)
 
+Use the convenient wrapper scripts:
+
+**Windows:**
+```cmd
+cd C:\repos\nunit\nunit.issues
+..\nunit3-vs-adapter.issues\Tools\sync-from-github.cmd
+..\nunit3-vs-adapter.issues\Tools\sync-to-folders.cmd
+```
+
+**Linux/macOS:**
+```bash
+cd /home/user/repos/nunit.issues
+../nunit3-vs-adapter.issues/Tools/sync-from-github.sh
+../nunit3-vs-adapter.issues/Tools/sync-to-folders.sh
+```
+
+Or run IssueRunner directly:
+
 ```bash
 cd Tools/IssueRunner/bin/Release/net10.0
 
@@ -132,6 +251,28 @@ cd Tools/IssueRunner/bin/Release/net10.0
 # Distribute to folders
 ./IssueRunner metadata sync-to-folders --root /path/to/repo
 ```
+
+**What the sync commands do:**
+
+1. **sync-from-github**: Fetches current issue metadata from GitHub API and updates `Tools/issues_metadata.json`
+   - Requires `GITHUB_TOKEN` environment variable for higher rate limits
+   - Reads repository configuration from `Tools/repository.json` to determine which GitHub repository to query
+   
+2. **sync-to-folders**: Reads from `Tools/issues_metadata.json` and creates/updates `issue_metadata.json` in each `Issue*` folder
+   - Includes project details (csproj files, frameworks, packages)
+
+**Repository Configuration:**
+
+Create a `Tools/repository.json` file in your target repository to specify which GitHub repository to sync from:
+
+```json
+{
+  "owner": "nunit",
+  "name": "nunit"
+}
+```
+
+If this file doesn't exist, the sync will default to `nunit/nunit3-vs-adapter` and show a warning message.
 
 ### Using Python Scripts (Legacy)
 
