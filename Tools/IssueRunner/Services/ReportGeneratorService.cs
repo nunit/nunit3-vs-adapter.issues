@@ -92,21 +92,13 @@ public sealed class ReportGeneratorService
             .Select(p => p.Split('='))
             .Where(parts => parts.Length == 2 && relevantPackages.Contains(parts[0]))
             .GroupBy(parts => parts[0])
-            .Select(g => new { Name = g.Key, Versions = g.Select(p => p[1]).Distinct().ToList() })
+            .Select(g => new { Name = g.Key, Version = g.Select(p => p[1]).Max() })
             .OrderBy(p => p.Name)
             .ToList();
 
         foreach (var package in packages)
         {
-            // If only one version, show it simply
-            if (package.Versions.Count == 1)
-            {
-                sb.AppendLine($"- {package.Name}={package.Versions[0]}");
-            }
-            else
-            {
-                sb.AppendLine($"- {package.Name}: {string.Join(", ", package.Versions)}");
-            }
+            sb.AppendLine($"- {package.Name}: {package.Version}");
         }
         
         sb.AppendLine();
