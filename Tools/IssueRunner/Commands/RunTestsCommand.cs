@@ -16,6 +16,8 @@ public sealed class RunTestsCommand
     private readonly IPackageUpdateService _packageUpdate;
     private readonly ITestExecutionService _testExecution;
     private readonly ILogger<RunTestsCommand> _logger;
+    private readonly ILoggerFactory _loggerFactory;
+    private readonly ProcessExecutor _processExecutor;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="RunTestsCommand"/> class.
@@ -26,7 +28,9 @@ public sealed class RunTestsCommand
         IFrameworkUpgradeService frameworkUpgrade,
         IPackageUpdateService packageUpdate,
         ITestExecutionService testExecution,
-        ILogger<RunTestsCommand> logger)
+        ILogger<RunTestsCommand> logger,
+        ILoggerFactory loggerFactory,
+        ProcessExecutor processExecutor)
     {
         _issueDiscovery = issueDiscovery;
         _projectAnalyzer = projectAnalyzer;
@@ -34,6 +38,8 @@ public sealed class RunTestsCommand
         _packageUpdate = packageUpdate;
         _testExecution = testExecution;
         _logger = logger;
+        _loggerFactory = loggerFactory;
+        _processExecutor = processExecutor;
     }
 
     /// <summary>
@@ -50,6 +56,17 @@ public sealed class RunTestsCommand
             var centralMetadata = await LoadCentralMetadataAsync(repositoryRoot, cancellationToken);
             var metadataDict = centralMetadata.ToDictionary(m => m.Number);
 
+            // Check if feed changed from previous run
+            var previousResults = await LoadPreviousResultsAsync(repositoryRoot, cancellationToken);
+            var feedChanged = CheckFeedChanged(previousResults, options.Feed);
+
+            if (feedChanged)
+            {
+                Console.WriteLine($"Feed changed to {options.Feed} - resetting packages to metadata versions...");
+                var previousFeed = GetPreviousFeed(previousResults);
+                await ResetPackagesForIssuesAsync(repositoryRoot, options.IssueNumbers, previousFeed, cancellationToken);
+            }
+
             // Step 1: Filter which issues to run (based on current frameworks)
             var issuesToRun = FilterIssues(
                 issueFolders,
@@ -58,6 +75,7 @@ public sealed class RunTestsCommand
 
             var results = new List<IssueResult>();
             var updateLogs = new List<PackageUpdateLog>();
+            var isFirstIssue = true;
 
             // Step 2: Upgrade frameworks for filtered issues only, then process
             foreach (var (issueNumber, folderPath) in issuesToRun)
@@ -75,11 +93,13 @@ public sealed class RunTestsCommand
                     issueNumber,
                     folderPath,
                     options,
+                    isFirstIssue,
                     cancellationToken);
 
                 if (result != null)
                 {
                     results.Add(result);
+                    isFirstIssue = false;
                 }
             }
 
@@ -141,6 +161,7 @@ public sealed class RunTestsCommand
         int issueNumber,
         string folderPath,
         RunOptions options,
+        bool isFirstIssue,
         CancellationToken cancellationToken)
     {
         // Framework already upgraded in ExecuteAsync before this is called
@@ -175,8 +196,29 @@ public sealed class RunTestsCommand
             await _packageUpdate.UpdatePackagesAsync(
                 projectFile,
                 options.NUnitOnly,
+                options.Feed,
                 options.TimeoutSeconds,
                 cancellationToken);
+
+        // Display NUnit package versions for the first issue
+        if (isFirstIssue)
+        {
+            // Re-parse project to get current versions
+            var (_, updatedPackages) = _projectAnalyzer.ParseProjectFile(projectFile);
+            var nunitPackages = updatedPackages
+                .Where(p => p.Name.StartsWith("NUnit", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            if (nunitPackages.Count > 0)
+            {
+                Console.WriteLine("\nTarget NUnit package versions:");
+                foreach (var pkg in nunitPackages)
+                {
+                    Console.WriteLine($"  {pkg.Name} = {pkg.Version}");
+                }
+                Console.WriteLine();
+            }
+        }
 
         if (options.Verbosity == LogVerbosity.Verbose && !string.IsNullOrWhiteSpace(updateOutput))
         {
@@ -244,7 +286,8 @@ public sealed class RunTestsCommand
             TestError = testError,
             TestConclusion = conclusion,
             RunSettings = runSettings,
-            RunnerScripts = scripts
+            RunnerScripts = scripts,
+            Feed = options.Feed.ToString()
         };
 
         return result;
@@ -372,5 +415,99 @@ public sealed class RunTestsCommand
 
         var json = JsonSerializer.Serialize(results, options);
         await File.WriteAllTextAsync(resultsPath, json, cancellationToken);
+    }
+
+    private async Task<List<IssueResult>> LoadPreviousResultsAsync(
+        string repositoryRoot,
+        CancellationToken cancellationToken)
+    {
+        var resultsPath = Path.Combine(repositoryRoot, "results.json");
+
+        if (!File.Exists(resultsPath))
+        {
+            return [];
+        }
+
+        try
+        {
+            var json = await File.ReadAllTextAsync(resultsPath, cancellationToken);
+            return JsonSerializer.Deserialize<List<IssueResult>>(json) ?? [];
+        }
+        catch
+        {
+            return [];
+        }
+    }
+
+    private bool CheckFeedChanged(List<IssueResult> previousResults, PackageFeed currentFeed)
+    {
+        if (previousResults.Count == 0)
+        {
+            return false;
+        }
+
+        var previousFeed = previousResults.FirstOrDefault()?.Feed;
+        if (string.IsNullOrEmpty(previousFeed))
+        {
+            return false;
+        }
+
+        return previousFeed != currentFeed.ToString();
+    }
+
+    private string? GetPreviousFeed(List<IssueResult> previousResults)
+    {
+        return previousResults.FirstOrDefault()?.Feed;
+    }
+
+    private async Task ResetPackagesForIssuesAsync(
+        string repositoryRoot,
+        List<int>? issueNumbers,
+        string? previousFeed,
+        CancellationToken cancellationToken)
+    {
+        var resetLogger = _loggerFactory.CreateLogger<ResetPackagesCommand>();
+        var resetCommand = new ResetPackagesCommand(
+            _issueDiscovery,
+            _projectAnalyzer,
+            resetLogger);
+
+        await resetCommand.ExecuteAsync(repositoryRoot, issueNumbers, cancellationToken);
+
+        // Remove MyGet source if previous feed was Alpha
+        if (previousFeed == PackageFeed.Alpha.ToString())
+        {
+            await RemoveMyGetSourceAsync(cancellationToken);
+        }
+    }
+
+    private async Task RemoveMyGetSourceAsync(CancellationToken cancellationToken)
+    {
+        try
+        {
+            // Check if MyGet source exists
+            var listResult = await _processExecutor.ExecuteAsync(
+                "dotnet",
+                "nuget list source",
+                Environment.CurrentDirectory,
+                30,
+                cancellationToken);
+
+            if (listResult.Output.Contains("nunit-myget", StringComparison.OrdinalIgnoreCase))
+            {
+                _logger.LogInformation("Removing MyGet source");
+                await _processExecutor.ExecuteAsync(
+                    "dotnet",
+                    "nuget remove source nunit-myget",
+                    Environment.CurrentDirectory,
+                    30,
+                    cancellationToken);
+                Console.WriteLine("Removed MyGet source from nuget.config");
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Failed to remove MyGet source");
+        }
     }
 }

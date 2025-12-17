@@ -57,6 +57,7 @@ internal static class Program
         services.AddTransient<SyncFromGitHubCommand>();
         services.AddTransient<SyncToFoldersCommand>();
         services.AddTransient<RunTestsCommand>();
+        services.AddTransient<ResetPackagesCommand>();
         services.AddTransient<GenerateReportCommand>();
         services.AddTransient<CheckRegressionsCommand>();
         services.AddTransient<MergeResultsCommand>();
@@ -71,6 +72,7 @@ internal static class Program
 
         rootCommand.AddCommand(BuildMetadataCommand(services));
         rootCommand.AddCommand(BuildRunCommand(services));
+        rootCommand.AddCommand(BuildResetCommand(services));
         rootCommand.AddCommand(BuildReportCommand(services));
         rootCommand.AddCommand(BuildMergeCommand(services));
 
@@ -147,6 +149,10 @@ internal static class Program
             "--verbosity",
             () => LogVerbosity.Normal,
             "Logging verbosity (Normal or Verbose)");
+        var feedOption = new Option<PackageFeed>(
+            "--feed",
+            () => PackageFeed.Stable,
+            "Package feed (Stable=nuget.org, Beta=nuget.org+prerelease, Alpha=nuget.org+myget+prerelease)");
 
         runCommand.AddOption(rootOption);
         runCommand.AddOption(scopeOption);
@@ -157,6 +163,7 @@ internal static class Program
         runCommand.AddOption(nunitOnlyOption);
         runCommand.AddOption(executionModeOption);
         runCommand.AddOption(verbosityOption);
+        runCommand.AddOption(feedOption);
 
         runCommand.SetHandler(async (context) =>
         {
@@ -169,6 +176,7 @@ internal static class Program
             var nunitOnly = context.ParseResult.GetValueForOption(nunitOnlyOption);
             var executionMode = context.ParseResult.GetValueForOption(executionModeOption);
             var verbosity = context.ParseResult.GetValueForOption(verbosityOption);
+            var feed = context.ParseResult.GetValueForOption(feedOption);
 
             var options = new RunOptions
             {
@@ -181,7 +189,8 @@ internal static class Program
                 OnlyNetFx = onlyNetFx,
                 NUnitOnly = nunitOnly,
                 ExecutionMode = executionMode,
-                Verbosity = verbosity
+                Verbosity = verbosity,
+                Feed = feed
             };
 
             var cmd = services.GetRequiredService<RunTestsCommand>();
@@ -189,6 +198,34 @@ internal static class Program
         });
 
         return runCommand;
+    }
+
+    private static Command BuildResetCommand(IServiceProvider services)
+    {
+        var resetCommand = new Command("reset", "Reset package versions to metadata values");
+
+        var rootOption = new Option<string>(
+            "--root",
+            () => Directory.GetCurrentDirectory(),
+            "Repository root path");
+        var issuesOption = new Option<string?>(
+            "--issues",
+            "Comma-separated issue numbers (null means all)");
+
+        resetCommand.AddOption(rootOption);
+        resetCommand.AddOption(issuesOption);
+
+        resetCommand.SetHandler(async (string root, string? issues) =>
+        {
+            var issueNumbers = string.IsNullOrEmpty(issues)
+                ? null
+                : issues.Split(',').Select(int.Parse).ToList();
+
+            var cmd = services.GetRequiredService<ResetPackagesCommand>();
+            await cmd.ExecuteAsync(root, issueNumbers, CancellationToken.None);
+        }, rootOption, issuesOption);
+
+        return resetCommand;
     }
 
     private static Command BuildReportCommand(IServiceProvider services)

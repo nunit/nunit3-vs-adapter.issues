@@ -1,3 +1,4 @@
+using IssueRunner.Models;
 using Microsoft.Extensions.Logging;
 using System.Xml.Linq;
 
@@ -34,25 +35,79 @@ public sealed class PackageUpdateService : IPackageUpdateService
         UpdatePackagesAsync(
             string projectPath,
             bool nunitOnly,
+            PackageFeed feed,
             int timeoutSeconds,
             CancellationToken cancellationToken)
     {
+        // For Alpha feed, ensure MyGet source is configured
+        if (feed == PackageFeed.Alpha)
+        {
+            await EnsureMyGetSourceAsync(cancellationToken);
+        }
+
         if (nunitOnly)
         {
             return await UpdateNUnitPackagesDirectlyAsync(
                 projectPath,
+                feed,
                 cancellationToken);
         }
 
         return await UpdateUsingDotnetOutdatedAsync(
             projectPath,
+            feed,
             timeoutSeconds,
             cancellationToken);
+    }
+
+    private async Task EnsureMyGetSourceAsync(CancellationToken cancellationToken)
+    {
+        const string mygetSourceName = "nunit-myget";
+        const string mygetUrl = "https://www.myget.org/F/nunit/api/v3/index.json";
+
+        try
+        {
+            // Check if source already exists
+            var (exitCode, output, _) = await _processExecutor.ExecuteAsync(
+                "dotnet",
+                "nuget list source",
+                Directory.GetCurrentDirectory(),
+                30,
+                cancellationToken);
+
+            if (exitCode == 0 && output.Contains(mygetSourceName))
+            {
+                _logger.LogDebug("MyGet source already configured");
+                return;
+            }
+
+            // Add MyGet source
+            var (addExitCode, addOutput, addError) = await _processExecutor.ExecuteAsync(
+                "dotnet",
+                $"nuget add source {mygetUrl} --name {mygetSourceName}",
+                Directory.GetCurrentDirectory(),
+                30,
+                cancellationToken);
+
+            if (addExitCode == 0)
+            {
+                _logger.LogDebug("Added MyGet source for Alpha feed");
+            }
+            else
+            {
+                _logger.LogWarning("Failed to add MyGet source: {Error}", addError);
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Error configuring MyGet source");
+        }
     }
 
     private async Task<(bool Success, string Output, string Error)>
         UpdateNUnitPackagesDirectlyAsync(
             string projectPath,
+            PackageFeed feed,
             CancellationToken cancellationToken)
     {
         try
@@ -66,6 +121,7 @@ public sealed class PackageUpdateService : IPackageUpdateService
             }
 
             var latestVersions = await GetLatestNUnitVersionsAsync(
+                feed,
                 cancellationToken);
             var updated = false;
 
@@ -104,9 +160,10 @@ public sealed class PackageUpdateService : IPackageUpdateService
     }
 
     private async Task<Dictionary<string, string>> GetLatestNUnitVersionsAsync(
+        PackageFeed feed,
         CancellationToken cancellationToken)
     {
-        // TODO: Query NuGet API for latest versions
+        // TODO: Query NuGet API (and MyGet for Alpha) for latest versions based on feed
         // For now, return hardcoded recent versions
         await Task.CompletedTask;
         
@@ -121,14 +178,33 @@ public sealed class PackageUpdateService : IPackageUpdateService
     private async Task<(bool Success, string Output, string Error)>
         UpdateUsingDotnetOutdatedAsync(
             string projectPath,
+            PackageFeed feed,
             int timeoutSeconds,
             CancellationToken cancellationToken)
     {
         var workingDir = Path.GetDirectoryName(projectPath)!;
 
+        // Add MyGet source for Alpha feed
+        if (feed == PackageFeed.Alpha)
+        {
+            var addSourceResult = await AddMyGetSourceAsync(workingDir, timeoutSeconds, cancellationToken);
+            if (!addSourceResult.Success)
+            {
+                return addSourceResult;
+            }
+        }
+
+        // Build command based on feed
+        var args = "outdated --upgrade";
+        
+        if (feed == PackageFeed.Beta || feed == PackageFeed.Alpha)
+        {
+            args += " --pre-release Always";
+        }
+        
         var (exitCode, output, error) = await _processExecutor.ExecuteAsync(
             "dotnet",
-            "outdated --upgrade",
+            args,
             workingDir,
             timeoutSeconds,
             cancellationToken);
@@ -136,5 +212,46 @@ public sealed class PackageUpdateService : IPackageUpdateService
         var success = exitCode == 0;
         
         return (success, output, error);
+    }
+
+    private async Task<(bool Success, string Output, string Error)>
+        AddMyGetSourceAsync(
+            string workingDir,
+            int timeoutSeconds,
+            CancellationToken cancellationToken)
+    {
+        const string myGetSource = "https://www.myget.org/F/nunit/api/v3/index.json";
+        const string sourceName = "nunit-myget";
+
+        // Check if source already exists
+        var (checkCode, checkOutput, checkError) = await _processExecutor.ExecuteAsync(
+            "dotnet",
+            "nuget list source",
+            workingDir,
+            timeoutSeconds,
+            cancellationToken);
+
+        if (checkCode == 0 && checkOutput.Contains(sourceName))
+        {
+            _logger.LogDebug("MyGet source already configured");
+            return (true, "MyGet source already exists", "");
+        }
+
+        // Add the source
+        var (exitCode, output, error) = await _processExecutor.ExecuteAsync(
+            "dotnet",
+            $"nuget add source {myGetSource} --name {sourceName}",
+            workingDir,
+            timeoutSeconds,
+            cancellationToken);
+
+        if (exitCode == 0)
+        {
+            _logger.LogDebug("Added MyGet source for NUnit packages");
+            return (true, "Added MyGet source", "");
+        }
+
+        _logger.LogWarning("Failed to add MyGet source: {Error}", error);
+        return (false, output, error);
     }
 }

@@ -90,6 +90,12 @@ public sealed class IssueResult
     public string? RunSettings { get; init; }
 
     /// <summary>
+    /// Gets or sets the package feed used for this run.
+    /// </summary>
+    [JsonPropertyName("feed")]
+    public string? Feed { get; init; }
+
+    /// <summary>
     /// Gets or sets the runner expectations parsed from script headers.
     /// </summary>
     [JsonPropertyName("runner_expectations")]

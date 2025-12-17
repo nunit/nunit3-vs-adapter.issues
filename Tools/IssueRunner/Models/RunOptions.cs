@@ -36,6 +36,11 @@ public sealed class RunOptions
     public bool NUnitOnly { get; init; }
 
     /// <summary>
+    /// Gets or sets the package feed option.
+    /// </summary>
+    public PackageFeed Feed { get; init; } = PackageFeed.Stable;
+
+    /// <summary>
     /// Gets or sets the execution mode filter.
     /// </summary>
     public ExecutionMode ExecutionMode { get; init; } = ExecutionMode.All;
@@ -92,4 +97,19 @@ public enum LogVerbosity
     
     /// <summary>Verbose output - detailed diagnostic info.</summary>
     Verbose
+}
+
+/// <summary>
+/// Package feed options.
+/// </summary>
+public enum PackageFeed
+{
+    /// <summary>Stable packages from nuget.org only.</summary>
+    Stable,
+    
+    /// <summary>Beta packages - nuget.org with prerelease enabled.</summary>
+    Beta,
+    
+    /// <summary>Alpha packages - nuget.org + myget with prerelease enabled.</summary>
+    Alpha
 }
