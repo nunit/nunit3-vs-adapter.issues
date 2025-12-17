@@ -20,6 +20,7 @@ public class RunTestsCommandTests
     private ILoggerFactory? _loggerFactory;
     private IProcessExecutor? _processExecutor;
     private RunTestsCommand? _command;
+    private IEnvironmentService? _environmentService;
 
     [SetUp]
     public void Setup()
@@ -32,7 +33,8 @@ public class RunTestsCommandTests
         _logger = Substitute.For<ILogger<RunTestsCommand>>();
         _loggerFactory = Substitute.For<ILoggerFactory>();
         _processExecutor = Substitute.For<IProcessExecutor>();
-        
+        _environmentService = Substitute.For<IEnvironmentService>();
+
         _command = new RunTestsCommand(
             _issueDiscovery,
             _projectAnalyzer,
@@ -41,7 +43,8 @@ public class RunTestsCommandTests
             _testExecution,
             _logger,
             _loggerFactory,
-            _processExecutor);
+            _processExecutor,
+            _environmentService);
     }
 
     [Test]
@@ -56,7 +59,7 @@ public class RunTestsCommandTests
         // Test the feed extraction logic
         var emptyResults = new List<IssueResult>();
         var feedString = GetFeedFromResults(emptyResults);
-        
+
         Assert.That(feedString, Is.EqualTo("Stable"));
     }
 
@@ -65,8 +68,8 @@ public class RunTestsCommandTests
     {
         var results = new List<IssueResult>
         {
-            new IssueResult 
-            { 
+            new IssueResult
+            {
                 Number = 1,
                 ProjectPath = "test.csproj",
                 TargetFrameworks = new List<string> { "net10.0" },
@@ -74,9 +77,9 @@ public class RunTestsCommandTests
                 Feed = "Beta"
             }
         };
-        
+
         var feedString = GetFeedFromResults(results);
-        
+
         Assert.That(feedString, Is.EqualTo("Beta"));
     }
 
@@ -85,18 +88,18 @@ public class RunTestsCommandTests
     {
         var results = new List<IssueResult>
         {
-            new IssueResult 
-            { 
+            new IssueResult
+            {
                 Number = 1,
                 ProjectPath = "test.csproj",
                 TargetFrameworks = new List<string> { "net10.0" },
                 Packages = new List<string>(),
-                Feed = "Stable" 
+                Feed = "Stable"
             }
         };
-        
+
         var changed = IsChanged(results, PackageFeed.Stable);
-        
+
         Assert.That(changed, Is.False);
     }
 
@@ -105,18 +108,18 @@ public class RunTestsCommandTests
     {
         var results = new List<IssueResult>
         {
-            new IssueResult 
-            { 
+            new IssueResult
+            {
                 Number = 1,
                 ProjectPath = "test.csproj",
                 TargetFrameworks = new List<string> { "net10.0" },
                 Packages = new List<string>(),
-                Feed = "Stable" 
+                Feed = "Stable"
             }
         };
-        
+
         var changed = IsChanged(results, PackageFeed.Beta);
-        
+
         Assert.That(changed, Is.True);
     }
 
@@ -124,9 +127,9 @@ public class RunTestsCommandTests
     public void CheckFeedChanged_WithNoResults_ReturnsFalse()
     {
         var emptyResults = new List<IssueResult>();
-        
+
         var changed = IsChanged(emptyResults, PackageFeed.Stable);
-        
+
         Assert.That(changed, Is.False);
     }
 

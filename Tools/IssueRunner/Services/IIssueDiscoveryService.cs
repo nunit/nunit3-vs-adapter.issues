@@ -8,9 +8,8 @@ public interface IIssueDiscoveryService
     /// <summary>
     /// Discovers all Issue* folders in the repository.
     /// </summary>
-    /// <param name="rootPath">Root path to search from.</param>
     /// <returns>Dictionary mapping issue number to folder path.</returns>
-    Dictionary<int, string> DiscoverIssueFolders(string rootPath);
+    Dictionary<int, string> DiscoverIssueFolders();
 
     /// <summary>
     /// Checks if an issue folder should be skipped based on marker files.

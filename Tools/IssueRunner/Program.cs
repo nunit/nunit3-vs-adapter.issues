@@ -21,7 +21,7 @@ internal static class Program
     {
         var services = ConfigureServices();
         var rootCommand = BuildRootCommand(services);
-        
+
         return await rootCommand.InvokeAsync(args);
     }
 
@@ -32,7 +32,7 @@ internal static class Program
     private static IServiceProvider ConfigureServices()
     {
         var services = new ServiceCollection();
-        
+
         services.AddLogging(builder =>
         {
             builder.AddSimpleConsole(options =>
@@ -42,21 +42,22 @@ internal static class Program
                 options.TimestampFormat = null;
             });
             builder.SetMinimumLevel(LogLevel.Information);
-            
+
             // Suppress noisy HttpClient logging
             builder.AddFilter("System.Net.Http.HttpClient", LogLevel.Warning);
         });
 
         services.AddHttpClient<IGitHubApiService, GitHubApiService>();
-        
+
         services.AddSingleton<IIssueDiscoveryService, IssueDiscoveryService>();
         services.AddSingleton<IProjectAnalyzerService, ProjectAnalyzerService>();
         services.AddSingleton<IFrameworkUpgradeService, FrameworkUpgradeService>();
         services.AddSingleton<IProcessExecutor, ProcessExecutor>();
         services.AddSingleton<IPackageUpdateService, PackageUpdateService>();
         services.AddSingleton<ITestExecutionService, TestExecutionService>();
+        services.AddSingleton<IEnvironmentService, EnvironmentService>();
         services.AddSingleton<ReportGeneratorService>();
-       
+
         services.AddTransient<SyncFromGitHubCommand>();
         services.AddTransient<SyncToFoldersCommand>();
         services.AddTransient<RunTestsCommand>();
@@ -64,14 +65,14 @@ internal static class Program
         services.AddTransient<GenerateReportCommand>();
         services.AddTransient<CheckRegressionsCommand>();
         services.AddTransient<MergeResultsCommand>();
-        
+
         return services.BuildServiceProvider();
     }
 
     private static RootCommand BuildRootCommand(IServiceProvider services)
     {
         var rootCommand = new RootCommand(
-            "IssueRunner - NUnit VS Adapter issue test automation tool");
+            "IssueRunner - NUnit issue test automation tool");
 
         rootCommand.AddCommand(BuildMetadataCommand(services));
         rootCommand.AddCommand(BuildRunCommand(services));
@@ -87,27 +88,29 @@ internal static class Program
         var metadataCommand = new Command("metadata", "Manage issue metadata");
 
         var syncFromGitHub = new Command("sync-from-github", "Sync metadata from GitHub to central file");
-        var rootOption = new Option<string>(
-            "--root",
-            () => Directory.GetCurrentDirectory(),
-            "Repository root path");
+        var rootOption = new Option<string>("--root", Directory.GetCurrentDirectory, "Repository root path");
         syncFromGitHub.AddOption(rootOption);
-        syncFromGitHub.SetHandler(async (string root) =>
+        syncFromGitHub.SetHandler(async root =>
         {
+            var env = services.GetRequiredService<IEnvironmentService>();
+            env.AddRoot(root);
             var cmd = services.GetRequiredService<SyncFromGitHubCommand>();
-            await cmd.ExecuteAsync(root, null, CancellationToken.None);
+            await cmd.ExecuteAsync(null, CancellationToken.None);
         }, rootOption);
 
         var syncToFolders = new Command("sync-to-folders", "Sync metadata from central file to issue folders");
         var rootOption2 = new Option<string>(
             "--root",
-            () => Directory.GetCurrentDirectory(),
+            Directory.GetCurrentDirectory,
             "Repository root path");
         syncToFolders.AddOption(rootOption2);
-        syncToFolders.SetHandler(async (string root) =>
+        syncToFolders.SetHandler(async root =>
         {
+            var env = services.GetRequiredService<IEnvironmentService>();
+            env.AddRoot(root);
             var cmd = services.GetRequiredService<SyncToFoldersCommand>();
             await cmd.ExecuteAsync(root, null, CancellationToken.None);
+
         }, rootOption2);
 
         metadataCommand.AddCommand(syncFromGitHub);
@@ -196,8 +199,11 @@ internal static class Program
                 Feed = feed
             };
 
+            var env = services.GetRequiredService<IEnvironmentService>();
+            env.AddRoot(root);
             var cmd = services.GetRequiredService<RunTestsCommand>();
             await cmd.ExecuteAsync(root, options, CancellationToken.None);
+
         });
 
         return runCommand;
@@ -207,10 +213,7 @@ internal static class Program
     {
         var resetCommand = new Command("reset", "Reset package versions to metadata values");
 
-        var rootOption = new Option<string>(
-            "--root",
-            () => Directory.GetCurrentDirectory(),
-            "Repository root path");
+        var rootOption = new Option<string>("--root", Directory.GetCurrentDirectory, "Repository root path");
         var issuesOption = new Option<string?>(
             "--issues",
             "Comma-separated issue numbers (null means all)");
@@ -218,12 +221,14 @@ internal static class Program
         resetCommand.AddOption(rootOption);
         resetCommand.AddOption(issuesOption);
 
-        resetCommand.SetHandler(async (string root, string? issues) =>
+        resetCommand.SetHandler(async (root, issues) =>
         {
             var issueNumbers = string.IsNullOrEmpty(issues)
                 ? null
                 : issues.Split(',').Select(int.Parse).ToList();
 
+            var env = services.GetRequiredService<IEnvironmentService>();
+            env.AddRoot(root);
             var cmd = services.GetRequiredService<ResetPackagesCommand>();
             await cmd.ExecuteAsync(root, issueNumbers, CancellationToken.None);
         }, rootOption, issuesOption);
@@ -236,25 +241,23 @@ internal static class Program
         var reportCommand = new Command("report", "Generate and check reports");
 
         var generate = new Command("generate", "Generate test report");
-        var rootOption = new Option<string>(
-            "--root",
-            () => Directory.GetCurrentDirectory(),
-            "Repository root path");
+        var rootOption = new Option<string>("--root", Directory.GetCurrentDirectory, "Repository root path");
         generate.AddOption(rootOption);
-        generate.SetHandler(async (string root) =>
+        generate.SetHandler(async root =>
         {
+            var env = services.GetRequiredService<IEnvironmentService>();
+            env.AddRoot(root);
             var cmd = services.GetRequiredService<GenerateReportCommand>();
-            await cmd.ExecuteAsync(root, CancellationToken.None);
+            await cmd.ExecuteAsync(CancellationToken.None);
         }, rootOption);
 
         var checkRegressions = new Command("check-regressions", "Check for regression failures");
-        var rootOption2 = new Option<string>(
-            "--root",
-            () => Directory.GetCurrentDirectory(),
-            "Repository root path");
+        var rootOption2 = new Option<string>("--root", Directory.GetCurrentDirectory, "Repository root path");
         checkRegressions.AddOption(rootOption2);
-        checkRegressions.SetHandler(async (string root) =>
+        checkRegressions.SetHandler(async root =>
         {
+            var env = services.GetRequiredService<IEnvironmentService>();
+            env.AddRoot(root);
             var cmd = services.GetRequiredService<CheckRegressionsCommand>();
             var exitCode = await cmd.ExecuteAsync(root, CancellationToken.None);
             Environment.Exit(exitCode);
@@ -270,22 +273,15 @@ internal static class Program
     {
         var mergeCommand = new Command("merge", "Merge results from multiple runs");
 
-        var linuxOption = new Option<string>(
-            "--linux",
-            "Path to Linux artifacts");
-        var windowsOption = new Option<string>(
-            "--windows",
-            "Path to Windows artifacts");
-        var outputOption = new Option<string>(
-            "--output",
-            () => Directory.GetCurrentDirectory(),
-            "Output path");
+        var linuxOption = new Option<string>("--linux", "Path to Linux artifacts");
+        var windowsOption = new Option<string>("--windows", "Path to Windows artifacts");
+        var outputOption = new Option<string>("--output", Directory.GetCurrentDirectory, "Output path");
 
         mergeCommand.AddOption(linuxOption);
         mergeCommand.AddOption(windowsOption);
         mergeCommand.AddOption(outputOption);
 
-        mergeCommand.SetHandler(async (string linux, string windows, string output) =>
+        mergeCommand.SetHandler(async (linux, windows, output) =>
         {
             var cmd = services.GetRequiredService<MergeResultsCommand>();
             await cmd.ExecuteAsync(linux, windows, output, CancellationToken.None);

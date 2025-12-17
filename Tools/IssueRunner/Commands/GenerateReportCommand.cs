@@ -11,6 +11,7 @@ namespace IssueRunner.Commands;
 public sealed class GenerateReportCommand
 {
     private readonly ReportGeneratorService _reportGenerator;
+    private readonly IEnvironmentService _environmentService;
     private readonly ILogger<GenerateReportCommand> _logger;
 
     /// <summary>
@@ -18,21 +19,21 @@ public sealed class GenerateReportCommand
     /// </summary>
     public GenerateReportCommand(
         ReportGeneratorService reportGenerator,
+        IEnvironmentService environmentService,
         ILogger<GenerateReportCommand> logger)
     {
         _reportGenerator = reportGenerator;
+        _environmentService = environmentService;
         _logger = logger;
     }
 
     /// <summary>
     /// Executes the command.
     /// </summary>
-    public async Task<int> ExecuteAsync(
-        string repositoryRoot,
-        CancellationToken cancellationToken)
+    public async Task<int> ExecuteAsync( CancellationToken cancellationToken)
     {
         Console.WriteLine("Generating test report...");
-
+        var repositoryRoot =  _environmentService.Root;
         var resultsPath = Path.Combine(repositoryRoot, "results.json");
         var metadataPath = Path.Combine(repositoryRoot, "Tools", "issues_metadata.json");
 

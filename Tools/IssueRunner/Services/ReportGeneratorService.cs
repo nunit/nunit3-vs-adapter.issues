@@ -10,14 +10,20 @@ namespace IssueRunner.Services;
 public sealed class ReportGeneratorService
 {
     private readonly ILogger<ReportGeneratorService> _logger;
+    private readonly IEnvironmentService _environmentService;
+    private readonly RepositoryConfig repositoryConfig;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ReportGeneratorService"/> class.
     /// </summary>
-    public ReportGeneratorService(ILogger<ReportGeneratorService> logger)
+    public ReportGeneratorService(ILogger<ReportGeneratorService> logger, IEnvironmentService environmentService)
     {
         _logger = logger;
+        _environmentService = environmentService;
+        repositoryConfig = _environmentService.RepositoryConfig;
     }
+
+    private string IssueLink(int number) => $"[#{number}](https://github.com/{repositoryConfig}/issues/{number})";
 
     /// <summary>
     /// Generates a markdown test report.
@@ -154,6 +160,7 @@ public sealed class ReportGeneratorService
         {
             sb.AppendLine("### Closed failures (details)");
             sb.AppendLine();
+            
 
             foreach (var result in failed)
             {
@@ -164,9 +171,9 @@ public sealed class ReportGeneratorService
 
                 sb.AppendLine($"#### Issue #{result.Number}: {meta.Title}");
                 sb.AppendLine();
-                sb.AppendLine($"**Link**: https://github.com/nunit/nunit3-vs-adapter/issues/{result.Number}");
+                sb.AppendLine($"**Link**: {IssueLink(result.Number)}");
                 sb.AppendLine();
-                if (meta.Labels != null && meta.Labels.Count > 0)
+                if (meta.Labels is { Count: > 0 })
                 {
                     sb.AppendLine($"**Labels**: {string.Join(", ", meta.Labels)}");
                     sb.AppendLine();
@@ -232,7 +239,7 @@ public sealed class ReportGeneratorService
             {
                 if (metadata.TryGetValue(result.Number, out var meta))
                 {
-                    sb.AppendLine($"| #{result.Number} https://github.com/nunit/nunit3-vs-adapter/issues/{result.Number} | Open issue, but test succeeds. |");
+                    sb.AppendLine($"| {IssueLink(result.Number)} | Open issue, but test succeeds. |");
                 }
             }
 
@@ -250,9 +257,9 @@ public sealed class ReportGeneratorService
                 {
                     sb.AppendLine($"#### Issue #{result.Number}: {meta.Title}");
                     sb.AppendLine();
-                    sb.AppendLine($"**Link**: https://github.com/nunit/nunit3-vs-adapter/issues/{result.Number}");
+                    sb.AppendLine($"**Link**: {IssueLink(result.Number)}");
                     sb.AppendLine();
-                    if (meta.Labels != null && meta.Labels.Count > 0)
+                    if (meta.Labels is { Count: > 0 })
                     {
                         sb.AppendLine($"**Labels**: {string.Join(", ", meta.Labels)}");
                         sb.AppendLine();

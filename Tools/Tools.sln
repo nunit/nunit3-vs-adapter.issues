@@ -13,6 +13,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{5C0B43C9-1AFE-4CE8-82BB-2280E1FA40B2}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\copilot-instructions.md = ..\.github\copilot-instructions.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{98D55EDA-1CC7-4D85-B79D-873F578E6CF3}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\open-issues-dotnet.yml = ..\.github\workflows\open-issues-dotnet.yml
+		..\.github\workflows\open-issues-netfx.yml = ..\.github\workflows\open-issues-netfx.yml
+		..\.github\workflows\regression-tests-dotnet.yml = ..\.github\workflows\regression-tests-dotnet.yml
+		..\.github\workflows\regression-tests-netfx.yml = ..\.github\workflows\regression-tests-netfx.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,5 +47,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5C0B43C9-1AFE-4CE8-82BB-2280E1FA40B2} = {C241000A-DF33-4AE1-A430-29E1CC7A8EFC}
+		{98D55EDA-1CC7-4D85-B79D-873F578E6CF3} = {5C0B43C9-1AFE-4CE8-82BB-2280E1FA40B2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {75BE446C-DDB9-46EB-8450-3E0648B924DF}
 	EndGlobalSection
 EndGlobal

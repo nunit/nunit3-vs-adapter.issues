@@ -31,7 +31,8 @@ public sealed class RunTestsCommand
         ITestExecutionService testExecution,
         ILogger<RunTestsCommand> logger,
         ILoggerFactory loggerFactory,
-        IProcessExecutor processExecutor)
+        IProcessExecutor processExecutor,
+        IEnvironmentService environmentService)
     {
         _issueDiscovery = issueDiscovery;
         _projectAnalyzer = projectAnalyzer;
@@ -56,7 +57,7 @@ public sealed class RunTestsCommand
             Console.WriteLine($"Repository root: {repositoryRoot}");
             Console.WriteLine();
 
-            var issueFolders = _issueDiscovery.DiscoverIssueFolders(repositoryRoot);
+            var issueFolders = _issueDiscovery.DiscoverIssueFolders();
             var centralMetadata = await LoadCentralMetadataAsync(repositoryRoot, cancellationToken);
             var metadataDict = centralMetadata.ToDictionary(m => m.Number);
 

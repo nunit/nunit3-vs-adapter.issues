@@ -13,30 +13,23 @@ public sealed class GitHubApiService : IGitHubApiService
     private const string ApiBaseUrl = "https://api.github.com";
     
     private readonly HttpClient _httpClient;
+    private readonly IEnvironmentService _environmentService;
     private readonly ILogger<GitHubApiService> _logger;
-    private string _repoOwner = "nunit";
-    private string _repoName = "nunit3-vs-adapter";
+    private RepositoryConfig RepositoryConfig { get; set; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="GitHubApiService"/> class.
     /// </summary>
     public GitHubApiService(
         HttpClient httpClient,
+        IEnvironmentService environmentService,
         ILogger<GitHubApiService> logger)
     {
         _httpClient = httpClient;
+        _environmentService = environmentService;
         _logger = logger;
-        
+        RepositoryConfig = environmentService.RepositoryConfig;
         ConfigureHttpClient();
-    }
-
-    /// <summary>
-    /// Sets the repository configuration.
-    /// </summary>
-    public void SetRepository(string owner, string name)
-    {
-        _repoOwner = owner;
-        _repoName = name;
     }
 
     /// <inheritdoc />
@@ -44,7 +37,7 @@ public sealed class GitHubApiService : IGitHubApiService
         int issueNumber,
         CancellationToken cancellationToken = default)
     {
-        var url = $"{ApiBaseUrl}/repos/{_repoOwner}/{_repoName}/issues/{issueNumber}";
+        var url = $"{ApiBaseUrl}/repos/{RepositoryConfig.Owner}/{RepositoryConfig.Name}/issues/{issueNumber}";
         
         try
         {

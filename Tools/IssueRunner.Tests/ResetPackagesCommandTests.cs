@@ -36,7 +36,7 @@ public class ResetPackagesCommandTests
         var tempDir = Path.Combine(Path.GetTempPath(), $"reset-test-{Guid.NewGuid()}");
         Directory.CreateDirectory(tempDir);
 
-        _issueDiscovery!.DiscoverIssueFolders(tempDir)
+        _issueDiscovery!.DiscoverIssueFolders()
             .Returns(new Dictionary<int, string>());
 
         try

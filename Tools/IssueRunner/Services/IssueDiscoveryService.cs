@@ -9,6 +9,8 @@ namespace IssueRunner.Services;
 /// </summary>
 public sealed partial class IssueDiscoveryService : IIssueDiscoveryService
 {
+    private readonly IEnvironmentService _environmentService;
+
     private static readonly string[] MarkerFiles =
     [
         "ignore", "ignore.md",
@@ -26,16 +28,17 @@ public sealed partial class IssueDiscoveryService : IIssueDiscoveryService
     /// <summary>
     /// Initializes a new instance of the <see cref="IssueDiscoveryService"/> class.
     /// </summary>
-    public IssueDiscoveryService(ILogger<IssueDiscoveryService> logger)
+    public IssueDiscoveryService(IEnvironmentService environmentService,ILogger<IssueDiscoveryService> logger)
     {
+        _environmentService = environmentService;
         _logger = logger;
     }
 
     /// <inheritdoc />
-    public Dictionary<int, string> DiscoverIssueFolders(string rootPath)
+    public Dictionary<int, string> DiscoverIssueFolders()
     {
         var issueFolders = new Dictionary<int, string>();
-        
+        var rootPath = _environmentService.Root;
         if (!Directory.Exists(rootPath))
         {
             _logger.LogWarning("Root path does not exist: {Path}", rootPath);

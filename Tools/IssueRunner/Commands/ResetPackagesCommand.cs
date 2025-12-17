@@ -56,7 +56,7 @@ public sealed class ResetPackagesCommand
     {
         try
         {
-            var issueFolders = _issueDiscovery.DiscoverIssueFolders(repositoryRoot);
+            var issueFolders = _issueDiscovery.DiscoverIssueFolders();
 
             var issuesToReset = issueNumbers == null
                 ? issueFolders

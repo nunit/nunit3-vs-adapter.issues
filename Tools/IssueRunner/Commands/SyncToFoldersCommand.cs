@@ -58,7 +58,7 @@ public sealed class SyncToFoldersCommand
             cancellationToken);
 
         var metadataByNumber = centralMetadata.ToDictionary(m => m.Number);
-        var issueFolders = _issueDiscovery.DiscoverIssueFolders(repositoryRoot);
+        var issueFolders = _issueDiscovery.DiscoverIssueFolders();
 
         var successCount = 0;
         var skippedCount = 0;

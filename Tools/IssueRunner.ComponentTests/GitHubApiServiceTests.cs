@@ -1,3 +1,4 @@
+using IssueRunner.Models;
 using IssueRunner.Services;
 using Microsoft.Extensions.Logging;
 using NUnit.Framework;
@@ -29,8 +30,9 @@ public class GitHubApiServiceTests
     public async Task FetchIssueMetadata_WithValidIssueNumber_ReturnsMetadata()
     {
         // Arrange
-        var service = new GitHubApiService(_httpClient!, _logger!);
-        service.SetRepository("nunit", "nunit3-vs-adapter");
+        var environment = Substitute.For<IEnvironmentService>();
+        environment.RepositoryConfig.Returns(new RepositoryConfig("nunit", "nunit3-vs-adapter"));
+        var service = new GitHubApiService(_httpClient!, environment, _logger!);
         
         // Act - Use issue #1 which should always exist
         var metadata = await service.FetchIssueMetadataAsync(1, CancellationToken.None);
@@ -51,8 +53,9 @@ public class GitHubApiServiceTests
     public async Task FetchIssueMetadata_WithDifferentRepository_ReturnsMetadata()
     {
         // Arrange
-        var service = new GitHubApiService(_httpClient!, _logger!);
-        service.SetRepository("nunit", "nunit");
+        var environment = Substitute.For<IEnvironmentService>();
+        environment.RepositoryConfig.Returns(new RepositoryConfig("nunit", "nunit3-vs-adapter"));
+        var service = new GitHubApiService(_httpClient!, environment, _logger!);
         
         // Act - Use issue #1 from nunit/nunit
         var metadata = await service.FetchIssueMetadataAsync(1, CancellationToken.None);
@@ -70,8 +73,9 @@ public class GitHubApiServiceTests
     public async Task FetchIssueMetadata_WithInvalidIssueNumber_ReturnsNull()
     {
         // Arrange
-        var service = new GitHubApiService(_httpClient!, _logger!);
-        service.SetRepository("nunit", "nunit3-vs-adapter");
+        var environment = Substitute.For<IEnvironmentService>();
+        environment.RepositoryConfig.Returns(new RepositoryConfig("nunit", "nunit3-vs-adapter"));
+        var service = new GitHubApiService(_httpClient!, environment, _logger!);
         
         // Act - Use a very high issue number that shouldn't exist
         var metadata = await service.FetchIssueMetadataAsync(999999, CancellationToken.None);
@@ -85,8 +89,9 @@ public class GitHubApiServiceTests
     public async Task FetchMultipleIssues_ReturnsMetadataList()
     {
         // Arrange
-        var service = new GitHubApiService(_httpClient!, _logger!);
-        service.SetRepository("nunit", "nunit3-vs-adapter");
+        var environment = Substitute.For<IEnvironmentService>();
+        environment.RepositoryConfig.Returns(new RepositoryConfig("nunit", "nunit3-vs-adapter"));
+        var service = new GitHubApiService(_httpClient!, environment, _logger!);
         var issueNumbers = new[] { 1, 2, 3 };
         
         // Act
