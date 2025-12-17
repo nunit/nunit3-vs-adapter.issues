@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Logging;
+using System.IO;
 using System.Text.RegularExpressions;
 
 namespace IssueRunner.Services;
@@ -40,8 +41,13 @@ public sealed partial class IssueDiscoveryService : IIssueDiscoveryService
             _logger.LogWarning("Root path does not exist: {Path}", rootPath);
             return issueFolders;
         }
-
+        
         var directories = Directory.GetDirectories(rootPath, "Issue*");
+        if (directories.Length == 0)
+        {
+            _logger.LogWarning($"No folders named Issue* under {rootPath}");
+            return issueFolders;
+        }
         
         foreach (var directory in directories)
         {

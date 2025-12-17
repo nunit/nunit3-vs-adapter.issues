@@ -1,14 +1,13 @@
 using Microsoft.Extensions.Logging;
-using System.Text.RegularExpressions;
 
 namespace IssueRunner.Services;
 
 /// <summary>
 /// Implementation of test execution service.
 /// </summary>
-public sealed partial class TestExecutionService : ITestExecutionService
+public sealed class TestExecutionService : ITestExecutionService
 {
-    private readonly ProcessExecutor _processExecutor;
+    private readonly IProcessExecutor _processExecutor;
     private readonly IProjectAnalyzerService _projectAnalyzer;
     private readonly ILogger<TestExecutionService> _logger;
 
@@ -16,7 +15,7 @@ public sealed partial class TestExecutionService : ITestExecutionService
     /// Initializes a new instance of the <see cref="TestExecutionService"/> class.
     /// </summary>
     public TestExecutionService(
-        ProcessExecutor processExecutor,
+        IProcessExecutor processExecutor,
         IProjectAnalyzerService projectAnalyzer,
         ILogger<TestExecutionService> logger)
     {

@@ -1,5 +1,3 @@
-using IssueRunner.Models;
-
 namespace IssueRunner.Services;
 
 /// <summary>

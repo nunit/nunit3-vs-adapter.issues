@@ -1,7 +1,8 @@
 using IssueRunner.Models;
 using IssueRunner.Services;
 using Microsoft.Extensions.Logging;
-using System.Text.Json;
+using System.Diagnostics;
+
 
 namespace IssueRunner.Commands;
 
@@ -60,15 +61,7 @@ public sealed class RunTestsCommand
             var metadataDict = centralMetadata.ToDictionary(m => m.Number);
 
             // Check if feed changed from previous run
-            var previousResults = await LoadPreviousResultsAsync(repositoryRoot, cancellationToken);
-            var feedChanged = CheckFeedChanged(previousResults, options.Feed);
-
-            if (feedChanged)
-            {
-                Console.WriteLine($"Feed changed to {options.Feed} - resetting packages to metadata versions...");
-                var previousFeed = GetPreviousFeed(previousResults);
-                await ResetPackagesForIssuesAsync(repositoryRoot, options.IssueNumbers, previousFeed, cancellationToken);
-            }
+            await CheckChangedFeedAndReset(repositoryRoot, options, cancellationToken);
 
             // Step 1: Filter which issues to run (based on current frameworks)
             var issuesToRun = FilterIssues(
@@ -76,35 +69,8 @@ public sealed class RunTestsCommand
                 metadataDict,
                 options);
 
-            var results = new List<IssueResult>();
-            var updateLogs = new List<PackageUpdateLog>();
-            var isFirstIssue = true;
-
-            // Step 2: Upgrade frameworks for filtered issues only, then process
-            foreach (var (issueNumber, folderPath) in issuesToRun)
-            {
-                if (_issueDiscovery.ShouldSkipIssue(folderPath))
-                {
-                    Console.WriteLine($"[{issueNumber}] Skipped due to marker file (ignore/explicit/wip)");
-                    continue;
-                }
-
-                // Upgrade frameworks before processing
-                _frameworkUpgrade.UpgradeAllProjectFrameworks(folderPath, issueNumber);
-
-                var result = await ProcessIssueAsync(
-                    issueNumber,
-                    folderPath,
-                    options,
-                    isFirstIssue,
-                    cancellationToken);
-
-                if (result != null)
-                {
-                    results.Add(result);
-                    isFirstIssue = false;
-                }
-            }
+            //Step 2: Upgrade frameworks for filtered issues only, then process
+            var results = await UpgradeFrameworks(options, cancellationToken, issuesToRun);
 
             await SaveResultsAsync(repositoryRoot, results, cancellationToken);
 
@@ -115,6 +81,56 @@ public sealed class RunTestsCommand
             // Error message already printed in LoadCentralMetadataAsync
             return 1;
         }
+    }
+
+    private async Task CheckChangedFeedAndReset(string repositoryRoot, RunOptions options,
+        CancellationToken cancellationToken)
+    {
+        var previousResults = await LoadPreviousResultsAsync(repositoryRoot, cancellationToken);
+        var feedChanged = CheckFeedChanged(previousResults, options.Feed);
+
+        if (feedChanged)
+        {
+            Console.WriteLine($"Feed changed to {options.Feed} - resetting packages to metadata versions...");
+            var previousFeed = GetPreviousFeed(previousResults);
+            await ResetPackagesForIssuesAsync(repositoryRoot, options.IssueNumbers, previousFeed, cancellationToken);
+        }
+    }
+
+    /// <summary>
+    /// Step 2: Upgrade frameworks for filtered issues only, then process
+    /// </summary>
+    private async Task<List<IssueResult>> UpgradeFrameworks(RunOptions options, CancellationToken cancellationToken, Dictionary<int, string> issuesToRun)
+    {
+        var results = new List<IssueResult>();
+        var isFirstIssue = true;
+
+        foreach (var (issueNumber, folderPath) in issuesToRun)
+        {
+            if (_issueDiscovery.ShouldSkipIssue(folderPath))
+            {
+                Console.WriteLine($"[{issueNumber}] Skipped due to marker file (ignore/explicit/wip)");
+                continue;
+            }
+
+            // Upgrade frameworks before processing
+            _frameworkUpgrade.UpgradeAllProjectFrameworks(folderPath, issueNumber);
+
+            var result = await ProcessIssueAsync(
+                issueNumber,
+                folderPath,
+                options,
+                isFirstIssue,
+                cancellationToken);
+
+            if (result != null)
+            {
+                results.Add(result);
+                isFirstIssue = false;
+            }
+        }
+
+        return results;
     }
 
     private Dictionary<int, string> FilterIssues(
@@ -236,7 +252,7 @@ public sealed class RunTestsCommand
                 options.TimeoutSeconds,
                 cancellationToken);
 
-        var executionMethod = scripts != null && scripts.Count > 0
+        var executionMethod = scripts is { Count: > 0 }
             ? $"custom scripts: {string.Join(", ", scripts.Select(Path.GetFileName))}"
             : "dotnet test";
         
@@ -356,20 +372,15 @@ public sealed class RunTestsCommand
         string issueFolderPath,
         RunOptions options)
     {
-        if (!options.SkipNetFx && !options.OnlyNetFx)
+        if (options is { SkipNetFx: false, OnlyNetFx: false })
         {
             return false;
         }
 
         // Check for Windows marker file (case insensitive)
-        var hasWindowsMarker = Directory.GetFiles(issueFolderPath)
-            .Select(Path.GetFileName)
-            .Any(f => f != null && 
-                (f.Equals("windows", StringComparison.OrdinalIgnoreCase) || 
-                 f.Equals("windows.md", StringComparison.OrdinalIgnoreCase)));
+        var hasWindowsMarker = HasWindowsMarker(issueFolderPath);
 
-        var hasNetFx = frameworks.Any(f =>
-            f.StartsWith("net4") || f.StartsWith("net3") || f.StartsWith("net2"));
+        var hasNetFx = HasNetFx(frameworks);
 
         // Treat Windows marker as if it's netfx for workflow filtering purposes
         var treatAsNetFx = hasNetFx || hasWindowsMarker;
@@ -379,12 +390,23 @@ public sealed class RunTestsCommand
             return true;
         }
 
-        if (options.OnlyNetFx && !treatAsNetFx)
-        {
-            return true;
-        }
+        return options.OnlyNetFx && !treatAsNetFx;
+    }
 
-        return false;
+    private static bool HasNetFx(List<string> frameworks)
+    {
+        return frameworks.Any(f =>
+            f.StartsWith("net4") || f.StartsWith("net3") || f.StartsWith("net2"));
+    }
+
+    private static bool HasWindowsMarker(string issueFolderPath)
+    {
+        var hasWindowsMarker = Directory.GetFiles(issueFolderPath)
+            .Select(Path.GetFileName)
+            .Any(f => f != null && 
+                      (f.Equals("windows", StringComparison.OrdinalIgnoreCase) || 
+                       f.Equals("windows.md", StringComparison.OrdinalIgnoreCase)));
+        return hasWindowsMarker;
     }
 
     private async Task<List<IssueMetadata>> LoadCentralMetadataAsync(

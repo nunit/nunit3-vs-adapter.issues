@@ -56,7 +56,7 @@ internal static class Program
         services.AddSingleton<IPackageUpdateService, PackageUpdateService>();
         services.AddSingleton<ITestExecutionService, TestExecutionService>();
         services.AddSingleton<ReportGeneratorService>();
-        
+       
         services.AddTransient<SyncFromGitHubCommand>();
         services.AddTransient<SyncToFoldersCommand>();
         services.AddTransient<RunTestsCommand>();

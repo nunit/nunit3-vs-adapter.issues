@@ -16,14 +16,14 @@ public sealed class PackageUpdateService : IPackageUpdateService
         "Microsoft.NET.Test.Sdk"
     ];
 
-    private readonly ProcessExecutor _processExecutor;
+    private readonly IProcessExecutor _processExecutor;
     private readonly ILogger<PackageUpdateService> _logger;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="PackageUpdateService"/> class.
     /// </summary>
     public PackageUpdateService(
-        ProcessExecutor processExecutor,
+        IProcessExecutor processExecutor,
         ILogger<PackageUpdateService> logger)
     {
         _processExecutor = processExecutor;
