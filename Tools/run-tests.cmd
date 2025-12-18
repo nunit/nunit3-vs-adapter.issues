@@ -36,7 +36,10 @@ pushd "%ROOT%" >nul
 
 REM If the first arg is a known verb, forward all args as-is.
 if /I "%~1"=="run" goto :forward
-if /I "%~1"=="report" goto :forward
+if /I "%~1"=="report" (
+    if "%~2"=="" goto :report_default
+    goto :forward
+)
 if /I "%~1"=="metadata" goto :forward
 if /I "%~1"=="reset" goto :forward
 if /I "%~1"=="merge" goto :forward
@@ -56,6 +59,9 @@ if "%~1:~0,2%"=="--" (
 REM Otherwise forward (lets you call subcommands without modifying this script).
 :forward
 "%ISSUERUNNER%" %*
+
+:report_default
+"%ISSUERUNNER%" report generate
 
 :done
 popd >nul

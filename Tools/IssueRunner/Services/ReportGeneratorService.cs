@@ -138,8 +138,8 @@ public sealed class ReportGeneratorService
         sb.AppendLine($"- Total: {closedResults.Count}, Success: {passed}, Fail: {failedCount}");
         sb.AppendLine();
 
-        sb.AppendLine("| Issue | Test | Conclusion |");
-        sb.AppendLine("| --- | --- | --- |");
+        sb.AppendLine("| Issue | Title | Test | Conclusion |");
+        sb.AppendLine("| --- | --- | --- | --- |");
 
         foreach (var result in closedResults)
         {
@@ -152,7 +152,7 @@ public sealed class ReportGeneratorService
             var conclusion = result.TestResult == "success"
                 ? "Success: No regression failure"
                 : "Failure: Regression failure.";
-            sb.AppendLine($"| {status} {IssueLink(result.Number)} | {result.TestResult} | {conclusion} |");
+            sb.AppendLine($"| {status} {IssueLink(result.Number)} | {meta.Title} | {result.TestResult} | {conclusion} |");
         }
 
         sb.AppendLine();
@@ -234,14 +234,14 @@ public sealed class ReportGeneratorService
         {
             sb.AppendLine("### Succeeded (candidates to close)");
             sb.AppendLine();
-            sb.AppendLine("| Issue | Conclusion |");
-            sb.AppendLine("| --- | --- |");
+            sb.AppendLine("| Issue | Title | Conclusion |");
+            sb.AppendLine("| --- | --- | --- |");
 
             foreach (var result in succeeded)
             {
                 if (metadata.TryGetValue(result.Number, out var meta))
                 {
-                    sb.AppendLine($"| {IssueLink(result.Number)} | Open issue, but test succeeds. |");
+                    sb.AppendLine($"| {IssueLink(result.Number)} | {meta.Title} | Open issue, but test succeeds. |");
                 }
             }
 
