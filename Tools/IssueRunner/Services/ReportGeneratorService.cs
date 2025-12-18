@@ -43,6 +43,8 @@ public sealed class ReportGeneratorService
         AppendSummary(sb, results, metadataDict);
         sb.AppendLine("## What we are testing");
         sb.AppendLine();
+        sb.AppendLine($"- Repository: https://github.com/{repositoryConfig}");
+        sb.AppendLine();
         sb.AppendLine("Package versions under test:");
         sb.AppendLine();
         AppendPackageVersions(sb, results);
