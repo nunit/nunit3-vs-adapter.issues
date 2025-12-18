@@ -15,7 +15,8 @@ public sealed partial class IssueDiscoveryService : IIssueDiscoveryService
     [
         "ignore", "ignore.md",
         "explicit", "explicit.md",
-        "wip", "wip.md"
+        "wip", "wip.md",
+        "closedasnotplanned", "closedasnotplanned.md"
     ];
 
     private static readonly string[] WindowsMarkerFiles =
@@ -77,10 +78,15 @@ public sealed partial class IssueDiscoveryService : IIssueDiscoveryService
     /// <inheritdoc />
     public bool ShouldSkipIssue(string issueFolderPath)
     {
+        var files = new HashSet<string>(
+            Directory.GetFiles(issueFolderPath)
+                .Select(Path.GetFileName)
+                .Where(f => f != null)!,
+            StringComparer.OrdinalIgnoreCase);
+
         foreach (var markerFile in MarkerFiles)
         {
-            var markerPath = Path.Combine(issueFolderPath, markerFile);
-            if (File.Exists(markerPath))
+            if (files.Contains(markerFile))
             {
                 _logger.LogDebug(
                     "Skipping issue at {Path} due to marker file {Marker}",

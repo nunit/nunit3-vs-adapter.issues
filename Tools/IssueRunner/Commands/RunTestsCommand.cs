@@ -19,6 +19,13 @@ public sealed class RunTestsCommand
     private readonly ILogger<RunTestsCommand> _logger;
     private readonly ILoggerFactory _loggerFactory;
     private readonly IProcessExecutor _processExecutor;
+    private static readonly HashSet<string> ClosedSkipLabels = new(StringComparer.OrdinalIgnoreCase)
+    {
+        "closed:sep",
+        "closed:wontfix",
+        "closed:bydesign",
+        "closed:noresponsefromreporter"
+    };
 
     /// <summary>
     /// Initializes a new instance of the <see cref="RunTestsCommand"/> class.
@@ -160,6 +167,31 @@ public sealed class RunTestsCommand
             
             _ => filtered
         };
+
+        // Skip closed issues with specific "do not run" labels
+        filtered = filtered
+            .Where(kvp =>
+            {
+                if (!metadata.TryGetValue(kvp.Key, out var m))
+                {
+                    return true;
+                }
+
+                if (!string.Equals(m.State, "closed", StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+
+                if (m.Labels is { Count: > 0 } &&
+                    m.Labels.Any(l => ClosedSkipLabels.Contains(l)))
+                {
+                    Console.WriteLine($"[{kvp.Key}] Skipped due to closed label marker");
+                    return false;
+                }
+
+                return true;
+            })
+            .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
         if (options.ExecutionMode != ExecutionMode.All)
         {
