@@ -150,7 +150,7 @@ public sealed class ReportGeneratorService
             var conclusion = result.TestResult == "success"
                 ? "Success: No regression failure"
                 : "Failure: Regression failure.";
-            sb.AppendLine($"| {status} #{result.Number} | {result.TestResult} | {conclusion} |");
+            sb.AppendLine($"| {status} {IssueLink(result.Number)} | {result.TestResult} | {conclusion} |");
         }
 
         sb.AppendLine();

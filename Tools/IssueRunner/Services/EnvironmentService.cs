@@ -9,6 +9,7 @@ namespace IssueRunner.Services
         void AddRoot(string root);
         string Root { get; }
         RepositoryConfig RepositoryConfig { get; set; }
+        string ResolveRepositoryRoot(string? cwd = null);
     }
 
     public class EnvironmentService : IEnvironmentService
@@ -27,6 +28,36 @@ namespace IssueRunner.Services
         {
             Root = root;
             RepositoryConfig = LoadRepositoryConfig(root);
+        }
+
+        public string ResolveRepositoryRoot(string? cwd = null)
+        {
+            cwd ??= Directory.GetCurrentDirectory();
+
+            for (var current = new DirectoryInfo(cwd); current != null; current = current.Parent)
+            {
+                // Repository config is required by IssueRunner, so use it as the primary root marker.
+                if (File.Exists(Path.Combine(current.FullName, "repository.json")) ||
+                    File.Exists(Path.Combine(current.FullName, "Tools", "repository.json")))
+                {
+                    return current.FullName;
+                }
+
+                // Fallback: allow running from a git worktree root even if repository.json hasn't been created yet.
+                if (Directory.Exists(Path.Combine(current.FullName, ".git")) ||
+                    File.Exists(Path.Combine(current.FullName, ".git")))
+                {
+                    return current.FullName;
+                }
+            }
+
+            var envRoot = Environment.GetEnvironmentVariable("ISSUERUNNER_ROOT");
+            if (!string.IsNullOrWhiteSpace(envRoot))
+            {
+                return envRoot;
+            }
+
+            return cwd;
         }
 
         private RepositoryConfig LoadRepositoryConfig(string repositoryRoot)

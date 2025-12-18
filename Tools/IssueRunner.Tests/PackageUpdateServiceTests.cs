@@ -1,6 +1,7 @@
 using IssueRunner.Models;
 using IssueRunner.Services;
 using Microsoft.Extensions.Logging;
+using System.Net.Http;
 using NSubstitute;
 using NUnit.Framework;
 
@@ -19,7 +20,9 @@ public class PackageUpdateServiceTests
         _logger = Substitute.For<ILogger<PackageUpdateService>>();
         var executorLogger = Substitute.For<ILogger<ProcessExecutor>>();
         _processExecutor = new ProcessExecutor(executorLogger);
-        _service = new PackageUpdateService(_processExecutor, _logger);
+        var httpClientFactory = Substitute.For<IHttpClientFactory>();
+        httpClientFactory.CreateClient(Arg.Any<string>()).Returns(new HttpClient());
+        _service = new PackageUpdateService(_processExecutor, httpClientFactory, _logger);
     }
 
     [Test]

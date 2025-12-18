@@ -1,4 +1,6 @@
 using System.CommandLine;
+using System.CommandLine.Builder;
+using System.CommandLine.Parsing;
 using IssueRunner.Commands;
 using IssueRunner.Models;
 using IssueRunner.Services;
@@ -22,7 +24,27 @@ internal static class Program
         var services = ConfigureServices();
         var rootCommand = BuildRootCommand(services);
 
-        return await rootCommand.InvokeAsync(args);
+        var rootOption = (Option<string>)rootCommand.Options.Single(o => o.Name == "root");
+        var parser = new CommandLineBuilder(rootCommand)
+            .AddMiddleware(async (context, next) =>
+            {
+                // Only initialize environment for commands that actually operate on a repository.
+                // Merge operates on artifact folders and does not require repository.json.
+                if (!ReferenceEquals(context.ParseResult.CommandResult.Command, rootCommand) &&
+                    !string.Equals(context.ParseResult.CommandResult.Command.Name, "merge", StringComparison.OrdinalIgnoreCase))
+                {
+                    var env = services.GetRequiredService<IEnvironmentService>();
+                    var chosenRoot = context.ParseResult.GetValueForOption(rootOption)
+                                     ?? env.ResolveRepositoryRoot(Directory.GetCurrentDirectory());
+                    env.AddRoot(chosenRoot);
+                }
+
+                await next(context);
+            })
+            .UseDefaults()
+            .Build();
+
+        return await parser.InvokeAsync(args);
     }
 
     /// <summary>
@@ -74,6 +96,12 @@ internal static class Program
         var rootCommand = new RootCommand(
             "IssueRunner - NUnit issue test automation tool");
 
+        var rootOption = new Option<string>(
+            "--root",
+            () => services.GetRequiredService<IEnvironmentService>().ResolveRepositoryRoot(Directory.GetCurrentDirectory()),
+            "Repository root path (can also set ISSUERUNNER_ROOT environment variable)");
+        rootCommand.AddGlobalOption(rootOption);
+
         rootCommand.AddCommand(BuildMetadataCommand(services));
         rootCommand.AddCommand(BuildRunCommand(services));
         rootCommand.AddCommand(BuildResetCommand(services));
@@ -88,30 +116,20 @@ internal static class Program
         var metadataCommand = new Command("metadata", "Manage issue metadata");
 
         var syncFromGitHub = new Command("sync-from-github", "Sync metadata from GitHub to central file");
-        var rootOption = new Option<string>("--root", Directory.GetCurrentDirectory, "Repository root path");
-        syncFromGitHub.AddOption(rootOption);
-        syncFromGitHub.SetHandler(async root =>
+        syncFromGitHub.SetHandler(async () =>
         {
-            var env = services.GetRequiredService<IEnvironmentService>();
-            env.AddRoot(root);
             var cmd = services.GetRequiredService<SyncFromGitHubCommand>();
             await cmd.ExecuteAsync(null, CancellationToken.None);
-        }, rootOption);
+        });
 
         var syncToFolders = new Command("sync-to-folders", "Sync metadata from central file to issue folders");
-        var rootOption2 = new Option<string>(
-            "--root",
-            Directory.GetCurrentDirectory,
-            "Repository root path");
-        syncToFolders.AddOption(rootOption2);
-        syncToFolders.SetHandler(async root =>
+        syncToFolders.SetHandler(async () =>
         {
             var env = services.GetRequiredService<IEnvironmentService>();
-            env.AddRoot(root);
             var cmd = services.GetRequiredService<SyncToFoldersCommand>();
-            await cmd.ExecuteAsync(root, null, CancellationToken.None);
+            await cmd.ExecuteAsync(env.Root, null, CancellationToken.None);
 
-        }, rootOption2);
+        });
 
         metadataCommand.AddCommand(syncFromGitHub);
         metadataCommand.AddCommand(syncToFolders);
@@ -123,10 +141,6 @@ internal static class Program
     {
         var runCommand = new Command("run", "Run tests for issues");
 
-        var rootOption = new Option<string>(
-            "--root",
-            () => Environment.GetEnvironmentVariable("ISSUERUNNER_ROOT") ?? Directory.GetCurrentDirectory(),
-            "Repository root path (can also set ISSUERUNNER_ROOT environment variable)");
         var scopeOption = new Option<TestScope>(
             "--scope",
             () => TestScope.All,
@@ -160,7 +174,6 @@ internal static class Program
             () => PackageFeed.Stable,
             "Package feed (Stable=nuget.org, Beta=nuget.org+prerelease, Alpha=nuget.org+myget+prerelease)");
 
-        runCommand.AddOption(rootOption);
         runCommand.AddOption(scopeOption);
         runCommand.AddOption(issuesOption);
         runCommand.AddOption(timeoutOption);
@@ -173,7 +186,6 @@ internal static class Program
 
         runCommand.SetHandler(async (context) =>
         {
-            var root = context.ParseResult.GetValueForOption(rootOption)!;
             var scope = context.ParseResult.GetValueForOption(scopeOption);
             var issues = context.ParseResult.GetValueForOption(issuesOption);
             var timeout = context.ParseResult.GetValueForOption(timeoutOption);
@@ -200,9 +212,8 @@ internal static class Program
             };
 
             var env = services.GetRequiredService<IEnvironmentService>();
-            env.AddRoot(root);
             var cmd = services.GetRequiredService<RunTestsCommand>();
-            await cmd.ExecuteAsync(root, options, CancellationToken.None);
+            await cmd.ExecuteAsync(env.Root, options, CancellationToken.None);
 
         });
 
@@ -213,25 +224,22 @@ internal static class Program
     {
         var resetCommand = new Command("reset", "Reset package versions to metadata values");
 
-        var rootOption = new Option<string>("--root", Directory.GetCurrentDirectory, "Repository root path");
         var issuesOption = new Option<string?>(
             "--issues",
             "Comma-separated issue numbers (null means all)");
 
-        resetCommand.AddOption(rootOption);
         resetCommand.AddOption(issuesOption);
 
-        resetCommand.SetHandler(async (root, issues) =>
+        resetCommand.SetHandler(async issues =>
         {
             var issueNumbers = string.IsNullOrEmpty(issues)
                 ? null
                 : issues.Split(',').Select(int.Parse).ToList();
 
             var env = services.GetRequiredService<IEnvironmentService>();
-            env.AddRoot(root);
             var cmd = services.GetRequiredService<ResetPackagesCommand>();
-            await cmd.ExecuteAsync(root, issueNumbers, CancellationToken.None);
-        }, rootOption, issuesOption);
+            await cmd.ExecuteAsync(env.Root, issueNumbers, CancellationToken.None);
+        }, issuesOption);
 
         return resetCommand;
     }
@@ -241,27 +249,20 @@ internal static class Program
         var reportCommand = new Command("report", "Generate and check reports");
 
         var generate = new Command("generate", "Generate test report");
-        var rootOption = new Option<string>("--root", Directory.GetCurrentDirectory, "Repository root path");
-        generate.AddOption(rootOption);
-        generate.SetHandler(async root =>
+        generate.SetHandler(async () =>
         {
-            var env = services.GetRequiredService<IEnvironmentService>();
-            env.AddRoot(root);
             var cmd = services.GetRequiredService<GenerateReportCommand>();
             await cmd.ExecuteAsync(CancellationToken.None);
-        }, rootOption);
+        });
 
         var checkRegressions = new Command("check-regressions", "Check for regression failures");
-        var rootOption2 = new Option<string>("--root", Directory.GetCurrentDirectory, "Repository root path");
-        checkRegressions.AddOption(rootOption2);
-        checkRegressions.SetHandler(async root =>
+        checkRegressions.SetHandler(async () =>
         {
             var env = services.GetRequiredService<IEnvironmentService>();
-            env.AddRoot(root);
             var cmd = services.GetRequiredService<CheckRegressionsCommand>();
-            var exitCode = await cmd.ExecuteAsync(root, CancellationToken.None);
+            var exitCode = await cmd.ExecuteAsync(env.Root, CancellationToken.None);
             Environment.Exit(exitCode);
-        }, rootOption2);
+        });
 
         reportCommand.AddCommand(generate);
         reportCommand.AddCommand(checkRegressions);

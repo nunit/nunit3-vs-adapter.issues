@@ -1,5 +1,8 @@
 using IssueRunner.Models;
 using Microsoft.Extensions.Logging;
+using NuGet.Versioning;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Xml.Linq;
 
 namespace IssueRunner.Services;
@@ -18,15 +21,18 @@ public sealed class PackageUpdateService : IPackageUpdateService
 
     private readonly IProcessExecutor _processExecutor;
     private readonly ILogger<PackageUpdateService> _logger;
+    private readonly IHttpClientFactory _httpClientFactory;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="PackageUpdateService"/> class.
     /// </summary>
     public PackageUpdateService(
         IProcessExecutor processExecutor,
+        IHttpClientFactory httpClientFactory,
         ILogger<PackageUpdateService> logger)
     {
         _processExecutor = processExecutor;
+        _httpClientFactory = httpClientFactory;
         _logger = logger;
     }
 
@@ -51,6 +57,20 @@ public sealed class PackageUpdateService : IPackageUpdateService
                 projectPath,
                 feed,
                 cancellationToken);
+        }
+
+        // For Stable feed, make sure we can move off prereleases even when the
+        // current version is a higher prerelease (dotnet-outdated won't "downgrade").
+        if (feed == PackageFeed.Stable)
+        {
+            try
+            {
+                await UpdateNUnitPackagesDirectlyAsync(projectPath, feed, cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogDebug(ex, "Stable pre-pass package update failed; continuing with dotnet-outdated.");
+            }
         }
 
         return await UpdateUsingDotnetOutdatedAsync(
@@ -163,16 +183,98 @@ public sealed class PackageUpdateService : IPackageUpdateService
         PackageFeed feed,
         CancellationToken cancellationToken)
     {
-        // TODO: Query NuGet API (and MyGet for Alpha) for latest versions based on feed
-        // For now, return hardcoded recent versions
-        await Task.CompletedTask;
-        
-        return new Dictionary<string, string>
+        var includePrerelease = feed is PackageFeed.Beta or PackageFeed.Alpha;
+
+        try
         {
-            ["NUnit"] = "4.3.1",
-            ["NUnit3TestAdapter"] = "4.6.0",
-            ["Microsoft.NET.Test.Sdk"] = "17.12.0"
+            var client = _httpClientFactory.CreateClient();
+            var latest = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (var packageId in NUnitPackages)
+            {
+                var version = await TryGetLatestNuGetOrgVersionAsync(
+                    client,
+                    packageId,
+                    includePrerelease,
+                    cancellationToken);
+
+                if (version != null)
+                {
+                    latest[packageId] = version.ToNormalizedString();
+                }
+            }
+
+            if (latest.Count > 0)
+            {
+                return latest;
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Failed to query NuGet for latest versions; falling back to defaults.");
+        }
+
+        // Fallback (best-effort) defaults.
+        return new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+        {
+            ["NUnit"] = "4.4.0",
+            ["NUnit3TestAdapter"] = "6.0.0",
+            ["Microsoft.NET.Test.Sdk"] = "18.0.1"
         };
+    }
+
+    private sealed class FlatContainerIndex
+    {
+        [JsonPropertyName("versions")]
+        public List<string>? Versions { get; set; }
+    }
+
+    private static async Task<NuGetVersion?> TryGetLatestNuGetOrgVersionAsync(
+        HttpClient client,
+        string packageId,
+        bool includePrerelease,
+        CancellationToken cancellationToken)
+    {
+        var lowerId = packageId.ToLowerInvariant();
+        var url = $"https://api.nuget.org/v3-flatcontainer/{lowerId}/index.json";
+
+        using var response = await client.GetAsync(url, cancellationToken);
+        if (!response.IsSuccessStatusCode)
+        {
+            return null;
+        }
+
+        await using var stream = await response.Content.ReadAsStreamAsync(cancellationToken);
+        var index = await JsonSerializer.DeserializeAsync<FlatContainerIndex>(
+            stream,
+            new JsonSerializerOptions { PropertyNameCaseInsensitive = true },
+            cancellationToken);
+
+        if (index?.Versions is not { Count: > 0 })
+        {
+            return null;
+        }
+
+        NuGetVersion? best = null;
+        foreach (var raw in index.Versions)
+        {
+            if (!NuGetVersion.TryParse(raw, out var parsed))
+            {
+                continue;
+            }
+
+            if (!includePrerelease && parsed.IsPrerelease)
+            {
+                continue;
+            }
+
+            if (best == null || parsed > best)
+            {
+                best = parsed;
+            }
+        }
+
+        return best;
     }
 
     private async Task<(bool Success, string Output, string Error)>
@@ -196,11 +298,16 @@ public sealed class PackageUpdateService : IPackageUpdateService
 
         // Build command based on feed
         var args = "outdated --upgrade";
-        
-        if (feed == PackageFeed.Beta || feed == PackageFeed.Alpha)
+
+        // dotnet-outdated defaults to "--pre-release Auto", which will keep using prereleases
+        // if the project is already on a prerelease version. For Stable runs we want to force
+        // stable-only resolution.
+        args += feed switch
         {
-            args += " --pre-release Always";
-        }
+            PackageFeed.Stable => " --pre-release Never",
+            PackageFeed.Beta or PackageFeed.Alpha => " --pre-release Always",
+            _ => ""
+        };
         
         var (exitCode, output, error) = await _processExecutor.ExecuteAsync(
             "dotnet",

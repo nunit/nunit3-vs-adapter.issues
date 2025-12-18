@@ -21,6 +21,7 @@ This apply to all files under the Tools directory, and not to the issue folders.
 - Include XML documentation comments for all public methods and classes
 
 - Use dependency injection where appropriate
+- Register services using interfaces for all classes that have functions
 - Handle exceptions gracefully and log errors using the built-in logging framework
 - Ensure code is formatted using `dotnet format` before committing
 - Use meaningful variable and method names that convey intent
