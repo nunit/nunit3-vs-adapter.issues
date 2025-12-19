@@ -1,6 +1,7 @@
 using IssueRunner.Models;
 using Microsoft.Extensions.Logging;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace IssueRunner.Services;
 
@@ -24,6 +25,8 @@ public sealed class ReportGeneratorService
     }
 
     private string IssueLink(int number) => $"[#{number}](https://github.com/{repositoryConfig}/issues/{number})";
+    private string ReproLink(int number) => $"[{IssueFolderName(number)}](https://github.com/{repositoryConfig}/tree/master/{IssueFolderName(number)})";
+    private static string IssueFolderName(int number) => $"Issue{number}";
 
     /// <summary>
     /// Generates a markdown test report.
@@ -152,6 +155,11 @@ public sealed class ReportGeneratorService
             var conclusion = result.TestResult == "success"
                 ? "Success: No regression failure"
                 : "Failure: Regression failure.";
+            var counts = FormatTestCountSuffix(result);
+            if (!string.IsNullOrEmpty(counts))
+            {
+                conclusion += $" {counts}";
+            }
             sb.AppendLine($"| {status} {IssueLink(result.Number)} | {meta.Title} | {result.TestResult} | {conclusion} |");
         }
 
@@ -175,12 +183,20 @@ public sealed class ReportGeneratorService
                 sb.AppendLine();
                 sb.AppendLine($"**Link**: {IssueLink(result.Number)}");
                 sb.AppendLine();
+                sb.AppendLine($"**Repro folder**: {ReproLink(result.Number)}");
+                sb.AppendLine();
                 if (meta.Labels is { Count: > 0 })
                 {
                     sb.AppendLine($"**Labels**: {string.Join(", ", meta.Labels)}");
                     sb.AppendLine();
                 }
-                sb.AppendLine($"**Conclusion**: Failure: Regression failure.");
+                var counts = FormatTestCountSuffix(result);
+                var conclusion = "Failure: Regression failure.";
+                if (!string.IsNullOrEmpty(counts))
+                {
+                    conclusion += $" {counts}";
+                }
+                sb.AppendLine($"**Conclusion**: {conclusion}");
                 sb.AppendLine();
                 sb.AppendLine("**Details**:");
                 sb.AppendLine();
@@ -291,5 +307,39 @@ public sealed class ReportGeneratorService
                 }
             }
         }
+    }
+
+    private static string FormatTestCountSuffix(IssueResult result)
+    {
+        var (passed, failed) = ExtractTestCounts(result.TestOutput);
+        if (!passed.HasValue && !failed.HasValue)
+        {
+            return string.Empty;
+        }
+
+        var passValue = passed ?? 0;
+
+        if (failed.HasValue && failed.Value > 0)
+        {
+            return $"(Pass {passValue}, Fail {failed.Value})";
+        }
+
+        return $"(Pass {passValue})";
+    }
+
+    private static (int? Passed, int? Failed) ExtractTestCounts(string? output)
+    {
+        if (string.IsNullOrWhiteSpace(output))
+        {
+            return (null, null);
+        }
+
+        var passedMatch = Regex.Match(output, @"Passed:\s*(\d+)", RegexOptions.IgnoreCase);
+        var failedMatch = Regex.Match(output, @"Failed:\s*(\d+)", RegexOptions.IgnoreCase);
+
+        int? passed = passedMatch.Success ? int.Parse(passedMatch.Groups[1].Value) : null;
+        int? failed = failedMatch.Success ? int.Parse(failedMatch.Groups[1].Value) : null;
+
+        return (passed, failed);
     }
 }

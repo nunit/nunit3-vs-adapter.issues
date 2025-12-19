@@ -28,7 +28,6 @@ if not exist "%ISSUERUNNER%" (
     exit /b 1
 )
 
-echo IssueRunner location: %ISSUERUNNER%
 echo Target repository: %ROOT%
 echo.
 

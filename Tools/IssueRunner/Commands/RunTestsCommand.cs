@@ -2,6 +2,9 @@ using IssueRunner.Models;
 using IssueRunner.Services;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using System.IO;
+using System.Text.Json;
+using System.Text.RegularExpressions;
 
 
 namespace IssueRunner.Commands;
@@ -11,6 +14,13 @@ namespace IssueRunner.Commands;
 /// </summary>
 public sealed class RunTestsCommand
 {
+    private static readonly string[] NUnitPackages =
+    [
+        "NUnit",
+        "NUnit.Analyzers",
+        "NUnit3TestAdapter"
+    ];
+
     private readonly IIssueDiscoveryService _issueDiscovery;
     private readonly IProjectAnalyzerService _projectAnalyzer;
     private readonly IFrameworkUpgradeService _frameworkUpgrade;
@@ -19,13 +29,8 @@ public sealed class RunTestsCommand
     private readonly ILogger<RunTestsCommand> _logger;
     private readonly ILoggerFactory _loggerFactory;
     private readonly IProcessExecutor _processExecutor;
-    private static readonly HashSet<string> ClosedSkipLabels = new(StringComparer.OrdinalIgnoreCase)
-    {
-        "closed:sep",
-        "closed:wontfix",
-        "closed:bydesign",
-        "closed:noresponsefromreporter"
-    };
+    private readonly INuGetPackageVersionService _nugetVersions;
+    private readonly IEnvironmentService _environmentService;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="RunTestsCommand"/> class.
@@ -39,6 +44,7 @@ public sealed class RunTestsCommand
         ILogger<RunTestsCommand> logger,
         ILoggerFactory loggerFactory,
         IProcessExecutor processExecutor,
+        INuGetPackageVersionService nugetVersions,
         IEnvironmentService environmentService)
     {
         _issueDiscovery = issueDiscovery;
@@ -49,6 +55,8 @@ public sealed class RunTestsCommand
         _logger = logger;
         _loggerFactory = loggerFactory;
         _processExecutor = processExecutor;
+        _nugetVersions = nugetVersions;
+        _environmentService = environmentService;
     }
 
     /// <summary>
@@ -168,31 +176,6 @@ public sealed class RunTestsCommand
             _ => filtered
         };
 
-        // Skip closed issues with specific "do not run" labels
-        filtered = filtered
-            .Where(kvp =>
-            {
-                if (!metadata.TryGetValue(kvp.Key, out var m))
-                {
-                    return true;
-                }
-
-                if (!string.Equals(m.State, "closed", StringComparison.OrdinalIgnoreCase))
-                {
-                    return true;
-                }
-
-                if (m.Labels is { Count: > 0 } &&
-                    m.Labels.Any(l => ClosedSkipLabels.Contains(l)))
-                {
-                    Console.WriteLine($"[{kvp.Key}] Skipped due to closed label marker");
-                    return false;
-                }
-
-                return true;
-            })
-            .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-
         if (options.ExecutionMode != ExecutionMode.All)
         {
             filtered = filtered
@@ -217,7 +200,7 @@ public sealed class RunTestsCommand
         CancellationToken cancellationToken)
     {
         // Framework already upgraded in ExecuteAsync before this is called
-        var projectFiles = _projectAnalyzer.FindProjectFiles(folderPath);
+        var projectFiles = GetProjectFilesForIssue(folderPath, issueNumber);
         
         if (projectFiles.Count == 0)
         {
@@ -241,80 +224,104 @@ public sealed class RunTestsCommand
 
         var relativeProjectPath = Path.GetRelativePath(Path.GetDirectoryName(folderPath)!, projectFile);
         
-        // Step 2: Update packages
-        Console.WriteLine($"[{issueNumber}] Updating packages in {relativeProjectPath}");
-        
-        var (updateSuccess, updateOutput, updateError) =
-            await _packageUpdate.UpdatePackagesAsync(
-                projectFile,
-                options.NUnitOnly,
-                options.Feed,
-                options.TimeoutSeconds,
-                cancellationToken);
-
-        // Display NUnit package versions for the first issue
+        // Display target NUnit package versions once, before any package updates kick off
         if (isFirstIssue)
         {
-            // Re-parse project to get current versions
-            var (_, updatedPackages) = _projectAnalyzer.ParseProjectFile(projectFile);
-            var nunitPackages = updatedPackages
-                .Where(p => p.Name.StartsWith("NUnit", StringComparison.OrdinalIgnoreCase))
-                .ToList();
+            await PrintTargetNUnitVersionsAsync(options.Feed, cancellationToken);
+        }
 
-            if (nunitPackages.Count > 0)
+        // Step 2: Update packages for all relevant projects in this issue folder
+        var updateOutputs = new List<string>();
+        var updateErrors = new List<string>();
+        var updateSuccess = true;
+
+        foreach (var proj in projectFiles)
+        {
+            var rel = Path.GetRelativePath(Path.GetDirectoryName(folderPath)!, proj);
+            Console.WriteLine($"[{issueNumber}] Updating packages in {rel}");
+
+            var (success, output, error) =
+                await _packageUpdate.UpdatePackagesAsync(
+                    proj,
+                    options.NUnitOnly,
+                    options.Feed,
+                    options.TimeoutSeconds,
+                    cancellationToken);
+
+            updateSuccess &= success;
+
+            if (!string.IsNullOrWhiteSpace(output))
             {
-                Console.WriteLine("\nTarget NUnit package versions:");
-                foreach (var pkg in nunitPackages)
-                {
-                    Console.WriteLine($"  {pkg.Name} = {pkg.Version}");
-                }
-                Console.WriteLine();
+                updateOutputs.Add($"[{rel}]\n{output}");
+            }
+
+            if (!string.IsNullOrWhiteSpace(error))
+            {
+                updateErrors.Add($"[{rel}]\n{error}");
             }
         }
+
+        var updateOutput = string.Join("\n\n", updateOutputs);
+        var updateError = string.Join("\n\n", updateErrors);
 
         if (options.Verbosity == LogVerbosity.Verbose && !string.IsNullOrWhiteSpace(updateOutput))
         {
             Console.WriteLine(updateOutput);
         }
 
-        // Run tests
-        var (testSuccess, testOutput, testError, runSettings, scripts) =
-            await _testExecution.ExecuteTestsAsync(
-                projectFile,
-                folderPath,
-                options.TimeoutSeconds,
-                cancellationToken);
+        // Run tests for all project files in this issue (aggregate results)
+        var testOutputs = new List<string>();
+        var testErrors = new List<string>();
+        var allTestsSucceeded = true;
+        string? runSettings = null;
+        List<string>? scripts = null;
 
-        var executionMethod = scripts is { Count: > 0 }
-            ? $"custom scripts: {string.Join(", ", scripts.Select(Path.GetFileName))}"
-            : "dotnet test";
-        
-        Console.WriteLine($"[{issueNumber}] Running tests in {relativeProjectPath} ({executionMethod})");
-
-        if (options.Verbosity == LogVerbosity.Verbose)
+        foreach (var proj in projectFiles)
         {
-            if (!string.IsNullOrWhiteSpace(testOutput))
+            var rel = Path.GetRelativePath(Path.GetDirectoryName(folderPath)!, proj);
+            var (projTestSuccess, projTestOutput, projTestError, projRunSettings, projScripts) =
+                await _testExecution.ExecuteTestsAsync(
+                    proj,
+                    folderPath,
+                    options.TimeoutSeconds,
+                    cancellationToken);
+
+            allTestsSucceeded &= projTestSuccess;
+            runSettings ??= projRunSettings;
+            scripts ??= projScripts;
+
+            testOutputs.Add($"=== {rel} ===\n{projTestOutput}");
+            if (!string.IsNullOrWhiteSpace(projTestError))
             {
-                Console.WriteLine(testOutput);
+                testErrors.Add($"=== {rel} ===\n{projTestError}");
             }
-            if (!string.IsNullOrWhiteSpace(testError))
+
+            var executionMethod = projScripts is { Count: > 0 }
+                ? $"custom scripts: {string.Join(", ", projScripts.Select(Path.GetFileName))}"
+                : "dotnet test";
+
+            Console.WriteLine($"[{issueNumber}] Running tests in {rel} ({executionMethod})");
+
+            if (options.Verbosity == LogVerbosity.Verbose)
             {
-                Console.WriteLine("--- Test stderr ---");
-                Console.WriteLine(testError);
+                if (!string.IsNullOrWhiteSpace(projTestOutput))
+                {
+                    Console.WriteLine(projTestOutput);
+                }
+                if (!string.IsNullOrWhiteSpace(projTestError))
+                {
+                    Console.WriteLine("--- Test stderr ---");
+                    Console.WriteLine(projTestError);
+                }
             }
         }
+
+        var testOutput = string.Join("\n\n", testOutputs);
+        var testError = string.Join("\n\n", testErrors);
+        var testSuccess = allTestsSucceeded;
 
         // Show result
-        string conclusion;
-        if (testSuccess)
-        {
-            conclusion = "Success: No regression failure";
-        }
-        else
-        {
-            var failureReason = DetermineFailureReason(updateSuccess, testOutput, testError);
-            conclusion = $"Failure: {failureReason}";
-        }
+        var conclusion = BuildConclusion(testSuccess, updateSuccess, testOutput, testError);
         
         Console.WriteLine($"[{issueNumber}] {conclusion}");
 
@@ -398,6 +405,169 @@ public sealed class RunTestsCommand
 
         // Generic test failure
         return "Tests failed";
+    }
+
+    private async Task PrintTargetNUnitVersionsAsync(PackageFeed feed, CancellationToken cancellationToken)
+    {
+        try
+        {
+            var latest = await _nugetVersions.GetLatestVersionsAsync(NUnitPackages, feed, cancellationToken);
+            if (latest.Count == 0)
+            {
+                return;
+            }
+
+            Console.WriteLine("\nTarget NUnit package versions:");
+            foreach (var pkg in NUnitPackages)
+            {
+                if (latest.TryGetValue(pkg, out var version))
+                {
+                    Console.WriteLine($"  {pkg} = {version}");
+                }
+            }
+            Console.WriteLine();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogDebug(ex, "Failed to fetch target NUnit package versions for feed {Feed}", feed);
+        }
+    }
+
+    private List<string> GetProjectFilesForIssue(string issueFolderPath, int issueNumber)
+    {
+        var metadataPath = Path.Combine(issueFolderPath, "issue_metadata.json");
+        var projectFiles = new List<string>();
+
+        if (File.Exists(metadataPath))
+        {
+            try
+            {
+                var json = File.ReadAllText(metadataPath);
+                using var doc = JsonDocument.Parse(json);
+
+                foreach (var element in doc.RootElement.EnumerateArray())
+                {
+                    if (!element.TryGetProperty("number", out var numProp) ||
+                        numProp.GetInt32() != issueNumber)
+                    {
+                        continue;
+                    }
+
+                    if (!element.TryGetProperty("project_path", out var pathProp))
+                    {
+                        continue;
+                    }
+
+                    var projectPath = pathProp.GetString();
+                    if (string.IsNullOrWhiteSpace(projectPath))
+                    {
+                        continue;
+                    }
+
+                    var fullPath = Path.Combine(
+                        issueFolderPath,
+                        projectPath.Replace('/', Path.DirectorySeparatorChar));
+
+                    if (File.Exists(fullPath))
+                    {
+                        projectFiles.Add(fullPath);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogDebug(ex, "[{Issue}] Failed to parse issue_metadata.json for project paths", issueNumber);
+            }
+        }
+
+        if (projectFiles.Count > 0)
+        {
+            return projectFiles.Distinct(StringComparer.OrdinalIgnoreCase).ToList();
+        }
+
+        return _projectAnalyzer.FindProjectFiles(issueFolderPath);
+    }
+
+    private static string BuildConclusion(bool testSuccess, bool updateSuccess, string testOutput, string testError)
+    {
+        var counts = FormatTestCounts(testOutput, testError);
+
+        if (testSuccess)
+        {
+            return string.IsNullOrEmpty(counts)
+                ? "Success: No regression failure"
+                : $"Success: No regression failure ({counts})";
+        }
+
+        var failureReason = DetermineFailureReason(updateSuccess, testOutput, testError);
+        return string.IsNullOrEmpty(counts)
+            ? $"Failure: {failureReason}"
+            : $"Failure: {failureReason} ({counts})";
+    }
+
+    private static string FormatTestCounts(string output, string error)
+    {
+        var (passed, failed) = ExtractCounts(output, error);
+
+        if (!passed.HasValue && !failed.HasValue)
+        {
+            return string.Empty;
+        }
+
+        var passValue = passed ?? 0;
+
+        if (failed.HasValue && failed.Value > 0)
+        {
+            return $"Pass {passValue}, Fail {failed.Value}";
+        }
+
+        return $"Pass {passValue}";
+    }
+
+    private static (int? Passed, int? Failed) ExtractCounts(string output, string error)
+    {
+        var combined = string.Join("\n", output ?? string.Empty, error ?? string.Empty);
+        if (string.IsNullOrWhiteSpace(combined))
+        {
+            return (null, null);
+        }
+
+        int? SumMatches(params string[] patterns)
+        {
+            foreach (var pattern in patterns)
+            {
+                var matches = Regex.Matches(combined, pattern, RegexOptions.IgnoreCase);
+                if (matches.Count == 0)
+                {
+                    continue;
+                }
+                return matches.Select(m => int.Parse(m.Groups[1].Value)).Sum();
+            }
+            return null;
+        }
+
+        // New MTP summary: "Test run summary: Passed!  total: 6  failed: 0  succeeded: 6"
+        var passed = SumMatches(@"Passed:\s*(\d+)", @"Succeeded:\s*(\d+)", @"Tests run:\s*\d+.*?Passed:\s*(\d+)");
+        // Old vstest summary: "Passed!  - Failed: 0, Passed: 3, Skipped: 0, Total: 3"
+        passed ??= SumMatches(@"Total tests:\s*\d+.*?Passed:\s*(\d+)");
+
+        var failed = SumMatches(
+            @"Failed:\s*(\d+)",
+            @"Failures:\s*(\d+)",
+            @"Tests run:\s*\d+.*?Failed:\s*(\d+)");
+
+        var total = SumMatches(
+            @"total:\s*(\d+)",
+            @"Total\s+tests:\s*(\d+)",
+            @"Tests\s+run:\s*(\d+)");
+
+        // If we don't have failed but have total and passed, derive it
+        if (!failed.HasValue && total.HasValue && passed.HasValue)
+        {
+            failed = Math.Max(total.Value - passed.Value, 0);
+        }
+
+        return (passed, failed);
     }
 
     private static bool ShouldSkipFramework(

@@ -30,7 +30,10 @@ public sealed class ProjectAnalyzerService : IProjectAnalyzerService
         return Directory.GetFiles(
             issueFolderPath,
             "*.csproj",
-            SearchOption.AllDirectories).ToList();
+            SearchOption.AllDirectories)
+            .OrderBy(GetProjectPriority)
+            .ThenBy(p => p, StringComparer.OrdinalIgnoreCase)
+            .ToList();
     }
 
     /// <inheritdoc />
@@ -190,5 +193,19 @@ public sealed class ProjectAnalyzerService : IProjectAnalyzerService
         }
 
         return packages;
+    }
+
+    private static int GetProjectPriority(string projectPath)
+    {
+        var fileName = Path.GetFileNameWithoutExtension(projectPath);
+        var directoryName = Path.GetFileName(Path.GetDirectoryName(projectPath)!);
+
+        // Prefer obvious test projects so the runner executes the actual repro tests
+        var isTestProject = fileName.Contains("Test", StringComparison.OrdinalIgnoreCase) ||
+                            fileName.Contains("Tests", StringComparison.OrdinalIgnoreCase) ||
+                            directoryName.Contains("Test", StringComparison.OrdinalIgnoreCase) ||
+                            directoryName.Contains("Tests", StringComparison.OrdinalIgnoreCase);
+
+        return isTestProject ? 0 : 1;
     }
 }

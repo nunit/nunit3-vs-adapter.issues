@@ -291,7 +291,7 @@ When issues have been updated on GitHub (state, labels, milestone changes), run 
    - Includes project details (csproj files, frameworks, packages)
 
 3. **Optional - Update readme titles**: `python scripts/fetch_issue_titles.py`
-   - Updates `readme.md` files in each `Issue*` folder with current GitHub titles
+   - Updates `readme.initialstate.md` files in each `Issue*` folder with current GitHub titles
 
 **Quick sync workflow:**
 ```bash

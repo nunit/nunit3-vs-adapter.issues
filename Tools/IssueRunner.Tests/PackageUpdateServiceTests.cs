@@ -22,7 +22,10 @@ public class PackageUpdateServiceTests
         _processExecutor = new ProcessExecutor(executorLogger);
         var httpClientFactory = Substitute.For<IHttpClientFactory>();
         httpClientFactory.CreateClient(Arg.Any<string>()).Returns(new HttpClient());
-        _service = new PackageUpdateService(_processExecutor, httpClientFactory, _logger);
+        var versions = Substitute.For<INuGetPackageVersionService>();
+        versions.GetLatestVersionsAsync(Arg.Any<IEnumerable<string>>(), Arg.Any<PackageFeed>(), Arg.Any<CancellationToken>())
+            .Returns(new Dictionary<string, NuGet.Versioning.NuGetVersion>());
+        _service = new PackageUpdateService(_processExecutor, httpClientFactory, versions, _logger);
     }
 
     [Test]

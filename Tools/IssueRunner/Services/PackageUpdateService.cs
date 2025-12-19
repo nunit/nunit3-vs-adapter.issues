@@ -22,6 +22,7 @@ public sealed class PackageUpdateService : IPackageUpdateService
     private readonly IProcessExecutor _processExecutor;
     private readonly ILogger<PackageUpdateService> _logger;
     private readonly IHttpClientFactory _httpClientFactory;
+    private readonly INuGetPackageVersionService _nugetVersions;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="PackageUpdateService"/> class.
@@ -29,10 +30,12 @@ public sealed class PackageUpdateService : IPackageUpdateService
     public PackageUpdateService(
         IProcessExecutor processExecutor,
         IHttpClientFactory httpClientFactory,
+        INuGetPackageVersionService nugetVersions,
         ILogger<PackageUpdateService> logger)
     {
         _processExecutor = processExecutor;
         _httpClientFactory = httpClientFactory;
+        _nugetVersions = nugetVersions;
         _logger = logger;
     }
 
@@ -49,6 +52,16 @@ public sealed class PackageUpdateService : IPackageUpdateService
         if (feed == PackageFeed.Alpha)
         {
             await EnsureMyGetSourceAsync(cancellationToken);
+        }
+
+        // For Local feed, ensure local source is configured
+        if (feed == PackageFeed.Local)
+        {
+            var localOk = await EnsureLocalSourceAsync(cancellationToken);
+            if (!localOk)
+            {
+                return (false, "", "Failed to configure local feed at C:\\nuget");
+            }
         }
 
         if (nunitOnly)
@@ -183,30 +196,13 @@ public sealed class PackageUpdateService : IPackageUpdateService
         PackageFeed feed,
         CancellationToken cancellationToken)
     {
-        var includePrerelease = feed is PackageFeed.Beta or PackageFeed.Alpha;
-
         try
         {
-            var client = _httpClientFactory.CreateClient();
-            var latest = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-
-            foreach (var packageId in NUnitPackages)
-            {
-                var version = await TryGetLatestNuGetOrgVersionAsync(
-                    client,
-                    packageId,
-                    includePrerelease,
-                    cancellationToken);
-
-                if (version != null)
-                {
-                    latest[packageId] = version.ToNormalizedString();
-                }
-            }
-
+            var latest = await _nugetVersions.GetLatestVersionsAsync(NUnitPackages, feed, cancellationToken);
             if (latest.Count > 0)
             {
-                return latest;
+                return latest.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.ToNormalizedString(),
+                    StringComparer.OrdinalIgnoreCase);
             }
         }
         catch (Exception ex)
@@ -221,60 +217,6 @@ public sealed class PackageUpdateService : IPackageUpdateService
             ["NUnit3TestAdapter"] = "6.0.0",
             ["Microsoft.NET.Test.Sdk"] = "18.0.1"
         };
-    }
-
-    private sealed class FlatContainerIndex
-    {
-        [JsonPropertyName("versions")]
-        public List<string>? Versions { get; set; }
-    }
-
-    private static async Task<NuGetVersion?> TryGetLatestNuGetOrgVersionAsync(
-        HttpClient client,
-        string packageId,
-        bool includePrerelease,
-        CancellationToken cancellationToken)
-    {
-        var lowerId = packageId.ToLowerInvariant();
-        var url = $"https://api.nuget.org/v3-flatcontainer/{lowerId}/index.json";
-
-        using var response = await client.GetAsync(url, cancellationToken);
-        if (!response.IsSuccessStatusCode)
-        {
-            return null;
-        }
-
-        await using var stream = await response.Content.ReadAsStreamAsync(cancellationToken);
-        var index = await JsonSerializer.DeserializeAsync<FlatContainerIndex>(
-            stream,
-            new JsonSerializerOptions { PropertyNameCaseInsensitive = true },
-            cancellationToken);
-
-        if (index?.Versions is not { Count: > 0 })
-        {
-            return null;
-        }
-
-        NuGetVersion? best = null;
-        foreach (var raw in index.Versions)
-        {
-            if (!NuGetVersion.TryParse(raw, out var parsed))
-            {
-                continue;
-            }
-
-            if (!includePrerelease && parsed.IsPrerelease)
-            {
-                continue;
-            }
-
-            if (best == null || parsed > best)
-            {
-                best = parsed;
-            }
-        }
-
-        return best;
     }
 
     private async Task<(bool Success, string Output, string Error)>
@@ -296,6 +238,15 @@ public sealed class PackageUpdateService : IPackageUpdateService
             }
         }
 
+        if (feed == PackageFeed.Local)
+        {
+            var addLocalResult = await AddLocalSourceAsync(workingDir, timeoutSeconds, cancellationToken);
+            if (!addLocalResult.Success)
+            {
+                return addLocalResult;
+            }
+        }
+
         // Build command based on feed
         var args = "outdated --upgrade";
 
@@ -305,7 +256,7 @@ public sealed class PackageUpdateService : IPackageUpdateService
         args += feed switch
         {
             PackageFeed.Stable => " --pre-release Never",
-            PackageFeed.Beta or PackageFeed.Alpha => " --pre-release Always",
+            PackageFeed.Beta or PackageFeed.Alpha or PackageFeed.Local => " --pre-release Always",
             _ => ""
         };
         
@@ -359,6 +310,87 @@ public sealed class PackageUpdateService : IPackageUpdateService
         }
 
         _logger.LogWarning("Failed to add MyGet source: {Error}", error);
+        return (false, output, error);
+    }
+
+    private async Task<bool> EnsureLocalSourceAsync(CancellationToken cancellationToken)
+    {
+        const string sourceName = "nunit-local";
+        const string sourcePath = "C:\\nuget";
+
+        try
+        {
+            var (exitCode, output, _) = await _processExecutor.ExecuteAsync(
+                "dotnet",
+                "nuget list source",
+                Directory.GetCurrentDirectory(),
+                30,
+                cancellationToken);
+
+            if (exitCode == 0 && output.IndexOf(sourceName, StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                return true;
+            }
+
+            var (addExitCode, addOutput, addError) = await _processExecutor.ExecuteAsync(
+                "dotnet",
+                $"nuget add source \"{sourcePath}\" --name {sourceName}",
+                Directory.GetCurrentDirectory(),
+                30,
+                cancellationToken);
+
+            if (addExitCode == 0)
+            {
+                _logger.LogDebug("Added local source for Local feed at {Path}", sourcePath);
+                return true;
+            }
+
+            _logger.LogWarning("Failed to add local source: {Error}", addError);
+            return false;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Error configuring local source");
+            return false;
+        }
+    }
+
+    private async Task<(bool Success, string Output, string Error)>
+        AddLocalSourceAsync(
+            string workingDir,
+            int timeoutSeconds,
+            CancellationToken cancellationToken)
+    {
+        const string sourcePath = "C:\\nuget";
+        const string sourceName = "nunit-local";
+
+        var (checkCode, checkOutput, checkError) = await _processExecutor.ExecuteAsync(
+            "dotnet",
+            "nuget list source",
+            workingDir,
+            timeoutSeconds,
+            cancellationToken);
+
+        if (checkCode == 0 && checkOutput.IndexOf(sourceName, StringComparison.OrdinalIgnoreCase) >= 0)
+        {
+            _logger.LogDebug("Local source already configured");
+            return (true, "Local source already exists", "");
+        }
+
+        var (exitCode, output, error) = await _processExecutor.ExecuteAsync(
+            "dotnet",
+            $"nuget add source \"{sourcePath}\" --name {sourceName}",
+            workingDir,
+            timeoutSeconds,
+            cancellationToken);
+
+        if (exitCode == 0)
+        {
+            _logger.LogDebug("Added local source at {Path}", sourcePath);
+            return (true, output, "");
+        }
+
+        _logger.LogWarning("Failed to add local source: {Error}", error);
         return (false, output, error);
     }
 }

@@ -76,6 +76,7 @@ internal static class Program
         services.AddSingleton<IFrameworkUpgradeService, FrameworkUpgradeService>();
         services.AddSingleton<IProcessExecutor, ProcessExecutor>();
         services.AddSingleton<IPackageUpdateService, PackageUpdateService>();
+        services.AddSingleton<INuGetPackageVersionService, NuGetPackageVersionService>();
         services.AddSingleton<ITestExecutionService, TestExecutionService>();
         services.AddSingleton<IEnvironmentService, EnvironmentService>();
         services.AddSingleton<ReportGeneratorService>();
@@ -172,7 +173,7 @@ internal static class Program
         var feedOption = new Option<PackageFeed>(
             "--feed",
             () => PackageFeed.Stable,
-            "Package feed (Stable=nuget.org, Beta=nuget.org+prerelease, Alpha=nuget.org+myget+prerelease)");
+            "Package feed (Stable=nuget.org, Beta=nuget.org+prerelease, Alpha=nuget.org+myget+prerelease, Local=C:\\nuget+prerelease)");
 
         runCommand.AddOption(scopeOption);
         runCommand.AddOption(issuesOption);

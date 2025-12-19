@@ -21,6 +21,7 @@ public class RunTestsCommandTests
     private IProcessExecutor? _processExecutor;
     private RunTestsCommand? _command;
     private IEnvironmentService? _environmentService;
+    private INuGetPackageVersionService? _nugetVersions;
 
     [SetUp]
     public void Setup()
@@ -34,6 +35,7 @@ public class RunTestsCommandTests
         _loggerFactory = Substitute.For<ILoggerFactory>();
         _processExecutor = Substitute.For<IProcessExecutor>();
         _environmentService = Substitute.For<IEnvironmentService>();
+        _nugetVersions = Substitute.For<INuGetPackageVersionService>();
 
         _command = new RunTestsCommand(
             _issueDiscovery,
@@ -44,6 +46,7 @@ public class RunTestsCommandTests
             _logger,
             _loggerFactory,
             _processExecutor,
+            _nugetVersions,
             _environmentService);
     }
 
