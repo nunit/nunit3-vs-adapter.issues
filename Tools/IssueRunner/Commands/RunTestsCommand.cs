@@ -76,6 +76,30 @@ public sealed class RunTestsCommand
             var centralMetadata = await LoadCentralMetadataAsync(repositoryRoot, cancellationToken);
             var metadataDict = centralMetadata.ToDictionary(m => m.Number);
 
+            // Inform if the user asked for specific issues that are not present locally
+            if (options.IssueNumbers is { Count: > 0 })
+            {
+                var missing = options.IssueNumbers.Where(n => !issueFolders.ContainsKey(n)).ToList();
+                var present = options.IssueNumbers.Where(issueFolders.ContainsKey).ToList();
+
+                foreach (var missingIssue in missing)
+                {
+                    Console.WriteLine($"[{missingIssue}] Skipped: issue folder not found in {repositoryRoot}");
+                }
+
+                // If none of the requested issues exist locally, stop early instead of generating reports.
+                if (present.Count == 0)
+                {
+                    Console.WriteLine("No requested issues found locally. Skipping test execution.");
+                    return 0;
+                }
+
+                // Narrow discovery to the requested set that actually exists
+                issueFolders = issueFolders
+                    .Where(kvp => present.Contains(kvp.Key))
+                    .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+            }
+
             // Check if feed changed from previous run
             await CheckChangedFeedAndReset(repositoryRoot, options, cancellationToken);
 
