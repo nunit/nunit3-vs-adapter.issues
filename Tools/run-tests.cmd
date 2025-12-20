@@ -58,6 +58,7 @@ if "%~1:~0,2%"=="--" (
 REM Otherwise forward (lets you call subcommands without modifying this script).
 :forward
 "%ISSUERUNNER%" %*
+goto :done
 
 :report_default
 "%ISSUERUNNER%" report generate

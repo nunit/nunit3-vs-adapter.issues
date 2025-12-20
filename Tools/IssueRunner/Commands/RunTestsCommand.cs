@@ -91,7 +91,8 @@ public sealed class RunTestsCommand
                 if (present.Count == 0)
                 {
                     Console.WriteLine("No requested issues found locally. Skipping test execution.");
-                    return 0;
+                    DeleteResultsFile(repositoryRoot);
+                    return 1;
                 }
 
                 // Narrow discovery to the requested set that actually exists
@@ -111,6 +112,13 @@ public sealed class RunTestsCommand
 
             //Step 2: Upgrade frameworks for filtered issues only, then process
             var results = await UpgradeFrameworks(options, cancellationToken, issuesToRun);
+
+            if (results.Count == 0)
+            {
+                Console.WriteLine("No tests were executed. Skipping results and report generation.");
+                DeleteResultsFile(repositoryRoot);
+                return 1;
+            }
 
             await SaveResultsAsync(repositoryRoot, results, cancellationToken);
 
@@ -713,6 +721,22 @@ public sealed class RunTestsCommand
     private string? GetPreviousFeed(List<IssueResult> previousResults)
     {
         return previousResults.FirstOrDefault()?.Feed;
+    }
+
+    private static void DeleteResultsFile(string repositoryRoot)
+    {
+        var resultsPath = Path.Combine(repositoryRoot, "results.json");
+        if (File.Exists(resultsPath))
+        {
+            try
+            {
+                File.Delete(resultsPath);
+            }
+            catch
+            {
+                // Best-effort cleanup
+            }
+        }
     }
 
     private async Task ResetPackagesForIssuesAsync(
