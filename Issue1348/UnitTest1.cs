@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using System;
 
-[assembly: FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
+// [assembly: FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
 
 
 //[FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
