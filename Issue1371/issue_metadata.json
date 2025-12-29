@@ -8,69 +8,9 @@
       "is:bug"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1371",
-    "project_path": "App/App.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.AspNetCore.OpenApi",
-        "version": "10.0.1"
-      },
-      {
-        "name": "Swashbuckle.AspNetCore",
-        "version": "10.0.1"
-      },
-      {
-        "name": "Swashbuckle.AspNetCore.Annotations",
-        "version": "10.0.1"
-      },
-      {
-        "name": "Swashbuckle.AspNetCore.Filters",
-        "version": "10.0.1"
-      },
-      {
-        "name": "Swashbuckle.AspNetCore.Newtonsoft",
-        "version": "10.0.1"
-      },
-      {
-        "name": "Azure.Extensions.AspNetCore.Configuration.Secrets",
-        "version": "1.4.0"
-      },
-      {
-        "name": "Microsoft.ApplicationInsights.AspNetCore",
-        "version": "2.23.0"
-      },
-      {
-        "name": "Microsoft.AspNetCore.AzureAppServices.HostingStartup",
-        "version": "10.0.1"
-      },
-      {
-        "name": "Microsoft.AspNetCore.HeaderPropagation",
-        "version": "10.0.1"
-      },
-      {
-        "name": "Microsoft.AspNetCore.SpaProxy",
-        "version": "10.0.1"
-      },
-      {
-        "name": "Serilog.AspNetCore",
-        "version": "10.0.0"
-      }
-    ]
-  },
-  {
-    "number": 1371,
-    "title": ":test_tube: V6 - assembly loading issue",
-    "state": "open",
-    "milestone": "No milestone",
-    "labels": [
-      "is:bug"
-    ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1371",
     "project_path": "App.Test/App.Test.csproj",
     "target_frameworks": [
-      "net9.0"
+      "net10.0"
     ],
     "packages": [
       {
