@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir /s /b \"%USERPROFILE%\\\\.nuget\\\\packages\\\\awesomeassertions\\\\9.2.1\\\\*.targets\" \"%USERPROFILE%\\\\.nuget\\\\packages\\\\awesomeassertions\\\\9.2.1\\\\*.props\")"
+    ]
+  }
+}
