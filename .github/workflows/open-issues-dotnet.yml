@@ -20,8 +20,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          path: s
 
       - name: Setup .NET SDKs
         uses: actions/setup-dotnet@v4
@@ -41,19 +39,19 @@ jobs:
 
       - name: Build IssueRunner
         run: |
-          cd s/Tools
+          cd Tools
           dotnet build -c Release
 
       - name: Run open issues tests (.NET Core)
         continue-on-error: true
         run: |
-          cd s/Tools/IssueRunner/bin/Release/net10.0
+          cd Tools/IssueRunner/bin/Release/net10.0
           ./IssueRunner run --scope OpenOnly --skip-netfx --timeout 900 --nunit-only --root $GITHUB_WORKSPACE
 
       - name: Generate test report
         if: always()
         run: |
-          cd s/Tools/IssueRunner/bin/Release/net10.0
+          cd Tools/IssueRunner/bin/Release/net10.0
           ./IssueRunner report generate --root $GITHUB_WORKSPACE
 
       - name: Publish summary

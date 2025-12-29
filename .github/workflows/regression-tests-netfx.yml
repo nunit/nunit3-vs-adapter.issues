@@ -18,8 +18,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          path: s
 
       - name: Setup .NET SDKs
         uses: actions/setup-dotnet@v4
@@ -39,21 +37,21 @@ jobs:
 
       - name: Build IssueRunner
         run: |
-          cd s\Tools
+          cd Tools
           dotnet build -c Release
 
       - name: Run regression tests (.NET Framework)
         continue-on-error: true
         shell: pwsh
         run: |
-          cd s\Tools\IssueRunner\bin\Release\net10.0
+          cd Tools\IssueRunner\bin\Release\net10.0
           .\IssueRunner.exe run --scope RegressionOnly --only-netfx --timeout 900 --nunit-only --verbosity Verbose --root $env:GITHUB_WORKSPACE | Tee-Object -FilePath $env:GITHUB_WORKSPACE\TestResults-consolelog.md
 
       - name: Generate test report
         if: always()
         shell: pwsh
         run: |
-          cd s\Tools\IssueRunner\bin\Release\net10.0
+          cd Tools\IssueRunner\bin\Release\net10.0
           .\IssueRunner.exe report generate --root $env:GITHUB_WORKSPACE
 
       - name: Publish summary
