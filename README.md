@@ -311,4 +311,5 @@ scripts\Update_all_from_github.cmd
 
 ### Other maintenance tasks
 
-- To ignore a repro folder for test/update runs, drop one of these files into the issue folder: `ignore`, `ignore.md`, `explicit`, `explicit.md`, `wip`, or `wip.md`.
+- To ignore a repro folder for test/update runs, drop one of these files into the issue folder: `ignore`, `explicit`, `wip`, `gui`, or `closedasnotplanned` (with optional `.md` extension).
+- To mark a repro as Windows-only (skipped on Linux CI), use `windows` or `windows.md`.

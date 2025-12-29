@@ -16,6 +16,7 @@ public sealed partial class IssueDiscoveryService : IIssueDiscoveryService
         "ignore", "ignore.md",
         "explicit", "explicit.md",
         "wip", "wip.md",
+        "gui", "gui.md",
         "closedasnotplanned", "closedasnotplanned.md"
     ];
 
