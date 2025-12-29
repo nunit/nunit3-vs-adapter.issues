@@ -13,6 +13,6 @@ public class SomeTests
     public void SomeTest(int x1, (int, int)[] expected)
     {
         var actual = new[] { (1, 2) };
-        Assert.AreEqual(expected, actual);
+        Assert.That(actual, Is.EqualTo(expected));
     }
 }
