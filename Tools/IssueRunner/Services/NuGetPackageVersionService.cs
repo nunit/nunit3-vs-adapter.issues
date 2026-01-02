@@ -14,7 +14,7 @@ public sealed class NuGetPackageVersionService : INuGetPackageVersionService
 
     private static readonly string NugetOrg = "https://api.nuget.org/v3/index.json";
     private static readonly string MyGet = "https://www.myget.org/F/nunit/api/v3/index.json";
-    private static readonly string LocalFeed = @"C:\nuget";
+    private static readonly string LocalFeed = @"C:\local";
 
     public NuGetPackageVersionService(ILogger<NuGetPackageVersionService> logger)
     {

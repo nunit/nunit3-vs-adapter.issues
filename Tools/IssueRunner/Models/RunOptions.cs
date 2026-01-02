@@ -49,6 +49,11 @@ public sealed class RunOptions
     /// Gets or sets the logging verbosity.
     /// </summary>
     public LogVerbosity Verbosity { get; init; } = LogVerbosity.Normal;
+
+    /// <summary>
+    /// Gets or sets whether to rerun only failed tests from test-fails.json.
+    /// </summary>
+    public bool RerunFailedTests { get; init; }
 }
 
 /// <summary>
@@ -113,6 +118,6 @@ public enum PackageFeed
     /// <summary>Alpha packages - nuget.org + myget with prerelease enabled.</summary>
     Alpha,
     
-    /// <summary>Local feed at C:\nuget with prerelease enabled.</summary>
+    /// <summary>Local feed at C:\local with prerelease enabled.</summary>
     Local
 }

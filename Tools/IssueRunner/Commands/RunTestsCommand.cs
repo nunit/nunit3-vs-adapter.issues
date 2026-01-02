@@ -105,10 +105,12 @@ public sealed class RunTestsCommand
             await CheckChangedFeedAndReset(repositoryRoot, options, cancellationToken);
 
             // Step 1: Filter which issues to run (based on current frameworks)
-            var issuesToRun = FilterIssues(
+            var issuesToRun = await FilterIssuesAsync(
                 issueFolders,
                 metadataDict,
-                options);
+                options,
+                repositoryRoot,
+                cancellationToken);
 
             //Step 2: Upgrade frameworks for filtered issues only, then process
             var results = await UpgradeFrameworks(options, cancellationToken, issuesToRun);
@@ -121,6 +123,12 @@ public sealed class RunTestsCommand
             }
 
             await SaveResultsAsync(repositoryRoot, results, cancellationToken);
+
+            // Promote successful tests from fails to passes (log promotions)
+            await PromoteResultsAsync(repositoryRoot, results, cancellationToken);
+            
+            // Save test results to pass/fail JSON files
+            await SaveTestResultsAsync(repositoryRoot, results, cancellationToken);
 
             return 0;
         }
@@ -181,22 +189,97 @@ public sealed class RunTestsCommand
         return results;
     }
 
-    private Dictionary<int, string> FilterIssues(
+    private async Task<Dictionary<int, string>> FilterIssuesAsync(
         Dictionary<int, string> allIssues,
         Dictionary<int, IssueMetadata> metadata,
-        RunOptions options)
+        RunOptions options,
+        string repositoryRoot,
+        CancellationToken cancellationToken)
     {
         var filtered = allIssues;
 
-        if (options.IssueNumbers != null && options.IssueNumbers.Count > 0)
+        // Handle rerun-failed option
+        if (options.RerunFailedTests)
+        {
+            var failedTests = await LoadTestResultsAsync(repositoryRoot, "test-fails.json", cancellationToken);
+            if (failedTests == null || failedTests.TestResults.Count == 0)
+            {
+                Console.WriteLine("ERROR: test-fails.json not found or empty. Cannot rerun failed tests.");
+                Console.WriteLine("Hint: Run tests first to generate test-fails.json");
+                return new Dictionary<int, string>();
+            }
+
+            // Extract issue numbers from failed tests
+            var failedIssueNumbers = new HashSet<int>();
+            foreach (var testResult in failedTests.TestResults)
+            {
+                if (int.TryParse(testResult.Issue.Replace("Issue", ""), out var issueNum))
+                {
+                    failedIssueNumbers.Add(issueNum);
+                }
+            }
+
+            filtered = filtered
+                .Where(kvp => failedIssueNumbers.Contains(kvp.Key))
+                .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+
+            Console.WriteLine($"Rerunning {filtered.Count} failed test(s) from test-fails.json");
+        }
+        else if (options.IssueNumbers != null && options.IssueNumbers.Count > 0)
         {
             filtered = filtered
                 .Where(kvp => options.IssueNumbers.Contains(kvp.Key))
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
         }
 
+        // Exclude non-compiling issues (unless rerunning failed tests)
+        if (!options.RerunFailedTests)
+        {
+            var failedBuilds = await LoadFailedBuildsAsync(repositoryRoot, cancellationToken);
+            if (failedBuilds.Count > 0)
+            {
+                var excludedCount = filtered.Count(kvp => failedBuilds.Contains(kvp.Key));
+                if (excludedCount > 0)
+                {
+                    Console.WriteLine($"Excluding {excludedCount} non-compiling issue(s) from failed-builds.json");
+                    filtered = filtered
+                        .Where(kvp => !failedBuilds.Contains(kvp.Key))
+                        .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+                }
+            }
+        }
+
+        // Load previous results for New and NewAndFailed scopes
+        Dictionary<int, string?>? resultsByIssue = null;
+        if (options.Scope == TestScope.New || options.Scope == TestScope.NewAndFailed)
+        {
+            var previousResults = await LoadPreviousResultsAsync(repositoryRoot, cancellationToken);
+            // Group by issue number and determine the test result status
+            // If multiple results exist for an issue, we consider it failed if any result is "fail"
+            // Otherwise, we use the first result's TestResult (or null if all are null/empty)
+            resultsByIssue = previousResults
+                .GroupBy(r => r.Number)
+                .ToDictionary(
+                    g => g.Key,
+                    g => g.Any(r => r.TestResult == "fail") 
+                        ? "fail" 
+                        : g.FirstOrDefault()?.TestResult);
+        }
+
         filtered = options.Scope switch
         {
+            TestScope.New => filtered
+                .Where(kvp => resultsByIssue == null || 
+                              !resultsByIssue.ContainsKey(kvp.Key) || 
+                              string.IsNullOrEmpty(resultsByIssue[kvp.Key]))
+                .ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
+            
+            TestScope.NewAndFailed => filtered
+                .Where(kvp => resultsByIssue == null || 
+                              !resultsByIssue.ContainsKey(kvp.Key) || 
+                              resultsByIssue[kvp.Key] == "fail")
+                .ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
+            
             TestScope.RegressionOnly => filtered
                 .Where(kvp => metadata.TryGetValue(kvp.Key, out var m) && m.State == "closed")
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
@@ -736,6 +819,237 @@ public sealed class RunTestsCommand
             {
                 // Best-effort cleanup
             }
+        }
+    }
+
+    /// <summary>
+    /// Loads the list of non-compiling issues from failed-builds.json.
+    /// </summary>
+    private async Task<HashSet<int>> LoadFailedBuildsAsync(
+        string repositoryRoot,
+        CancellationToken cancellationToken)
+    {
+        var failedBuildsPath = Path.Combine(repositoryRoot, "failed-builds.json");
+        
+        if (!File.Exists(failedBuildsPath))
+        {
+            Console.WriteLine("WARNING: failed-builds.json not found. Running all issues (including potentially non-compiling ones).");
+            Console.WriteLine("Hint: Run 'python check-builds.py' to generate failed-builds.json");
+            return new HashSet<int>();
+        }
+
+        try
+        {
+            var json = await File.ReadAllTextAsync(failedBuildsPath, cancellationToken);
+            var data = JsonSerializer.Deserialize<JsonElement>(json);
+            
+            var failedIssues = new HashSet<int>();
+            if (data.TryGetProperty("failed_builds", out var failedBuilds) && failedBuilds.ValueKind == JsonValueKind.Array)
+            {
+                foreach (var item in failedBuilds.EnumerateArray())
+                {
+                    if (item.TryGetProperty("issue", out var issueProp))
+                    {
+                        var issueStr = issueProp.GetString() ?? "";
+                        if (int.TryParse(issueStr.Replace("Issue", ""), out var issueNum))
+                        {
+                            failedIssues.Add(issueNum);
+                        }
+                    }
+                }
+            }
+
+            return failedIssues;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Error loading failed-builds.json, continuing with all issues");
+            return new HashSet<int>();
+        }
+    }
+
+    /// <summary>
+    /// Loads test results from a JSON file (test-passes.json or test-fails.json).
+    /// </summary>
+    private async Task<TestResultList?> LoadTestResultsAsync(
+        string repositoryRoot,
+        string filename,
+        CancellationToken cancellationToken)
+    {
+        var filePath = Path.Combine(repositoryRoot, filename);
+        
+        if (!File.Exists(filePath))
+        {
+            return null;
+        }
+
+        try
+        {
+            var json = await File.ReadAllTextAsync(filePath, cancellationToken);
+            return JsonSerializer.Deserialize<TestResultList>(json);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogWarning(ex, "Error loading {File}, returning empty list", filename);
+            return new TestResultList { TestResults = new List<TestResultEntry>() };
+        }
+    }
+
+    /// <summary>
+    /// Saves test results to test-passes.json and test-fails.json.
+    /// </summary>
+    private async Task SaveTestResultsAsync(
+        string repositoryRoot,
+        List<IssueResult> results,
+        CancellationToken cancellationToken)
+    {
+        var now = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
+        var passesPath = Path.Combine(repositoryRoot, "test-passes.json");
+        var failsPath = Path.Combine(repositoryRoot, "test-fails.json");
+
+        // Load existing results
+        var existingPasses = await LoadTestResultsAsync(repositoryRoot, "test-passes.json", cancellationToken);
+        var existingFails = await LoadTestResultsAsync(repositoryRoot, "test-fails.json", cancellationToken);
+
+        var passesDict = existingPasses?.TestResults
+            .ToDictionary(r => $"{r.Issue}|{r.Project}", r => r) 
+            ?? new Dictionary<string, TestResultEntry>();
+
+        var failsDict = existingFails?.TestResults
+            .ToDictionary(r => $"{r.Issue}|{r.Project}", r => r)
+            ?? new Dictionary<string, TestResultEntry>();
+
+        // Update with new results
+        foreach (var result in results)
+        {
+            var issueName = $"Issue{result.Number}";
+            var key = $"{issueName}|{result.ProjectPath}";
+            
+            var entry = new TestResultEntry
+            {
+                Issue = issueName,
+                Project = result.ProjectPath,
+                LastRun = now,
+                TestResult = result.TestResult ?? "unknown"
+            };
+
+            if (result.TestResult == "success")
+            {
+                passesDict[key] = entry;
+                // Remove from fails if it was there
+                failsDict.Remove(key);
+            }
+            else
+            {
+                failsDict[key] = entry;
+                // Remove from passes if it was there
+                passesDict.Remove(key);
+            }
+        }
+
+        // Save updated lists
+        var passesList = new TestResultList
+        {
+            TestResults = passesDict.Values.OrderBy(r => r.Issue).ThenBy(r => r.Project).ToList()
+        };
+
+        var failsList = new TestResultList
+        {
+            TestResults = failsDict.Values.OrderBy(r => r.Issue).ThenBy(r => r.Project).ToList()
+        };
+
+        var options = new JsonSerializerOptions
+        {
+            WriteIndented = true
+        };
+
+        var passesJson = JsonSerializer.Serialize(passesList, options);
+        var failsJson = JsonSerializer.Serialize(failsList, options);
+
+        await File.WriteAllTextAsync(passesPath, passesJson, cancellationToken);
+        await File.WriteAllTextAsync(failsPath, failsJson, cancellationToken);
+
+        Console.WriteLine($"Saved {passesList.TestResults.Count} passing test(s) to test-passes.json");
+        Console.WriteLine($"Saved {failsList.TestResults.Count} failing test(s) to test-fails.json");
+    }
+
+    /// <summary>
+    /// Promotes successful tests from test-fails.json to test-passes.json.
+    /// </summary>
+    private async Task PromoteResultsAsync(
+        string repositoryRoot,
+        List<IssueResult> results,
+        CancellationToken cancellationToken)
+    {
+        var failsList = await LoadTestResultsAsync(repositoryRoot, "test-fails.json", cancellationToken);
+        if (failsList == null || failsList.TestResults.Count == 0)
+        {
+            return;
+        }
+
+        var promoted = new List<TestResultEntry>();
+        var remainingFails = new List<TestResultEntry>();
+
+        foreach (var failEntry in failsList.TestResults)
+        {
+            // Check if this issue/project combination now passes
+            var matchingResult = results.FirstOrDefault(r => 
+                $"Issue{r.Number}" == failEntry.Issue && 
+                r.ProjectPath == failEntry.Project &&
+                r.TestResult == "success");
+
+            if (matchingResult != null)
+            {
+                promoted.Add(failEntry);
+            }
+            else
+            {
+                remainingFails.Add(failEntry);
+            }
+        }
+
+        if (promoted.Count > 0)
+        {
+            Console.WriteLine($"Promoted {promoted.Count} test(s) from test-fails.json to test-passes.json:");
+            foreach (var entry in promoted)
+            {
+                Console.WriteLine($"  - {entry.Issue}: {entry.Project}");
+            }
+
+            // Update fails list (remove promoted)
+            var updatedFails = new TestResultList { TestResults = remainingFails };
+            var failsPath = Path.Combine(repositoryRoot, "test-fails.json");
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            var failsJson = JsonSerializer.Serialize(updatedFails, options);
+            await File.WriteAllTextAsync(failsPath, failsJson, cancellationToken);
+
+            // Add to passes list
+            var passesList = await LoadTestResultsAsync(repositoryRoot, "test-passes.json", cancellationToken);
+            var passesDict = passesList?.TestResults
+                .ToDictionary(r => $"{r.Issue}|{r.Project}", r => r)
+                ?? new Dictionary<string, TestResultEntry>();
+
+            var now = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
+            foreach (var entry in promoted)
+            {
+                var key = $"{entry.Issue}|{entry.Project}";
+                passesDict[key] = new TestResultEntry
+                {
+                    Issue = entry.Issue,
+                    Project = entry.Project,
+                    LastRun = now,
+                    TestResult = "success"
+                };
+            }
+
+            var updatedPasses = new TestResultList
+            {
+                TestResults = passesDict.Values.OrderBy(r => r.Issue).ThenBy(r => r.Project).ToList()
+            };
+
+            var passesPath = Path.Combine(repositoryRoot, "test-passes.json");
+            var passesJson = JsonSerializer.Serialize(updatedPasses, options);
+            await File.WriteAllTextAsync(passesPath, passesJson, cancellationToken);
         }
     }
 

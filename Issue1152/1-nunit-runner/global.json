@@ -1,5 +1,0 @@
-﻿{
-  "test": {
-    "runner": "Microsoft.Testing.Platform"
-  }
-}

@@ -173,7 +173,10 @@ internal static class Program
         var feedOption = new Option<PackageFeed>(
             "--feed",
             () => PackageFeed.Stable,
-            "Package feed (Stable=nuget.org, Beta=nuget.org+prerelease, Alpha=nuget.org+myget+prerelease, Local=C:\\nuget+prerelease)");
+            "Package feed (Stable=nuget.org, Beta=nuget.org+prerelease, Alpha=nuget.org+myget+prerelease, Local=C:\\local+prerelease)");
+        var rerunFailedOption = new Option<bool>(
+            "--rerun-failed",
+            "Rerun only failed tests from test-fails.json");
 
         runCommand.AddOption(scopeOption);
         runCommand.AddOption(issuesOption);
@@ -184,6 +187,7 @@ internal static class Program
         runCommand.AddOption(executionModeOption);
         runCommand.AddOption(verbosityOption);
         runCommand.AddOption(feedOption);
+        runCommand.AddOption(rerunFailedOption);
 
         runCommand.SetHandler(async (context) =>
         {
@@ -196,6 +200,7 @@ internal static class Program
             var executionMode = context.ParseResult.GetValueForOption(executionModeOption);
             var verbosity = context.ParseResult.GetValueForOption(verbosityOption);
             var feed = context.ParseResult.GetValueForOption(feedOption);
+            var rerunFailed = context.ParseResult.GetValueForOption(rerunFailedOption);
 
             var options = new RunOptions
             {
@@ -209,7 +214,8 @@ internal static class Program
                 NUnitOnly = nunitOnly,
                 ExecutionMode = executionMode,
                 Verbosity = verbosity,
-                Feed = feed
+                Feed = feed,
+                RerunFailedTests = rerunFailed
             };
 
             var env = services.GetRequiredService<IEnvironmentService>();

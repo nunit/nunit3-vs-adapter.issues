@@ -1,0 +1,117 @@
+{
+  "failed_builds": [
+    {
+      "issue": "Issue1015",
+      "project": "Issue1015\\fsharp.sln"
+    },
+    {
+      "issue": "Issue1041",
+      "project": "Issue1041\\Issue1041.csproj"
+    },
+    {
+      "issue": "Issue1044",
+      "project": "Issue1044\\Issue1044.sln"
+    },
+    {
+      "issue": "Issue1065",
+      "project": "Issue1065\\gheylar\\gheylar.sln"
+    },
+    {
+      "issue": "Issue1065",
+      "project": "Issue1065\\wiremocktests\\wiremocktests.sln"
+    },
+    {
+      "issue": "Issue1096",
+      "project": "Issue1096\\NUnitParseIssue.sln"
+    },
+    {
+      "issue": "Issue1102",
+      "project": "Issue1102\\Issue1102.sln"
+    },
+    {
+      "issue": "Issue1132",
+      "project": "Issue1132\\NUnitAdapterIssue.sln"
+    },
+    {
+      "issue": "Issue1144",
+      "project": "Issue1144\\Issue1144.sln"
+    },
+    {
+      "issue": "Issue1167",
+      "project": "Issue1167\\MyApp.sln"
+    },
+    {
+      "issue": "Issue1213",
+      "project": "Issue1213\\Issue1213.sln"
+    },
+    {
+      "issue": "Issue241",
+      "project": "Issue241\\Issue241.sln"
+    },
+    {
+      "issue": "Issue261",
+      "project": "Issue261\\UnitTestProject1.sln"
+    },
+    {
+      "issue": "Issue343",
+      "project": "Issue343\\TestConsoleTests\\TestConsoleTests.sln"
+    },
+    {
+      "issue": "Issue4413And3936",
+      "project": "Issue4413And3936\\Issue4413And3936.sln"
+    },
+    {
+      "issue": "Issue535",
+      "project": "Issue535\\Repro_535_2\\Repro_535.sln"
+    },
+    {
+      "issue": "Issue545",
+      "project": "Issue545\\Issue545.sln"
+    },
+    {
+      "issue": "Issue687",
+      "project": "Issue687\\NUnitTestSolution.sln"
+    },
+    {
+      "issue": "Issue709",
+      "project": "Issue709\\nunit_error\\nunit_error.sln"
+    },
+    {
+      "issue": "Issue744",
+      "project": "Issue744\\Issue744TestName\\Issue744TestName.sln"
+    },
+    {
+      "issue": "Issue781",
+      "project": "Issue781\\nUnittest.sln"
+    },
+    {
+      "issue": "Issue786",
+      "project": "Issue786\\NUnit3TestAdapterMismatchRepro\\NUnit3TestAdapterMismatchRepro.sln"
+    },
+    {
+      "issue": "Issue811",
+      "project": "Issue811\\Issue811.sln"
+    },
+    {
+      "issue": "Issue817",
+      "project": "Issue817\\NunitTestReRunProblem\\TestNunit\\TestNunit.sln"
+    },
+    {
+      "issue": "Issue935",
+      "project": "Issue935\\NunitFSharpTestCaseSource\\NunitFSharpTestCaseSource.sln"
+    },
+    {
+      "issue": "Issue941",
+      "project": "Issue941\\Issue941.sln"
+    },
+    {
+      "issue": "Issue972",
+      "project": "Issue972\\Issue_972\\Issue_972.sln"
+    },
+    {
+      "issue": "Issue987",
+      "project": "Issue987\\MyProject.Test\\MyProject.Test.sln"
+    }
+  ]
+}
+

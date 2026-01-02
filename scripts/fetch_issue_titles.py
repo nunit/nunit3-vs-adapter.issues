@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Update Issue*/readme.md with the GitHub issue title.
+Update Issue*/readme.initialstate.md with the GitHub issue title.
 
 Relies only on the standard library. Optionally uses a GitHub token from
 the environment variable GITHUB_TOKEN to avoid rate limits.
@@ -74,9 +74,15 @@ def main() -> int:
         if title:
             line += f" - {title}"
 
-        readme_path = issue_dir / "readme.md"
-        readme_path.write_text(line, encoding="utf-8")
-        print(f"Set {readme_path} -> {line}")
+        new_path = issue_dir / "readme.initialstate.md"
+        old_path = issue_dir / "readme.md"
+
+        # If an old lowercase readme exists, rename it so we don't leave duplicates around.
+        if old_path.exists() and not new_path.exists():
+            old_path.rename(new_path)
+
+        new_path.write_text(line, encoding="utf-8")
+        print(f"Set {new_path} -> {line}")
 
     return 0
 

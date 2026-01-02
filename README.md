@@ -88,6 +88,7 @@ cd Tools/IssueRunner/bin/Release/net10.0
 ```
 
 **Options:**
+
 - `--root <path>` - Repository root path (default: current directory, or ISSUERUNNER_ROOT environment variable)
 - `--scope <All|New|NewAndFailed|RegressionOnly|OpenOnly>` - Test scope (default: All)
 - `--issues <numbers>` - Comma-separated issue numbers to run
@@ -96,18 +97,45 @@ cd Tools/IssueRunner/bin/Release/net10.0
 - `--only-netfx` - Run only .NET Framework tests
 - `--nunit-only` - Update only NUnit packages (faster)
 - `--execution-mode <All|Direct|Custom>` - Filter by execution method
-- `--feed <Stable|Beta|Alpha>` - Package feed (default: Stable)
+- `--feed <Stable|Beta|Alpha|Local>` - Package feed (default: Stable)
 - `--verbosity <Normal|Verbose>` - Logging verbosity
 
+**Test Scope Options:**
+
+- `All` (default): Run all issues
+- `New`: Run only issues that haven't been tested yet (no entry in results.json or test_result is null/empty)
+- `NewAndFailed`: Run issues that are new OR previously failed (no entry in results.json or test_result == "fail")
+- `RegressionOnly`: Run only closed issues (regression tests)
+- `OpenOnly`: Run only open issues
+
 **Package Feed Options:**
+
 - `Stable` (default): nuget.org with stable packages only
 - `Beta`: nuget.org with prerelease packages enabled
 - `Alpha`: nuget.org + MyGet feed with prerelease packages enabled
+- `Local`: nuget.org + C:\local feed with prerelease packages enabled
+
+**Execution Methods:**
+
+Issues can be executed in two ways:
+
+1. **Direct execution**: `dotnet test` is run directly on the project file. This is the default method when no custom scripts are found.
+2. **Custom script execution**: If `run_*.cmd` (Windows) or `run_*.sh` (Linux/macOS) files exist in the issue folder, those scripts are executed instead. Custom scripts are useful when an issue has multiple projects and you want to limit which ones are tested, or when special test execution logic is required.
 
 **Examples:**
+
 ```bash
 # Run all regression tests
 ./IssueRunner run --scope RegressionOnly
+
+# Run only new issues (never tested before)
+./IssueRunner run --scope New
+
+# Run new issues and previously failed tests
+./IssueRunner run --scope NewAndFailed
+
+# Run only open issues
+./IssueRunner run --scope OpenOnly
 
 # Run specific issues
 ./IssueRunner run --issues 228,343,1015
@@ -123,6 +151,9 @@ cd Tools/IssueRunner/bin/Release/net10.0
 
 # Test with alpha packages from MyGet
 ./IssueRunner run --feed Alpha --issues 228
+
+# Test with local packages from C:\local
+./IssueRunner run --feed Local --issues 228
 ```
 
 **Other Commands:**
