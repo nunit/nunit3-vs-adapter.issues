@@ -122,6 +122,55 @@ Issues can be executed in two ways:
 1. **Direct execution**: `dotnet test` is run directly on the project file. This is the default method when no custom scripts are found.
 2. **Custom script execution**: If `run_*.cmd` (Windows) or `run_*.sh` (Linux/macOS) files exist in the issue folder, those scripts are executed instead. Custom scripts are useful when an issue has multiple projects and you want to limit which ones are tested, or when special test execution logic is required.
 
+**Setting Up Custom Test Scripts:**
+
+When an issue has multiple test projects or requires specific test filters, you can create custom runner scripts. IssueRunner will automatically detect and execute any files matching `run_*.cmd` (Windows) or `run_*.sh` (Linux/macOS) in the issue folder.
+
+**Example 1: Filtering specific tests (Issue919)**
+
+Windows (`run_test_0.cmd`):
+
+```cmd
+REM EXPECT_TESTS=0
+dotnet test --filter "FullyQualifiedName~Bar\(1\)"
+```
+
+Linux/macOS (`run_test_0.sh`):
+
+```bash
+# EXPECT_TESTS=0
+dotnet test --filter "FullyQualifiedName~Bar\(1\)"
+```
+
+**Example 2: Running with runsettings and filters (Issue1146)**
+
+```cmd
+dotnet test NUnitFilterSample.csproj -c Release -s .runsettings --filter "TestCategory!=Sample" --logger "Console;verbosity=normal"
+```
+
+**Example 3: Multiple scripts for different test scenarios**
+
+You can create multiple scripts (e.g., `run_test_0.cmd`, `run_test_1.cmd`) to test different scenarios. All matching scripts will be executed in alphabetical order.
+
+**Script Metadata (Optional):**
+
+You can add expectation metadata as comments in the first 10 lines of your script:
+
+- `EXPECT_TESTS=N` - Expected total number of tests
+- `EXPECT_PASS=N` - Expected number of passing tests
+- `EXPECT_FAIL=N` - Expected number of failing tests
+- `EXPECT_SKIP=N` - Expected number of skipped tests
+
+If the actual results don't match the expectations, the test run will be marked as failed. This is useful for validating that specific test scenarios behave as expected.
+
+**Example with expectations:**
+
+```cmd
+REM EXPECT_TESTS=1
+REM EXPECT_PASS=1
+dotnet test --filter "FullyQualifiedName~Baz\(1\)"
+```
+
 **Examples:**
 
 ```bash
