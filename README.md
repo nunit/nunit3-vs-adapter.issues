@@ -126,6 +126,15 @@ Issues can be executed in two ways:
 
 When an issue has multiple test projects or requires specific test filters, you can create custom runner scripts. IssueRunner will automatically detect and execute any files matching `run_*.cmd` (Windows) or `run_*.sh` (Linux/macOS) in the issue folder.
 
+**Important: Cross-Platform Compatibility**
+
+For issues that use custom test scripts, you **must provide both** `.cmd` (Windows) and `.sh` (Linux/macOS) versions with the same name. This is required because:
+- Windows environments (local development, Windows CI) use the `.cmd` files
+- Linux environments (GitHub Actions, Linux CI) use the `.sh` files
+- If only one version exists, tests will fail on the other platform
+
+Both files should contain equivalent commands - only the comment syntax differs (`REM` for `.cmd`, `#` for `.sh`).
+
 **Example 1: Filtering specific tests (Issue919)**
 
 Windows (`run_test_0.cmd`):
