@@ -641,10 +641,10 @@ public sealed class RunTestsCommand
 
         if (failed.HasValue && failed.Value > 0)
         {
-            return $"Pass {passValue}, Fail {failed.Value}";
+            return $"{passValue} passed, {failed.Value} failed";
         }
 
-        return $"Pass {passValue}";
+        return $"{passValue} test(s) passed";
     }
 
     private static (int? Passed, int? Failed) ExtractCounts(string output, string error)

@@ -55,6 +55,11 @@ if "%~1:~0,2%"=="--" (
     goto :done
 )
 
+REM If first arg doesn't start with -- and isn't a known verb, treat as "run" options.
+REM This handles cases like "rerun-failed" or "-rerun" where user forgot the -- prefix.
+"%ISSUERUNNER%" run %*
+goto :done
+
 REM Otherwise forward (lets you call subcommands without modifying this script).
 :forward
 "%ISSUERUNNER%" %*

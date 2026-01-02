@@ -145,7 +145,7 @@ internal static class Program
         var scopeOption = new Option<TestScope>(
             "--scope",
             () => TestScope.All,
-            "Test scope");
+            "Test scope: All (default), New (untested), NewAndFailed (new or previously failed), RegressionOnly (closed issues), OpenOnly (open issues)");
         var issuesOption = new Option<string?>(
             "--issues",
             "Comma-separated issue numbers");
@@ -165,7 +165,7 @@ internal static class Program
         var executionModeOption = new Option<ExecutionMode>(
             "--execution-mode",
             () => ExecutionMode.All,
-            "Execution mode filter");
+            "Filter by execution method: All (default), Direct (dotnet test only), Custom (custom scripts only)");
         var verbosityOption = new Option<LogVerbosity>(
             "--verbosity",
             () => LogVerbosity.Normal,
@@ -173,7 +173,7 @@ internal static class Program
         var feedOption = new Option<PackageFeed>(
             "--feed",
             () => PackageFeed.Stable,
-            "Package feed (Stable=nuget.org, Beta=nuget.org+prerelease, Alpha=nuget.org+myget+prerelease, Local=C:\\local+prerelease)");
+            "Package feed: Stable (nuget.org), Beta (nuget.org+prerelease), Alpha (nuget.org+myget+prerelease), Local (C:\\nuget+prerelease)");
         var rerunFailedOption = new Option<bool>(
             "--rerun-failed",
             "Rerun only failed tests from test-fails.json");
