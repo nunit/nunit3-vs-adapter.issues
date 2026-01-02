@@ -96,9 +96,10 @@ cd Tools/IssueRunner/bin/Release/net10.0
 - `--skip-netfx` - Skip .NET Framework tests
 - `--only-netfx` - Run only .NET Framework tests
 - `--nunit-only` - Update only NUnit packages (faster)
-- `--execution-mode <All|Direct|Custom>` - Filter by execution method
+- `--execution-mode <All|Direct|Custom>` - Filter issues by execution method (default: All)
 - `--feed <Stable|Beta|Alpha|Local>` - Package feed (default: Stable)
 - `--verbosity <Normal|Verbose>` - Logging verbosity
+- `--rerun-failed` - Rerun only failed tests from test-fails.json
 
 **Test Scope Options:**
 
@@ -107,6 +108,22 @@ cd Tools/IssueRunner/bin/Release/net10.0
 - `NewAndFailed`: Run issues that are new OR previously failed (no entry in results.json or test_result == "fail")
 - `RegressionOnly`: Run only closed issues (regression tests)
 - `OpenOnly`: Run only open issues
+
+**Rerunning Failed Tests:**
+
+The `--rerun-failed` option allows you to rerun only tests that previously failed. This option:
+- Reads the list of failed tests from `test-fails.json` (generated automatically after each test run)
+- Runs only those specific issue/project combinations that failed
+- Automatically promotes tests that pass on rerun from `test-fails.json` to `test-passes.json`
+- Works independently of the `--scope` option (cannot be combined with scope filters)
+
+**Test Result Files:**
+
+IssueRunner automatically maintains two JSON files tracking test results:
+- `test-passes.json`: Contains all tests that have passed
+- `test-fails.json`: Contains all tests that have failed
+
+These files are updated after each test run. Tests that pass after being in `test-fails.json` are automatically promoted to `test-passes.json`.
 
 **Package Feed Options:**
 
@@ -121,6 +138,18 @@ Issues can be executed in two ways:
 
 1. **Direct execution**: `dotnet test` is run directly on the project file. This is the default method when no custom scripts are found.
 2. **Custom script execution**: If `run_*.cmd` (Windows) or `run_*.sh` (Linux/macOS) files exist in the issue folder, those scripts are executed instead. Custom scripts are useful when an issue has multiple projects and you want to limit which ones are tested, or when special test execution logic is required.
+
+**Execution Mode Filter:**
+
+The `--execution-mode` option allows you to filter which issues to run based on their execution method:
+
+- `All` (default): Run all issues regardless of execution method
+- `Direct`: Run only issues that use direct `dotnet test` execution (issues without custom scripts)
+- `Custom`: Run only issues that use custom scripts (`run_*.cmd` or `run_*.sh` files)
+
+This is useful when you want to:
+- Test only issues with custom scripts: `--execution-mode Custom`
+- Test only issues without custom scripts: `--execution-mode Direct`
 
 **Setting Up Custom Test Scripts:**
 
@@ -194,6 +223,9 @@ dotnet test --filter "FullyQualifiedName~Baz\(1\)"
 
 # Run only open issues
 ./IssueRunner run --scope OpenOnly
+
+# Rerun only failed tests from test-fails.json
+./IssueRunner run --rerun-failed
 
 # Run specific issues
 ./IssueRunner run --issues 228,343,1015

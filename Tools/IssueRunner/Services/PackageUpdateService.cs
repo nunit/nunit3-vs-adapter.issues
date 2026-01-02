@@ -345,6 +345,16 @@ public sealed class PackageUpdateService : IPackageUpdateService
                 return true;
             }
 
+            // Check if the source already exists (this is not an error)
+            if (addError.Contains("already exists", StringComparison.OrdinalIgnoreCase) ||
+                addError.Contains("already present", StringComparison.OrdinalIgnoreCase) ||
+                addOutput.Contains("already exists", StringComparison.OrdinalIgnoreCase) ||
+                addOutput.Contains("already present", StringComparison.OrdinalIgnoreCase))
+            {
+                _logger.LogDebug("Local source already exists, skipping add");
+                return true;
+            }
+
             _logger.LogWarning("Failed to add local source: {Error}", addError);
             return false;
         }
@@ -388,6 +398,16 @@ public sealed class PackageUpdateService : IPackageUpdateService
         {
             _logger.LogDebug("Added local source at {Path}", sourcePath);
             return (true, output, "");
+        }
+
+        // Check if the source already exists (this is not an error)
+        if (error.Contains("already exists", StringComparison.OrdinalIgnoreCase) ||
+            error.Contains("already present", StringComparison.OrdinalIgnoreCase) ||
+            output.Contains("already exists", StringComparison.OrdinalIgnoreCase) ||
+            output.Contains("already present", StringComparison.OrdinalIgnoreCase))
+        {
+            _logger.LogDebug("Local source already exists, skipping add");
+            return (true, "Local source already exists", "");
         }
 
         _logger.LogWarning("Failed to add local source: {Error}", error);

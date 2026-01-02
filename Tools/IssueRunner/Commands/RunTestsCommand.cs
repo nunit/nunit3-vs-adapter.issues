@@ -250,7 +250,7 @@ public sealed class RunTestsCommand
         }
 
         // Load previous results for New and NewAndFailed scopes
-        Dictionary<int, string?>? resultsByIssue = null;
+        Dictionary<int, string?> resultsByIssue = new();
         if (options.Scope == TestScope.New || options.Scope == TestScope.NewAndFailed)
         {
             var previousResults = await LoadPreviousResultsAsync(repositoryRoot, cancellationToken);
@@ -264,20 +264,28 @@ public sealed class RunTestsCommand
                     g => g.Any(r => r.TestResult == "fail") 
                         ? "fail" 
                         : g.FirstOrDefault()?.TestResult);
+            
+            if (options.Scope == TestScope.NewAndFailed)
+            {
+                var newCount = filtered.Count(kvp => !resultsByIssue.ContainsKey(kvp.Key));
+                var failedCount = filtered.Count(kvp => resultsByIssue.ContainsKey(kvp.Key) && resultsByIssue[kvp.Key] == "fail");
+                Console.WriteLine($"NewAndFailed scope: {newCount} new issue(s), {failedCount} previously failed issue(s)");
+            }
         }
 
         filtered = options.Scope switch
         {
             TestScope.New => filtered
-                .Where(kvp => resultsByIssue == null || 
+                .Where(kvp => resultsByIssue.Count == 0 || 
                               !resultsByIssue.ContainsKey(kvp.Key) || 
                               string.IsNullOrEmpty(resultsByIssue[kvp.Key]))
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
             
             TestScope.NewAndFailed => filtered
-                .Where(kvp => resultsByIssue == null || 
-                              !resultsByIssue.ContainsKey(kvp.Key) || 
-                              resultsByIssue[kvp.Key] == "fail")
+                .Where(kvp => resultsByIssue.Count == 0 
+                              ? true  // If no previous results, all issues are considered "new"
+                              : !resultsByIssue.ContainsKey(kvp.Key) ||  // New (not in results)
+                                resultsByIssue[kvp.Key] == "fail")  // Previously failed
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Value),
             
             TestScope.RegressionOnly => filtered
