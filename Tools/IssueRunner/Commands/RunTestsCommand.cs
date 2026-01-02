@@ -919,6 +919,10 @@ public sealed class RunTestsCommand
             .ToDictionary(r => $"{r.Issue}|{r.Project}", r => r)
             ?? new Dictionary<string, TestResultEntry>();
 
+        // Track how many tests were processed in this run
+        var processedPasses = 0;
+        var processedFails = 0;
+
         // Update with new results
         foreach (var result in results)
         {
@@ -938,12 +942,14 @@ public sealed class RunTestsCommand
                 passesDict[key] = entry;
                 // Remove from fails if it was there
                 failsDict.Remove(key);
+                processedPasses++;
             }
             else
             {
                 failsDict[key] = entry;
                 // Remove from passes if it was there
                 passesDict.Remove(key);
+                processedFails++;
             }
         }
 
@@ -969,8 +975,12 @@ public sealed class RunTestsCommand
         await File.WriteAllTextAsync(passesPath, passesJson, cancellationToken);
         await File.WriteAllTextAsync(failsPath, failsJson, cancellationToken);
 
-        Console.WriteLine($"Saved {passesList.TestResults.Count} passing test(s) to test-passes.json");
-        Console.WriteLine($"Saved {failsList.TestResults.Count} failing test(s) to test-fails.json");
+        // Show both the tests processed in this run and the total counts
+        if (processedPasses > 0 || processedFails > 0)
+        {
+            Console.WriteLine($"Processed {processedPasses} passing and {processedFails} failing test(s) in this run");
+        }
+        Console.WriteLine($"Total: {passesList.TestResults.Count} passing and {failsList.TestResults.Count} failing test(s) in test-passes.json and test-fails.json");
     }
 
     /// <summary>

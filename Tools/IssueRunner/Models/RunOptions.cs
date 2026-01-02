@@ -118,6 +118,6 @@ public enum PackageFeed
     /// <summary>Alpha packages - nuget.org + myget with prerelease enabled.</summary>
     Alpha,
     
-    /// <summary>Local feed at C:\local with prerelease enabled.</summary>
+    /// <summary>Local feed at C:\nuget with prerelease enabled.</summary>
     Local
 }

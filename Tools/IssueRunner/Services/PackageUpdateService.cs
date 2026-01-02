@@ -60,7 +60,7 @@ public sealed class PackageUpdateService : IPackageUpdateService
             var localOk = await EnsureLocalSourceAsync(cancellationToken);
             if (!localOk)
             {
-                return (false, "", "Failed to configure local feed at C:\\local");
+                return (false, "", "Failed to configure local feed at C:\\nuget");
             }
         }
 
@@ -316,7 +316,7 @@ public sealed class PackageUpdateService : IPackageUpdateService
     private async Task<bool> EnsureLocalSourceAsync(CancellationToken cancellationToken)
     {
         const string sourceName = "nunit-local";
-        const string sourcePath = "C:\\local";
+        const string sourcePath = "C:\\nuget";
 
         try
         {
@@ -361,7 +361,7 @@ public sealed class PackageUpdateService : IPackageUpdateService
             int timeoutSeconds,
             CancellationToken cancellationToken)
     {
-        const string sourcePath = "C:\\local";
+        const string sourcePath = "C:\\nuget";
         const string sourceName = "nunit-local";
 
         var (checkCode, checkOutput, checkError) = await _processExecutor.ExecuteAsync(

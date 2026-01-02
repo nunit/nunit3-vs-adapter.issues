@@ -113,7 +113,7 @@ cd Tools/IssueRunner/bin/Release/net10.0
 - `Stable` (default): nuget.org with stable packages only
 - `Beta`: nuget.org with prerelease packages enabled
 - `Alpha`: nuget.org + MyGet feed with prerelease packages enabled
-- `Local`: nuget.org + C:\local feed with prerelease packages enabled
+- `Local`: nuget.org + C:\nuget feed with prerelease packages enabled
 
 **Execution Methods:**
 
@@ -201,7 +201,7 @@ dotnet test --filter "FullyQualifiedName~Baz\(1\)"
 # Test with alpha packages from MyGet
 ./IssueRunner run --feed Alpha --issues 228
 
-# Test with local packages from C:\local
+# Test with local packages from C:\nuget
 ./IssueRunner run --feed Local --issues 228
 ```
 
