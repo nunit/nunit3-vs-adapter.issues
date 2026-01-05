@@ -3,6 +3,7 @@ using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
 using System.Reflection;
 using System.Runtime.Loader;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace TestCase;
 
@@ -52,7 +53,7 @@ public class DynamicEvaluationTests
         Console.WriteLine(typeof(Point).FullName);  // Output: TestCase.Point
         Console.WriteLine(typeof(Point).Assembly.FullName);
         Type dynamicPointType = result.GetType();
-        Type testPoint = typeof(Point);
+        var testPoint = typeof(Point);
 
         // These should be TRUE:
         Console.WriteLine($"Same Type: {dynamicPointType == testPoint}");
@@ -66,10 +67,10 @@ public class DynamicEvaluationTests
         Console.WriteLine($"Same Context: {dynamicContext == testContext}");
 
         Console.WriteLine("-------------------------------------------------");
-        
 
-        Assembly dynamicAssembly = dynamicPointType.Assembly;
-        Assembly testAssembly = testPoint.Assembly;
+
+        var dynamicAssembly = dynamicPointType.Assembly;
+        var testAssembly = testPoint.Assembly;
 
         Console.WriteLine("=== Assembly Comparison ===");
         Console.WriteLine($"Dynamic Assembly: {dynamicAssembly}");
@@ -107,12 +108,27 @@ public class DynamicEvaluationTests
         Console.WriteLine($"Type Equals: {dynamicPointType.Equals(testPoint)}");
         Console.WriteLine($"AssignableFrom: {testPoint.IsAssignableFrom(dynamicPointType)}");
         Console.WriteLine($"Type Handle Equal: {dynamicPointType.TypeHandle.Value == testPoint.TypeHandle.Value}");
+        Console.WriteLine("\r-------------------------------------------------\r");
+        Console.WriteLine($"=== NUnit and Test Assemblies in Test Context, name: '{testContext.Name}'  ===\r");
+
+        foreach (var nunitComponent in testContext.Assemblies.Where(o => o.FullName.Contains("nunit") || o.FullName.Contains("Issue1375")))
+        {
+            Console.WriteLine($"{nunitComponent.FullName}");
+        }
+
+        Console.WriteLine($"\r=== NUnit and Test Assemblies in Default (Dynamic) Context, name: '{dynamicContext.Name}'  ===\r");
+
+        foreach (var nunitComponent in dynamicContext.Assemblies.Where(o => o.FullName.Contains("nunit") || o.FullName.Contains("Issue1375")))
+        {
+            Console.WriteLine($"{nunitComponent.FullName}");
+        }
+
 
         using (Assert.EnterMultipleScope())
         {
             Assert.That(result.X, Is.EqualTo(1));
             Assert.That(result.Y, Is.EqualTo(2));
-            Assert.That(dynamicContext== testContext);
+            Assert.That(dynamicContext == testContext);
             Assert.That(dynamicAssembly == testAssembly);
         }
         //result.X.ShouldBe(1);

@@ -1,0 +1,1 @@
+Test using Resharper
