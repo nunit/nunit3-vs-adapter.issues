@@ -1,14 +1,14 @@
 [
   {
     "number": 765,
-    "title": "TestCaseSource + NSubstitute + Async = Skipped Tests in VS 2019",
+    "title": "TestCaseSource \u002B NSubstitute \u002B Async = Skipped Tests in VS 2019",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/765",
-    "project_path": "NSubstituteSkippedTestDemo/NSubstituteSkippedTestDemo/NSubstituteSkippedTestDemo.csproj",
+    "project_path": "NSubstituteSkippedTestDemo\\NSubstituteSkippedTestDemo\\NSubstituteSkippedTestDemo.csproj",
     "target_frameworks": [
       "net10.0"
     ],

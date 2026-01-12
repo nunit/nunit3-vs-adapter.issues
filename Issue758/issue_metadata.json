@@ -9,7 +9,7 @@
       "is:idea"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/758",
-    "project_path": "Issue758/Issue758.csproj",
+    "project_path": "Issue758\\Issue758.csproj",
     "target_frameworks": [
       "net10.0"
     ],
@@ -38,22 +38,22 @@
       "is:idea"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/758",
-    "project_path": "SkipThisAssembly/SkipThisAssembly.csproj",
+    "project_path": "SkipThisAssembly\\SkipThisAssembly.csproj",
     "target_frameworks": [
-      "netcoreapp3.1"
+      "net10.0"
     ],
     "packages": [
       {
         "name": "nunit",
-        "version": "3.14.0"
+        "version": "4.4.0"
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
+        "version": "6.0.1"
       },
       {
         "name": "Microsoft.NET.Test.Sdk",
-        "version": "17.13.0"
+        "version": "18.0.1"
       }
     ]
   }

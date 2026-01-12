@@ -1,7 +1,7 @@
 [
   {
     "number": 918,
-    "title": "New DiscoveryMode doesn't play nicely with `TestFixtureSource` - Missing GenericFixture",
+    "title": "New DiscoveryMode doesn\u0027t play nicely with \u0060TestFixtureSource\u0060 - Missing GenericFixture",
     "state": "closed",
     "milestone": "4.2",
     "labels": [
@@ -22,10 +22,6 @@
       {
         "name": "NUnit",
         "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "<no version found>"
       },
       {
         "name": "coverlet.collector",

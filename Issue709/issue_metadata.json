@@ -1,7 +1,7 @@
 [
   {
     "number": 709,
-    "title": "TestCases not grouped using TestCaseSource \"SetName\" property in v3.16.1",
+    "title": "TestCases not grouped using TestCaseSource \u0022SetName\u0022 property in v3.16.1",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
@@ -10,7 +10,7 @@
       "External"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/709",
-    "project_path": "nunit_error/NUnit_v3160/NUnit_v3160.csproj",
+    "project_path": "nunit_error\\NUnit_v3160\\NUnit_v3160.csproj",
     "target_frameworks": [
       "net10.0"
     ],
@@ -31,7 +31,7 @@
   },
   {
     "number": 709,
-    "title": "TestCases not grouped using TestCaseSource \"SetName\" property in v3.16.1",
+    "title": "TestCases not grouped using TestCaseSource \u0022SetName\u0022 property in v3.16.1",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
@@ -40,9 +40,9 @@
       "External"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/709",
-    "project_path": "nunit_error/NUnit_v3161/NUnit_v3161.csproj",
+    "project_path": "nunit_error\\NUnit_v3161\\NUnit_v3161.csproj",
     "target_frameworks": [
-      "netcoreapp2.1"
+      "net10.0"
     ],
     "packages": [
       {

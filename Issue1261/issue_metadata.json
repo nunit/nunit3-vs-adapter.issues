@@ -9,7 +9,7 @@
       "MTP"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1261",
-    "project_path": "RetryRepro/RetryRepro/RetryRepro.csproj",
+    "project_path": "RetryRepro\\RetryRepro\\RetryRepro.csproj",
     "target_frameworks": [
       "net10.0"
     ],

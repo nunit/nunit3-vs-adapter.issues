@@ -1,14 +1,14 @@
 [
   {
     "number": 1039,
-    "title": "Exception while loading tests; tests don't run. Since 4.3.1",
+    "title": "Exception while loading tests; tests don\u0027t run. Since 4.3.1",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1039",
-    "project_path": "LibraryToTest.Tests/LibraryToTest.Tests.csproj",
+    "project_path": "LibraryToTest.Tests\\LibraryToTest.Tests.csproj",
     "target_frameworks": [
       "net10.0"
     ],

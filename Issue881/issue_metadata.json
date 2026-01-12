@@ -9,7 +9,7 @@
       "closed:SomebodyElsesProblem"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/881",
-    "project_path": "TestProject1/TestProject1.csproj",
+    "project_path": "TestProject1\\TestProject1.csproj",
     "target_frameworks": [
       "net10.0"
     ],

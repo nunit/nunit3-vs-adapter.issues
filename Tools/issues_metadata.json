@@ -1062,6 +1062,16 @@
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1225"
   },
   {
+    "number": 1227,
+    "title": " Listing the discovered tests doesn\u0027t respect the filter",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "Investigate"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1227"
+  },
+  {
     "number": 1231,
     "title": "/TestCaseFilter does not support ClassName property",
     "state": "closed",
@@ -1207,13 +1217,13 @@
   },
   {
     "number": 1348,
-    "title": "[MTP] AwesomeAssertions throws different NUnit.Framework.AssertionException than expected at runtime",
+    "title": "\uD83E\uDDEA [MTP] AwesomeAssertions throws different NUnit.Framework.AssertionException than expected at runtime",
     "state": "closed",
-    "milestone": "No milestone",
+    "milestone": "6.1",
     "labels": [
+      "is:bug",
+      "closed:done",
       "pri:high",
-      "Investigate",
-      "closed:SomebodyElsesProblem",
       "MTP"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1348"
@@ -1262,42 +1272,88 @@
   },
   {
     "number": 1367,
-    "title": "v10 of Microsoft.* nugets makes it more difficult to support older nugets and runtime",
-    "state": "open",
+    "title": "\uD83E\uDDEA  v10 of Microsoft.* nugets makes it more difficult to support older nugets and runtime",
+    "state": "closed",
     "milestone": "6.0.1",
     "labels": [
-      "is:bug"
+      "is:bug",
+      "closed:done"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1367"
   },
   {
     "number": 1371,
     "title": ":test_tube: V6 - assembly loading issue",
-    "state": "open",
-    "milestone": "No milestone",
+    "state": "closed",
+    "milestone": "6.0.1",
     "labels": [
-      "is:bug"
+      "is:bug",
+      "closed:done"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1371"
   },
   {
     "number": 1374,
     "title": ":test_tube: System.Diagnostics.Trace.Assert crashes the test process after updating to NUnit3TestAdapter 6.0.0",
-    "state": "open",
+    "state": "closed",
     "milestone": "6.0.1",
     "labels": [
-      "is:bug"
+      "is:bug",
+      "closed:done"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1374"
   },
   {
     "number": 1375,
     "title": ":test_tube: New failures in dynamic code evaluation in v6",
-    "state": "open",
-    "milestone": "No milestone",
+    "state": "closed",
+    "milestone": "6.1",
     "labels": [
       "is:bug"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1375"
+  },
+  {
+    "number": 1376,
+    "title": "Parent: Assemblyloading failures in Version 6.0",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "pri:critical"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1376"
+  },
+  {
+    "number": 1377,
+    "title": "failed to run tests after migration to MTP and newset nunit",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1377"
+  },
+  {
+    "number": 1385,
+    "title": "Test execution never ends when Ctrl\u002BC key hit in MTP mode",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "Investigate"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1385"
+  },
+  {
+    "number": 1391,
+    "title": "NUnit3TestAdapter V6.0.1 doesn\u0027t work with Resharpers Unit Tests explorer",
+    "state": "closed",
+    "milestone": "6.1",
+    "labels": [
+      "is:bug",
+      "resharper_rider"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1391"
   }
 ]

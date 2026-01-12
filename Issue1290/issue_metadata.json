@@ -1,7 +1,7 @@
 [
   {
     "number": 1290,
-    "title": "OneTimeTeardown failures don't show up in results   (formerly: Include TearDown errors on stdout)",
+    "title": "OneTimeTeardown failures don\u0027t show up in results   (formerly: Include TearDown errors on stdout)",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [

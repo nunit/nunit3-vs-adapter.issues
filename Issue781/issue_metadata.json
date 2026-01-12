@@ -1,15 +1,24 @@
 [
   {
     "number": 781,
-    "title": "An exception occurred while test discoverer 'NUnit3TestDiscoverer' was loading tests. Exception: Object reference not set to an instance of an object, with VS2015",
+    "title": "An exception occurred while test discoverer \u0027NUnit3TestDiscoverer\u0027 was loading tests. Exception: Object reference not set to an instance of an object, with VS2015",
     "state": "closed",
     "milestone": "4.0.0-beta.1",
     "labels": [
       "closed:done"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/781",
-    "project_path": "nUnittest/nUnittest.csproj",
+    "project_path": "nUnittest\\nUnittest.csproj",
     "target_frameworks": [],
-    "packages": []
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.12.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.2"
+      }
+    ]
   }
 ]

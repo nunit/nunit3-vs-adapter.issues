@@ -8,7 +8,7 @@
       "closed:notabug"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/768",
-    "project_path": "NRENUnitEventListner_v2/NRENUnitEventListner_v2.csproj",
+    "project_path": "NRENUnitEventListner_v2\\NRENUnitEventListner_v2.csproj",
     "target_frameworks": [
       "net472"
     ],

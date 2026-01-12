@@ -1,7 +1,7 @@
 [
   {
     "number": 691,
-    "title": "Incorrect format for TestCaseFilter Error: Missing '('",
+    "title": "Incorrect format for TestCaseFilter Error: Missing \u0027(\u0027",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
@@ -12,7 +12,7 @@
       "closed:fixedinnewversion"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/691",
-    "project_path": "Issue691/Issue691/Issue691.csproj",
+    "project_path": "Issue691\\Issue691\\Issue691.csproj",
     "target_frameworks": [
       "net10.0"
     ],

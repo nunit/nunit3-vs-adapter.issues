@@ -1,7 +1,7 @@
 [
   {
     "number": 1241,
-    "title": "VS Test Explorer NUnit error: \"TestPlatformFormatException: Filter string ... includes unrecognized escape sequence\"",
+    "title": "VS Test Explorer NUnit error: \u0022TestPlatformFormatException: Filter string ... includes unrecognized escape sequence\u0022",
     "state": "closed",
     "milestone": "6.0",
     "labels": [
@@ -10,7 +10,7 @@
       "MTP"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1241",
-    "project_path": "Repro1/TestProject3.csproj",
+    "project_path": "Repro1\\TestProject3.csproj",
     "target_frameworks": [
       "net10.0"
     ],
@@ -31,7 +31,7 @@
   },
   {
     "number": 1241,
-    "title": "VS Test Explorer NUnit error: \"TestPlatformFormatException: Filter string ... includes unrecognized escape sequence\"",
+    "title": "VS Test Explorer NUnit error: \u0022TestPlatformFormatException: Filter string ... includes unrecognized escape sequence\u0022",
     "state": "closed",
     "milestone": "6.0",
     "labels": [
@@ -40,9 +40,9 @@
       "MTP"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1241",
-    "project_path": "Repro2/Issue1241.csproj",
+    "project_path": "Repro2\\Issue1241.csproj",
     "target_frameworks": [
-      "net9.0"
+      "net10.0"
     ],
     "packages": [
       {
@@ -59,11 +59,11 @@
       },
       {
         "name": "NUnit.Analyzers",
-        "version": "4.10.0"
+        "version": "4.11.2"
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "6.0.0-beta.3"
+        "version": "6.1.0"
       }
     ]
   }

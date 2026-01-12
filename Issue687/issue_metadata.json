@@ -10,27 +10,9 @@
       "External"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/687",
-    "project_path": "NETStandardClassLibrary/NETStandardClassLibrary.csproj",
+    "project_path": "NUnitTestProject\\NUnitTestProject.csproj",
     "target_frameworks": [
       "netstandard2.0"
-    ],
-    "packages": []
-  },
-  {
-    "number": 687,
-    "title": "Test discovery fails when using TestCaseSource in RIDER and VS2017 with Resharper Unit Tests",
-    "state": "closed",
-    "milestone": "3.16.1",
-    "labels": [
-      "is:bug",
-      "closed:done",
-      "External"
-    ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/687",
-    "project_path": "NUnitTestProject/NUnitTestProject.csproj",
-    "target_frameworks": [
-      "netcoreapp3.1",
-      "net47"
     ],
     "packages": [
       {
@@ -46,5 +28,22 @@
         "version": "16.4.0"
       }
     ]
+  },
+  {
+    "number": 687,
+    "title": "Test discovery fails when using TestCaseSource in RIDER and VS2017 with Resharper Unit Tests",
+    "state": "closed",
+    "milestone": "3.16.1",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "External"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/687",
+    "project_path": "NETStandardClassLibrary\\NETStandardClassLibrary.csproj",
+    "target_frameworks": [
+      "netstandard2.0"
+    ],
+    "packages": []
   }
 ]

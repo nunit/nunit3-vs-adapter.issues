@@ -1,15 +1,15 @@
 [
   {
-    "number": 1336,
-    "title": "[MTP] No output from \u0060TestContext.Progress\u0060",
-    "state": "open",
-    "milestone": "No milestone",
+    "number": 1391,
+    "title": "NUnit3TestAdapter V6.0.1 doesn\u0027t work with Resharpers Unit Tests explorer",
+    "state": "closed",
+    "milestone": "6.1",
     "labels": [
-      "Investigate",
-      "MTP"
+      "is:bug",
+      "resharper_rider"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1336",
-    "project_path": "Issue1336.csproj",
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1391",
+    "project_path": "Issue1391.csproj",
     "target_frameworks": [
       "net10.0"
     ],
@@ -32,7 +32,7 @@
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
+        "version": "6.0.2-beta.1"
       }
     ]
   }

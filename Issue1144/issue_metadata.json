@@ -10,43 +10,9 @@
       "closed:noresponse"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1144",
-    "project_path": "ClassLibFW45/ClassLibFW45.csproj",
+    "project_path": "TestFW\\TestFW.csproj",
     "target_frameworks": [
       "net45"
-    ],
-    "packages": []
-  },
-  {
-    "number": 1144,
-    "title": "dotnet test with .NET 8 SDK installed",
-    "state": "closed",
-    "milestone": "No milestone",
-    "labels": [
-      "is:bug",
-      "closed:done",
-      "closed:noresponse"
-    ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1144",
-    "project_path": "ClassLibNetC21/ClassLibNetC21.csproj",
-    "target_frameworks": [
-      "netcoreapp2.1"
-    ],
-    "packages": []
-  },
-  {
-    "number": 1144,
-    "title": "dotnet test with .NET 8 SDK installed",
-    "state": "closed",
-    "milestone": "No milestone",
-    "labels": [
-      "is:bug",
-      "closed:done",
-      "closed:noresponse"
-    ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1144",
-    "project_path": "TestFW/TestFW.csproj",
-    "target_frameworks": [
-      "net48"
     ],
     "packages": [
       {
@@ -82,9 +48,9 @@
       "closed:noresponse"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1144",
-    "project_path": "TestNC31/TestNC31.csproj",
+    "project_path": "TestNC31\\TestNC31.csproj",
     "target_frameworks": [
-      "netcoreapp2.1"
+      "net10.0"
     ],
     "packages": [
       {
@@ -108,5 +74,39 @@
         "version": "3.1.2"
       }
     ]
+  },
+  {
+    "number": 1144,
+    "title": "dotnet test with .NET 8 SDK installed",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "closed:noresponse"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1144",
+    "project_path": "ClassLibFW45\\ClassLibFW45.csproj",
+    "target_frameworks": [
+      "net45"
+    ],
+    "packages": []
+  },
+  {
+    "number": 1144,
+    "title": "dotnet test with .NET 8 SDK installed",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "closed:noresponse"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1144",
+    "project_path": "ClassLibNetC21\\ClassLibNetC21.csproj",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": []
   }
 ]

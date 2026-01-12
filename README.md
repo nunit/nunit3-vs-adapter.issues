@@ -51,6 +51,7 @@ For convenience, use the wrapper scripts that handle the full path to IssueRunne
 ```cmd
 cd /path/to/your/test/repository
 ..\nunit3-vs-adapter.issues\Tools\run-tests.cmd [options]
+..\nunit3-vs-adapter.issues\Tools\generate-report.cmd
 ..\nunit3-vs-adapter.issues\Tools\sync-from-github.cmd
 ..\nunit3-vs-adapter.issues\Tools\sync-to-folders.cmd
 ```
@@ -59,6 +60,7 @@ cd /path/to/your/test/repository
 ```bash
 cd /path/to/your/test/repository
 ../nunit3-vs-adapter.issues/Tools/run-tests.sh [options]
+../nunit3-vs-adapter.issues/Tools/generate-report.sh
 ../nunit3-vs-adapter.issues/Tools/sync-from-github.sh
 ../nunit3-vs-adapter.issues/Tools/sync-to-folders.sh
 ```
@@ -287,10 +289,31 @@ The `reset` command restores projects to their original state from metadata:
 
 ## Reporting
 
+Generate a test report from your test results:
+
+**Using wrapper scripts (recommended):**
+
+```cmd
+# Windows
+.\Tools\generate-report.cmd
+
+# Linux/macOS
+./Tools/generate-report.sh
+```
+
+**Or run IssueRunner directly:**
+
 ```bash
 cd Tools/IssueRunner/bin/Release/net10.0
 ./IssueRunner report generate
 ```
+
+The report will be generated as `TestReport.md` in the repository root. It includes:
+- Summary of regression tests (closed issues) and open issues
+- Package versions under test
+- Test results breakdown
+
+**Note:** The report is generated from `results.json` in the repository root. Make sure you've run tests first to generate this file.
 
 ## Maintaining metadata
 

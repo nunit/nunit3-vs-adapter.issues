@@ -1,11 +1,12 @@
 [
   {
     "number": 1367,
-    "title": "v10 of Microsoft.* nugets makes it more difficult to support older nugets and runtime",
-    "state": "open",
+    "title": "\uD83E\uDDEA  v10 of Microsoft.* nugets makes it more difficult to support older nugets and runtime",
+    "state": "closed",
     "milestone": "6.0.1",
     "labels": [
-      "is:bug"
+      "is:bug",
+      "closed:done"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1367",
     "project_path": "Issue1367.csproj",

@@ -1,7 +1,7 @@
 [
   {
     "number": 1357,
-    "title": "Test cases with ArgDisplayNames containing closing braces `)` are recognized as a different test and names are truncated after first closing brace",
+    "title": "Test cases with ArgDisplayNames containing closing braces \u0060)\u0060 are recognized as a different test and names are truncated after first closing brace",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [

@@ -1,0 +1,63 @@
+[
+  {
+    "number": 1377,
+    "title": "failed to run tests after migration to MTP and newset nunit",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1377",
+    "project_path": "NunitTests.csproj",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.4"
+      },
+      {
+        "name": "Microsoft.Extensions.DependencyModel",
+        "version": "10.0.1"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "18.0.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.11.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "6.1.0"
+      },
+      {
+        "name": "Microsoft.Testing.Extensions.CodeCoverage",
+        "version": "18.3.1"
+      },
+      {
+        "name": "Microsoft.Testing.Extensions.Telemetry",
+        "version": "2.0.2"
+      },
+      {
+        "name": "Microsoft.Testing.Extensions.TrxReport",
+        "version": "2.0.2"
+      },
+      {
+        "name": "Microsoft.Testing.Platform",
+        "version": "2.0.2"
+      },
+      {
+        "name": "Microsoft.Testing.Platform.MSBuild",
+        "version": "2.0.2"
+      }
+    ]
+  }
+]

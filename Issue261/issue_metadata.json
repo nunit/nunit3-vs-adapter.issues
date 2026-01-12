@@ -10,6 +10,15 @@
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/261",
     "project_path": "Issue261.csproj",
     "target_frameworks": [],
-    "packages": []
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.13.3"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.3.0"
+      }
+    ]
   }
 ]

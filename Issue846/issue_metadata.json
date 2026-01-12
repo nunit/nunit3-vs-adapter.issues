@@ -10,7 +10,7 @@
       "external:fixedInNewVersion"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/846",
-    "project_path": "Issue846/Issue846.csproj",
+    "project_path": "Issue846\\Issue846.csproj",
     "target_frameworks": [
       "net10.0"
     ],

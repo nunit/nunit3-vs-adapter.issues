@@ -1,7 +1,7 @@
 [
   {
     "number": 909,
-    "title": "Tests marked as \"Explicit\" are reported as \"Inconclusive\"",
+    "title": "Tests marked as \u0022Explicit\u0022 are reported as \u0022Inconclusive\u0022",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [

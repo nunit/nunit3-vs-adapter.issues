@@ -9,23 +9,7 @@
       "closed:done"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/987",
-    "project_path": "MyProject.Test/ClassLibrary1/ClassLibrary1.csproj",
-    "target_frameworks": [
-      "net45"
-    ],
-    "packages": []
-  },
-  {
-    "number": 987,
-    "title": "System.ArgumentException: Unknown framework version 7.0",
-    "state": "closed",
-    "milestone": "4.3",
-    "labels": [
-      "is:enhancement",
-      "closed:done"
-    ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/987",
-    "project_path": "MyProject.Test/MyProject.Test/MyProject.Test.csproj",
+    "project_path": "MyProject.Test\\MyProject.Test\\MyProject.Test.csproj",
     "target_frameworks": [
       "net45"
     ],
@@ -58,9 +42,9 @@
       "closed:done"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/987",
-    "project_path": "MyProject.Test/SecondTest/SecondTest.csproj",
+    "project_path": "MyProject.Test\\SecondTest\\SecondTest.csproj",
     "target_frameworks": [
-      "net45"
+      "net462"
     ],
     "packages": [
       {
@@ -84,5 +68,21 @@
         "version": "3.1.2"
       }
     ]
+  },
+  {
+    "number": 987,
+    "title": "System.ArgumentException: Unknown framework version 7.0",
+    "state": "closed",
+    "milestone": "4.3",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/987",
+    "project_path": "MyProject.Test\\ClassLibrary1\\ClassLibrary1.csproj",
+    "target_frameworks": [
+      "net45"
+    ],
+    "packages": []
   }
 ]

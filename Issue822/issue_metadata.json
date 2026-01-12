@@ -10,14 +10,14 @@
       "External"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/822",
-    "project_path": "CSharpNet35/CSharpNet35.csproj",
+    "project_path": "CSharpNet35\\CSharpNet35.csproj",
     "target_frameworks": [
       "net35"
     ],
     "packages": [
       {
         "name": "NUnit",
-        "version": "4.4.0"
+        "version": "3.12.0"
       },
       {
         "name": "NUnit3TestAdapter",

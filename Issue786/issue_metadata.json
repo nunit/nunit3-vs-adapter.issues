@@ -9,7 +9,7 @@
       "closed:done"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/786",
-    "project_path": "NUnit3TestAdapterMismatchRepro/ProjectANetCore/ProjectANetCore.csproj",
+    "project_path": "NUnit3TestAdapterMismatchRepro\\ProjectANetCore\\ProjectANetCore.csproj",
     "target_frameworks": [
       "net10.0"
     ],
@@ -38,9 +38,9 @@
       "closed:done"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/786",
-    "project_path": "NUnit3TestAdapterMismatchRepro/ProjectBNetFramework/ProjectBNetFramework.csproj",
+    "project_path": "NUnit3TestAdapterMismatchRepro\\ProjectBNetFramework\\ProjectBNetFramework.csproj",
     "target_frameworks": [
-      "net461"
+      "net462"
     ],
     "packages": [
       {

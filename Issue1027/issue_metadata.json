@@ -9,9 +9,24 @@
       "closed:done"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1027",
-    "project_path": "NUnitVSAdapterRepro/NUnitVSAdapterRepro/NUnitVSAdapterRepro.csproj",
-    "target_frameworks": [],
-    "packages": []
+    "project_path": "NUnitVSAdapterRepro\\NUnitVSAdapterRepro.Test\\NUnitVSAdapterRepro.Test.csproj",
+    "target_frameworks": [
+      "net472"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "18.0.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "6.1.0"
+      }
+    ]
   },
   {
     "number": 1027,
@@ -23,23 +38,8 @@
       "closed:done"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1027",
-    "project_path": "NUnitVSAdapterRepro/NUnitVSAdapterRepro.Test/NUnitVSAdapterRepro.Test.csproj",
-    "target_frameworks": [
-      "net472"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "17.6.2"
-      },
-      {
-        "name": "NUnit",
-        "version": "3.13.3"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "4.5.0"
-      }
-    ]
+    "project_path": "NUnitVSAdapterRepro\\NUnitVSAdapterRepro\\NUnitVSAdapterRepro.csproj",
+    "target_frameworks": [],
+    "packages": []
   }
 ]

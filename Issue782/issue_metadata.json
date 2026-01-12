@@ -9,7 +9,36 @@
       "is:FQNIssue"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/782",
-    "project_path": "UnitTestBug/UnitTestBug.csproj",
+    "project_path": "UnitTestBugTests\\UnitTestBugTests.csproj",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "18.0.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "6.0.1"
+      }
+    ]
+  },
+  {
+    "number": 782,
+    "title": "Test not run with IEnumerable tuple arguments from TestCaseSource",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "is:FQNIssue"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/782",
+    "project_path": "UnitTestBug\\UnitTestBug.csproj",
     "target_frameworks": [
       "net10.0"
     ],
@@ -25,22 +54,30 @@
       "is:FQNIssue"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/782",
-    "project_path": "UnitTestBugTests/UnitTestBugTests.csproj",
+    "project_path": "ZhaparoffTest\\ZhaparoffTest.csproj",
     "target_frameworks": [
-      "netcoreapp3.1"
+      "net10.0"
     ],
     "packages": [
       {
+        "name": "coverlet.collector",
+        "version": "6.0.4"
+      },
+      {
         "name": "Microsoft.NET.Test.Sdk",
-        "version": "16.7.1"
+        "version": "18.0.1"
       },
       {
         "name": "NUnit",
-        "version": "3.12.0"
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.11.2"
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "3.17.0"
+        "version": "6.0.1"
       }
     ]
   }

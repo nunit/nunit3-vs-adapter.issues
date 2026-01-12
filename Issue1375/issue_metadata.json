@@ -2,8 +2,8 @@
   {
     "number": 1375,
     "title": ":test_tube: New failures in dynamic code evaluation in v6",
-    "state": "open",
-    "milestone": "No milestone",
+    "state": "closed",
+    "milestone": "6.1",
     "labels": [
       "is:bug"
     ],
@@ -32,10 +32,6 @@
       {
         "name": "NUnit.Analyzers",
         "version": "4.11.2"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
       }
     ]
   }

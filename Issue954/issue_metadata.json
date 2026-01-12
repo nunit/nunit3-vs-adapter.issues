@@ -8,7 +8,7 @@
       "is:experimental"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/954",
-    "project_path": "NUnitDiscoveryNameChange/NUnitDiscoveryNameChange.csproj",
+    "project_path": "NUnitDiscoveryNameChange\\NUnitDiscoveryNameChange.csproj",
     "target_frameworks": [
       "net10.0"
     ],

@@ -11,7 +11,7 @@
       "closed:fixedinnewversion"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/878",
-    "project_path": "TestOwner/TestOwner.csproj",
+    "project_path": "TestOwner\\TestOwner.csproj",
     "target_frameworks": [
       "net48"
     ],

@@ -1,7 +1,7 @@
 [
   {
     "number": 484,
-    "title": "Cannot run an individual test whose TestCase parameter contains characters from the range [U+0001..U+001F]",
+    "title": "Cannot run an individual test whose TestCase parameter contains characters from the range [U\u002B0001..U\u002B001F]",
     "state": "closed",
     "milestone": "3.16",
     "labels": [
@@ -10,7 +10,7 @@
       "pri:normal"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/484",
-    "project_path": "Issue484/Issue484.csproj",
+    "project_path": "Issue484\\Issue484.csproj",
     "target_frameworks": [
       "net472"
     ],

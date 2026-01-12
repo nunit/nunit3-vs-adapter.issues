@@ -9,7 +9,7 @@
       "closed:done"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/843",
-    "project_path": "Issue843/Issue843.csproj",
+    "project_path": "Issue843\\Issue843.csproj",
     "target_frameworks": [
       "net10.0"
     ],

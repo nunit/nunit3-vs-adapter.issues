@@ -1,15 +1,14 @@
 [
   {
-    "number": 1336,
-    "title": "[MTP] No output from \u0060TestContext.Progress\u0060",
+    "number": 1227,
+    "title": " Listing the discovered tests doesn\u0027t respect the filter",
     "state": "open",
     "milestone": "No milestone",
     "labels": [
-      "Investigate",
-      "MTP"
+      "Investigate"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1336",
-    "project_path": "Issue1336.csproj",
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1227",
+    "project_path": "Issue1227.csproj",
     "target_frameworks": [
       "net10.0"
     ],
@@ -32,7 +31,7 @@
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
+        "version": "6.1.0"
       }
     ]
   }

@@ -1,7 +1,7 @@
 [
   {
     "number": 770,
-    "title": "\"Not a TestFixture, but TestSuite\" error when using un-namespaced SetupFixture",
+    "title": "\u0022Not a TestFixture, but TestSuite\u0022 error when using un-namespaced SetupFixture",
     "state": "closed",
     "milestone": "4.0.0-beta.1",
     "labels": [
@@ -9,7 +9,7 @@
       "closed:done"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/770",
-    "project_path": "TestLib/TestLib.csproj",
+    "project_path": "TestLib\\TestLib.csproj",
     "target_frameworks": [
       "net10.0"
     ],

@@ -9,7 +9,7 @@
       "closed:norepro"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/241",
-    "project_path": "igntest/igntest.csproj",
+    "project_path": "igntest\\igntest.csproj",
     "target_frameworks": [
       "net10.0"
     ],
@@ -46,9 +46,9 @@
       "closed:norepro"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/241",
-    "project_path": "test/test.csproj",
+    "project_path": "test\\test.csproj",
     "target_frameworks": [
-      "net6.0"
+      "net10.0"
     ],
     "packages": [
       {

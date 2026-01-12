@@ -10,21 +10,8 @@
       "External"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/545",
-    "project_path": "Issue545/Issue545.csproj",
+    "project_path": "Issue545\\Issue545.csproj",
     "target_frameworks": [],
-    "packages": [
-      {
-        "name": "NUnit",
-        "version": "3.14.0"
-      },
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
-      }
-    ]
+    "packages": []
   }
 ]

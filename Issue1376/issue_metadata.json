@@ -1,0 +1,39 @@
+[
+  {
+    "number": 1376,
+    "title": "Parent: Assemblyloading failures in Version 6.0",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "pri:critical"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1376",
+    "project_path": "Issue1376.csproj",
+    "target_frameworks": [
+      "net472"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "18.0.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "6.1.0"
+      },
+      {
+        "name": "System.ValueTuple",
+        "version": "4.6.1"
+      },
+      {
+        "name": "Microsoft.Extensions.DependencyModel",
+        "version": "10.0.1"
+      }
+    ]
+  }
+]

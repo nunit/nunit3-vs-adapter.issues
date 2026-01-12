@@ -11,7 +11,7 @@
       "VS Issue"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/658",
-    "project_path": "StopOnError/StopOnError.csproj",
+    "project_path": "Explicit\\ExplicitCore\\ExplicitCore.csproj",
     "target_frameworks": [
       "netcoreapp3.1"
     ],
@@ -42,18 +42,9 @@
       "VS Issue"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/658",
-    "project_path": "Explicit/Explicit/Explicit.csproj",
+    "project_path": "Explicit\\Explicit\\Explicit.csproj",
     "target_frameworks": [],
-    "packages": [
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
-      }
-    ]
+    "packages": []
   },
   {
     "number": 658,
@@ -67,22 +58,22 @@
       "VS Issue"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/658",
-    "project_path": "Explicit/ExplicitCore/ExplicitCore.csproj",
+    "project_path": "StopOnError\\StopOnError.csproj",
     "target_frameworks": [
-      "netcoreapp3.1"
+      "net10.0"
     ],
     "packages": [
       {
         "name": "nunit",
-        "version": "3.13.2"
+        "version": "4.4.0"
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "4.1.0-alpha02-07-dbg"
+        "version": "6.1.0"
       },
       {
         "name": "Microsoft.NET.Test.Sdk",
-        "version": "16.11.0"
+        "version": "18.0.1"
       }
     ]
   }

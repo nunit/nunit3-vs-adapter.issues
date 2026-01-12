@@ -1,16 +1,17 @@
 [
   {
-    "number": 874,
-    "title": "Explicit tests executed when running with dotnet test and a filter",
+    "number": 1040,
+    "title": "net461 tests don\u0027t run with Nunit3TestAdapter 4.3.x",
     "state": "closed",
     "milestone": "No milestone",
     "labels": [
-      "closed:notabug"
+      "closed:notabug",
+      "is:question"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/874",
-    "project_path": "TestProject1\\TestProject1.csproj",
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1040",
+    "project_path": "NUnitAdapterBug.csproj",
     "target_frameworks": [
-      "net10.0"
+      "net462"
     ],
     "packages": [
       {
@@ -23,7 +24,7 @@
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
+        "version": "6.1.0"
       }
     ]
   }

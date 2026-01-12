@@ -1,0 +1,58 @@
+[
+  {
+    "number": 1385,
+    "title": "Test execution never ends when Ctrl\u002BC key hit in MTP mode",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "Investigate"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1385",
+    "project_path": "Issue1385.csproj",
+    "target_frameworks": [
+      "net8"
+    ],
+    "packages": [
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.0"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "18.0.1"
+      },
+      {
+        "name": "Microsoft.Testing.Extensions.Telemetry",
+        "version": "2.0.2"
+      },
+      {
+        "name": "Microsoft.Testing.Extensions.TrxReport",
+        "version": "2.0.2"
+      },
+      {
+        "name": "Microsoft.Testing.Extensions.VSTestBridge",
+        "version": "2.0.2"
+      },
+      {
+        "name": "Microsoft.Testing.Platform",
+        "version": "2.0.2"
+      },
+      {
+        "name": "Microsoft.Testing.Platform.MSBuild",
+        "version": "2.0.2"
+      },
+      {
+        "name": "NUnit",
+        "version": "3.12.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "3.8.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "6.1.0-alpha.3"
+      }
+    ]
+  }
+]

@@ -8,7 +8,7 @@
       "closed:fixedinnewversion"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/784",
-    "project_path": "NUnitExplicitTest/Tests/Tests.csproj",
+    "project_path": "NUnitExplicitTest\\Tests\\Tests.csproj",
     "target_frameworks": [
       "net10.0"
     ],

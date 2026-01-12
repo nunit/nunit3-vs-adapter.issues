@@ -8,7 +8,7 @@
       "is:question"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1240",
-    "project_path": "TestHelpers/TestHelpers.csproj",
+    "project_path": "TestHelpers\\TestHelpers.csproj",
     "target_frameworks": [
       "net10.0"
     ],
@@ -36,9 +36,9 @@
       "is:question"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1240",
-    "project_path": "TestProject1/TestProject1.csproj",
+    "project_path": "TestProject1\\TestProject1.csproj",
     "target_frameworks": [
-      "net9.0"
+      "net10.0"
     ],
     "packages": [
       {

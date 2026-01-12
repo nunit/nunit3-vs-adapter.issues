@@ -10,8 +10,17 @@
       "closed:fixedinnewversion"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/817",
-    "project_path": "NunitTestReRunProblem/TestNunit/TestNunit.csproj",
+    "project_path": "NunitTestReRunProblem\\TestNunit\\TestNunit.csproj",
     "target_frameworks": [],
-    "packages": []
+    "packages": [
+      {
+        "name": "NUnit",
+        "version": "3.13.1"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.0.0-beta.1"
+      }
+    ]
   }
 ]

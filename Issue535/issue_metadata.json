@@ -9,13 +9,12 @@
       "VS Issue",
       "External",
       "closed:SomebodyElsesProblem",
-      "ReportedToMS"
+      "ReportedToMS",
+      "closed:fixedinnewversion"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/535",
-    "project_path": "Repro_535_2/Project/Project.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
+    "project_path": "Repro_535_2\\Tests2\\Tests2.csproj",
+    "target_frameworks": [],
     "packages": []
   },
   {
@@ -28,12 +27,13 @@
       "VS Issue",
       "External",
       "closed:SomebodyElsesProblem",
-      "ReportedToMS"
+      "ReportedToMS",
+      "closed:fixedinnewversion"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/535",
-    "project_path": "Repro_535_2/Tests/Issue535_Tests.csproj",
+    "project_path": "Repro_535_2\\Tests\\Issue535_Tests.csproj",
     "target_frameworks": [
-      "netcoreapp3.1"
+      "net10.0"
     ],
     "packages": [
       {
@@ -60,16 +60,14 @@
       "VS Issue",
       "External",
       "closed:SomebodyElsesProblem",
-      "ReportedToMS"
+      "ReportedToMS",
+      "closed:fixedinnewversion"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/535",
-    "project_path": "Repro_535_2/Tests2/Tests2.csproj",
-    "target_frameworks": [],
-    "packages": [
-      {
-        "name": "NUnit",
-        "version": "3.13.2"
-      }
-    ]
+    "project_path": "Repro_535_2\\Project\\Project.csproj",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": []
   }
 ]

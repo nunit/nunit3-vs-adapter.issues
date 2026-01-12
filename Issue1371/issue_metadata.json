@@ -2,13 +2,14 @@
   {
     "number": 1371,
     "title": ":test_tube: V6 - assembly loading issue",
-    "state": "open",
-    "milestone": "No milestone",
+    "state": "closed",
+    "milestone": "6.0.1",
     "labels": [
-      "is:bug"
+      "is:bug",
+      "closed:done"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1371",
-    "project_path": "App.Test/App.Test.csproj",
+    "project_path": "App.Test\\App.Test.csproj",
     "target_frameworks": [
       "net10.0"
     ],
@@ -48,6 +49,67 @@
       {
         "name": "NSubstitute",
         "version": "5.3.0"
+      }
+    ]
+  },
+  {
+    "number": 1371,
+    "title": ":test_tube: V6 - assembly loading issue",
+    "state": "closed",
+    "milestone": "6.0.1",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1371",
+    "project_path": "App\\App.csproj",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.AspNetCore.OpenApi",
+        "version": "10.0.1"
+      },
+      {
+        "name": "Swashbuckle.AspNetCore",
+        "version": "10.1.0"
+      },
+      {
+        "name": "Swashbuckle.AspNetCore.Annotations",
+        "version": "10.1.0"
+      },
+      {
+        "name": "Swashbuckle.AspNetCore.Filters",
+        "version": "10.0.1"
+      },
+      {
+        "name": "Swashbuckle.AspNetCore.Newtonsoft",
+        "version": "10.1.0"
+      },
+      {
+        "name": "Azure.Extensions.AspNetCore.Configuration.Secrets",
+        "version": "1.4.0"
+      },
+      {
+        "name": "Microsoft.ApplicationInsights.AspNetCore",
+        "version": "3.0.0-beta1"
+      },
+      {
+        "name": "Microsoft.AspNetCore.AzureAppServices.HostingStartup",
+        "version": "10.0.1"
+      },
+      {
+        "name": "Microsoft.AspNetCore.HeaderPropagation",
+        "version": "10.0.1"
+      },
+      {
+        "name": "Microsoft.AspNetCore.SpaProxy",
+        "version": "10.0.1"
+      },
+      {
+        "name": "Serilog.AspNetCore",
+        "version": "10.0.0"
       }
     ]
   }

@@ -8,24 +8,9 @@
       "is:question"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1102",
-    "project_path": "MyApp/MyApp.csproj",
+    "project_path": "MyApp.Tests.MSTest\\MyApp.Tests.MSTest.csproj",
     "target_frameworks": [
       "net10.0"
-    ],
-    "packages": []
-  },
-  {
-    "number": 1102,
-    "title": "Console output from application is logged as warnings",
-    "state": "closed",
-    "milestone": "No milestone",
-    "labels": [
-      "is:question"
-    ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1102",
-    "project_path": "MyApp.Tests.MSTest/MyApp.Tests.MSTest.csproj",
-    "target_frameworks": [
-      "net6.0"
     ],
     "packages": [
       {
@@ -55,9 +40,9 @@
       "is:question"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1102",
-    "project_path": "MyApp.Tests.NUnit/MyApp.Tests.NUnit.csproj",
+    "project_path": "MyApp.Tests.NUnit\\MyApp.Tests.NUnit.csproj",
     "target_frameworks": [
-      "netcoreapp2.0"
+      "net10.0"
     ],
     "packages": [
       {
@@ -81,5 +66,20 @@
         "version": "3.1.2"
       }
     ]
+  },
+  {
+    "number": 1102,
+    "title": "Console output from application is logged as warnings",
+    "state": "closed",
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1102",
+    "project_path": "MyApp\\MyApp.csproj",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": []
   }
 ]

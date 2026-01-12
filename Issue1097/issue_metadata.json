@@ -1,7 +1,7 @@
 [
   {
     "number": 1097,
-    "title": "NUnit test adapter does not detect test cases that contain \").\" in a string",
+    "title": "NUnit test adapter does not detect test cases that contain \u0022).\u0022 in a string",
     "state": "open",
     "milestone": "No milestone",
     "labels": [

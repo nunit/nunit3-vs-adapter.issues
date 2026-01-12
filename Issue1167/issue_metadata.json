@@ -8,7 +8,91 @@
       "is:idea"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1167",
-    "project_path": "ConsoleRecorder.PoC/ConsoleRecorder.PoC.csproj",
+    "project_path": "MyApp.Tests.MSTest\\MyApp.Tests.MSTest.csproj",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "18.0.1"
+      },
+      {
+        "name": "MSTest.TestAdapter",
+        "version": "3.3.1"
+      },
+      {
+        "name": "MSTest.TestFramework",
+        "version": "3.3.1"
+      }
+    ]
+  },
+  {
+    "number": 1167,
+    "title": "Console output handling reimagined",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:idea"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1167",
+    "project_path": "MyApp.Tests.NUnit\\MyApp.Tests.NUnit.csproj",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.9.0"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.1.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "4.5.0"
+      }
+    ]
+  },
+  {
+    "number": 1167,
+    "title": "Console output handling reimagined",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:idea"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1167",
+    "project_path": "MyApp.Tests.xUnit\\MyApp.Tests.xUnit.csproj",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "17.9.0"
+      },
+      {
+        "name": "xunit",
+        "version": "2.8.0"
+      },
+      {
+        "name": "xunit.runner.visualstudio",
+        "version": "2.8.0"
+      }
+    ]
+  },
+  {
+    "number": 1167,
+    "title": "Console output handling reimagined",
+    "state": "open",
+    "milestone": "No milestone",
+    "labels": [
+      "is:idea"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1167",
+    "project_path": "ConsoleRecorder.PoC\\ConsoleRecorder.PoC.csproj",
     "target_frameworks": [
       "net10.0"
     ],
@@ -36,94 +120,10 @@
       "is:idea"
     ],
     "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1167",
-    "project_path": "MyApp/MyApp.csproj",
+    "project_path": "MyApp\\MyApp.csproj",
     "target_frameworks": [
-      "net6.0"
+      "net10.0"
     ],
     "packages": []
-  },
-  {
-    "number": 1167,
-    "title": "Console output handling reimagined",
-    "state": "open",
-    "milestone": "No milestone",
-    "labels": [
-      "is:idea"
-    ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1167",
-    "project_path": "MyApp.Tests.MSTest/MyApp.Tests.MSTest.csproj",
-    "target_frameworks": [
-      "net6.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "17.9.0"
-      },
-      {
-        "name": "MSTest.TestAdapter",
-        "version": "3.3.1"
-      },
-      {
-        "name": "MSTest.TestFramework",
-        "version": "3.3.1"
-      }
-    ]
-  },
-  {
-    "number": 1167,
-    "title": "Console output handling reimagined",
-    "state": "open",
-    "milestone": "No milestone",
-    "labels": [
-      "is:idea"
-    ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1167",
-    "project_path": "MyApp.Tests.NUnit/MyApp.Tests.NUnit.csproj",
-    "target_frameworks": [
-      "net6.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "17.9.0"
-      },
-      {
-        "name": "NUnit",
-        "version": "4.1.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "4.5.0"
-      }
-    ]
-  },
-  {
-    "number": 1167,
-    "title": "Console output handling reimagined",
-    "state": "open",
-    "milestone": "No milestone",
-    "labels": [
-      "is:idea"
-    ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1167",
-    "project_path": "MyApp.Tests.xUnit/MyApp.Tests.xUnit.csproj",
-    "target_frameworks": [
-      "net6.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "17.9.0"
-      },
-      {
-        "name": "xunit",
-        "version": "2.8.0"
-      },
-      {
-        "name": "xunit.runner.visualstudio",
-        "version": "2.8.0"
-      }
-    ]
   }
 ]
