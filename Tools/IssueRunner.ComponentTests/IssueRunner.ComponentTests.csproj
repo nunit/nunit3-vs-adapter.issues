@@ -14,10 +14,11 @@
     <PackageReference Include="NUnit" Version="4.4.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="6.0.0" />
     <PackageReference Include="NSubstitute" Version="5.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="10.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IssueRunner\IssueRunner.csproj" />
+    <ProjectReference Include="..\IssueRunner.Core\IssueRunner.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

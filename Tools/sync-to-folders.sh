@@ -2,7 +2,7 @@
 # Sync metadata from central file to individual issue folders
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ISSUERUNNER="$SCRIPT_DIR/IssueRunner/bin/Release/net10.0/IssueRunner"
+ISSUERUNNER="$SCRIPT_DIR/IssueRunner.Cli/bin/Release/net10.0/IssueRunner.Cli"
 
 # Determine repository root
 if [ -z "$ISSUERUNNER_ROOT" ]; then

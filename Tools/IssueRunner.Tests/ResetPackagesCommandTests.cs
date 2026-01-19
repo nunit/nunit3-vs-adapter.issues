@@ -1,4 +1,5 @@
 using IssueRunner.Commands;
+using IssueRunner.Models;
 using IssueRunner.Services;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
@@ -13,6 +14,7 @@ public class ResetPackagesCommandTests
     private IProjectAnalyzerService? _projectAnalyzer;
     private ILogger<ResetPackagesCommand>? _logger;
     private ResetPackagesCommand? _command;
+    private IMarkerService markerService = null!;
 
     [SetUp]
     public void Setup()
@@ -20,7 +22,9 @@ public class ResetPackagesCommandTests
         _issueDiscovery = Substitute.For<IIssueDiscoveryService>();
         _projectAnalyzer = Substitute.For<IProjectAnalyzerService>();
         _logger = Substitute.For<ILogger<ResetPackagesCommand>>();
-        _command = new ResetPackagesCommand(_issueDiscovery, _projectAnalyzer, _logger);
+        var markerLogger = Substitute.For<ILogger<MarkerService>>();
+        markerService = new MarkerService(markerLogger);
+        _command = new ResetPackagesCommand(_issueDiscovery, _projectAnalyzer, _logger, markerService);
     }
 
     [Test]
@@ -42,7 +46,7 @@ public class ResetPackagesCommandTests
         try
         {
             // Act
-            var result = await _command!.ExecuteAsync(tempDir, null, CancellationToken.None);
+            var result = await _command!.ExecuteAsync(tempDir, null, LogVerbosity.Normal, CancellationToken.None);
 
             // Assert
             Assert.That(result, Is.EqualTo(0));
@@ -60,7 +64,7 @@ public class ResetPackagesCommandTests
     public void Constructor_AcceptsDependencies()
     {
         // Verify constructor accepts dependencies
-        var command = new ResetPackagesCommand(_issueDiscovery!, _projectAnalyzer!, _logger!);
+        var command = new ResetPackagesCommand(_issueDiscovery!, _projectAnalyzer!, _logger!,markerService);
         Assert.That(command, Is.Not.Null);
     }
 }

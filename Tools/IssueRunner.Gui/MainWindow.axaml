@@ -1,0 +1,241 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="IssueRunner.Gui.Views.MainWindow"
+        xmlns:vm="using:IssueRunner.Gui.ViewModels"
+        x:DataType="vm:MainViewModel"
+        Title="IssueRunner - NUnit Issue Test Automation"
+        Width="1600" Height="900"
+        MinWidth="1200" MinHeight="600"
+        Icon="avares://IssueRunner.Gui/Assets/nunit.png">
+    
+    <Window.Styles>
+        <Style Selector="Button">
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="Margin" Value="0,4"/>
+            <Setter Property="MinWidth" Value="140"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        </Style>
+        <Style Selector="Button:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#0078D4"/>
+        </Style>
+        <Style Selector="TextBox">
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Margin" Value="0,4"/>
+        </Style>
+        <Style Selector="TextBlock.header">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="0,0,0,8"/>
+        </Style>
+    </Window.Styles>
+    
+    <Grid RowDefinitions="Auto,*">
+        <!-- Header -->
+        <Border Grid.Row="0" Background="#0078D4" Padding="16,12">
+            <Grid ColumnDefinitions="*,Auto">
+                <TextBlock Grid.Column="0" 
+                          Text="IssueRunner" 
+                          FontSize="20" 
+                          FontWeight="SemiBold"
+                          Foreground="White" 
+                          VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="1"
+                          Text="NUnit Issue Test Automation"
+                          FontSize="14"
+                          Foreground="#E0E0E0"
+                          VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
+        
+        <!-- Main Content -->
+        <Grid Grid.Row="1" ColumnDefinitions="320,*">
+            <!-- Sidebar -->
+            <Border Grid.Column="0" 
+                   Background="#F3F3F3" 
+                   BorderBrush="#D0D0D0" 
+                   BorderThickness="0,0,1,0">
+                <ScrollViewer>
+                    <StackPanel Margin="16" Spacing="16">
+                        <!-- Repository Section -->
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="Repository" 
+                                      Classes="header"
+                                      Foreground="#1E1E1E"/>
+                            <Grid ColumnDefinitions="*,Auto">
+                                <TextBox Grid.Column="0"
+                                        Text="{Binding RepositoryPath}" 
+                                        Watermark="Select repository folder..."
+                                        IsReadOnly="True"
+                                        Margin="0,0,8,0"/>
+                                <Button Grid.Column="1"
+                                       Content="Browse"
+                                       Command="{Binding BrowseRepositoryCommand}"
+                                       Padding="12,8"/>
+                            </Grid>
+                        </StackPanel>
+                        
+                        <!-- Summary Section -->
+                        <Border Background="White" 
+                               BorderBrush="#D0D0D0" 
+                               BorderThickness="1"
+                               CornerRadius="4"
+                               Padding="12">
+                            <StackPanel Spacing="6">
+                                <TextBlock Text="Repository Status" 
+                                          Classes="header"
+                                          Foreground="#1E1E1E"/>
+                                <TextBlock Text="{Binding SummaryText}" 
+                                          TextWrapping="Wrap"
+                                          Foreground="#666"
+                                          LineHeight="20"/>
+                                <StackPanel Orientation="Horizontal" Spacing="4" IsVisible="{Binding HasFoldersWithoutMetadata}" Margin="0,4,0,0">
+                                    <TextBlock Text="Folders without metadata: " Foreground="#666"/>
+                                    <Button Content="{Binding FoldersWithoutMetadataCount, StringFormat='{}{0}'}"
+                                           Command="{Binding ListFoldersWithoutMetadataCommand}"
+                                           Background="Transparent"
+                                           BorderThickness="0"
+                                           Padding="0,0,0,0"
+                                           HorizontalContentAlignment="Left"
+                                           Foreground="#0078D4"
+                                           Cursor="Hand"
+                                           FontWeight="SemiBold">
+                                        <Button.Styles>
+                                            <Style Selector="Button:pointerover">
+                                                <Setter Property="Foreground" Value="#005A9E"/>
+                                            </Style>
+                                        </Button.Styles>
+                                    </Button>
+                                    <TextBlock Text=" (click to list)" Foreground="#999" FontSize="11"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        
+                        <!-- NUnit Packages Section -->
+                        <Border Background="White" 
+                               BorderBrush="#E0E0E0" 
+                               BorderThickness="1" 
+                               CornerRadius="4" 
+                               Padding="12">
+                            <StackPanel Spacing="6">
+                                <TextBlock Text="NUnit Packages" Classes="header" Foreground="#1E1E1E"/>
+                                <TextBlock Text="Baseline:" FontWeight="SemiBold" Foreground="#666" FontSize="11"/>
+                                <TextBlock Text="{Binding BaselineNUnitPackages}" 
+                                          TextWrapping="Wrap" 
+                                          Foreground="#666" 
+                                          LineHeight="20"
+                                          FontSize="11"/>
+                                <TextBlock Text="Current:" FontWeight="SemiBold" Foreground="#666" FontSize="11" Margin="0,8,0,0"/>
+                                <TextBlock Text="{Binding CurrentNUnitPackages}" 
+                                          TextWrapping="Wrap" 
+                                          Foreground="#666" 
+                                          LineHeight="20"
+                                          FontSize="11"/>
+                            </StackPanel>
+                        </Border>
+                        
+                        <!-- Commands Section -->
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="Commands" 
+                                      Classes="header"
+                                      Foreground="#1E1E1E"/>
+                            <Button Content="✕ Cancel"
+                                   Command="{Binding CancelTestsCommand}"
+                                   Background="#D13438"
+                                   Foreground="White"
+                                   IsVisible="{Binding IsRunningTests}"
+                                   Padding="12,8"/>
+                            <Button Content="Reset Packages" 
+                                   Command="{Binding ResetPackagesCommand}"
+                                   IsEnabled="{Binding !IsRunningTests}"/>
+                            <Button Content="Generate Report" 
+                                   Command="{Binding GenerateReportCommand}"
+                                   IsEnabled="{Binding !IsRunningTests}"/>
+                            <Button Content="Check Regressions" 
+                                   Command="{Binding CheckRegressionsCommand}"
+                                   IsEnabled="{Binding !IsRunningTests}"/>
+                            <Button Content="Test Status" 
+                                   Command="{Binding ShowTestStatusCommand}"
+                                   IsEnabled="{Binding !IsRunningTests}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+            
+            <!-- Main Content Area -->
+            <Grid Grid.Column="1" RowDefinitions="Auto,*,Auto">
+                <!-- Navigation Buttons -->
+                <Border Grid.Row="0"
+                       Background="#F3F3F3"
+                       BorderBrush="#D0D0D0"
+                       BorderThickness="0,0,0,1"
+                       Padding="16,12">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <Button Content="Issue List"
+                               Command="{Binding ShowIssueListCommand}"
+                               Background="{Binding IssueListButtonBackground}"
+                               Foreground="White"
+                               MinWidth="120"
+                               Padding="12,8"/>
+                        <Button Content="Test Status"
+                               Command="{Binding ShowTestStatusCommand}"
+                               Background="{Binding TestStatusButtonBackground}"
+                               Foreground="White"
+                               MinWidth="120"
+                               Padding="12,8"/>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Content View -->
+                <Border Grid.Row="1" 
+                       Background="White"
+                       Padding="16">
+                    <ContentControl Content="{Binding CurrentView}"/>
+                </Border>
+                
+                <!-- Log Output -->
+                <GridSplitter Grid.Row="2" 
+                             Height="4" 
+                             Background="#D0D0D0"
+                             ShowsPreview="True"/>
+                <Border Grid.Row="2" 
+                       Background="#F8F8F8" 
+                       BorderBrush="#C0C0C0"
+                       BorderThickness="0,2,0,0"
+                       Padding="0"
+                       MaxHeight="250"
+                       MinHeight="100">
+                    <Grid RowDefinitions="Auto,*">
+                        <!-- Header -->
+                        <Border Grid.Row="0"
+                               Background="#E8E8E8"
+                               BorderBrush="#C0C0C0"
+                               BorderThickness="0,0,0,1"
+                               Padding="12,8">
+                            <TextBlock Text="Output Log"
+                                      Foreground="#333333"
+                                      FontSize="12"
+                                      FontWeight="SemiBold"/>
+                        </Border>
+                        <!-- Log Content -->
+                        <ScrollViewer Grid.Row="1"
+                                     VerticalScrollBarVisibility="Auto"
+                                     HorizontalScrollBarVisibility="Auto"
+                                     Background="White">
+                            <TextBox Text="{Binding LogOutput}" 
+                                    Foreground="#1E1E1E" 
+                                    Background="White"
+                                    BorderThickness="0"
+                                    Padding="12,8"
+                                    FontFamily="Consolas, Courier New"
+                                    FontSize="12"
+                                    TextWrapping="Wrap"
+                                    IsReadOnly="True"
+                                    CaretBrush="#1E1E1E"/>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
+

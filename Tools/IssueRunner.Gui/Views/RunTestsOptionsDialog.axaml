@@ -1,0 +1,72 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:IssueRunner.Gui.ViewModels"
+        xmlns:models="using:IssueRunner.Models"
+        x:Class="IssueRunner.Gui.Views.RunTestsOptionsDialog"
+        x:DataType="vm:RunTestsOptionsViewModel"
+        Title="Run Tests Options"
+        Width="500"
+        Height="550"
+        WindowStartupLocation="CenterOwner">
+    
+    <Grid RowDefinitions="*,Auto" Margin="20">
+        <ScrollViewer Grid.Row="0">
+            <StackPanel Spacing="15">
+                <!-- Package Feed -->
+                <StackPanel Spacing="5">
+                    <TextBlock Text="Package Feed" FontWeight="SemiBold" FontSize="14"/>
+                    <ComboBox SelectedItem="{Binding Feed}" SelectedIndex="0">
+                        <ComboBox.Items>
+                            <x:Static Member="models:PackageFeed.Stable"/>
+                            <x:Static Member="models:PackageFeed.Beta"/>
+                            <x:Static Member="models:PackageFeed.Alpha"/>
+                            <x:Static Member="models:PackageFeed.Local"/>
+                        </ComboBox.Items>
+                    </ComboBox>
+                    <TextBlock Text="Stable: nuget.org stable only&#x0a;Beta: nuget.org with prerelease&#x0a;Alpha: nuget.org + MyGet with prerelease&#x0a;Local: C:\nuget with prerelease" 
+                              FontSize="11" 
+                              Foreground="#666"
+                              TextWrapping="Wrap"
+                              Margin="0,5,0,0"/>
+                </StackPanel>
+
+                <!-- Test Types -->
+                <StackPanel Spacing="5">
+                    <TextBlock Text="Test Types" FontWeight="SemiBold" FontSize="14"/>
+                    <ComboBox SelectedItem="{Binding TestTypes}" SelectedIndex="0">
+                        <ComboBox.Items>
+                            <x:Static Member="models:TestTypes.All"/>
+                            <x:Static Member="models:TestTypes.Direct"/>
+                            <x:Static Member="models:TestTypes.Custom"/>
+                        </ComboBox.Items>
+                    </ComboBox>
+                </StackPanel>
+
+                <!-- Options -->
+                <StackPanel Spacing="10">
+                    <TextBlock Text="Options" FontWeight="SemiBold" FontSize="14"/>
+                    <CheckBox Content="Rerun Failed Tests (from test-fails.json)" IsChecked="{Binding RerunFailedTests}"/>
+                    <CheckBox Content="Update NUnit Packages Only" IsChecked="{Binding NUnitOnly}"/>
+                </StackPanel>
+
+                <!-- Verbosity -->
+                <StackPanel Spacing="5">
+                    <TextBlock Text="Log Verbosity" FontWeight="SemiBold" FontSize="14"/>
+                    <ComboBox SelectedItem="{Binding Verbosity}" SelectedIndex="0">
+                        <ComboBox.Items>
+                            <x:Static Member="models:LogVerbosity.Normal"/>
+                            <x:Static Member="models:LogVerbosity.Verbose"/>
+                        </ComboBox.Items>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Buttons -->
+        <Grid Grid.Row="1" ColumnDefinitions="*,Auto,Auto" Margin="0,20,0,0">
+            <Button Grid.Column="1" Content="Cancel" Command="{Binding CancelCommand}" MinWidth="80" Margin="0,0,10,0"/>
+            <Button Grid.Column="2" Content="Run Tests" Command="{Binding RunCommand}" MinWidth="100" IsDefault="True"/>
+        </Grid>
+    </Grid>
+</Window>
+

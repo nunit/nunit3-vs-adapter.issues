@@ -9,7 +9,7 @@ fi
 
 # Determine IssueRunner location
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ISSUERUNNER="$SCRIPT_DIR/IssueRunner/bin/Release/net10.0/IssueRunner"
+ISSUERUNNER="$SCRIPT_DIR/IssueRunner.Cli/bin/Release/net10.0/IssueRunner.Cli"
 
 # Debug output
 echo "IssueRunner location: $ISSUERUNNER"

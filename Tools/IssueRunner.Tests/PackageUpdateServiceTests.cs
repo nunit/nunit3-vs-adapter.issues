@@ -64,7 +64,7 @@ public class PackageUpdateServiceTests
             SkipNetFx = false,
             OnlyNetFx = false,
             NUnitOnly = false,
-            ExecutionMode = ExecutionMode.All,
+                TestTypes = TestTypes.All,
             Verbosity = LogVerbosity.Normal
         };
 
@@ -82,7 +82,7 @@ public class PackageUpdateServiceTests
             SkipNetFx = false,
             OnlyNetFx = false,
             NUnitOnly = false,
-            ExecutionMode = ExecutionMode.All,
+                TestTypes = TestTypes.All,
             Verbosity = LogVerbosity.Normal,
             Feed = PackageFeed.Beta
         };

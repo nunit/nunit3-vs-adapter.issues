@@ -1,0 +1,263 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:IssueRunner.Gui.ViewModels"
+             xmlns:models="using:IssueRunner.Models"
+             xmlns:converters="using:IssueRunner.Gui.Converters"
+             x:Class="IssueRunner.Gui.Views.IssueListView"
+             x:DataType="vm:IssueListViewModel">
+    <Grid RowDefinitions="Auto,Auto,Auto,*">
+        <!-- Issue Numbers -->
+        <Border Grid.Row="0"
+               Background="#F8F8F8"
+               BorderBrush="#D0D0D0"
+               BorderThickness="0,0,0,1"
+               Padding="12,10">
+            <Grid ColumnDefinitions="Auto,*,Auto">
+                <TextBlock Grid.Column="0" Text="Issue Numbers:" FontWeight="SemiBold" Foreground="#333" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <TextBox Grid.Column="1"
+                        Text="{Binding IssueNumbers}"
+                        Watermark="e.g., 123, 456, 789 (leave empty to use filters)"
+                        Margin="0,0,10,0"/>
+                <Button Grid.Column="2"
+                       Command="{Binding ClearIssueNumbersCommand}"
+                       Background="Transparent"
+                       Foreground="#666"
+                       BorderThickness="1"
+                       BorderBrush="#D0D0D0"
+                       Width="30"
+                       Height="30"
+                       Padding="0"
+                       Cursor="Hand"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center">
+                    <Path Data="M 2,2 L 10,10 M 10,2 L 2,10"
+                          Stroke="#666"
+                          StrokeThickness="2"
+                          Stretch="Uniform"
+                          Margin="8"/>
+                    <Button.Styles>
+                        <Style Selector="Button:pointerover">
+                            <Setter Property="Background" Value="#E0E0E0"/>
+                            <Setter Property="Foreground" Value="#333"/>
+                        </Style>
+                        <Style Selector="Button:pointerover Path">
+                            <Setter Property="Stroke" Value="#333"/>
+                        </Style>
+                    </Button.Styles>
+                </Button>
+            </Grid>
+        </Border>
+
+        <!-- Filters -->
+        <Border Grid.Row="1"
+               Background="#F8F8F8"
+               BorderBrush="#D0D0D0"
+               BorderThickness="0,0,0,1"
+               Padding="12,10">
+            <Grid ColumnDefinitions="Auto,150,Auto,150,Auto,150,Auto,150,Auto,150,*,Auto,Auto,Auto,Auto">
+                <TextBlock Grid.Column="0" Text="Filters:" FontWeight="SemiBold" Foreground="#333" VerticalAlignment="Center" Margin="0,0,15,0"/>
+                <TextBlock Grid.Column="10"
+                          Text="{Binding FilteredIssueCount, StringFormat='Issues: {0}'}"
+                          FontWeight="SemiBold"
+                          Foreground="#0078D4"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="15,0,15,0"/>
+
+                <!-- Scope Filter -->
+                <StackPanel Grid.Column="1" Spacing="4" Margin="0,0,15,0">
+                    <TextBlock Text="Scope" FontSize="11" Foreground="#666"/>
+                    <ComboBox SelectedItem="{Binding SelectedScope}" SelectedIndex="0">
+                        <ComboBox.Items>
+                            <x:Static Member="models:TestScope.All"/>
+                            <x:Static Member="models:TestScope.Regression"/>
+                            <x:Static Member="models:TestScope.Open"/>
+                        </ComboBox.Items>
+                    </ComboBox>
+                </StackPanel>
+
+                <!-- State Filter -->
+                <StackPanel Grid.Column="3" Spacing="4" Margin="0,0,15,0">
+                    <TextBlock Text="State" FontSize="11" Foreground="#666"/>
+                    <ComboBox SelectedItem="{Binding SelectedState}" ItemsSource="{Binding AvailableStates}" SelectedIndex="0"/>
+                </StackPanel>
+
+                <!-- Test Result Filter -->
+                <StackPanel Grid.Column="5" Spacing="4" Margin="0,0,15,0">
+                    <TextBlock Text="Test Result" FontSize="11" Foreground="#666"/>
+                    <ComboBox SelectedItem="{Binding SelectedTestResult}" SelectedIndex="0">
+                        <ComboBox.Items>
+                            <x:String>All</x:String>
+                            <x:String>Success</x:String>
+                            <x:String>Fail</x:String>
+                            <x:String>Not Tested</x:String>
+                        </ComboBox.Items>
+                    </ComboBox>
+                </StackPanel>
+
+                <!-- TestTypes Filter -->
+                <StackPanel Grid.Column="7" Spacing="4" Margin="0,0,15,0">
+                    <TextBlock Text="Test Types" FontSize="11" Foreground="#666"/>
+                    <ComboBox SelectedItem="{Binding SelectedTestTypes}" SelectedIndex="0">
+                        <ComboBox.Items>
+                            <x:String>All</x:String>
+                            <x:String>Scripts only</x:String>
+                            <x:String>dotnet test only</x:String>
+                        </ComboBox.Items>
+                    </ComboBox>
+                </StackPanel>
+
+                <!-- Framework Filter -->
+                <StackPanel Grid.Column="9" Spacing="4" Margin="0,0,15,0">
+                    <TextBlock Text="Framework" FontSize="11" Foreground="#666"/>
+                    <ComboBox SelectedItem="{Binding SelectedFramework}" SelectedIndex="0">
+                        <ComboBox.Items>
+                            <x:String>All</x:String>
+                            <x:String>.Net</x:String>
+                            <x:String>.Net Framework</x:String>
+                        </ComboBox.Items>
+                    </ComboBox>
+                </StackPanel>
+
+                <!-- Diff Button -->
+                <Button Grid.Column="11"
+                       Command="{Binding ToggleDiffCommand}"
+                       Foreground="White"
+                       MinWidth="80"
+                       Margin="15,0,8,0"
+                       VerticalAlignment="Bottom"
+                       Padding="12,6"
+                       Background="{Binding ShowDiffOnly, Converter={x:Static converters:BoolToColorConverter.Instance}}">
+                    <Button.Content>
+                        <Binding Path="ShowDiffOnly" Converter="{x:Static converters:BoolToTextConverter.Instance}"/>
+                    </Button.Content>
+                </Button>
+
+                <!-- Run Tests Button -->
+                <Button Grid.Column="12"
+                       x:Name="IssueListRunTestsButton"
+                       Content="▶ Run Tests"
+                       Command="{Binding RunTestsCommand}"
+                       Background="#0078D4"
+                       Foreground="White"
+                       MinWidth="100"
+                       Margin="0,0,8,0"
+                       VerticalAlignment="Bottom"
+                       Padding="12,6"/>
+
+                <!-- Options Button -->
+                <Button Grid.Column="13"
+                       x:Name="IssueListOptionsButton"
+                       Content="⚙ Options"
+                       Command="{Binding ShowOptionsCommand}"
+                       Background="#6C757D"
+                       Foreground="White"
+                       MinWidth="100"
+                       Margin="0,0,8,0"
+                       VerticalAlignment="Bottom"
+                       Padding="12,6"/>
+
+                <!-- Sync from GitHub Button -->
+                <Button Grid.Column="14"
+                       x:Name="IssueListSyncFromGitHubButton"
+                       Content="🔄 Sync from GitHub"
+                       Command="{Binding SyncFromGitHubCommand}"
+                       Background="#2196F3"
+                       Foreground="White"
+                       MinWidth="120"
+                       Margin="0,0,0,0"
+                       VerticalAlignment="Bottom"
+                       Padding="12,6"/>
+            </Grid>
+        </Border>
+
+        <!-- Header -->
+        <Border Grid.Row="2"
+               Background="#F0F0F0"
+               BorderBrush="#D0D0D0"
+               BorderThickness="0,0,0,1"
+               Padding="12,8">
+            <Grid ColumnDefinitions="80,*,100,120,120,150">
+                <TextBlock Grid.Column="0" Text="Issue" FontWeight="SemiBold" Foreground="#333"/>
+                <TextBlock Grid.Column="1" Text="Title" FontWeight="SemiBold" Foreground="#333"/>
+                <TextBlock Grid.Column="2" Text="State" FontWeight="SemiBold" Foreground="#333"/>
+                <TextBlock Grid.Column="3" Text="Test Result" FontWeight="SemiBold" Foreground="#333"/>
+                <TextBlock Grid.Column="4" Text="Test Types" FontWeight="SemiBold" Foreground="#333"/>
+                <TextBlock Grid.Column="5" Text="Last Run" FontWeight="SemiBold" Foreground="#333"/>
+            </Grid>
+        </Border>
+
+        <!-- Issue List -->
+        <ListBox Grid.Row="3" ItemsSource="{Binding Issues}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="White"
+                           BorderBrush="#E0E0E0"
+                           BorderThickness="0,0,0,1"
+                           Padding="12,8">
+                        <Grid ColumnDefinitions="80,*,100,120,120,150">
+                            <Button Grid.Column="0"
+                                   Click="OnIssueNumberClicked"
+                                   Content="{Binding Number}"
+                                   FontWeight="SemiBold"
+                                   Foreground="#0078D4"
+                                   Background="Transparent"
+                                   BorderThickness="0"
+                                   Padding="0"
+                                   HorizontalAlignment="Left"
+                                   HorizontalContentAlignment="Left"
+                                   Cursor="Hand"
+                                   IsEnabled="{Binding GitHubUrl, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+                                <Button.Styles>
+                                    <Style Selector="Button:pointerover">
+                                        <Setter Property="Foreground" Value="#005A9E"/>
+                                    </Style>
+                                </Button.Styles>
+                            </Button>
+                            <TextBlock Grid.Column="1"
+                                      Text="{Binding Title}"
+                                      TextWrapping="Wrap"
+                                      Foreground="{Binding ChangeType, Converter={x:Static converters:ChangeTypeToColorConverter.Instance}, FallbackValue=#333}"/>
+                            <StackPanel Grid.Column="2" Spacing="2">
+                                <TextBlock Text="{Binding DetailedState}"
+                                          Foreground="#666"/>
+                                <TextBlock Text="{Binding NotTestedReason}"
+                                          FontSize="10"
+                                          Foreground="#999">
+                                    <TextBlock.IsVisible>
+                                        <Binding Path="NotTestedReason">
+                                            <Binding.Converter>
+                                                <x:Static Member="StringConverters.IsNotNullOrEmpty"/>
+                                            </Binding.Converter>
+                                        </Binding>
+                                    </TextBlock.IsVisible>
+                                </TextBlock>
+                            </StackPanel>
+                            <StackPanel Grid.Column="3" Spacing="2">
+                                <TextBlock Text="{Binding ., Converter={x:Static converters:StatusOrTestResultConverter.Instance}}"
+                                           Foreground="{Binding ChangeType, Converter={x:Static converters:ChangeTypeToColorConverter.Instance}, FallbackValue=#666}"/>
+                            </StackPanel>
+                            <TextBlock Grid.Column="4"
+                                      Text="{Binding TestTypes}"
+                                      Foreground="#666"
+                                      FontSize="11"/>
+                            <TextBlock Grid.Column="5"
+                                      Text="{Binding LastRun}"
+                                      Foreground="#666"
+                                      FontSize="11"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.Styles>
+                <Style Selector="ListBoxItem">
+                    <Setter Property="Padding" Value="0"/>
+                </Style>
+                <Style Selector="ListBoxItem:selected /template/ Border">
+                    <Setter Property="Background" Value="#E8F4FD"/>
+                </Style>
+            </ListBox.Styles>
+        </ListBox>
+    </Grid>
+</UserControl>
+

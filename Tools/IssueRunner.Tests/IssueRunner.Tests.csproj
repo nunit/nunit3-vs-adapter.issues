@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IssueRunner\IssueRunner.csproj" />
+    <ProjectReference Include="..\IssueRunner.Core\IssueRunner.Core.csproj" />
   </ItemGroup>
 
 </Project>

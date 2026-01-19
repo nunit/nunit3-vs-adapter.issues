@@ -10,7 +10,7 @@ if defined ISSUERUNNER_ROOT (
 
 REM Determine IssueRunner location
 set "SCRIPT_DIR=%~dp0"
-set "ISSUERUNNER=%SCRIPT_DIR%IssueRunner\bin\Release\net10.0\IssueRunner.exe"
+set "ISSUERUNNER=%SCRIPT_DIR%IssueRunner.Cli\bin\Release\net10.0\IssueRunner.Cli.exe"
 
 REM Debug output
 echo IssueRunner location: %ISSUERUNNER%
