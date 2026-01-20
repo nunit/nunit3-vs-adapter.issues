@@ -1,0 +1,1 @@
+dotnet test ./TestConsoleTests/NUnitTests/Issue343B_NunitTests.csproj
