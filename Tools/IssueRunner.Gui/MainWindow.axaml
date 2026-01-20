@@ -240,10 +240,31 @@
                                BorderBrush="#C0C0C0"
                                BorderThickness="0,0,0,1"
                                Padding="12,8">
-                            <TextBlock Text="Output Log"
-                                      Foreground="#333333"
-                                      FontSize="12"
-                                      FontWeight="SemiBold"/>
+                            <Grid ColumnDefinitions="*,Auto">
+                                <TextBlock Grid.Column="0"
+                                          Text="Output Log"
+                                          Foreground="#333333"
+                                          FontSize="12"
+                                          FontWeight="SemiBold"
+                                          VerticalAlignment="Center"/>
+                                <Button Grid.Column="1"
+                                       Content="Clear"
+                                       Command="{Binding ClearLogCommand}"
+                                       Padding="8,4"
+                                       MinWidth="50"
+                                       FontSize="11"
+                                       Background="#6C757D"
+                                       Foreground="White"
+                                       BorderThickness="0"
+                                       CornerRadius="3"
+                                       Cursor="Hand">
+                                    <Button.Styles>
+                                        <Style Selector="Button:pointerover">
+                                            <Setter Property="Background" Value="#5A6268"/>
+                                        </Style>
+                                    </Button.Styles>
+                                </Button>
+                            </Grid>
                         </Border>
                         <!-- Log Content -->
                         <ScrollViewer Grid.Row="1"

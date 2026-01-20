@@ -72,8 +72,16 @@ public sealed class RunTestsCommand
             Console.WriteLine($"Repository root: {repositoryRoot}");
             Console.WriteLine();
 
+            Console.WriteLine("Initializing...");
+            var initStartTime = DateTime.Now;
+
+            Console.WriteLine("  Discovering issue folders...");
             var issueFolders = _issueDiscovery.DiscoverIssueFolders();
+            Console.WriteLine($"  Found {issueFolders.Count} issue folders");
+
+            Console.WriteLine("  Loading metadata...");
             var centralMetadata = await LoadCentralMetadataAsync(repositoryRoot, cancellationToken);
+            Console.WriteLine($"  Loaded {centralMetadata.Count} metadata entries");
             
             // Handle duplicate issue numbers gracefully
             var duplicates = centralMetadata.GroupBy(m => m.Number).Where(g => g.Count() > 1).ToList();
@@ -117,7 +125,12 @@ public sealed class RunTestsCommand
             }
 
             // Check if feed changed from previous run
+            Console.WriteLine("  Checking feed change...");
             await CheckChangedFeedAndReset(repositoryRoot, options, cancellationToken);
+            
+            var initDuration = DateTime.Now - initStartTime;
+            Console.WriteLine($"Initialization completed in {initDuration.TotalSeconds:F1} seconds");
+            Console.WriteLine();
 
             // Step 1: Filter which issues to run (based on current frameworks)
             var issuesToRun = await FilterIssuesAsync(
@@ -172,14 +185,24 @@ public sealed class RunTestsCommand
     private async Task CheckChangedFeedAndReset(string repositoryRoot, RunOptions options,
         CancellationToken cancellationToken)
     {
+        Console.WriteLine("  Loading previous results...");
         var previousResults = await LoadPreviousResultsAsync(repositoryRoot, cancellationToken);
         var feedChanged = CheckFeedChanged(previousResults, options.Feed);
 
         if (feedChanged)
         {
-            Console.WriteLine($"Feed changed to {options.Feed} - resetting packages to metadata versions...");
+            var issueCount = options.IssueNumbers?.Count ?? 0;
+            var resetScope = issueCount > 0 ? $"{issueCount} issue(s)" : "all issues";
+            Console.WriteLine($"  Feed changed to {options.Feed} - resetting packages for {resetScope}...");
             var previousFeed = GetPreviousFeed(previousResults);
+            var resetStartTime = DateTime.Now;
             await ResetPackagesForIssuesAsync(repositoryRoot, options.IssueNumbers, previousFeed, options.Verbosity, cancellationToken);
+            var resetDuration = DateTime.Now - resetStartTime;
+            Console.WriteLine($"  Package reset completed in {resetDuration.TotalSeconds:F1} seconds");
+        }
+        else
+        {
+            Console.WriteLine("  Feed unchanged, skipping package reset");
         }
     }
 

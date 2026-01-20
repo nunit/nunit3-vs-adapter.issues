@@ -73,6 +73,8 @@ public class MainViewModel : ViewModelBase
 
             ListFoldersWithoutMetadataCommand = ReactiveCommand.Create(ListFoldersWithoutMetadata);
 
+            ClearLogCommand = ReactiveCommand.Create(ClearLog);
+
             // Set initial view to issue list
             CurrentView = new IssueListView();
             CurrentViewType = "IssueList";
@@ -322,6 +324,7 @@ public class MainViewModel : ViewModelBase
     public ReactiveCommand<Unit, Unit> ShowIssueListCommand { get; }
     public ReactiveCommand<Unit, Unit> ShowOptionsCommand { get; }
     public ReactiveCommand<Unit, Unit> ListFoldersWithoutMetadataCommand { get; }
+    public ReactiveCommand<Unit, Unit> ClearLogCommand { get; }
 
     public int FoldersWithoutMetadataCount => _foldersWithoutMetadata.Count;
 

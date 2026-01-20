@@ -24,18 +24,23 @@
                        Foreground="#666"
                        BorderThickness="1"
                        BorderBrush="#D0D0D0"
-                       Width="30"
-                       Height="30"
+                       Width="20"
+                       Height="20"
                        Padding="0"
+                       MinHeight="0"
+                       MinWidth="0"
                        Cursor="Hand"
                        HorizontalContentAlignment="Center"
                        VerticalContentAlignment="Center">
                     <Path Data="M 2,2 L 10,10 M 10,2 L 2,10"
                           Stroke="#666"
-                          StrokeThickness="2"
+                          StrokeThickness="1.5"
                           Stretch="Uniform"
-                          Margin="8"/>
+                          Margin="5"/>
                     <Button.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="Padding" Value="0"/>
+                        </Style>
                         <Style Selector="Button:pointerover">
                             <Setter Property="Background" Value="#E0E0E0"/>
                             <Setter Property="Foreground" Value="#333"/>
@@ -204,11 +209,18 @@
                                    Background="Transparent"
                                    BorderThickness="0"
                                    Padding="0"
+                                   MinHeight="0"
+                                   MinWidth="0"
                                    HorizontalAlignment="Left"
                                    HorizontalContentAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   VerticalContentAlignment="Center"
                                    Cursor="Hand"
                                    IsEnabled="{Binding GitHubUrl, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
                                 <Button.Styles>
+                                    <Style Selector="Button">
+                                        <Setter Property="Padding" Value="0"/>
+                                    </Style>
                                     <Style Selector="Button:pointerover">
                                         <Setter Property="Foreground" Value="#005A9E"/>
                                     </Style>
