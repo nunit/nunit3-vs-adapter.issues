@@ -1,0 +1,9 @@
+{
+  "packages": {
+    "NUnit": "4.4.0",
+    "NUnit.Analyzers": "4.11.2",
+    "NUnit3TestAdapter": "6.1.0"
+  },
+  "timestamp": "2026-01-20T18:35:03Z",
+  "feed": "Stable"
+}

@@ -2,7 +2,7 @@
   {
     "number": 811,
     "project_path": "Issue811.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net4.5"
     ],
@@ -12,11 +12,22 @@
       "Microsoft.NET.Test.Sdk=17.3.3"
     ],
     "update_result": "fail",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\n\u00c2\u00bb Issue811\n  [.NETFramework,Version=v4.5]\n  NUnit3TestAdapter  3.17.0 -> 6.0.0\n\nVersion color legend:\n<red>   : Major version update or pre-release version. Possible breaking changes.\n<yellow>: Minor version update. Backwards-compatible features added.\n<green> : Patch version update. Backwards-compatible bug fixes.\n\nUpgrading package NUnit3TestAdapter...\nAn error occurred while upgrading Issue811\n\n\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.8962233\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "success",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj (in 389 ms).\n  Issue811 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\bin\\Debug\\net4.5\\Issue811.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\bin\\Debug\\net4.5\\Issue811.dll (.NETFramework,Version=v4.5)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n  Skipped ExplicitTest [124 ms]\n  Skipped IgnoredTest\n\nSkipped! - Failed:     0, Passed:     0, Skipped:     1, Total:     1, Duration: 131 ms - Issue811.dll (net45)\n",
+    "update_output": "[Issue811\\Issue811.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\n",
+    "update_error": "[Issue811\\Issue811.csproj]\nUnable to process the project \u0060C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.sln. Are you sure this is a valid .NET Core or .NET Standard project type?\r\n\r\nHere is the full error message returned from the Microsoft Build Engine:\r\n\r\nMSBuild version 18.0.7\u002B445250245 for .NET\r\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj : error NU1202: Package Microsoft.NET.Test.Sdk 18.0.1 is not compatible with net45 (.NETFramework,Version=v4.5). Package Microsoft.NET.Test.Sdk 18.0.1 supports: [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj : error NU1202:   - native (native,Version=v0.0) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj : error NU1202:   - net462 (.NETFramework,Version=v4.6.2) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj : error NU1202:   - net8.0 (.NETCoreApp,Version=v8.0) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.sln]\r\n  Failed to restore C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj (in 682 ms).\r\n -  - exit code: 1\r\n",
+    "restore_result": "fail",
+    "restore_output": "  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj : error NU1202: Package Microsoft.NET.Test.Sdk 18.0.1 is not compatible with net45 (.NETFramework,Version=v4.5). Package Microsoft.NET.Test.Sdk 18.0.1 supports: [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj : error NU1202:   - native (native,Version=v0.0) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj : error NU1202:   - net462 (.NETFramework,Version=v4.6.2) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj : error NU1202:   - net8.0 (.NETCoreApp,Version=v8.0) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.sln]\r\n  Failed to restore C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj (in 450 ms).\r\n",
+    "restore_error": "",
+    "build_result": "not run",
+    "build_output": "",
+    "build_error": "",
+    "test_result": "not run",
+    "test_output": "=== Issue811\\Issue811.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj : error NU1202: Package Microsoft.NET.Test.Sdk 18.0.1 is not compatible with net45 (.NETFramework,Version=v4.5). Package Microsoft.NET.Test.Sdk 18.0.1 supports: [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj : error NU1202:   - native (native,Version=v0.0) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj : error NU1202:   - net462 (.NETFramework,Version=v4.6.2) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj : error NU1202:   - net8.0 (.NETCoreApp,Version=v8.0) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.sln]\r\n  Failed to restore C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj (in 450 ms).\r\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure"
+    "test_conclusion": "Failure: Restore failed",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue811\\.runsettings",
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:39:48Z"
   }
 ]

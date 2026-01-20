@@ -1,0 +1,33 @@
+[
+  {
+    "number": 687,
+    "project_path": "NUnitTestProject\\NUnitTestProject.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "netstandard2.0"
+    ],
+    "packages": [
+      "nunit=3.12.0",
+      "NUnit3TestAdapter=3.16.1",
+      "Microsoft.NET.Test.Sdk=16.4.0"
+    ],
+    "update_result": "success",
+    "update_output": "[Issue687\\NUnitTestProject\\NUnitTestProject.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:04.2656662\r\n\n\n[Issue687\\NETStandardClassLibrary\\NETStandardClassLibrary.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:02.0438123\r\n",
+    "update_error": "",
+    "restore_result": "success",
+    "restore_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n",
+    "restore_error": "",
+    "build_result": "success",
+    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  NETStandardClassLibrary -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue687\\NETStandardClassLibrary\\bin\\Debug\\netstandard2.0\\NETStandardClassLibrary.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.39\r\n",
+    "build_error": "",
+    "test_result": "success",
+    "test_output": "=== Issue687\\NUnitTestProject\\NUnitTestProject.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue687\\NUnitTestProject\\NUnitTestProject.csproj : warning NU1701: Package \u0027NUnit3TestAdapter 6.1.0\u0027 was restored using \u0027.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\u0027 instead of the project target framework \u0027.NETStandard,Version=v2.0\u0027. This package may not be fully compatible with your project.\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue687\\NETStandardClassLibrary\\NETStandardClassLibrary.csproj (in 516 ms).\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue687\\NUnitTestProject\\NUnitTestProject.csproj (in 550 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue687\\NUnitTestProject\\NUnitTestProject.csproj : warning NU1701: Package \u0027NUnit3TestAdapter 6.1.0\u0027 was restored using \u0027.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\u0027 instead of the project target framework \u0027.NETStandard,Version=v2.0\u0027. This package may not be fully compatible with your project.\r\n  All projects are up-to-date for restore.\r\nC:\\Users\\TerjeSandstrom\\.nuget\\packages\\microsoft.net.test.sdk\\18.0.1\\build\\netstandard2.0\\Microsoft.NET.Test.Sdk.targets(4,5): error : Microsoft.NET.Test.Sdk doesn\u0027t support netstandard2.0 and has not been tested with it. Consider upgrading your TargetFramework to net8.0 or later. You may also set \u003CSuppressTfmSupportBuildErrors\u003Etrue\u003C/SuppressTfmSupportBuildErrors\u003E in the project file to ignore this warning and attempt to run in this unsupported configuration at your own risk. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue687\\NUnitTestProject\\NUnitTestProject.csproj]\r\n\r\nBuild FAILED.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue687\\NUnitTestProject\\NUnitTestProject.csproj : warning NU1701: Package \u0027NUnit3TestAdapter 6.1.0\u0027 was restored using \u0027.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\u0027 instead of the project target framework \u0027.NETStandard,Version=v2.0\u0027. This package may not be fully compatible with your project.\r\nC:\\Users\\TerjeSandstrom\\.nuget\\packages\\microsoft.net.test.sdk\\18.0.1\\build\\netstandard2.0\\Microsoft.NET.Test.Sdk.targets(4,5): error : Microsoft.NET.Test.Sdk doesn\u0027t support netstandard2.0 and has not been tested with it. Consider upgrading your TargetFramework to net8.0 or later. You may also set \u003CSuppressTfmSupportBuildErrors\u003Etrue\u003C/SuppressTfmSupportBuildErrors\u003E in the project file to ignore this warning and attempt to run in this unsupported configuration at your own risk. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue687\\NUnitTestProject\\NUnitTestProject.csproj]\r\n    1 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:02.16\r\n\n\n=== Issue687\\NETStandardClassLibrary\\NETStandardClassLibrary.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  NETStandardClassLibrary -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue687\\NETStandardClassLibrary\\bin\\Debug\\netstandard2.0\\NETStandardClassLibrary.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.39\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n",
+    "test_error": "",
+    "test_conclusion": "Failure: Build failed",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:31:55Z"
+  }
+]

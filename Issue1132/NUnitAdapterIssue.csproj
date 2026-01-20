@@ -1,47 +1,46 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<TargetFramework>net7.0-windows10.0.22621.0</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<Platforms>x64</Platforms>
-		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
-		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-		<UseWindowsForms>true</UseWindowsForms>
-		<OutputType>WinExe</OutputType>
-		<RunSettingsFilePath>NUnit.DotNetCore.runsettings</RunSettingsFilePath>
-		<StartupObject>TestCase.Program</StartupObject>
-		<BaseOutputPath>c:\temp\bin</BaseOutputPath>
-		<UseCurrentRuntimeIdentifier>false</UseCurrentRuntimeIdentifier>
-		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-		<AdditionalReferencePath>c:\BinDebug</AdditionalReferencePath>
-		<OutputPath>c:\temp\bin</OutputPath>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-		<AdditionalReferencePath>c:\BinRelease</AdditionalReferencePath>
-		<OutputPath>c:\temp\bin</OutputPath>
-	</PropertyGroup>
-	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="call $(ProjectDir)\PostBuild.bat $(TargetPath) $(ConfigurationName) $(TargetDir) $(TargetName)" />
-	</Target>
-	
-	
-	<ItemGroup>
-		<PackageReference Include="Autofac" Version="7.0.1" />
-		<PackageReference Include="FakeItEasy" Version="7.4.0" />
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
-		<PackageReference Include="NUnit" Version="3.13.3" />
-		<PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
-		<PackageReference Include="NUnitLite" Version="3.13.3" />
-		<PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
-		<PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
-		<PackageReference Include="System.ServiceModel.Http" Version="6.0.0" />
-		<PackageReference Include="System.ServiceModel.NetNamedPipe" Version="6.0.0" />
-		<PackageReference Include="System.ServiceModel.NetTcp" Version="6.0.0" />
-		<PackageReference Include="System.ServiceModel.Primitives" Version="6.0.0" />
-		<PackageReference Include="coverlet.collector" Version="3.2.0" />
-		<PackageReference Include="NUnit.Analyzers" Version="3.5.0" />
-	</ItemGroup>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net10.0;10.0.22621.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Platforms>x64</Platforms>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <UseWindowsForms>true</UseWindowsForms>
+    <OutputType>WinExe</OutputType>
+    <RunSettingsFilePath>NUnit.DotNetCore.runsettings</RunSettingsFilePath>
+    <StartupObject>TestCase.Program</StartupObject>
+    <BaseOutputPath>c:\temp\bin</BaseOutputPath>
+    <UseCurrentRuntimeIdentifier>false</UseCurrentRuntimeIdentifier>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <AdditionalReferencePath>c:\BinDebug</AdditionalReferencePath>
+    <OutputPath>c:\temp\bin</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <AdditionalReferencePath>c:\BinRelease</AdditionalReferencePath>
+    <OutputPath>c:\temp\bin</OutputPath>
+  </PropertyGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="call $(ProjectDir)\PostBuild.bat $(TargetPath) $(ConfigurationName) $(TargetDir) $(TargetName)" />
+  </Target>
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="7.0.1" />
+    <PackageReference Include="FakeItEasy" Version="7.4.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageReference Include="NUnit" Version="4.4.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="6.1.0" />
+    <PackageReference Include="NUnitLite" Version="3.13.3" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
+    <PackageReference Include="System.Resources.Extensions" Version="7.0.0" />
+    <PackageReference Include="System.ServiceModel.Http" Version="6.0.0" />
+    <PackageReference Include="System.ServiceModel.NetNamedPipe" Version="6.0.0" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="6.0.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="6.0.0" />
+    <PackageReference Include="coverlet.collector" Version="3.2.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.5.0" />
+  </ItemGroup>
 </Project>

@@ -2,21 +2,32 @@
   {
     "number": 1348,
     "project_path": "Issue1348.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
     "packages": [
-      "AwesomeAssertions=9.2.1",
+      "AwesomeAssertions=9.3.0",
       "NUnit=4.4.0",
-      "NUnit3TestAdapter=6.0.0-alpha.100"
+      "NUnit3TestAdapter=6.1.0"
     ],
-    "update_result": "fail",
-    "update_output": "[nunit]\n\n[other]\n",
-    "update_error": "[nunit]\nSpecify which project file to use because this 'C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1348' contains more than one project file.\n\n[other]\nSpecify which project file to use because this 'C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1348' contains more than one project file.\n",
-    "test_result": "fail",
-    "test_output": "",
-    "test_error": "Specifying a solution for 'dotnet test' should be via '--solution'.\n",
-    "test_conclusion": "Failure: Regression failure."
+    "update_result": "success",
+    "update_output": "[Issue1348\\Issue1348.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:03.9021144\r\n",
+    "update_error": "",
+    "restore_result": "success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1348\\Issue1348.csproj (in 481 ms).\r\n",
+    "restore_error": "",
+    "build_result": "success",
+    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue1348 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1348\\bin\\Debug\\net10.0\\Issue1348.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.28\r\n",
+    "build_error": "",
+    "test_result": "success",
+    "test_output": "=== Issue1348\\Issue1348.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1348\\Issue1348.csproj (in 481 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue1348 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1348\\bin\\Debug\\net10.0\\Issue1348.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.28\r\n\n=== Test ===\nRunning tests from C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1348\\bin\\Debug\\net10.0\\Issue1348.dll (net10.0|x64)\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1348\\bin\\Debug\\net10.0\\Issue1348.dll (net10.0|x64) passed (1s 482ms)\r\n\r\nTest run summary: Passed!\r\n  total: 3\r\n  failed: 0\r\n  succeeded: 3\r\n  skipped: 0\r\n  duration: 2s 327ms\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (3 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue1348\\.runsettings",
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:20:11Z"
   }
 ]

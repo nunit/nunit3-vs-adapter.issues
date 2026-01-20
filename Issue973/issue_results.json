@@ -2,7 +2,7 @@
   {
     "number": 973,
     "project_path": "Issue973.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net48",
       "net10.0"
@@ -10,15 +10,26 @@
     "packages": [
       "Microsoft.NET.Test.Sdk=18.0.1",
       "NUnit=4.4.0",
-      "NUnit3TestAdapter=6.0.0",
+      "NUnit3TestAdapter=6.1.0",
       "coverlet.collector=6.0.4"
     ],
     "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3934915\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.1924607\n",
-    "update_error": "[nunit]\n\n[other]\n",
+    "update_output": "[Issue973\\Issue973.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:03.9373459\r\n",
+    "update_error": "",
+    "restore_result": "success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj (in 550 ms).\r\n",
+    "restore_error": "",
+    "build_result": "success",
+    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue973 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net10.0\\Issue973.dll\r\n  Issue973 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net48\\Issue973.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.82\r\n",
+    "build_error": "",
     "test_result": "success",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj (in 488 ms).\n  Issue973 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net48\\Issue973.dll\n  Issue973 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net10.0\\Issue973.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net10.0\\Issue973.dll (.NETCoreApp,Version=v10.0)\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net48\\Issue973.dll (.NETFramework,Version=v4.8)\nVSTest version 18.0.1 (x64)\n\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 46 ms - Issue973.dll (net10.0)\n\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 228 ms - Issue973.dll (net48)\n",
+    "test_output": "=== Issue973\\Issue973.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj (in 550 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue973 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net10.0\\Issue973.dll\r\n  Issue973 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net48\\Issue973.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.82\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue973 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net48\\Issue973.dll\r\n  Issue973 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net10.0\\Issue973.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net10.0\\Issue973.dll (.NETCoreApp,Version=v10.0)\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net48\\Issue973.dll (.NETFramework,Version=v4.8)\r\nVSTest version 18.0.1 (x64)\r\n\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 44 ms - Issue973.dll (net10.0)\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 262 ms - Issue973.dll (net48)\r\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure"
+    "test_conclusion": "Success: No regression failure (2 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:48:36Z"
   }
 ]

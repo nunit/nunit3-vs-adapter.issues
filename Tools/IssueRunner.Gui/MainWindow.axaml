@@ -87,9 +87,37 @@
                                 <TextBlock Text="{Binding SummaryText}" 
                                           TextWrapping="Wrap"
                                           Foreground="#666"
-                                          LineHeight="20"/>
-                                <StackPanel Orientation="Horizontal" Spacing="4" IsVisible="{Binding HasFoldersWithoutMetadata}" Margin="0,4,0,0">
-                                    <TextBlock Text="Folders without metadata: " Foreground="#666"/>
+                                          LineHeight="20"
+                                          FontSize="11"
+                                          Margin="0,0,0,8"/>
+                                <StackPanel Spacing="4" Margin="0,8,0,0">
+                                    <Grid ColumnDefinitions="Auto,*">
+                                        <TextBlock Grid.Column="0" Text="Passed:" Foreground="#666" FontSize="11" MinWidth="100"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding PassedCount, StringFormat='{}{0}'}" Foreground="#107C10" FontSize="11" FontWeight="SemiBold"/>
+                                    </Grid>
+                                    <Grid ColumnDefinitions="Auto,*">
+                                        <TextBlock Grid.Column="0" Text="Failed:" Foreground="#666" FontSize="11" MinWidth="100"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding FailedCount, StringFormat='{}{0}'}" Foreground="#D13438" FontSize="11" FontWeight="SemiBold"/>
+                                    </Grid>
+                                    <Grid ColumnDefinitions="Auto,*">
+                                        <TextBlock Grid.Column="0" Text="Skipped:" Foreground="#666" FontSize="11" MinWidth="100"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding SkippedCount, StringFormat='{}{0}'}" Foreground="#666" FontSize="11" FontWeight="SemiBold"/>
+                                    </Grid>
+                                    <Grid ColumnDefinitions="Auto,*">
+                                        <TextBlock Grid.Column="0" Text="Not Restored:" Foreground="#666" FontSize="11" MinWidth="100"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding NotRestoredCount, StringFormat='{}{0}'}" Foreground="#FF8C00" FontSize="11" FontWeight="SemiBold"/>
+                                    </Grid>
+                                    <Grid ColumnDefinitions="Auto,*">
+                                        <TextBlock Grid.Column="0" Text="Not Compiling:" Foreground="#666" FontSize="11" MinWidth="100"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding NotCompilingCount, StringFormat='{}{0}'}" Foreground="#FF8C00" FontSize="11" FontWeight="SemiBold"/>
+                                    </Grid>
+                                    <Grid ColumnDefinitions="Auto,*">
+                                        <TextBlock Grid.Column="0" Text="Not Tested:" Foreground="#666" FontSize="11" MinWidth="100"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding NotTestedCount, StringFormat='{}{0}'}" Foreground="#666" FontSize="11" FontWeight="SemiBold"/>
+                                    </Grid>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="4" IsVisible="{Binding HasFoldersWithoutMetadata}" Margin="0,8,0,0">
+                                    <TextBlock Text="Folders without metadata: " Foreground="#666" FontSize="11"/>
                                     <Button Content="{Binding FoldersWithoutMetadataCount, StringFormat='{}{0}'}"
                                            Command="{Binding ListFoldersWithoutMetadataCommand}"
                                            Background="Transparent"
@@ -98,14 +126,15 @@
                                            HorizontalContentAlignment="Left"
                                            Foreground="#0078D4"
                                            Cursor="Hand"
-                                           FontWeight="SemiBold">
+                                           FontWeight="SemiBold"
+                                           FontSize="11">
                                         <Button.Styles>
                                             <Style Selector="Button:pointerover">
                                                 <Setter Property="Foreground" Value="#005A9E"/>
                                             </Style>
                                         </Button.Styles>
                                     </Button>
-                                    <TextBlock Text=" (click to list)" Foreground="#999" FontSize="11"/>
+                                    <TextBlock Text=" (click to list)" Foreground="#999" FontSize="10"/>
                                 </StackPanel>
                             </StackPanel>
                         </Border>

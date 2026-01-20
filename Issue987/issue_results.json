@@ -1,0 +1,34 @@
+[
+  {
+    "number": 987,
+    "project_path": "MyProject.Test\\MyProject.Test\\MyProject.Test.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net462"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=17.2.0",
+      "nunit=3.13.3",
+      "NUnit3TestAdapter=4.3.1-alpha.109-dbg",
+      "FluentAssertions=5.10.3"
+    ],
+    "update_result": "success",
+    "update_output": "[Issue987\\MyProject.Test\\MyProject.Test\\MyProject.Test.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\n\u00C2\u00BB MyProject.Test\r\n  [.NETFramework,Version=v4.6.2]\r\n  FluentAssertions  5.10.3 -\u003E 8.8.0\r\n\r\nVersion color legend:\r\n\u003Cred\u003E   : Major version update or pre-release version. Possible breaking changes.\r\n\u003Cyellow\u003E: Minor version update. Backwards-compatible features added.\r\n\u003Cgreen\u003E : Patch version update. Backwards-compatible bug fixes.\r\n\r\nUpgrading package FluentAssertions...\r\nProject MyProject.Test [.NETFramework,Version=v4.6.2] upgraded successfully\r\n\r\nElapsed: 00:00:08.3369748\r\n\n\n[Issue987\\MyProject.Test\\SecondTest\\SecondTest.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\n\u00C2\u00BB SecondTest\r\n  [.NETFramework,Version=v4.6.2]\r\n  coverlet.collector  3.1.2 -\u003E 6.0.4 \r\n  NUnit.Analyzers     3.3.0 -\u003E 4.11.2\r\n\r\nVersion color legend:\r\n\u003Cred\u003E   : Major version update or pre-release version. Possible breaking changes.\r\n\u003Cyellow\u003E: Minor version update. Backwards-compatible features added.\r\n\u003Cgreen\u003E : Patch version update. Backwards-compatible bug fixes.\r\n\r\nUpgrading package coverlet.collector...\r\nProject SecondTest [.NETFramework,Version=v4.6.2] upgraded successfully\r\n\r\nUpgrading package NUnit.Analyzers...\r\nProject SecondTest [.NETFramework,Version=v4.6.2] upgraded successfully\r\n\r\nElapsed: 00:00:11.5060586\r\n\n\n[Issue987\\MyProject.Test\\ClassLibrary1\\ClassLibrary1.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:02.2368861\r\n",
+    "update_error": "",
+    "restore_result": "success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\ClassLibrary1\\ClassLibrary1.csproj (in 183 ms).\r\n",
+    "restore_error": "",
+    "build_result": "success",
+    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  ClassLibrary1 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\ClassLibrary1\\bin\\Debug\\net462\\ClassLibrary1.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.32\r\n",
+    "build_error": "",
+    "test_result": "success",
+    "test_output": "=== Issue987\\MyProject.Test\\MyProject.Test\\MyProject.Test.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  MyProject.Test -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\MyProject.Test\\bin\\Debug\\net462\\MyProject.Test.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:04.22\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  MyProject.Test -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\MyProject.Test\\bin\\Debug\\net462\\MyProject.Test.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\MyProject.Test\\bin\\Debug\\net462\\MyProject.Test.dll (.NETFramework,Version=v4.6.2)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 253 ms - MyProject.Test.dll (net462)\r\n\n\n=== Issue987\\MyProject.Test\\SecondTest\\SecondTest.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\SecondTest\\SecondTest.csproj (in 571 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  SecondTest -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\SecondTest\\bin\\Debug\\net462\\SecondTest.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:04.02\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  SecondTest -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\SecondTest\\bin\\Debug\\net462\\SecondTest.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\SecondTest\\bin\\Debug\\net462\\SecondTest.dll (.NETFramework,Version=v4.6.2)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 254 ms - SecondTest.dll (net462)\r\n\n\n=== Issue987\\MyProject.Test\\ClassLibrary1\\ClassLibrary1.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\ClassLibrary1\\ClassLibrary1.csproj (in 183 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  ClassLibrary1 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\ClassLibrary1\\bin\\Debug\\net462\\ClassLibrary1.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.32\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (2 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:49:36Z"
+  }
+]

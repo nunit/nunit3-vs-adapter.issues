@@ -14,11 +14,12 @@ public class IssueListViewHeadlessTests : HeadlessTestBase
     [AvaloniaTest]
     public async Task RunTestsButton_AppearsAndIsEnabledWhenFiltersActive()
     {
-        var window = CreateTestWindow();
+        // Create services first, then create window with those services
+        var services = CreateTestServiceProvider();
+        var window = CreateTestWindow(services);
         var mainViewModel = (MainViewModel)window.DataContext!;
 
         // Initialize repository so callbacks are wired
-        var services = CreateTestServiceProvider();
         var envService = services.GetRequiredService<IEnvironmentService>();
         mainViewModel.RepositoryPath = envService.Root;
         await Task.Delay(300);
@@ -46,10 +47,10 @@ public class IssueListViewHeadlessTests : HeadlessTestBase
     [AvaloniaTest]
     public async Task OptionsButton_AppearsAndOpensRunTestsOptionsDialog()
     {
-        var window = CreateTestWindow();
+        var services = CreateTestServiceProvider();
+        var window = CreateTestWindow(services);
         var mainViewModel = (MainViewModel)window.DataContext!;
 
-        var services = CreateTestServiceProvider();
         var envService = services.GetRequiredService<IEnvironmentService>();
         mainViewModel.RepositoryPath = envService.Root;
         await Task.Delay(300);
@@ -72,10 +73,10 @@ public class IssueListViewHeadlessTests : HeadlessTestBase
     [AvaloniaTest]
     public async Task TestTypesFilter_ComboBoxFiltersIssuesWhenSelectionChanges()
     {
-        var window = CreateTestWindow();
+        var services = CreateTestServiceProvider();
+        var window = CreateTestWindow(services);
         var mainViewModel = (MainViewModel)window.DataContext!;
 
-        var services = CreateTestServiceProvider();
         var envService = services.GetRequiredService<IEnvironmentService>();
         mainViewModel.RepositoryPath = envService.Root;
         await Task.Delay(300);
@@ -109,10 +110,10 @@ public class IssueListViewHeadlessTests : HeadlessTestBase
     [AvaloniaTest]
     public async Task TestTypesColumn_DisplaysCorrectValues()
     {
-        var window = CreateTestWindow();
+        var services = CreateTestServiceProvider();
+        var window = CreateTestWindow(services);
         var mainViewModel = (MainViewModel)window.DataContext!;
 
-        var services = CreateTestServiceProvider();
         var envService = services.GetRequiredService<IEnvironmentService>();
         mainViewModel.RepositoryPath = envService.Root;
         await Task.Delay(300);
@@ -138,10 +139,10 @@ public class IssueListViewHeadlessTests : HeadlessTestBase
     [AvaloniaTest]
     public async Task ScopeFilterComboBox_ShowsNewValues()
     {
-        var window = CreateTestWindow();
+        var services = CreateTestServiceProvider();
+        var window = CreateTestWindow(services);
         var mainViewModel = (MainViewModel)window.DataContext!;
 
-        var services = CreateTestServiceProvider();
         var envService = services.GetRequiredService<IEnvironmentService>();
         mainViewModel.RepositoryPath = envService.Root;
         await Task.Delay(300);
@@ -164,10 +165,10 @@ public class IssueListViewHeadlessTests : HeadlessTestBase
     [AvaloniaTest]
     public async Task StateFilterComboBox_ShowsNewValues()
     {
-        var window = CreateTestWindow();
+        var services = CreateTestServiceProvider();
+        var window = CreateTestWindow(services);
         var mainViewModel = (MainViewModel)window.DataContext!;
 
-        var services = CreateTestServiceProvider();
         var envService = services.GetRequiredService<IEnvironmentService>();
         mainViewModel.RepositoryPath = envService.Root;
         await Task.Delay(300);
@@ -193,10 +194,10 @@ public class IssueListViewHeadlessTests : HeadlessTestBase
     [AvaloniaTest]
     public async Task NotTestedReason_DisplaysMarkerFileType_WhenSkipped()
     {
-        var window = CreateTestWindow();
+        var services = CreateTestServiceProvider();
+        var window = CreateTestWindow(services);
         var mainViewModel = (MainViewModel)window.DataContext!;
 
-        var services = CreateTestServiceProvider();
         var envService = services.GetRequiredService<IEnvironmentService>();
         mainViewModel.RepositoryPath = envService.Root;
         await Task.Delay(300);
@@ -229,10 +230,10 @@ public class IssueListViewHeadlessTests : HeadlessTestBase
     [AvaloniaTest]
     public async Task SyncFromGitHubButton_AppearsInIssueListView()
     {
-        var window = CreateTestWindow();
+        var services = CreateTestServiceProvider();
+        var window = CreateTestWindow(services);
         var mainViewModel = (MainViewModel)window.DataContext!;
 
-        var services = CreateTestServiceProvider();
         var envService = services.GetRequiredService<IEnvironmentService>();
         mainViewModel.RepositoryPath = envService.Root;
         await Task.Delay(300);

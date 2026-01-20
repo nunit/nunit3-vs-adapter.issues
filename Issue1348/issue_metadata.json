@@ -18,7 +18,7 @@
     "packages": [
       {
         "name": "AwesomeAssertions",
-        "version": "9.2.1"
+        "version": "9.3.0"
       },
       {
         "name": "NUnit",
@@ -26,7 +26,7 @@
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "6.0.0-alpha.100"
+        "version": "6.1.0"
       }
     ]
   }

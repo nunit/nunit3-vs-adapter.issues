@@ -1,19 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net45</TargetFrameworks>
+    <TargetFramework>net462</TargetFramework>
     <IsPackable>false</IsPackable>
-
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
-    <PackageReference Include="nunit" Version="3.13.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageReference Include="nunit" Version="4.4.0" />
     <!--<PackageReference Include="NUnit3TestAdapter" Version="4.1.0" />-->
     <!--<PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />-->
     <!-- <PackageReference Include="NUnit3TestAdapter" Version="4.3.0-alpha-net7.4" /> -->
-    <PackageReference Include="NUnit3TestAdapter" Version="4.3.1-alpha.109-dbg" />
-    <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="6.1.0" />
+    <PackageReference Include="FluentAssertions" Version="8.8.0" />
   </ItemGroup>
-
 </Project>

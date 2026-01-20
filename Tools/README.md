@@ -135,6 +135,34 @@ For CI scenarios where tests run on multiple OS:
 - XML documentation on all public members
 - Separation of concerns (commands, services, models)
 
+### GUI Architecture (IssueRunner.Gui)
+
+The GUI application follows a **ViewModel/Service separation pattern** to keep ViewModels focused on UI concerns while delegating business logic to services.
+
+**ViewModels** (`ViewModels/`):
+- `MainViewModel` - Main application view model, coordinates UI state and delegates to services
+- `IssueListViewModel` - Manages issue list display and filtering
+- `TestStatusViewModel` - Displays test status and results
+- `RunTestsOptionsViewModel` - Manages test run options dialog
+
+**Services** (`Services/`):
+- `IRepositoryStatusService` - Loads repository status, summary text, and package versions
+- `IIssueListLoader` - Loads issue list data with metadata and test results
+- `ITestRunOrchestrator` - Orchestrates test runs, manages status dialogs, and handles cancellation
+- `ISyncCoordinator` - Coordinates GitHub sync and folder sync operations
+
+**Key Principles**:
+- ViewModels are thin - they primarily update bindable properties and delegate to services
+- Business logic lives in services, not ViewModels
+- Services are testable independently of UI
+- All services are registered in the DI container (`App.axaml.cs`)
+- ViewModels receive services via constructor injection
+
+**Testing**:
+- ViewModels are tested using Avalonia headless testing (`Avalonia.Headless.NUnit`)
+- Services are mocked in ViewModel tests using NSubstitute
+- All new services should have corresponding interface registrations in test setup
+
 ## CI/CD Integration
 
 The tool is used in split GitHub Actions workflows:

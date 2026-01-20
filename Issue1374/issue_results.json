@@ -2,7 +2,7 @@
   {
     "number": 1374,
     "project_path": "Issue1374.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
@@ -11,14 +11,25 @@
       "Microsoft.NET.Test.Sdk=18.0.1",
       "NUnit=4.4.0",
       "NUnit.Analyzers=4.11.2",
-      "NUnit3TestAdapter=6.0.0"
+      "NUnit3TestAdapter=6.1.0"
     ],
     "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.4801049\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3533631\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "fail",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\Issue1374.csproj (in 547 ms).\n  Issue1374 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\bin\\Debug\\net10.0\\Issue1374.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\bin\\Debug\\net10.0\\Issue1374.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\n",
-    "test_error": "The active test run was aborted. Reason: Test host process crashed : Process terminated.\nAssertion Failed\nfalse\n   at Issue1374.UnitTest1.<>c.<TraceAssert_WithFalseCondition_ShouldThrowException>b__1_0() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\UnitTest1.cs:line 21\n   at NUnit.Framework.Assert.Throws(IResolveConstraint expression, TestDelegate code, String message, Object[] args)\n   at NUnit.Framework.Assert.Throws(IResolveConstraint expression, TestDelegate code)\n   at NUnit.Framework.Assert.Catch(TestDelegate code)\n   at Issue1374.UnitTest1.TraceAssert_WithFalseCondition_ShouldThrowException() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\UnitTest1.cs:line 21\n   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)\n   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)\n   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)\n   at NUnit.Framework.Internal.Reflect.InvokeMethod(MethodInfo method, Object fixture, Object[] args)\n   at NUnit.Framework.Internal.MethodWrapper.Invoke(Object fixture, Object[] args)\n   at NUnit.Framework.Internal.Commands.TestMethodCommand.InvokeTestMethod(TestExecutionContext context, Boolean lastParameterAcceptsCancellationToken)\n   at NUnit.Framework.Internal.Commands.TestMethodCommand.RunTestMethod(TestExecutionContext context)\n   at NUnit.Framework.Internal.Commands.TestMethodCommand.Execute(TestExecutionContext context)\n   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.<>c__DisplayClass1_0.<Execute>b__0()\n   at NUnit.Framework.Internal.Commands.DelegatingTestCommand.RunTestMethodInThreadAbortSafeZone(TestExecutionContext context, Action action)\n   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.Execute(TestExecutionContext context)\n   at NUnit.Framework.Internal.Execution.SimpleWorkItem.<>c__DisplayClass3_0.<PerformWork>b__0()\n   at NUnit.Framework.Internal.ContextUtils.<>c__DisplayClass1_0`1.<DoIsolated>b__0(Object _)\n   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)\n   at NUnit.Framework.Internal.ContextUtils.DoIsolated(ContextCallback callback, Object state)\n   at NUnit.Framework.Internal.ContextUtils.DoIsolated[T](Func`1 func)\n   at NUnit.Framework.Internal.Execution.SimpleWorkItem.PerformWork()\n   at NUnit.Framework.Internal.Execution.WorkItem.RunOnCurrentThread()\n   at NUnit.Framework.Internal.Execution.WorkItem.Execute()\n   at NUnit.Framework.Internal.Execution.ParallelWorkItemDispatcher.Dispatch(WorkItem work, ParallelExecutionStrategy strategy)\n   at NUnit.Framework.Internal.Execution.ParallelWorkItemDispatcher.Dispatch(WorkItem work)\n   at NUnit.Framework.Internal.Execution.CompositeWorkItem.RunChildren()\n   at NUnit.Framework.Internal.Execution.CompositeWorkItem.PerformWork()\n   at NUnit.Framework.Internal.Execution.WorkItem.RunOnCurrentThread()\n   at NUnit.Framework.Internal.Execution.WorkItem.Execute()\n   at NUnit.Framework.Internal.Execution.TestWorker.TestWorkerThreadProc()\n   at System.Threading.Thread.StartHelper.Callback(Object state)\n   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)\n\nTest Run Aborted.\n",
-    "test_conclusion": "Failure: Open issue, repro fails."
+    "update_output": "[Issue1374\\Issue1374.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:04.1596799\r\n",
+    "update_error": "",
+    "restore_result": "success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\Issue1374.csproj (in 475 ms).\r\n",
+    "restore_error": "",
+    "build_result": "success",
+    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue1374 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\bin\\Debug\\net10.0\\Issue1374.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.62\r\n",
+    "build_error": "",
+    "test_result": "success",
+    "test_output": "=== Issue1374\\Issue1374.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\Issue1374.csproj (in 475 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue1374 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\bin\\Debug\\net10.0\\Issue1374.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.62\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue1374 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\bin\\Debug\\net10.0\\Issue1374.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\bin\\Debug\\net10.0\\Issue1374.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 57 ms - Issue1374.dll (net10.0)\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (1 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:22:24Z"
   }
 ]

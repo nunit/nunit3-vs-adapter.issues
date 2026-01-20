@@ -1,0 +1,38 @@
+[
+  {
+    "number": 1396,
+    "title": "Resharper test runner fails with NUnit3TestAdapter 6.0.1",
+    "state": "closed",
+    "milestone": "6.2",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1396",
+    "project_path": "Issue1396.csproj",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.4"
+      },
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "18.0.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.11.2"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "6.1.0"
+      }
+    ]
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+    "number": 1040,
+    "project_path": "NUnitAdapterBug.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net462"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=18.0.1",
+      "NUnit=4.4.0",
+      "NUnit3TestAdapter=6.1.0"
+    ],
+    "update_result": "success",
+    "update_output": "[issue1040\\NUnitAdapterBug.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:03.0884220\r\n",
+    "update_error": "",
+    "restore_result": "success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\issue1040\\NUnitAdapterBug.csproj (in 335 ms).\r\n",
+    "restore_error": "",
+    "build_result": "success",
+    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  NUnitAdapterBug -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\issue1040\\bin\\Debug\\net462\\NUnitAdapterBug.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.99\r\n",
+    "build_error": "",
+    "test_result": "success",
+    "test_output": "=== issue1040\\NUnitAdapterBug.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\issue1040\\NUnitAdapterBug.csproj (in 335 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  NUnitAdapterBug -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\issue1040\\bin\\Debug\\net462\\NUnitAdapterBug.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.99\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  NUnitAdapterBug -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\issue1040\\bin\\Debug\\net462\\NUnitAdapterBug.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\issue1040\\bin\\Debug\\net462\\NUnitAdapterBug.dll (.NETFramework,Version=v4.6.2)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 173 ms - NUnitAdapterBug.dll (net462)\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (1 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:05:55Z"
+  }
+]

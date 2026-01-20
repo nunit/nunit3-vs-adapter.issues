@@ -1,8 +1,8 @@
 [
   {
     "number": 846,
-    "project_path": "Issue846/Issue846.csproj",
-    "project_style": "sdk",
+    "project_path": "Issue846\\Issue846.csproj",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
@@ -11,15 +11,26 @@
       "AutoFixture.AutoNSubstitute=4.18.1",
       "NUnit=4.4.0",
       "NUnit.Analyzers=4.11.2",
-      "NUnit3TestAdapter=6.0.0",
+      "NUnit3TestAdapter=6.1.0",
       "Microsoft.NET.Test.Sdk=18.0.1"
     ],
     "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3152018\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.6997363\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "fail",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\Issue846.csproj (in 586 ms).\n  Issue846 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\bin\\Debug\\net10.0\\Issue846.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\bin\\Debug\\net10.0\\Issue846.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n  Failed TestCulture(\"sv-SE\") [115 ms]\n  Error Message:\n     Has not been sorted at all\nAssert.That(result, Is.EqualTo(input).AsCollection)\n  Expected and actual are both <System.Collections.Generic.List`1[System.String]> with 5 elements\n  Values differ at index [0]\n  String lengths are both 3. Strings differ at index 0.\n  Expected: < \"XXX\", \"AAA\", \"BBB\", \"AAB\", \"ABA\" >\n  But was:  < \"AAA\", \"AAB\", \"ABA\", \"BBB\", \"XXX\" >\n  First non-matching item at index [0]: \"XXX\"\n\n  Stack Trace:\n     at Issue846.Tests.TestCulture(String culture) in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 40\n\n1)    at Issue846.Tests.<>c__DisplayClass2_0.<TestCulture>b__2() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 44\n   at NUnit.Framework.Assert.Multiple(TestDelegate testDelegate)\n   at Issue846.Tests.TestCulture(String culture) in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 40\n\n\n  Failed TestCulture(\"nb-NO\") [4 ms]\n  Error Message:\n     Has not been sorted at all\nAssert.That(result, Is.EqualTo(input).AsCollection)\n  Expected and actual are both <System.Collections.Generic.List`1[System.String]> with 5 elements\n  Values differ at index [0]\n  String lengths are both 3. Strings differ at index 0.\n  Expected: < \"XXX\", \"AAA\", \"BBB\", \"AAB\", \"ABA\" >\n  But was:  < \"AAA\", \"AAB\", \"ABA\", \"BBB\", \"XXX\" >\n  First non-matching item at index [0]: \"XXX\"\n\n  Stack Trace:\n     at Issue846.Tests.TestCulture(String culture) in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 40\n   at InvokeStub_Tests.TestCulture(Object, Span`1)\n\n1)    at Issue846.Tests.<>c__DisplayClass2_0.<TestCulture>b__2() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 44\n   at NUnit.Framework.Assert.Multiple(TestDelegate testDelegate)\n   at Issue846.Tests.TestCulture(String culture) in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 40\n   at InvokeStub_Tests.TestCulture(Object, Span`1)\n\n\n  Skipped TestCulture(\"nn-NO\") [< 1 ms]\n  Failed TestCulture(\"da-DK\") [2 ms]\n  Error Message:\n     Has not been sorted at all\nAssert.That(result, Is.EqualTo(input).AsCollection)\n  Expected and actual are both <System.Collections.Generic.List`1[System.String]> with 5 elements\n  Values differ at index [0]\n  String lengths are both 3. Strings differ at index 0.\n  Expected: < \"XXX\", \"AAA\", \"BBB\", \"AAB\", \"ABA\" >\n  But was:  < \"AAA\", \"AAB\", \"ABA\", \"BBB\", \"XXX\" >\n  First non-matching item at index [0]: \"XXX\"\n\n  Stack Trace:\n     at Issue846.Tests.TestCulture(String culture) in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 40\n   at InvokeStub_Tests.TestCulture(Object, Span`1)\n\n1)    at Issue846.Tests.<>c__DisplayClass2_0.<TestCulture>b__2() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 44\n   at NUnit.Framework.Assert.Multiple(TestDelegate testDelegate)\n   at Issue846.Tests.TestCulture(String culture) in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\UnitTest1.cs:line 40\n   at InvokeStub_Tests.TestCulture(Object, Span`1)\n\n\n\nFailed!  - Failed:     3, Passed:     2, Skipped:     0, Total:     5, Duration: 715 ms - Issue846.dll (net10.0)\n",
+    "update_output": "[Issue846\\Issue846\\Issue846.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:04.2486891\r\n",
+    "update_error": "",
+    "restore_result": "success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\Issue846.csproj (in 499 ms).\r\n",
+    "restore_error": "",
+    "build_result": "success",
+    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue846 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\bin\\Debug\\net10.0\\Issue846.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.76\r\n",
+    "build_error": "",
+    "test_result": "success",
+    "test_output": "=== Issue846\\Issue846\\Issue846.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\Issue846.csproj (in 499 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue846 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\bin\\Debug\\net10.0\\Issue846.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.76\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue846 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\bin\\Debug\\net10.0\\Issue846.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\bin\\Debug\\net10.0\\Issue846.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n  Skipped TestCulture(\u0022nn-NO\u0022) [\u003C 1 ms]\r\n\r\nPassed!  - Failed:     0, Passed:     5, Skipped:     0, Total:     5, Duration: 584 ms - Issue846.dll (net10.0)\r\n",
     "test_error": "",
-    "test_conclusion": "Failure: Regression failure."
+    "test_conclusion": "Success: No regression failure (5 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:40:46Z"
   }
 ]

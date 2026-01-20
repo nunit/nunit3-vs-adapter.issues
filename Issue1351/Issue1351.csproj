@@ -1,4 +1,5 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -9,15 +10,21 @@
     <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="coverlet.collector" Version="6.0.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
-    <PackageReference Include="NUnit" Version="3.12.0" />
-    <PackageReference Include="NUnit.Analyzers" Version="3.8.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="6.0.0-beta.1" />
-    <PackageReference Include="Microsoft.Testing.Extensions.Telemetry" Version="2.0.1" />
-    <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" Version="2.0.1" />
-    <PackageReference Include="Microsoft.Testing.Extensions.VSTestBridge" Version="2.0.1" />
-    <PackageReference Include="Microsoft.Testing.Platform" Version="2.0.1" />
-    <PackageReference Include="Microsoft.Testing.Platform.MSBuild" Version="2.0.1" />
+    <PackageReference Include="coverlet.collector" Version="6.0.4">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageReference Include="NUnit" Version="4.4.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="4.11.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="NUnit3TestAdapter" Version="6.1.0" />
+    <PackageReference Include="Microsoft.Testing.Extensions.Telemetry" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Testing.Extensions.VSTestBridge" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Testing.Platform" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Testing.Platform.MSBuild" Version="2.0.2" />
   </ItemGroup>
 </Project>

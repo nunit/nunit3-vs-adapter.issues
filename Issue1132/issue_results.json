@@ -2,9 +2,10 @@
   {
     "number": 1132,
     "project_path": "NUnitAdapterIssue.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
-      "net10.0;10.0.22621.0"
+      "net10.0",
+      "10.0.22621.0"
     ],
     "packages": [
       "Autofac=7.0.1",
@@ -23,11 +24,22 @@
       "NUnit.Analyzers=3.5.0"
     ],
     "update_result": "fail",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\n",
-    "update_error": "[nunit]\nUnable to process the project `C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln. Are you sure this is a valid .NET Core or .NET Standard project type?\n\nHere is the full error message returned from the Microsoft Build Engine:\n\nMSBuild version 18.0.2+b0f34d51f for .NET\n  Determining projects to restore...\nC:\\Program Files\\dotnet\\sdk\\10.0.100\\NuGet.targets(196,5): error : Operation is not valid due to the current state of the object. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln]\n -  - exit code: 1\n\n[other]\nUnable to process the project `C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln. Are you sure this is a valid .NET Core or .NET Standard project type?\n\nHere is the full error message returned from the Microsoft Build Engine:\n\nMSBuild version 18.0.2+b0f34d51f for .NET\n  Determining projects to restore...\nC:\\Program Files\\dotnet\\sdk\\10.0.100\\NuGet.targets(196,5): error : Operation is not valid due to the current state of the object. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln]\n -  - exit code: 1\n",
-    "test_result": "fail",
-    "test_output": "  Determining projects to restore...\nC:\\Program Files\\dotnet\\sdk\\10.0.100\\NuGet.targets(196,5): error : Operation is not valid due to the current state of the object. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln]\n",
+    "update_output": "[Issue1132\\NUnitAdapterIssue.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\n",
+    "update_error": "[Issue1132\\NUnitAdapterIssue.csproj]\nUnable to process the project \u0060C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln. Are you sure this is a valid .NET Core or .NET Standard project type?\r\n\r\nHere is the full error message returned from the Microsoft Build Engine:\r\n\r\nMSBuild version 18.0.7\u002B445250245 for .NET\r\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.csproj : error NU1105: Invalid target framework \u002710.0.22621.0\u0027. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln]\r\nC:\\Program Files\\dotnet\\sdk\\10.0.102\\NuGet.targets(196,5): error : Invalid restore input. One or more invalid frameworks were detected. Input files: C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.csproj. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln]\r\n -  - exit code: 1\r\n",
+    "restore_result": "fail",
+    "restore_output": "  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.csproj : error NU1105: Invalid target framework \u002710.0.22621.0\u0027. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln]\r\nC:\\Program Files\\dotnet\\sdk\\10.0.102\\NuGet.targets(196,5): error : Invalid restore input. One or more invalid frameworks were detected. Input files: C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.csproj. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln]\r\n",
+    "restore_error": "",
+    "build_result": "not run",
+    "build_output": "",
+    "build_error": "",
+    "test_result": "not run",
+    "test_output": "=== Issue1132\\NUnitAdapterIssue.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.csproj : error NU1105: Invalid target framework \u002710.0.22621.0\u0027. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln]\r\nC:\\Program Files\\dotnet\\sdk\\10.0.102\\NuGet.targets(196,5): error : Invalid restore input. One or more invalid frameworks were detected. Input files: C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.csproj. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln]\r\n",
     "test_error": "",
-    "test_conclusion": "Failure: Regression failure."
+    "test_conclusion": "Failure: Restore failed",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:09:24Z"
   }
 ]

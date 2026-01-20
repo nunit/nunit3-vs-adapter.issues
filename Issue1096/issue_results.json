@@ -2,7 +2,7 @@
   {
     "number": 1096,
     "project_path": "NUnitParseIssue.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
@@ -14,11 +14,22 @@
       "NunitXml.TestLogger=7.0.2"
     ],
     "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\n\u00c2\u00bb NUnitParseIssue\n  [net10.0]\n  NunitXml.TestLogger  7.0.2 -> 7.1.0\n\nVersion color legend:\n<red>   : Major version update or pre-release version. Possible breaking changes.\n<yellow>: Minor version update. Backwards-compatible features added.\n<green> : Patch version update. Backwards-compatible bug fixes.\n\nUpgrading package NunitXml.TestLogger...\nProject NUnitParseIssue [net10.0] upgraded successfully\n\nElapsed: 00:00:06.3476428\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.4266692\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "fail",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\NUnitParseIssue.csproj (in 403 ms).\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\S0\\Issue.cs(11,20): error CS0117: 'Assert' does not contain a definition for 'AreEqual' [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\NUnitParseIssue.csproj]\n",
+    "update_output": "[Issue1096\\NUnitParseIssue.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\n\u00C2\u00BB NUnitParseIssue\r\n  [net10.0]\r\n  NunitXml.TestLogger  7.0.2 -\u003E 8.0.0\r\n\r\nVersion color legend:\r\n\u003Cred\u003E   : Major version update or pre-release version. Possible breaking changes.\r\n\u003Cyellow\u003E: Minor version update. Backwards-compatible features added.\r\n\u003Cgreen\u003E : Patch version update. Backwards-compatible bug fixes.\r\n\r\nUpgrading package NunitXml.TestLogger...\r\nProject NUnitParseIssue [net10.0] upgraded successfully\r\n\r\nElapsed: 00:00:05.7128357\r\n",
+    "update_error": "",
+    "restore_result": "success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\NUnitParseIssue.csproj (in 386 ms).\r\n",
+    "restore_error": "",
+    "build_result": "fail",
+    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\S0\\Issue.cs(11,20): error CS0117: \u0027Assert\u0027 does not contain a definition for \u0027AreEqual\u0027 [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\NUnitParseIssue.csproj]\r\n\r\nBuild FAILED.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\S0\\Issue.cs(11,20): error CS0117: \u0027Assert\u0027 does not contain a definition for \u0027AreEqual\u0027 [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\NUnitParseIssue.csproj]\r\n    0 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:01.96\r\n",
+    "build_error": "",
+    "test_result": "not run",
+    "test_output": "=== Issue1096\\NUnitParseIssue.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\NUnitParseIssue.csproj (in 386 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\S0\\Issue.cs(11,20): error CS0117: \u0027Assert\u0027 does not contain a definition for \u0027AreEqual\u0027 [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\NUnitParseIssue.csproj]\r\n\r\nBuild FAILED.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\S0\\Issue.cs(11,20): error CS0117: \u0027Assert\u0027 does not contain a definition for \u0027AreEqual\u0027 [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\NUnitParseIssue.csproj]\r\n    0 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:01.96\r\n",
     "test_error": "",
-    "test_conclusion": "Failure: Regression failure."
+    "test_conclusion": "Failure: Build failed",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:07:57Z"
   }
 ]

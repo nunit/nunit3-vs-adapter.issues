@@ -2,7 +2,7 @@
   {
     "number": 1183,
     "project_path": "Issue1183.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
@@ -11,14 +11,25 @@
       "Microsoft.NET.Test.Sdk=18.0.1",
       "NUnit=4.4.0",
       "NUnit.Analyzers=4.11.2",
-      "NUnit3TestAdapter=6.0.0"
+      "NUnit3TestAdapter=6.1.0"
     ],
     "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3546338\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.2468699\n",
-    "update_error": "[nunit]\n\n[other]\n",
+    "update_output": "[Issue1183\\Issue1183.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:03.8696636\r\n",
+    "update_error": "",
+    "restore_result": "success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1183\\Issue1183.csproj (in 442 ms).\r\n",
+    "restore_error": "",
+    "build_result": "success",
+    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue1183 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1183\\bin\\Debug\\net10.0\\Issue1183.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.14\r\n",
+    "build_error": "",
     "test_result": "success",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1183\\Issue1183.csproj (in 527 ms).\n  Issue1183 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1183\\bin\\Debug\\net10.0\\Issue1183.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1183\\bin\\Debug\\net10.0\\Issue1183.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 50 ms - Issue1183.dll (net10.0)\n",
+    "test_output": "=== Issue1183\\Issue1183.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1183\\Issue1183.csproj (in 442 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue1183 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1183\\bin\\Debug\\net10.0\\Issue1183.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.14\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue1183 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1183\\bin\\Debug\\net10.0\\Issue1183.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1183\\bin\\Debug\\net10.0\\Issue1183.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 34 ms - Issue1183.dll (net10.0)\r\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure"
+    "test_conclusion": "Success: No regression failure (3 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue1183\\.runsettings",
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:14:33Z"
   }
 ]

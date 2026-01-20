@@ -1,8 +1,8 @@
 [
   {
     "number": 935,
-    "project_path": "NunitFSharpTestCaseSource/CSharpTest/CSharpTest.csproj",
-    "project_style": "sdk",
+    "project_path": "NunitFSharpTestCaseSource\\CSharpTest\\CSharpTest.csproj",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
@@ -11,12 +11,23 @@
       "NUnit3TestAdapter=6.0.0",
       "Microsoft.NET.Test.Sdk=18.0.1"
     ],
-    "update_result": "fail",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.2133693\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\n\u00c2\u00bb FSharpType\n  [.NETCoreApp,Version=v3.1]\n  FSharp.Core  10.0.100 -> 10.0.101\n\nVersion color legend:\n<red>   : Major version update or pre-release version. Possible breaking changes.\n<yellow>: Minor version update. Backwards-compatible features added.\n<green> : Patch version update. Backwards-compatible bug fixes.\n\nUpgrading package FSharp.Core...\nAn error occurred while upgrading FSharpType\n\n\n",
-    "update_error": "[nunit]\n\n[other]\n",
+    "update_result": "success",
+    "update_output": "[Issue935\\NunitFSharpTestCaseSource\\CSharpTest\\CSharpTest.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:04.8161768\r\n\n\n[Issue935\\NunitFSharpTestCaseSource\\TestProject1\\TestProject1.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\n\u00C2\u00BB TestProject1\r\n  [net10.0]\r\n  coverlet.collector  3.1.0 -\u003E 6.0.4\r\n  NUnit3TestAdapter   4.2.0 -\u003E 6.1.0\r\n\r\nVersion color legend:\r\n\u003Cred\u003E   : Major version update or pre-release version. Possible breaking changes.\r\n\u003Cyellow\u003E: Minor version update. Backwards-compatible features added.\r\n\u003Cgreen\u003E : Patch version update. Backwards-compatible bug fixes.\r\n\r\nUpgrading package coverlet.collector...\r\nProject TestProject1 [net10.0] upgraded successfully\r\n\r\nUpgrading package NUnit3TestAdapter...\r\nProject TestProject1 [net10.0] upgraded successfully\r\n\r\nElapsed: 00:00:11.8373662\r\n",
+    "update_error": "",
+    "restore_result": "success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\TestProject1\\TestProject1.csproj (in 486 ms).\r\n",
+    "restore_error": "",
+    "build_result": "success",
+    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  TestProject1 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\TestProject1\\bin\\Debug\\net10.0\\TestProject1.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.17\r\n",
+    "build_error": "",
     "test_result": "success",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\CSharpTest\\CSharpTest.csproj (in 512 ms).\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\FSharpType\\FSharpType.fsproj (in 507 ms).\n  FSharpType -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\FSharpType\\bin\\Debug\\netcoreapp3.1\\FSharpType.dll\n  CSharpTest -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\CSharpTest\\bin\\Debug\\net10.0\\CSharpTest.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\CSharpTest\\bin\\Debug\\net10.0\\CSharpTest.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     2, Skipped:     0, Total:     2, Duration: 49 ms - CSharpTest.dll (net10.0)\n",
+    "test_output": "=== Issue935\\NunitFSharpTestCaseSource\\CSharpTest\\CSharpTest.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\FSharpType\\FSharpType.fsproj (in 410 ms).\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\CSharpTest\\CSharpTest.csproj (in 414 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  FSharpType -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\FSharpType\\bin\\Debug\\netcoreapp3.1\\FSharpType.dll\r\n  CSharpTest -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\CSharpTest\\bin\\Debug\\net10.0\\CSharpTest.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:07.57\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  FSharpType -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\FSharpType\\bin\\Debug\\netcoreapp3.1\\FSharpType.dll\r\n  CSharpTest -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\CSharpTest\\bin\\Debug\\net10.0\\CSharpTest.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\CSharpTest\\bin\\Debug\\net10.0\\CSharpTest.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     2, Skipped:     0, Total:     2, Duration: 51 ms - CSharpTest.dll (net10.0)\r\n\n\n=== Issue935\\NunitFSharpTestCaseSource\\TestProject1\\TestProject1.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\TestProject1\\TestProject1.csproj (in 486 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  TestProject1 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\TestProject1\\bin\\Debug\\net10.0\\TestProject1.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.17\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  TestProject1 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\TestProject1\\bin\\Debug\\net10.0\\TestProject1.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue935\\NunitFSharpTestCaseSource\\TestProject1\\bin\\Debug\\net10.0\\TestProject1.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 65 ms - TestProject1.dll (net10.0)\r\n",
     "test_error": "",
-    "test_conclusion": "Open issue, but test succeeds."
+    "test_conclusion": "Success: No regression failure (3 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:46:25Z"
   }
 ]

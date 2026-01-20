@@ -185,6 +185,36 @@
                         </TextBlock.IsVisible>
                     </TextBlock>
                 </StackPanel>
+                
+                <!-- Duration (shown at bottom when run is complete) -->
+                <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+                           Spacing="4" 
+                           Margin="0,10,0,0"
+                           HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding DurationText}" 
+                              FontSize="12" 
+                              Foreground="#0078D4"
+                              FontWeight="SemiBold">
+                        <TextBlock.IsVisible>
+                            <Binding Path="DurationText">
+                                <Binding.Converter>
+                                    <x:Static Member="StringConverters.IsNotNullOrEmpty"/>
+                                </Binding.Converter>
+                            </Binding>
+                        </TextBlock.IsVisible>
+                    </TextBlock>
+                    <TextBlock Text="Total Duration" 
+                              FontSize="10" 
+                              Foreground="#666">
+                        <TextBlock.IsVisible>
+                            <Binding Path="DurationText">
+                                <Binding.Converter>
+                                    <x:Static Member="StringConverters.IsNotNullOrEmpty"/>
+                                </Binding.Converter>
+                            </Binding>
+                        </TextBlock.IsVisible>
+                    </TextBlock>
+                </StackPanel>
             </Grid>
         </Border>
         

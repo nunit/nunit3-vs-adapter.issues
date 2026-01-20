@@ -1,22 +1,33 @@
 [
   {
     "number": 735,
-    "project_path": "TestCaseSourceJumpToGivenLocation/TestCaseSourceJumpToGivenLocation.csproj",
-    "project_style": "sdk",
+    "project_path": "TestCaseSourceJumpToGivenLocation\\TestCaseSourceJumpToGivenLocation.csproj",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
     "packages": [
       "nunit=4.4.0",
       "Microsoft.NET.Test.Sdk=18.0.1",
-      "NUnit3TestAdapter=6.0.0"
+      "NUnit3TestAdapter=6.1.0"
     ],
     "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.1083492\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.1656213\n",
-    "update_error": "[nunit]\n\n[other]\n",
+    "update_output": "[Issue735\\TestCaseSourceJumpToGivenLocation\\TestCaseSourceJumpToGivenLocation.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:04.2352651\r\n",
+    "update_error": "",
+    "restore_result": "success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue735\\TestCaseSourceJumpToGivenLocation\\TestCaseSourceJumpToGivenLocation.csproj (in 459 ms).\r\n",
+    "restore_error": "",
+    "build_result": "success",
+    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  TestCaseSourceJumpToGivenLocation -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue735\\TestCaseSourceJumpToGivenLocation\\bin\\Debug\\net10.0\\TestCaseSourceJumpToGivenLocation.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.03\r\n",
+    "build_error": "",
     "test_result": "success",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue735\\TestCaseSourceJumpToGivenLocation\\TestCaseSourceJumpToGivenLocation.csproj (in 449 ms).\n  TestCaseSourceJumpToGivenLocation -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue735\\TestCaseSourceJumpToGivenLocation\\bin\\Debug\\net10.0\\TestCaseSourceJumpToGivenLocation.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue735\\TestCaseSourceJumpToGivenLocation\\bin\\Debug\\net10.0\\TestCaseSourceJumpToGivenLocation.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     4, Skipped:     0, Total:     4, Duration: 65 ms - TestCaseSourceJumpToGivenLocation.dll (net10.0)\n",
+    "test_output": "=== Issue735\\TestCaseSourceJumpToGivenLocation\\TestCaseSourceJumpToGivenLocation.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue735\\TestCaseSourceJumpToGivenLocation\\TestCaseSourceJumpToGivenLocation.csproj (in 459 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  TestCaseSourceJumpToGivenLocation -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue735\\TestCaseSourceJumpToGivenLocation\\bin\\Debug\\net10.0\\TestCaseSourceJumpToGivenLocation.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.03\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  TestCaseSourceJumpToGivenLocation -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue735\\TestCaseSourceJumpToGivenLocation\\bin\\Debug\\net10.0\\TestCaseSourceJumpToGivenLocation.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue735\\TestCaseSourceJumpToGivenLocation\\bin\\Debug\\net10.0\\TestCaseSourceJumpToGivenLocation.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     4, Skipped:     0, Total:     4, Duration: 88 ms - TestCaseSourceJumpToGivenLocation.dll (net10.0)\r\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure"
+    "test_conclusion": "Success: No regression failure (4 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:34:15Z"
   }
 ]

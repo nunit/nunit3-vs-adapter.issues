@@ -20,7 +20,7 @@
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
+        "version": "6.1.0"
       },
       {
         "name": "Microsoft.NET.Test.Sdk",
@@ -28,7 +28,7 @@
       },
       {
         "name": "NunitXml.TestLogger",
-        "version": "7.0.2"
+        "version": "8.0.0"
       }
     ]
   }

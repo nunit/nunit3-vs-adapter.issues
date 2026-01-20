@@ -1,0 +1,22 @@
+Project: Issue1065\gheylar\gheylar.sln
+Issue: Issue1065
+================================================================================
+
+STDOUT:
+--------------------------------------------------------------------------------
+C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.PackageDependencyResolution.targets(266,5): error NETSDK1004: Assets file 'C:\repos\nunit\nunit3-vs-adapter.issues\Issue1065\gheylar\tests\obj\project.assets.json' not found. Run a NuGet package restore to generate this file. [C:\repos\nunit\nunit3-vs-adapter.issues\Issue1065\gheylar\tests\tests_tests.csproj]
+C:\repos\nunit\nunit3-vs-adapter.issues\Issue1065\gheylar\lib\lib_lib.csproj : warning NU1510: PackageReference Microsoft.Extensions.DependencyInjection.Abstractions will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.
+C:\repos\nunit\nunit3-vs-adapter.issues\Issue1065\gheylar\lib\lib_lib.csproj : warning NU1510: PackageReference Microsoft.Extensions.Diagnostics.HealthChecks will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.
+  lib_lib -> C:\repos\nunit\nunit3-vs-adapter.issues\Issue1065\gheylar\lib\bin\Debug\net10.0\lib_lib.dll
+
+Build FAILED.
+
+C:\repos\nunit\nunit3-vs-adapter.issues\Issue1065\gheylar\lib\lib_lib.csproj : warning NU1510: PackageReference Microsoft.Extensions.DependencyInjection.Abstractions will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.
+C:\repos\nunit\nunit3-vs-adapter.issues\Issue1065\gheylar\lib\lib_lib.csproj : warning NU1510: PackageReference Microsoft.Extensions.Diagnostics.HealthChecks will not be pruned. Consider removing this package from your dependencies, as it is likely unnecessary.
+C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.PackageDependencyResolution.targets(266,5): error NETSDK1004: Assets file 'C:\repos\nunit\nunit3-vs-adapter.issues\Issue1065\gheylar\tests\obj\project.assets.json' not found. Run a NuGet package restore to generate this file. [C:\repos\nunit\nunit3-vs-adapter.issues\Issue1065\gheylar\tests\tests_tests.csproj]
+    2 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:01.27
+
+

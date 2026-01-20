@@ -2,6 +2,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Headless;
 using IssueRunner.Gui;
+using IssueRunner.Gui.Services;
 using IssueRunner.Gui.ViewModels;
 using IssueRunner.Gui.Views;
 using IssueRunner.Services;
@@ -65,13 +66,40 @@ public abstract class HeadlessTestBase
         services.AddSingleton(Substitute.For<IProcessExecutor>());
         services.AddSingleton(Substitute.For<IPackageUpdateService>());
         services.AddSingleton(Substitute.For<INuGetPackageVersionService>());
-        services.AddSingleton(Substitute.For<ITestExecutionService>());
+        var testExecution = Substitute.For<ITestExecutionService>();
+        services.AddSingleton(testExecution);
         services.AddSingleton(Substitute.For<IGitHubApiService>());
-        services.AddSingleton(Substitute.For<IMarkerService>());
+        var markerService = Substitute.For<IMarkerService>();
+        services.AddSingleton(markerService);
+        services.AddSingleton<ITestResultAggregator, TestResultAggregator>();
         var diffService = Substitute.For<ITestResultDiffService>();
         diffService.CompareResultsAsync(Arg.Any<string>())
             .Returns(Task.FromResult(new List<IssueRunner.Models.TestResultDiff>()));
         services.AddSingleton(diffService);
+        services.AddSingleton<IIssueListLoader>(sp =>
+            new IssueListLoader(
+                envService,
+                testExecution,
+                sp.GetRequiredService<IProjectAnalyzerService>(),
+                diffService,
+                markerService));
+        services.AddSingleton<IRepositoryStatusService>(sp =>
+            new RepositoryStatusService(
+                envService,
+                sp.GetRequiredService<IIssueDiscoveryService>(),
+                markerService,
+                sp.GetRequiredService<ITestResultAggregator>(),
+                sp.GetRequiredService<ILogger<RepositoryStatusService>>()));
+        services.AddSingleton<ITestRunOrchestrator>(sp =>
+            new TestRunOrchestrator(
+                sp,
+                envService,
+                sp.GetRequiredService<IIssueDiscoveryService>()));
+        services.AddSingleton<ISyncCoordinator>(sp =>
+            new SyncCoordinator(
+                sp,
+                envService,
+                sp.GetRequiredService<IIssueDiscoveryService>()));
         services.AddSingleton<ReportGeneratorService>(sp =>
         {
             var logger = sp.GetRequiredService<ILogger<ReportGeneratorService>>();

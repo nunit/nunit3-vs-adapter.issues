@@ -1,0 +1,21 @@
+Project: Issue1144\Issue1144.sln
+Issue: Issue1144
+================================================================================
+
+STDOUT:
+--------------------------------------------------------------------------------
+C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.PackageDependencyResolution.targets(266,5): error NETSDK1004: Assets file 'C:\repos\nunit\nunit3-vs-adapter.issues\Issue1144\ClassLibNetC21\obj\project.assets.json' not found. Run a NuGet package restore to generate this file. [C:\repos\nunit\nunit3-vs-adapter.issues\Issue1144\ClassLibNetC21\ClassLibNetC21.csproj]
+C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.PackageDependencyResolution.targets(266,5): error NETSDK1004: Assets file 'C:\repos\nunit\nunit3-vs-adapter.issues\Issue1144\TestNC31\obj\project.assets.json' not found. Run a NuGet package restore to generate this file. [C:\repos\nunit\nunit3-vs-adapter.issues\Issue1144\TestNC31\TestNC31.csproj]
+C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(1259,5): error MSB3644: The reference assemblies for .NETFramework,Version=v4.5 were not found. To resolve this, install the Developer Pack (SDK/Targeting Pack) for this framework version or retarget your application. You can download .NET Framework Developer Packs at https://aka.ms/msbuild/developerpacks [C:\repos\nunit\nunit3-vs-adapter.issues\Issue1144\ClassLibFW45\ClassLibFW45.csproj]
+
+Build FAILED.
+
+C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.PackageDependencyResolution.targets(266,5): error NETSDK1004: Assets file 'C:\repos\nunit\nunit3-vs-adapter.issues\Issue1144\ClassLibNetC21\obj\project.assets.json' not found. Run a NuGet package restore to generate this file. [C:\repos\nunit\nunit3-vs-adapter.issues\Issue1144\ClassLibNetC21\ClassLibNetC21.csproj]
+C:\Program Files\dotnet\sdk\10.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.PackageDependencyResolution.targets(266,5): error NETSDK1004: Assets file 'C:\repos\nunit\nunit3-vs-adapter.issues\Issue1144\TestNC31\obj\project.assets.json' not found. Run a NuGet package restore to generate this file. [C:\repos\nunit\nunit3-vs-adapter.issues\Issue1144\TestNC31\TestNC31.csproj]
+C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(1259,5): error MSB3644: The reference assemblies for .NETFramework,Version=v4.5 were not found. To resolve this, install the Developer Pack (SDK/Targeting Pack) for this framework version or retarget your application. You can download .NET Framework Developer Packs at https://aka.ms/msbuild/developerpacks [C:\repos\nunit\nunit3-vs-adapter.issues\Issue1144\ClassLibFW45\ClassLibFW45.csproj]
+    0 Warning(s)
+    3 Error(s)
+
+Time Elapsed 00:00:01.06
+
+

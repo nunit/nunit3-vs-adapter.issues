@@ -1,22 +1,27 @@
 [
   {
     "number": 535,
-    "project_path": "Repro_535_2/Tests/Issue535_Tests.csproj",
-    "project_style": "sdk",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      "Microsoft.NET.Test.Sdk=18.0.1",
-      "NUnit=4.4.0",
-      "NUnit3TestAdapter=6.0.0"
-    ],
-    "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.2388981\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.6621639\n",
-    "update_error": "[nunit]\n\n[other]\n",
+    "project_path": "Repro_535_2\\Tests2\\Tests2.csproj",
+    "project_style": "classic",
+    "target_frameworks": [],
+    "packages": [],
+    "update_result": "fail",
+    "update_output": "[Issue535\\Repro_535_2\\Tests2\\Tests2.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\n\u00C2\u00BB Tests2\r\n  [.NETFramework,Version=v4.6.1]\r\n  NUnit  3.13.2 -\u003E 3.14.0\r\n\r\nVersion color legend:\r\n\u003Cred\u003E   : Major version update or pre-release version. Possible breaking changes.\r\n\u003Cyellow\u003E: Minor version update. Backwards-compatible features added.\r\n\u003Cgreen\u003E : Patch version update. Backwards-compatible bug fixes.\r\n\r\nUpgrading package NUnit...\r\nProject format not SDK style or centrally managed, removing package before upgrade.\r\nAn error occurred while upgrading Tests2\r\n\r\n\r\n\n\n[Issue535\\Repro_535_2\\Tests\\Issue535_Tests.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:04.6686451\r\n\n\n[Issue535\\Repro_535_2\\Project\\Project.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:02.3871347\r\n",
+    "update_error": "",
+    "restore_result": "success",
+    "restore_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n",
+    "restore_error": "",
+    "build_result": "success",
+    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Project -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Project\\bin\\Debug\\net10.0\\Project.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.89\r\n",
+    "build_error": "",
     "test_result": "success",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Project\\Project.csproj (in 139 ms).\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\Issue535_Tests.csproj (in 343 ms).\n  Project -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Project\\bin\\Debug\\net10.0\\Project.dll\n  Issue535_Tests -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\bin\\Debug\\net10.0\\Issue535_Tests.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\bin\\Debug\\net10.0\\Issue535_Tests.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     5, Skipped:     0, Total:     5, Duration: 102 ms - Issue535_Tests.dll (net10.0)\n",
+    "test_output": "=== Issue535\\Repro_535_2\\Tests2\\Tests2.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Nothing to do. None of the projects specified contain packages to restore.\r\n\n=== Build ===\n  Determining projects to restore...\r\n  Nothing to do. None of the projects specified contain packages to restore.\r\nC:\\Program Files\\dotnet\\sdk\\10.0.102\\Microsoft.Common.CurrentVersion.targets(1259,5): error MSB3644: The reference assemblies for .NETFramework,Version=v4.6.1 were not found. To resolve this, install the Developer Pack (SDK/Targeting Pack) for this framework version or retarget your application. You can download .NET Framework Developer Packs at https://aka.ms/msbuild/developerpacks [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests2\\Tests2.csproj]\r\n\r\nBuild FAILED.\r\n\r\nC:\\Program Files\\dotnet\\sdk\\10.0.102\\Microsoft.Common.CurrentVersion.targets(1259,5): error MSB3644: The reference assemblies for .NETFramework,Version=v4.6.1 were not found. To resolve this, install the Developer Pack (SDK/Targeting Pack) for this framework version or retarget your application. You can download .NET Framework Developer Packs at https://aka.ms/msbuild/developerpacks [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests2\\Tests2.csproj]\r\n    0 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:00.67\r\n\n\n=== Issue535\\Repro_535_2\\Tests\\Issue535_Tests.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Project\\Project.csproj (in 301 ms).\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\Issue535_Tests.csproj (in 546 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Project -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Project\\bin\\Debug\\net10.0\\Project.dll\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\Class1.cs(16,20): error CS0117: \u0027Assert\u0027 does not contain a definition for \u0027AreEqual\u0027 [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\Issue535_Tests.csproj]\r\n\r\nBuild FAILED.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\Class1.cs(16,20): error CS0117: \u0027Assert\u0027 does not contain a definition for \u0027AreEqual\u0027 [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\Issue535_Tests.csproj]\r\n    0 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:03.98\r\n\n\n=== Issue535\\Repro_535_2\\Project\\Project.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Project -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Project\\bin\\Debug\\net10.0\\Project.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.89\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure"
+    "test_conclusion": "Failure: Build failed",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:29:47Z"
   }
 ]

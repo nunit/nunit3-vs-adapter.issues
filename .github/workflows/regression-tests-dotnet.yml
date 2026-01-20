@@ -43,14 +43,14 @@ jobs:
       - name: Run regression tests (.NET Core)
         continue-on-error: true
         run: |
-          cd Tools/IssueRunner/bin/Release/net10.0
-          ./IssueRunner run --scope RegressionOnly --skip-netfx --timeout 900 --nunit-only --verbosity Verbose --root $GITHUB_WORKSPACE | tee $GITHUB_WORKSPACE/TestResults-consolelog.md
+          cd Tools/IssueRunner.Cli/bin/Release/net10.0
+          ./IssueRunner.Cli run --scope RegressionOnly --skip-netfx --timeout 900 --nunit-only --verbosity Verbose --root $GITHUB_WORKSPACE | tee $GITHUB_WORKSPACE/TestResults-consolelog.md
 
       - name: Generate test report
         if: always()
         run: |
-          cd Tools/IssueRunner/bin/Release/net10.0
-          ./IssueRunner report generate --root $GITHUB_WORKSPACE
+          cd Tools/IssueRunner.Cli/bin/Release/net10.0
+          ./IssueRunner.Cli report generate --root $GITHUB_WORKSPACE
 
       - name: Publish summary
         if: always()
@@ -70,5 +70,5 @@ jobs:
 
       - name: Check for regressions
         run: |
-          cd Tools/IssueRunner/bin/Release/net10.0
-          ./IssueRunner report check-regressions --root $GITHUB_WORKSPACE
+          cd Tools/IssueRunner.Cli/bin/Release/net10.0
+          ./IssueRunner.Cli report check-regressions --root $GITHUB_WORKSPACE

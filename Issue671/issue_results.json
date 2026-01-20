@@ -2,21 +2,32 @@
   {
     "number": 671,
     "project_path": "Issue671.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
     "packages": [
       "NUnit=4.4.0",
-      "NUnit3TestAdapter=6.0.0",
+      "NUnit3TestAdapter=6.1.0",
       "Microsoft.NET.Test.Sdk=18.0.1"
     ],
     "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.9862643\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.1318702\n",
-    "update_error": "[nunit]\n\n[other]\n",
+    "update_output": "[Issue671\\Issue671.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:04.2194591\r\n",
+    "update_error": "",
+    "restore_result": "success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj (in 478 ms).\r\n",
+    "restore_error": "",
+    "build_result": "success",
+    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue671 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\bin\\Debug\\net10.0\\Issue671.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.10\r\n",
+    "build_error": "",
     "test_result": "fail",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj (in 396 ms).\n  Issue671 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\bin\\Debug\\net10.0\\Issue671.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\bin\\Debug\\net10.0\\Issue671.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n  Failed Test1 [33 ms]\n  Error Message:\n   OneTimeSetUp: SetUp : System.Exception : oops Deep Down\n  Stack Trace:\n  --SetUp\n   at Issue671.SomeWhereDeepDown.WhatDoWeDoHere() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 44\n   at Issue671.Tests.OneTimeSetup() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 12\n   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)\n\n  Failed Test2 [34 ms]\n  Error Message:\n   OneTimeSetUp: SetUp : System.Exception : oops Deep Down\n  Stack Trace:\n  --SetUp\n   at Issue671.SomeWhereDeepDown.WhatDoWeDoHere() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 44\n   at Issue671.Tests.OneTimeSetup() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 12\n   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)\n\n\nFailed!  - Failed:     2, Passed:     0, Skipped:     0, Total:     2, Duration: 34 ms - Issue671.dll (net10.0)\n",
-    "test_error": "Setup failed for test fixture Issue671.Tests\nSetUp : System.Exception : oops Deep Down\nStackTrace: --SetUp\n   at Issue671.SomeWhereDeepDown.WhatDoWeDoHere() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 44\n   at Issue671.Tests.OneTimeSetup() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 12\n   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)\n",
-    "test_conclusion": "Failure: Regression failure."
+    "test_output": "=== Issue671\\Issue671.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj (in 478 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue671 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\bin\\Debug\\net10.0\\Issue671.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.10\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue671 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\bin\\Debug\\net10.0\\Issue671.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\bin\\Debug\\net10.0\\Issue671.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n  Failed Test1 [23 ms]\r\n  Error Message:\r\n   OneTimeSetUp: SetUp : System.Exception : oops Deep Down\r\n  Stack Trace:\r\n  --SetUp\r\n   at Issue671.SomeWhereDeepDown.WhatDoWeDoHere() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 44\r\n   at Issue671.Tests.OneTimeSetup() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 12\r\n   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)\r\n\r\n  Failed Test2 [24 ms]\r\n  Error Message:\r\n   OneTimeSetUp: SetUp : System.Exception : oops Deep Down\r\n  Stack Trace:\r\n  --SetUp\r\n   at Issue671.SomeWhereDeepDown.WhatDoWeDoHere() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 44\r\n   at Issue671.Tests.OneTimeSetup() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 12\r\n   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)\r\n\r\n\r\nFailed!  - Failed:     2, Passed:     0, Skipped:     0, Total:     2, Duration: 24 ms - Issue671.dll (net10.0)\r\n",
+    "test_error": "=== Issue671\\Issue671.csproj ===\n=== Test Error ===\nSetup failed for test fixture Issue671.Tests\r\nSetUp : System.Exception : oops Deep Down\r\nStackTrace: --SetUp\r\n   at Issue671.SomeWhereDeepDown.WhatDoWeDoHere() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 44\r\n   at Issue671.Tests.OneTimeSetup() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 12\r\n   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)\r\n",
+    "test_conclusion": "Failure: Test assertions failed (0 passed, 2 failed)",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue671\\.runsettings",
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:31:33Z"
   }
 ]

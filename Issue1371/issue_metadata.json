@@ -20,7 +20,7 @@
       },
       {
         "name": "Microsoft.AspNetCore.Http.Extensions",
-        "version": "2.2.0"
+        "version": "2.3.9"
       },
       {
         "name": "Microsoft.NET.Test.Sdk",
@@ -36,15 +36,15 @@
       },
       {
         "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
+        "version": "6.1.0"
       },
       {
         "name": "Microsoft.AspNetCore.Mvc.Testing",
-        "version": "9.0.11"
+        "version": "10.0.1"
       },
       {
         "name": "Microsoft.Extensions.TimeProvider.Testing",
-        "version": "9.10.0"
+        "version": "10.1.0"
       },
       {
         "name": "NSubstitute",

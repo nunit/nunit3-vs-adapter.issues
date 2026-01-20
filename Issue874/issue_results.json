@@ -1,22 +1,33 @@
 [
   {
     "number": 874,
-    "project_path": "TestProject1/TestProject1.csproj",
-    "project_style": "sdk",
+    "project_path": "TestProject1\\TestProject1.csproj",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
     "packages": [
       "Microsoft.NET.Test.Sdk=18.0.1",
       "NUnit=4.4.0",
-      "NUnit3TestAdapter=6.0.0"
+      "NUnit3TestAdapter=6.1.0"
     ],
     "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3342655\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3841864\n",
-    "update_error": "[nunit]\n\n[other]\n",
+    "update_output": "[Issue874\\TestProject1\\TestProject1.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:04.1526286\r\n",
+    "update_error": "",
+    "restore_result": "success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue874\\TestProject1\\TestProject1.csproj (in 484 ms).\r\n",
+    "restore_error": "",
+    "build_result": "success",
+    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  TestProject1 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue874\\TestProject1\\bin\\Debug\\net10.0\\TestProject1.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.20\r\n",
+    "build_error": "",
     "test_result": "success",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue874\\TestProject1\\TestProject1.csproj (in 517 ms).\n  TestProject1 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue874\\TestProject1\\bin\\Debug\\net10.0\\TestProject1.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue874\\TestProject1\\bin\\Debug\\net10.0\\TestProject1.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n  Skipped Test1 [5 ms]\n\nPassed!  - Failed:     0, Passed:     2, Skipped:     0, Total:     2, Duration: 128 ms - TestProject1.dll (net10.0)\n",
+    "test_output": "=== Issue874\\TestProject1\\TestProject1.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue874\\TestProject1\\TestProject1.csproj (in 484 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  TestProject1 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue874\\TestProject1\\bin\\Debug\\net10.0\\TestProject1.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.20\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  TestProject1 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue874\\TestProject1\\bin\\Debug\\net10.0\\TestProject1.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue874\\TestProject1\\bin\\Debug\\net10.0\\TestProject1.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n  Skipped Test1 [2 ms]\r\n\r\nPassed!  - Failed:     0, Passed:     2, Skipped:     0, Total:     2, Duration: 48 ms - TestProject1.dll (net10.0)\r\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure"
+    "test_conclusion": "Success: No regression failure (2 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue874\\.runsettings",
+    "feed": "Stable",
+    "runner_expectations": null,
+    "last_run": "2026-01-19T21:42:34Z"
   }
 ]

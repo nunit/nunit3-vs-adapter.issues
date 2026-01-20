@@ -1,0 +1,17 @@
+Project: Issue1065\wiremocktests\wiremocktests.sln
+Issue: Issue1065
+================================================================================
+
+STDOUT:
+--------------------------------------------------------------------------------
+C:\repos\nunit\nunit3-vs-adapter.issues\Issue1065\wiremocktests\UnitTest1.cs(12,28): error NUnit1032: The field _server should be Disposed in a method annotated with [TearDownAttribute] (https://github.com/nunit/nunit.analyzers/tree/master/documentation/NUnit1032.md) [C:\repos\nunit\nunit3-vs-adapter.issues\Issue1065\wiremocktests\wiremocktests.csproj]
+
+Build FAILED.
+
+C:\repos\nunit\nunit3-vs-adapter.issues\Issue1065\wiremocktests\UnitTest1.cs(12,28): error NUnit1032: The field _server should be Disposed in a method annotated with [TearDownAttribute] (https://github.com/nunit/nunit.analyzers/tree/master/documentation/NUnit1032.md) [C:\repos\nunit\nunit3-vs-adapter.issues\Issue1065\wiremocktests\wiremocktests.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:01.96
+
+

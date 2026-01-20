@@ -44,15 +44,15 @@ jobs:
         continue-on-error: true
         shell: pwsh
         run: |
-          cd Tools\IssueRunner\bin\Release\net10.0
-          .\IssueRunner.exe run --scope RegressionOnly --only-netfx --timeout 900 --nunit-only --verbosity Verbose --root $env:GITHUB_WORKSPACE | Tee-Object -FilePath $env:GITHUB_WORKSPACE\TestResults-consolelog.md
+          cd Tools\IssueRunner.Cli\bin\Release\net10.0
+          .\IssueRunner.Cli.exe run --scope RegressionOnly --only-netfx --timeout 900 --nunit-only --verbosity Verbose --root $env:GITHUB_WORKSPACE | Tee-Object -FilePath $env:GITHUB_WORKSPACE\TestResults-consolelog.md
 
       - name: Generate test report
         if: always()
         shell: pwsh
         run: |
-          cd Tools\IssueRunner\bin\Release\net10.0
-          .\IssueRunner.exe report generate --root $env:GITHUB_WORKSPACE
+          cd Tools\IssueRunner.Cli\bin\Release\net10.0
+          .\IssueRunner.Cli.exe report generate --root $env:GITHUB_WORKSPACE
 
       - name: Publish summary
         if: always()
@@ -74,5 +74,5 @@ jobs:
       - name: Check for regressions
         shell: pwsh
         run: |
-          cd Tools\IssueRunner\bin\Release\net10.0
-          .\IssueRunner.exe report check-regressions --root $env:GITHUB_WORKSPACE
+          cd Tools\IssueRunner.Cli\bin\Release\net10.0
+          .\IssueRunner.Cli.exe report check-regressions --root $env:GITHUB_WORKSPACE

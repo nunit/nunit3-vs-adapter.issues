@@ -138,7 +138,7 @@
     <IncludeStackTraceForSuites>true</IncludeStackTraceForSuites>
     <ExplicitMode>Strict</ExplicitMode>
     <SkipExecutionWhenNoTests>false</SkipExecutionWhenNoTests>
-      <Debug>true</Debug>
+      <Debug>false</Debug>
   </NUnit>
 </RunSettings>
 
