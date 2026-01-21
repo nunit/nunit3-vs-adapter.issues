@@ -110,6 +110,54 @@ public sealed class RepositoryStatusService : IRepositoryStatusService
                 {
                     var metadataJson = await File.ReadAllTextAsync(metadataPath);
                     var metadataList = JsonSerializer.Deserialize<List<IssueMetadata>>(metadataJson) ?? [];
+                    
+                    // Check for duplicates and remove them if found
+                    var duplicates = metadataList.GroupBy(m => m.Number).Where(g => g.Count() > 1).ToList();
+                    if (duplicates.Any())
+                    {
+                        var duplicateIssueNumbers = duplicates.Select(g => g.Key).OrderBy(n => n).ToList();
+                        var totalDuplicateCount = metadataList.Count - metadataList.Select(m => m.Number).Distinct().Count();
+                        
+                        // Remove duplicates, keeping the last occurrence (consistent with existing pattern)
+                        var cleanedMetadata = metadataList
+                            .GroupBy(m => m.Number)
+                            .ToDictionary(g => g.Key, g => g.Last())
+                            .Values
+                            .ToList();
+                        
+                        // Save cleaned metadata back to file
+                        try
+                        {
+                            var directory = Path.GetDirectoryName(metadataPath);
+                            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+                            {
+                                Directory.CreateDirectory(directory);
+                            }
+                            
+                            var options = new JsonSerializerOptions
+                            {
+                                WriteIndented = true
+                            };
+                            
+                            var cleanedJson = JsonSerializer.Serialize(cleanedMetadata, options);
+                            await File.WriteAllTextAsync(metadataPath, cleanedJson);
+                            
+                            var logMessage = $"Removed duplicate metadata entries: {totalDuplicateCount} duplicates found for issues {string.Join(", ", duplicateIssueNumbers)}";
+                            log(logMessage);
+                            _logger.LogWarning("Removed duplicate metadata entries: {DuplicateCount} duplicates found for issues {IssueNumbers}", 
+                                totalDuplicateCount, string.Join(", ", duplicateIssueNumbers));
+                            
+                            // Use cleaned metadata for counts
+                            metadataList = cleanedMetadata;
+                        }
+                        catch (Exception saveEx)
+                        {
+                            log($"Warning: Failed to save cleaned metadata file: {saveEx.Message}");
+                            _logger.LogWarning(saveEx, "Failed to save cleaned metadata file after duplicate removal");
+                            // Continue with original metadata even if save failed
+                        }
+                    }
+                    
                     metadataNumbers = metadataList.Select(m => m.Number).Distinct().ToHashSet();
                 }
                 catch (Exception ex)
