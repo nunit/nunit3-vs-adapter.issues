@@ -187,12 +187,12 @@ public sealed class TestExecutionService : ITestExecutionService
             if (solutionFiles.Length == 1)
             {
                 var solutionFileName = Path.GetFileName(solutionFiles[0]);
-                args = $"test --no-build --no-restore --solution \"{solutionFileName}\"";
+                args = $"test --solution \"{solutionFileName}\"";
             }
             else
             {
                 var projectFileName = Path.GetFileName(projectPath);
-                args = $"test --no-build --no-restore --project \"{projectFileName}\"";
+                args = $"test --project \"{projectFileName}\"";
             }
         }
         else
@@ -201,12 +201,12 @@ public sealed class TestExecutionService : ITestExecutionService
             if (solutionFiles.Length == 1)
             {
                 var solutionFileName = Path.GetFileName(solutionFiles[0]);
-                args = $"test --no-build --no-restore \"{solutionFileName}\"";
+                args = $"test \"{solutionFileName}\"";
             }
             else
             {
                 var projectFileName = Path.GetFileName(projectPath);
-                args = $"test --no-build --no-restore \"{projectFileName}\"";
+                args = $"test \"{projectFileName}\"";
             }
         }
         
@@ -321,12 +321,12 @@ public sealed class TestExecutionService : ITestExecutionService
         if (solutionFiles.Length == 1)
         {
             var solutionFileName = Path.GetFileName(solutionFiles[0]);
-            args = $"build --no-restore \"{solutionFileName}\"";
+            args = $"build \"{solutionFileName}\"";
         }
         else
         {
             var projectFileName = Path.GetFileName(projectPath);
-            args = $"build --no-restore \"{projectFileName}\"";
+            args = $"build \"{projectFileName}\"";
         }
 
         var (exitCode, output, error) = await _processExecutor.ExecuteAsync(

@@ -1,6 +1,5 @@
 using IssueRunner.Models;
 using IssueRunner.Services;
-using IssueRunner.Gui.Services;
 using ReactiveUI;
 using System.Collections.ObjectModel;
 using System.Text.Json;
@@ -21,20 +20,10 @@ public class TestStatusViewModel : ViewModelBase
     private string _baselineDate = "Not set";
     private string _repositoryRoot = "";
     private readonly IEnvironmentService? _environmentService;
-    private readonly IIssueDiscoveryService? _issueDiscoveryService;
-    private readonly IMarkerService? _markerService;
-    private readonly ITestResultAggregator? _aggregator;
 
-    public TestStatusViewModel(
-        IEnvironmentService? environmentService = null,
-        IIssueDiscoveryService? issueDiscoveryService = null,
-        IMarkerService? markerService = null,
-        ITestResultAggregator? aggregator = null)
+    public TestStatusViewModel(IEnvironmentService? environmentService = null)
     {
         _environmentService = environmentService;
-        _issueDiscoveryService = issueDiscoveryService;
-        _markerService = markerService;
-        _aggregator = aggregator;
         CurrentResults = new ObservableCollection<TestResultEntry>();
         BaselineResults = new ObservableCollection<TestResultEntry>();
         NewPasses = new ObservableCollection<TestResultEntry>();
@@ -146,55 +135,6 @@ public class TestStatusViewModel : ViewModelBase
             }
         }
         
-        // Load metadata to get issue titles
-        var metadataPath = Path.Combine(dataDir, "issues_metadata.json");
-        var metadataDict = new Dictionary<int, IssueMetadata>();
-        if (File.Exists(metadataPath))
-        {
-            try
-            {
-                var metadataJson = await File.ReadAllTextAsync(metadataPath);
-                var metadata = JsonSerializer.Deserialize<List<IssueMetadata>>(metadataJson) ?? [];
-                // Handle duplicates by taking the last occurrence
-                metadataDict = metadata
-                    .GroupBy(m => m.Number)
-                    .ToDictionary(g => g.Key, g => g.Last());
-            }
-            catch { /* Ignore metadata loading errors */ }
-        }
-        
-        // Helper function to get issue display name from metadata or fallback to "Issue{Number}"
-        string GetIssueDisplayName(int issueNumber)
-        {
-            if (metadataDict.TryGetValue(issueNumber, out var metadata) && 
-                !string.IsNullOrWhiteSpace(metadata.Title))
-            {
-                return metadata.Title;
-            }
-            return $"Issue{issueNumber}";
-        }
-        
-        // Helper to extract issue number from Issue string (either "Issue{Number}" or title)
-        int ExtractIssueNumber(string issueDisplay)
-        {
-            // Try to extract from "Issue{Number}" format first
-            if (issueDisplay.StartsWith("Issue", StringComparison.OrdinalIgnoreCase))
-            {
-                var numberStr = issueDisplay.Substring(5); // "Issue".Length
-                if (int.TryParse(numberStr, out var num))
-                {
-                    return num;
-                }
-            }
-            // If it's a title, look it up in metadata
-            var metadataEntry = metadataDict.FirstOrDefault(kvp => kvp.Value.Title == issueDisplay);
-            if (metadataEntry.Key != 0)
-            {
-                return metadataEntry.Key;
-            }
-            return 0;
-        }
-        
         // Load current results from results.json
         var resultsPath = Path.Combine(dataDir, "results.json");
         var allCurrentResults = new List<IssueResult>();
@@ -212,6 +152,32 @@ public class TestStatusViewModel : ViewModelBase
             }
             catch { }
         }
+        
+        // Convert to TestResultEntry format for display, split by pass/fail
+        var currentPasses = allCurrentResults
+            .Where(r => r.TestResult == "success")
+            .Select(r => new TestResultEntry
+            {
+                Issue = $"Issue{r.Number}",
+                Project = r.ProjectPath,
+                LastRun = r.LastRun ?? "",
+                TestResult = r.TestResult ?? "success"
+            })
+            .ToList();
+        
+        var currentFails = allCurrentResults
+            .Where(r => r.TestResult != null && r.TestResult != "success")
+            .Select(r => new TestResultEntry
+            {
+                Issue = $"Issue{r.Number}",
+                Project = r.ProjectPath,
+                LastRun = r.LastRun ?? "",
+                TestResult = r.TestResult ?? "fail"
+            })
+            .ToList();
+        
+        CurrentPassed = currentPasses.Count;
+        CurrentFailed = currentFails.Count;
         
         // Load baseline results from results-baseline.json
         var baselineResultsPath = Path.Combine(dataDir, "results-baseline.json");
@@ -231,171 +197,31 @@ public class TestStatusViewModel : ViewModelBase
             catch { }
         }
         
-        List<TestResultEntry> currentPasses;
-        List<TestResultEntry> currentFails;
-        List<TestResultEntry> baselinePasses;
-        List<TestResultEntry> baselineFails;
-        Dictionary<int, TestResultEntry> currentPassDict = new();
-        Dictionary<int, TestResultEntry> currentFailDict = new();
-        Dictionary<int, TestResultEntry> baselinePassDict = new();
-        Dictionary<int, TestResultEntry> baselineFailDict = new();
-
-        // Prefer per-issue aggregation when all services are available
-        if (_aggregator != null && _issueDiscoveryService != null && _markerService != null)
-        {
-            var folders = _issueDiscoveryService.DiscoverIssueFolders();
-
-            var aggregatedCurrent = _aggregator.AggregatePerIssue(
-                folders,
-                allCurrentResults,
-                _markerService);
-
-            var aggregatedBaseline = _aggregator.AggregatePerIssue(
-                folders,
-                allBaselineResults,
-                _markerService);
-
-            CurrentPassed = aggregatedCurrent.Count(a => a.Status == AggregatedIssueStatus.Passed);
-            CurrentFailed = aggregatedCurrent.Count(a => a.Status == AggregatedIssueStatus.Failed);
-
-            BaselinePassed = aggregatedBaseline.Count(a => a.Status == AggregatedIssueStatus.Passed);
-            BaselineFailed = aggregatedBaseline.Count(a => a.Status == AggregatedIssueStatus.Failed);
-
-            // Map aggregated results to TestResultEntry for display (per issue)
-            static string MapStatusToResult(AggregatedIssueStatus status) =>
-                status switch
-                {
-                    AggregatedIssueStatus.Passed => "success",
-                    AggregatedIssueStatus.Failed => "fail",
-                    AggregatedIssueStatus.Skipped => "skipped",
-                    AggregatedIssueStatus.NotRestored => "not restored",
-                    AggregatedIssueStatus.NotCompiling => "not compiling",
-                    _ => "Not tested"
-                };
-
-            var currentPassesWithNumbers = aggregatedCurrent
-                .Where(a => a.Status == AggregatedIssueStatus.Passed)
-                .Select(a => new { Number = a.Number, Entry = new TestResultEntry
-                {
-                    Issue = GetIssueDisplayName(a.Number),
-                    Project = "",
-                    LastRun = a.LastRun ?? "",
-                    TestResult = "success"
-                }})
-                .ToList();
-            currentPassDict = currentPassesWithNumbers.ToDictionary(x => x.Number, x => x.Entry);
-            currentPasses = currentPassesWithNumbers.Select(x => x.Entry).ToList();
-
-            var currentFailsWithNumbers = aggregatedCurrent
-                .Where(a => a.Status != AggregatedIssueStatus.Passed)
-                .Select(a => new { Number = a.Number, Entry = new TestResultEntry
-                {
-                    Issue = GetIssueDisplayName(a.Number),
-                    Project = "",
-                    LastRun = a.LastRun ?? "",
-                    TestResult = MapStatusToResult(a.Status)
-                }})
-                .ToList();
-            currentFailDict = currentFailsWithNumbers.ToDictionary(x => x.Number, x => x.Entry);
-            currentFails = currentFailsWithNumbers.Select(x => x.Entry).ToList();
-
-            var baselinePassesWithNumbers = aggregatedBaseline
-                .Where(a => a.Status == AggregatedIssueStatus.Passed)
-                .Select(a => new { Number = a.Number, Entry = new TestResultEntry
-                {
-                    Issue = GetIssueDisplayName(a.Number),
-                    Project = "",
-                    LastRun = a.LastRun ?? "",
-                    TestResult = "success"
-                }})
-                .ToList();
-            baselinePassDict = baselinePassesWithNumbers.ToDictionary(x => x.Number, x => x.Entry);
-            baselinePasses = baselinePassesWithNumbers.Select(x => x.Entry).ToList();
-
-            var baselineFailsWithNumbers = aggregatedBaseline
-                .Where(a => a.Status != AggregatedIssueStatus.Passed)
-                .Select(a => new { Number = a.Number, Entry = new TestResultEntry
-                {
-                    Issue = GetIssueDisplayName(a.Number),
-                    Project = "",
-                    LastRun = a.LastRun ?? "",
-                    TestResult = MapStatusToResult(a.Status)
-                }})
-                .ToList();
-            baselineFailDict = baselineFailsWithNumbers.ToDictionary(x => x.Number, x => x.Entry);
-            baselineFails = baselineFailsWithNumbers.Select(x => x.Entry).ToList();
-        }
-        else
-        {
-            // Fallback: per-row counting (legacy behavior, used in tests without DI)
-            currentPasses = allCurrentResults
-                .Where(r => r.TestResult == "success")
-                .Select(r => new TestResultEntry
-                {
-                    Issue = GetIssueDisplayName(r.Number),
-                    Project = r.ProjectPath,
-                    LastRun = r.LastRun ?? "",
-                    TestResult = r.TestResult ?? "success"
-                })
-                .ToList();
-
-            currentFails = allCurrentResults
-                .Where(r => r.TestResult != null && r.TestResult != "success")
-                .Select(r => new TestResultEntry
-                {
-                    Issue = GetIssueDisplayName(r.Number),
-                    Project = r.ProjectPath,
-                    LastRun = r.LastRun ?? "",
-                    TestResult = r.TestResult ?? "fail"
-                })
-                .ToList();
-
-            CurrentPassed = currentPasses.Count;
-            CurrentFailed = currentFails.Count;
-
-            baselinePasses = allBaselineResults
-                .Where(r => r.TestResult == "success")
-                .Select(r => new TestResultEntry
-                {
-                    Issue = GetIssueDisplayName(r.Number),
-                    Project = r.ProjectPath,
-                    LastRun = r.LastRun ?? "",
-                    TestResult = r.TestResult ?? "success"
-                })
-                .ToList();
-
-            baselineFails = allBaselineResults
-                .Where(r => r.TestResult != null && r.TestResult != "success")
-                .Select(r => new TestResultEntry
-                {
-                    Issue = GetIssueDisplayName(r.Number),
-                    Project = r.ProjectPath,
-                    LastRun = r.LastRun ?? "",
-                    TestResult = r.TestResult ?? "fail"
-                })
-                .ToList();
-
-            BaselinePassed = baselinePasses.Count;
-            BaselineFailed = baselineFails.Count;
-            
-            // Create dictionaries for fallback path too
-            currentPassDict = currentPasses
-                .Select(e => new { Number = ExtractIssueNumber(e.Issue), Entry = e })
-                .Where(x => x.Number > 0)
-                .ToDictionary(x => x.Number, x => x.Entry);
-            currentFailDict = currentFails
-                .Select(e => new { Number = ExtractIssueNumber(e.Issue), Entry = e })
-                .Where(x => x.Number > 0)
-                .ToDictionary(x => x.Number, x => x.Entry);
-            baselinePassDict = baselinePasses
-                .Select(e => new { Number = ExtractIssueNumber(e.Issue), Entry = e })
-                .Where(x => x.Number > 0)
-                .ToDictionary(x => x.Number, x => x.Entry);
-            baselineFailDict = baselineFails
-                .Select(e => new { Number = ExtractIssueNumber(e.Issue), Entry = e })
-                .Where(x => x.Number > 0)
-                .ToDictionary(x => x.Number, x => x.Entry);
-        }
+        // Convert to TestResultEntry format for display, split by pass/fail
+        var baselinePasses = allBaselineResults
+            .Where(r => r.TestResult == "success")
+            .Select(r => new TestResultEntry
+            {
+                Issue = $"Issue{r.Number}",
+                Project = r.ProjectPath,
+                LastRun = r.LastRun ?? "",
+                TestResult = r.TestResult ?? "success"
+            })
+            .ToList();
+        
+        var baselineFails = allBaselineResults
+            .Where(r => r.TestResult != null && r.TestResult != "success")
+            .Select(r => new TestResultEntry
+            {
+                Issue = $"Issue{r.Number}",
+                Project = r.ProjectPath,
+                LastRun = r.LastRun ?? "",
+                TestResult = r.TestResult ?? "fail"
+            })
+            .ToList();
+        
+        BaselinePassed = baselinePasses.Count;
+        BaselineFailed = baselineFails.Count;
         
         // Get baseline date from file modification time or from first result's LastRun
         if (File.Exists(baselineResultsPath))
@@ -419,50 +245,53 @@ public class TestStatusViewModel : ViewModelBase
             BaselineDate = "Not set";
         }
         
-        // Calculate differences (per issue; project is informational only)
-        // Use issue numbers for comparison (from aggregated results)
-        var currentPassNumbers = currentPassDict.Keys.ToHashSet();
-        var currentFailNumbers = currentFailDict.Keys.ToHashSet();
-        var baselinePassNumbers = baselinePassDict.Keys.ToHashSet();
-        var baselineFailNumbers = baselineFailDict.Keys.ToHashSet();
+        // Calculate differences
+        var currentPassKeys = currentPasses.Select(e => $"{e.Issue}/{e.Project}").ToHashSet();
+        var currentFailKeys = currentFails.Select(e => $"{e.Issue}/{e.Project}").ToHashSet();
+        var baselinePassKeys = baselinePasses.Select(e => $"{e.Issue}/{e.Project}").ToHashSet();
+        var baselineFailKeys = baselineFails.Select(e => $"{e.Issue}/{e.Project}").ToHashSet();
         
         // New passes: in current passes but not in baseline passes
         NewPasses.Clear();
-        foreach (var kvp in currentPassDict)
+        foreach (var entry in currentPasses)
         {
-            if (!baselinePassNumbers.Contains(kvp.Key))
+            var key = $"{entry.Issue}/{entry.Project}";
+            if (!baselinePassKeys.Contains(key))
             {
-                NewPasses.Add(kvp.Value);
+                NewPasses.Add(entry);
             }
         }
         
         // New fails: in current fails but not in baseline fails
         NewFails.Clear();
-        foreach (var kvp in currentFailDict)
+        foreach (var entry in currentFails)
         {
-            if (!baselineFailNumbers.Contains(kvp.Key))
+            var key = $"{entry.Issue}/{entry.Project}";
+            if (!baselineFailKeys.Contains(key))
             {
-                NewFails.Add(kvp.Value);
+                NewFails.Add(entry);
             }
         }
         
         // Regressions: in baseline passes but now in current fails
         Regressions.Clear();
-        foreach (var kvp in baselinePassDict)
+        foreach (var entry in baselinePasses)
         {
-            if (currentFailNumbers.Contains(kvp.Key))
+            var key = $"{entry.Issue}/{entry.Project}";
+            if (currentFailKeys.Contains(key))
             {
-                Regressions.Add(kvp.Value);
+                Regressions.Add(entry);
             }
         }
         
         // Fixed: in baseline fails but now in current passes
         Fixed.Clear();
-        foreach (var kvp in baselineFailDict)
+        foreach (var entry in baselineFails)
         {
-            if (currentPassNumbers.Contains(kvp.Key))
+            var key = $"{entry.Issue}/{entry.Project}";
+            if (currentPassKeys.Contains(key))
             {
-                Fixed.Add(kvp.Value);
+                Fixed.Add(entry);
             }
         }
         

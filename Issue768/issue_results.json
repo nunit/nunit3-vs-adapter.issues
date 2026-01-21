@@ -1,33 +1,22 @@
 [
   {
     "number": 768,
-    "project_path": "NRENUnitEventListner_v2\\NRENUnitEventListner_v2.csproj",
-    "project_style": "SDK-style",
+    "project_path": "NRENUnitEventListner_v2/NRENUnitEventListner_v2.csproj",
+    "project_style": "sdk",
     "target_frameworks": [
       "net472"
     ],
     "packages": [
       "NUnit=4.4.0",
-      "NUnit3TestAdapter=6.1.0",
+      "NUnit3TestAdapter=6.0.0",
       "Microsoft.NET.Test.Sdk=18.0.1"
     ],
     "update_result": "success",
-    "update_output": "[Issue768\\NRENUnitEventListner_v2\\NRENUnitEventListner_v2.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:04.2338123\r\n",
-    "update_error": "",
-    "restore_result": "success",
-    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue768\\NRENUnitEventListner_v2\\NRENUnitEventListner_v2.csproj (in 503 ms).\r\n",
-    "restore_error": "",
-    "build_result": "success",
-    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  NRENUnitEventListner_v2 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue768\\NRENUnitEventListner_v2\\bin\\Debug\\net472\\NRENUnitEventListner_v2.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.56\r\n",
-    "build_error": "",
-    "test_result": "success",
-    "test_output": "=== Issue768\\NRENUnitEventListner_v2\\NRENUnitEventListner_v2.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue768\\NRENUnitEventListner_v2\\NRENUnitEventListner_v2.csproj (in 503 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  NRENUnitEventListner_v2 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue768\\NRENUnitEventListner_v2\\bin\\Debug\\net472\\NRENUnitEventListner_v2.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.56\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  NRENUnitEventListner_v2 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue768\\NRENUnitEventListner_v2\\bin\\Debug\\net472\\NRENUnitEventListner_v2.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue768\\NRENUnitEventListner_v2\\bin\\Debug\\net472\\NRENUnitEventListner_v2.dll (.NETFramework,Version=v4.7.2)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 236 ms - NRENUnitEventListner_v2.dll (net472)\r\n",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.0127078\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.0073819\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "fail",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue768\\NRENUnitEventListner_v2\\NRENUnitEventListner_v2.csproj (in 450 ms).\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue768\\NRENUnitEventListner_v2\\TestNRE.cs(11,20): error CS0117: 'Assert' does not contain a definition for 'True' [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue768\\NRENUnitEventListner_v2\\NRENUnitEventListner_v2.csproj]\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure (1 test(s) passed)",
-    "runner_scripts": null,
-    "runsettings": null,
-    "feed": "Stable",
-    "runner_expectations": null,
-    "last_run": "2026-01-19T21:36:20Z"
+    "test_conclusion": "Failure: Regression failure."
   }
 ]

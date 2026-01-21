@@ -2,7 +2,7 @@
   {
     "number": 919,
     "project_path": "Issue919.csproj",
-    "project_style": "SDK-style",
+    "project_style": "sdk",
     "target_frameworks": [
       "net10.0"
     ],
@@ -12,25 +12,11 @@
       "coverlet.collector=6.0.4"
     ],
     "update_result": "success",
-    "update_output": "[Issue919\\Issue919.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:03.7357515\r\n",
-    "update_error": "",
-    "restore_result": "not run",
-    "restore_output": "",
-    "restore_error": "",
-    "build_result": "not run",
-    "build_output": "",
-    "build_error": "",
-    "test_result": "success",
-    "test_output": "=== Issue919\\Issue919.csproj ===\n=== Test ===\n=== run_test_0.cmd ===\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\u003EREM EXPECT_TESTS=0 \r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\u003Edotnet test --filter \u0022FullyQualifiedName~Bar\\(1\\)\u0022 \r\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\Issue919.csproj (in 505 ms).\r\n  Issue919 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\bin\\Debug\\net10.0\\Issue919.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\bin\\Debug\\net10.0\\Issue919.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nNo test matches the given testcase filter \u0060FullyQualifiedName~Bar\\(1\\)\u0060 in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\bin\\Debug\\net10.0\\Issue919.dll\r\n\r\n\r\n=== run_test_1.cmd ===\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\u003EREM EXPECT_TESTS=1 \r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\u003Edotnet test --filter \u0022FullyQualifiedName~Baz\\(1\\)\u0022 \r\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue919 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\bin\\Debug\\net10.0\\Issue919.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\bin\\Debug\\net10.0\\Issue919.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 48 ms - Issue919.dll (net10.0)\r\n",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.0309429\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.1507390\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "fail",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\Issue919.csproj (in 417 ms).\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\UnitTest1.cs(23,2): error CS1513: } expected [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\Issue919.csproj]\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure (1 test(s) passed)",
-    "runner_scripts": [
-      "run_test_0.cmd",
-      "run_test_1.cmd"
-    ],
-    "runsettings": null,
-    "feed": "Stable",
-    "runner_expectations": null,
-    "last_run": "2026-01-19T21:45:19Z"
+    "test_conclusion": "Failure: Regression failure."
   }
 ]

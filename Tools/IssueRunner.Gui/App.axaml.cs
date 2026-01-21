@@ -4,7 +4,6 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using IssueRunner.Commands;
-using IssueRunner.Gui.Services;
 using IssueRunner.Gui.ViewModels;
 using IssueRunner.Gui.Views;
 using IssueRunner.Services;
@@ -94,17 +93,6 @@ public partial class App : Application
         services.AddSingleton<IEnvironmentService, EnvironmentService>();
         services.AddSingleton<ITestResultDiffService, TestResultDiffService>();
         services.AddSingleton<IMarkerService, MarkerService>();
-        services.AddSingleton<ITestResultAggregator, TestResultAggregator>();
-        services.AddSingleton<IIssueListLoader, IssueListLoader>();
-        services.AddSingleton<IRepositoryStatusService>(sp =>
-            new RepositoryStatusService(
-                sp.GetRequiredService<IEnvironmentService>(),
-                sp.GetRequiredService<IIssueDiscoveryService>(),
-                sp.GetRequiredService<IMarkerService>(),
-                sp.GetRequiredService<ITestResultAggregator>(),
-                sp.GetRequiredService<ILogger<RepositoryStatusService>>()));
-        services.AddSingleton<ITestRunOrchestrator, TestRunOrchestrator>();
-        services.AddSingleton<ISyncCoordinator, SyncCoordinator>();
         services.AddSingleton<ReportGeneratorService>();
 
         // Commands

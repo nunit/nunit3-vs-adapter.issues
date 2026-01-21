@@ -2,28 +2,23 @@
   {
     "number": 1290,
     "project_path": "Issue1290.csproj",
-    "project_style": "SDK-style",
+    "project_style": "sdk",
     "target_frameworks": [
       "net10.0"
     ],
-    "packages": [],
-    "update_result": "not run",
-    "update_output": null,
-    "update_error": null,
-    "restore_result": "not run",
-    "restore_output": null,
-    "restore_error": null,
-    "build_result": "not run",
-    "build_output": null,
-    "build_error": null,
-    "test_result": "skipped",
-    "test_output": null,
-    "test_error": null,
-    "test_conclusion": null,
-    "runner_scripts": null,
-    "runsettings": null,
-    "feed": "Stable",
-    "runner_expectations": null,
-    "last_run": "2026-01-19T21:18:48Z"
+    "packages": [
+      "coverlet.collector=6.0.4",
+      "Microsoft.NET.Test.Sdk=18.0.1",
+      "NUnit=4.4.0",
+      "NUnit.Analyzers=4.11.2",
+      "NUnit3TestAdapter=6.0.0"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3512218\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.4929342\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "fail",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1290\\Issue1290.csproj (in 544 ms).\n  Issue1290 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1290\\bin\\Debug\\net10.0\\Issue1290.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1290\\bin\\Debug\\net10.0\\Issue1290.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 56 ms - Issue1290.dll (net10.0)\n",
+    "test_error": "TearDown failed for test fixture Issue1290.Tests\nTearDown : System.NullReferenceException : Object reference not set to an instance of an object.\nStackTrace: --TearDown\n   at Issue1290.Tests.OneTimeTearDown() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1290\\UnitTest1.cs:line 27\n   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)\n",
+    "test_conclusion": "Failure: Regression failure."
   }
 ]

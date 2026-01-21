@@ -1,0 +1,29 @@
+[
+  {
+    "number": 1375,
+    "project_path": "Issue1375.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "coverlet.collector=6.0.4",
+      "CS-Script=4.13.1",
+      "Microsoft.NET.Test.Sdk=18.0.1",
+      "NUnit=4.5.0-alpha.0.30",
+      "NUnit.Analyzers=4.11.2",
+      "NUnit3TestAdapter=6.0.2-alpha.5"
+    ],
+    "update_result": "success",
+    "update_output": "[Issue1375\\Issue1375.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:03.0808854\r\n",
+    "update_error": "",
+    "test_result": "success",
+    "test_output": "=== Issue1375\\Issue1375.csproj ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1375\\Issue1375.csproj (in 367 ms).\r\n  Issue1375 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1375\\bin\\Debug\\net10.0\\Issue1375.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1375\\bin\\Debug\\net10.0\\Issue1375.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     2, Skipped:     0, Total:     2, Duration: 1 s - Issue1375.dll (net10.0)\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (Pass 2)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Local",
+    "runner_expectations": null
+  }
+]

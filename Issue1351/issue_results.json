@@ -2,7 +2,7 @@
   {
     "number": 1351,
     "project_path": "Issue1351.csproj",
-    "project_style": "SDK-style",
+    "project_style": "sdk",
     "target_frameworks": [
       "net10.0"
     ],
@@ -11,7 +11,7 @@
       "Microsoft.NET.Test.Sdk=18.0.1",
       "NUnit=4.4.0",
       "NUnit.Analyzers=4.11.2",
-      "NUnit3TestAdapter=6.1.0",
+      "NUnit3TestAdapter=6.0.0",
       "Microsoft.Testing.Extensions.Telemetry=2.0.2",
       "Microsoft.Testing.Extensions.TrxReport=2.0.2",
       "Microsoft.Testing.Extensions.VSTestBridge=2.0.2",
@@ -19,22 +19,11 @@
       "Microsoft.Testing.Platform.MSBuild=2.0.2"
     ],
     "update_result": "success",
-    "update_output": "[Issue1351\\Issue1351.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:04.4802034\r\n",
-    "update_error": "",
-    "restore_result": "success",
-    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1351\\Issue1351.csproj (in 447 ms).\r\n",
-    "restore_error": "",
-    "build_result": "success",
-    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue1351 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1351\\bin\\Debug\\net10.0\\Issue1351.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.14\r\n",
-    "build_error": "",
-    "test_result": "success",
-    "test_output": "=== Issue1351\\Issue1351.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1351\\Issue1351.csproj (in 447 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue1351 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1351\\bin\\Debug\\net10.0\\Issue1351.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.14\r\n\n=== Test ===\nRunning tests from C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1351\\bin\\Debug\\net10.0\\Issue1351.dll (net10.0|x64)\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1351\\bin\\Debug\\net10.0\\Issue1351.dll (net10.0|x64) passed (1s 615ms)\r\n\r\nTest run summary: Passed!\r\n  total: 2\r\n  failed: 0\r\n  succeeded: 2\r\n  skipped: 0\r\n  duration: 2s 261ms\r\n",
-    "test_error": "",
-    "test_conclusion": "Success: No regression failure (2 test(s) passed)",
-    "runner_scripts": null,
-    "runsettings": null,
-    "feed": "Stable",
-    "runner_expectations": null,
-    "last_run": "2026-01-19T21:20:47Z"
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3096506\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3890231\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "fail",
+    "test_output": "",
+    "test_error": "Specifying a solution for 'dotnet test' should be via '--solution'.\n",
+    "test_conclusion": "Failure: Open issue, repro fails."
   }
 ]

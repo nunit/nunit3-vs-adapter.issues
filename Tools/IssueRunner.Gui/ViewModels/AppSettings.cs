@@ -7,18 +7,7 @@ public class AppSettings
 {
     public string? RepositoryPath { get; set; }
 
-    // Allow tests to override the settings path
-    private static string? _testSettingsPathOverride = null;
-
-    /// <summary>
-    /// Sets a custom settings path for testing. Set to null to use the default path.
-    /// </summary>
-    internal static void SetTestSettingsPath(string? testPath)
-    {
-        _testSettingsPathOverride = testPath;
-    }
-
-    public static string? LoadRepositoryPath()
+    public static string LoadRepositoryPath()
     {
         try
         {
@@ -37,8 +26,8 @@ public class AppSettings
         {
             // Ignore errors loading settings
         }
-        // Return null if no valid saved path found - let auto-detect handle fallback
-        return null;
+        // Use Current Directory
+        return Directory.GetCurrentDirectory();
     }
 
     public static void SaveRepositoryPath(string repositoryPath)
@@ -58,12 +47,6 @@ public class AppSettings
 
     private static string GetSettingsPath()
     {
-        // Use test override if set, otherwise use default location
-        if (_testSettingsPathOverride != null)
-        {
-            return _testSettingsPathOverride;
-        }
-
         var appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         var settingsDir = Path.Combine(appDataPath, "IssueRunner");
         Directory.CreateDirectory(settingsDir);

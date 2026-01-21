@@ -7,29 +7,27 @@
       "net10.0"
     ],
     "packages": [
-      "NUnit=4.4.0",
-      "NUnit3TestAdapter=6.1.0",
+      "NUnit=4.5.0-alpha.0.27",
+      "NUnit3TestAdapter=6.0.0",
       "Microsoft.NET.Test.Sdk=18.0.1"
     ],
     "update_result": "success",
-    "update_output": "[Issue343\\TestConsoleTests\\NUnitTests\\Issue343B_NUnitTests.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:03.2906221\r\n\n\n[Issue343\\TestConsoleTests\\XUnitTests\\XUnitTests.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:02.4687471\r\n",
+    "update_output": "[Issue343\\TestConsoleTests\\NUnitTests\\Issue343B_NUnitTests.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:04.4277675\r\n\n\n[Issue343\\TestConsoleTests\\XUnitTests\\XUnitTests.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\n\u00C2\u00BB XUnitTests\r\n  [net10.0]\r\n  xunit                      2.4.1 -\u003E 2.9.3\r\n  xunit.runner.visualstudio  2.4.1 -\u003E 3.1.5\r\n\r\nVersion color legend:\r\n\u003Cred\u003E   : Major version update or pre-release version. Possible breaking changes.\r\n\u003Cyellow\u003E: Minor version update. Backwards-compatible features added.\r\n\u003Cgreen\u003E : Patch version update. Backwards-compatible bug fixes.\r\n\r\nUpgrading package xunit...\r\nProject XUnitTests [net10.0] upgraded successfully\r\n\r\nUpgrading package xunit.runner.visualstudio...\r\nProject XUnitTests [net10.0] upgraded successfully\r\n\r\nElapsed: 00:00:11.2188271\r\n",
     "update_error": "",
-    "restore_result": "not run",
-    "restore_output": "",
+    "restore_result": "success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\XUnitTests\\XUnitTests.csproj (in 420 ms).\r\n",
     "restore_error": "",
-    "build_result": "not run",
-    "build_output": "",
+    "build_result": "success",
+    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  XUnitTests -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\XUnitTests\\bin\\Debug\\net10.0\\XUnitTests.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.47\r\n",
     "build_error": "",
-    "test_result": "success",
-    "test_output": "=== Issue343\\TestConsoleTests\\NUnitTests\\Issue343B_NUnitTests.csproj ===\n=== Test ===\n=== run_tests_0.cmd ===\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\u003Edotnet test TestConsoleTests\\NUnitTests\\Issue343B_NunitTests.csproj \r\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\Issue343B_NunitTests.csproj (in 380 ms).\r\n  Issue343B_NunitTests -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\bin\\Debug\\net10.0\\Issue343B_NunitTests.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\bin\\Debug\\net10.0\\Issue343B_NunitTests.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 5 ms - Issue343B_NunitTests.dll (net10.0)\r\n\n\n=== Issue343\\TestConsoleTests\\XUnitTests\\XUnitTests.csproj ===\n=== Test ===\n=== run_tests_0.cmd ===\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\u003Edotnet test TestConsoleTests\\NUnitTests\\Issue343B_NunitTests.csproj \r\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue343B_NunitTests -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\bin\\Debug\\net10.0\\Issue343B_NunitTests.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\bin\\Debug\\net10.0\\Issue343B_NunitTests.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 6 ms - Issue343B_NunitTests.dll (net10.0)\r\n",
-    "test_error": "",
-    "test_conclusion": "Success: No regression failure (2 test(s) passed)",
-    "runner_scripts": [
-      "run_tests_0.cmd"
-    ],
+    "test_result": "fail",
+    "test_output": "=== Issue343\\TestConsoleTests\\NUnitTests\\Issue343B_NUnitTests.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\Issue343B_NUnitTests.csproj (in 468 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue343B_NUnitTests -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\bin\\Debug\\net10.0\\Issue343B_NUnitTests.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:06.95\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue343B_NUnitTests -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\bin\\Debug\\net10.0\\Issue343B_NUnitTests.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\bin\\Debug\\net10.0\\Issue343B_NUnitTests.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 8 ms - Issue343B_NUnitTests.dll (net10.0)\r\n\n\n=== Issue343\\TestConsoleTests\\XUnitTests\\XUnitTests.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\XUnitTests\\XUnitTests.csproj (in 420 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  XUnitTests -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\XUnitTests\\bin\\Debug\\net10.0\\XUnitTests.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.47\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  XUnitTests -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\XUnitTests\\bin\\Debug\\net10.0\\XUnitTests.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\XUnitTests\\bin\\Debug\\net10.0\\XUnitTests.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\n",
+    "test_error": "=== Issue343\\TestConsoleTests\\XUnitTests\\XUnitTests.csproj ===\n=== Test Error ===\nTesthost process for source(s) \u0027C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\XUnitTests\\bin\\Debug\\net10.0\\XUnitTests.dll\u0027 exited with error: Error:\r\n  An assembly specified in the application dependencies manifest (XUnitTests.deps.json) was not found:\r\n    package: \u0027xunit.assert\u0027, version: \u00272.9.3\u0027\r\n    path: \u0027lib/net6.0/xunit.assert.dll\u0027\r\n. Please check the diagnostic logs for more information.\r\nTest Run Aborted.\r\n",
+    "test_conclusion": "Failure: No tests found (1 test(s) passed)",
+    "runner_scripts": null,
     "runsettings": null,
     "feed": "Stable",
     "runner_expectations": null,
-    "last_run": "2026-01-20T18:35:19Z"
+    "last_run": "2026-01-19T21:26:39Z"
   }
 ]

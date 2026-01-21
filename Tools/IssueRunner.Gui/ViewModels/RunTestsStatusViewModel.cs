@@ -1,6 +1,4 @@
-using Avalonia.Threading;
 using ReactiveUI;
-using System;
 using System.Reactive;
 
 namespace IssueRunner.Gui.ViewModels;
@@ -25,9 +23,6 @@ public class RunTestsStatusViewModel : ViewModelBase
     private string _currentPhase = "";
     private int _currentPhaseProgress = 0;
     private int _currentPhaseTotal = 0;
-    private DateTime? _startTime;
-    private DateTime? _endTime;
-    private DispatcherTimer? _durationTimer;
 
     public RunTestsStatusViewModel()
     {
@@ -132,7 +127,6 @@ public class RunTestsStatusViewModel : ViewModelBase
             if (SetProperty(ref _isRunning, value))
             {
                 UpdateCanSetBaseline();
-                UpdateDurationTimer();
             }
         }
     }
@@ -200,106 +194,6 @@ public class RunTestsStatusViewModel : ViewModelBase
         OnPropertyChanged(nameof(ProgressText));
     }
 
-    public DateTime? StartTime
-    {
-        get => _startTime;
-        set
-        {
-            if (SetProperty(ref _startTime, value))
-            {
-                OnPropertyChanged(nameof(Duration));
-                OnPropertyChanged(nameof(DurationText));
-                UpdateDurationTimer();
-            }
-        }
-    }
-
-    public DateTime? EndTime
-    {
-        get => _endTime;
-        set
-        {
-            if (SetProperty(ref _endTime, value))
-            {
-                OnPropertyChanged(nameof(Duration));
-                OnPropertyChanged(nameof(DurationText));
-            }
-        }
-    }
-
-    public TimeSpan? Duration
-    {
-        get
-        {
-            if (_startTime.HasValue && _endTime.HasValue)
-            {
-                return _endTime.Value - _startTime.Value;
-            }
-            if (_startTime.HasValue)
-            {
-                // If we have a start time, calculate elapsed time (even while running)
-                return DateTime.Now - _startTime.Value;
-            }
-            return null;
-        }
-    }
-
-    public string DurationText
-    {
-        get
-        {
-            var duration = Duration;
-            if (duration.HasValue)
-            {
-                var totalSeconds = (int)duration.Value.TotalSeconds;
-                var hours = totalSeconds / 3600;
-                var minutes = (totalSeconds % 3600) / 60;
-                var seconds = totalSeconds % 60;
-
-                if (hours > 0)
-                {
-                    return $"{hours}h {minutes}m {seconds}s";
-                }
-                if (minutes > 0)
-                {
-                    return $"{minutes}m {seconds}s";
-                }
-                return $"{seconds}s";
-            }
-            return "";
-        }
-    }
-
-    private void UpdateDurationTimer()
-    {
-        if (_isRunning && _startTime.HasValue)
-        {
-            // Start timer to update duration every second
-            if (_durationTimer == null)
-            {
-                _durationTimer = new DispatcherTimer
-                {
-                    Interval = TimeSpan.FromSeconds(1)
-                };
-                _durationTimer.Tick += (s, e) =>
-                {
-                    OnPropertyChanged(nameof(Duration));
-                    OnPropertyChanged(nameof(DurationText));
-                };
-                _durationTimer.Start();
-            }
-        }
-        else
-        {
-            // Stop timer when not running
-            if (_durationTimer != null)
-            {
-                _durationTimer.Stop();
-                _durationTimer = null;
-            }
-        }
-    }
-
     public void Reset()
     {
         CurrentStatus = "Initializing...";
@@ -312,13 +206,6 @@ public class RunTestsStatusViewModel : ViewModelBase
         NotCompiling = 0;
         Progress = 0.0;
         IsRunning = true;
-        StartTime = null;
-        EndTime = null;
-        if (_durationTimer != null)
-        {
-            _durationTimer.Stop();
-            _durationTimer = null;
-        }
     }
 }
 

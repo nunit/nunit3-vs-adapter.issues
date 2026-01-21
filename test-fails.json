@@ -3,31 +3,31 @@
     {
       "issue": "Issue1146",
       "project": "NUnitFilterSample\\src\\NUnitFilterSample.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
+      "test_result": "fail"
+    },
+    {
+      "issue": "Issue1371",
+      "project": "App.Test\\App.Test.csproj",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "fail"
     },
     {
       "issue": "Issue1377",
       "project": "NunitTests.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "fail"
     },
     {
       "issue": "Issue4413",
       "project": "Issue4413And3936.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
-      "test_result": "not run"
+      "last_run": "2026-01-02T11:46:54Z",
+      "test_result": "fail"
     },
     {
       "issue": "Issue4721",
       "project": "Issue4721.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
-      "test_result": "fail"
-    },
-    {
-      "issue": "Issue658",
-      "project": "Explicit\\ExplicitCore\\ExplicitCore.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "fail"
     },
     {
@@ -37,15 +37,9 @@
       "test_result": "fail"
     },
     {
-      "issue": "Issue667",
-      "project": "Issue\\Issue667.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
-      "test_result": "not run"
-    },
-    {
       "issue": "Issue671",
       "project": "Issue671.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "fail"
     },
     {
@@ -55,9 +49,21 @@
       "test_result": "fail"
     },
     {
+      "issue": "Issue846",
+      "project": "Issue846\\Issue846.csproj",
+      "last_run": "2026-01-02T11:46:54Z",
+      "test_result": "fail"
+    },
+    {
       "issue": "Issue871",
       "project": "Issue871.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
+      "test_result": "fail"
+    },
+    {
+      "issue": "Issue996",
+      "project": "Issue996.csproj",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "fail"
     }
   ]

@@ -1,29 +1,23 @@
 [
   {
     "number": 667,
-    "project_path": "Issue\\Issue667.csproj",
-    "project_style": "SDK-style",
+    "project_path": "Issue/Issue667.csproj",
+    "project_style": "sdk",
     "target_frameworks": [
       "net10.0"
     ],
-    "packages": [],
-    "update_result": "not run",
-    "update_output": null,
-    "update_error": null,
-    "restore_result": "not run",
-    "restore_output": null,
-    "restore_error": null,
-    "build_result": "not compile",
-    "build_output": null,
-    "build_error": null,
-    "test_result": "not compiling",
-    "test_output": null,
-    "test_error": null,
-    "test_conclusion": null,
-    "runner_scripts": null,
-    "runsettings": null,
-    "feed": "Stable",
-    "runner_expectations": null,
-    "last_run": "2026-01-19T21:49:54Z"
+    "packages": [
+      "nunit=4.4.0",
+      "NUnit.Engine=3.21.0",
+      "NUnit3TestAdapter=6.0.0",
+      "Microsoft.NET.Test.Sdk=18.0.1"
+    ],
+    "update_result": "success",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.0736380\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3071242\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "success",
+    "test_output": "  Determining projects to restore...\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1903: Package 'Microsoft.NETCore.App' 2.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-2xjx-v99w-gqf3 [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\Issue\\Issue667.csproj]\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1902: Package 'Microsoft.NETCore.App' 2.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-3gp9-h8hw-pxpw [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\Issue\\Issue667.csproj]\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1903: Package 'Microsoft.NETCore.App' 2.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-3w5p-jhp5-c29q [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\Issue\\Issue667.csproj]\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1902: Package 'Microsoft.NETCore.App' 2.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-5633-f33j-c6f7 [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\Issue\\Issue667.csproj]\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1903: Package 'Microsoft.NETCore.App' 2.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-6px8-22w5-w334 [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\Issue\\Issue667.csproj]\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1903: Package 'Microsoft.NETCore.App' 2.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-g5vf-38cp-4px9 [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\Issue\\Issue667.csproj]\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1902: Package 'Microsoft.NETCore.App' 2.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-vgwq-hfqc-58wv [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\Issue\\Issue667.csproj]\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1902: Package 'Microsoft.NETCore.App' 2.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-x5qj-9vmx-7g6g [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\Issue\\Issue667.csproj]\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1701: Package 'NUnit.Engine 3.21.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\Issue\\Issue667.csproj]\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj (in 524 ms).\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\Issue\\Issue667.csproj (in 524 ms).\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1903: Package 'Microsoft.NETCore.App' 2.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-2xjx-v99w-gqf3\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1902: Package 'Microsoft.NETCore.App' 2.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-3gp9-h8hw-pxpw\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1903: Package 'Microsoft.NETCore.App' 2.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-3w5p-jhp5-c29q\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1902: Package 'Microsoft.NETCore.App' 2.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-5633-f33j-c6f7\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1903: Package 'Microsoft.NETCore.App' 2.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-6px8-22w5-w334\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1903: Package 'Microsoft.NETCore.App' 2.1.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-g5vf-38cp-4px9\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1902: Package 'Microsoft.NETCore.App' 2.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-vgwq-hfqc-58wv\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1902: Package 'Microsoft.NETCore.App' 2.1.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-x5qj-9vmx-7g6g\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\ReportExt.csproj : warning NU1701: Package 'NUnit.Engine 3.21.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.\n  ReportExt -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\ReportExt\\bin\\Debug\\netcoreapp2.1\\ReportExt.dll\n  Issue667 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\Issue\\bin\\Debug\\net10.0\\Issue667.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue667\\Issue\\bin\\Debug\\net10.0\\Issue667.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 62 ms - Issue667.dll (net10.0)\n",
+    "test_error": "",
+    "test_conclusion": "Open issue, but test succeeds."
   }
 ]

@@ -45,14 +45,14 @@ jobs:
       - name: Run open issues tests (.NET Core)
         continue-on-error: true
         run: |
-          cd Tools/IssueRunner.Cli/bin/Release/net10.0
-          ./IssueRunner.Cli run --scope OpenOnly --skip-netfx --timeout 900 --nunit-only --root $GITHUB_WORKSPACE
+          cd Tools/IssueRunner/bin/Release/net10.0
+          ./IssueRunner run --scope OpenOnly --skip-netfx --timeout 900 --nunit-only --root $GITHUB_WORKSPACE
 
       - name: Generate test report
         if: always()
         run: |
-          cd Tools/IssueRunner.Cli/bin/Release/net10.0
-          ./IssueRunner.Cli report generate --root $GITHUB_WORKSPACE
+          cd Tools/IssueRunner/bin/Release/net10.0
+          ./IssueRunner report generate --root $GITHUB_WORKSPACE
 
       - name: Publish summary
         if: always()

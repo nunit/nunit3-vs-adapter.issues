@@ -1,8 +1,8 @@
 [
   {
     "number": 1039,
-    "project_path": "LibraryToTest.Tests\\LibraryToTest.Tests.csproj",
-    "project_style": "SDK-style",
+    "project_path": "LibraryToTest.Tests/LibraryToTest.Tests.csproj",
+    "project_style": "sdk",
     "target_frameworks": [
       "net10.0"
     ],
@@ -12,25 +12,14 @@
       "NUnit=4.4.0",
       "NUnit.Analyzers=4.11.2",
       "coverlet.collector=6.0.4",
-      "NUnit3TestAdapter=6.1.0"
+      "NUnit3TestAdapter=6.0.0"
     ],
     "update_result": "success",
-    "update_output": "[Issue1039\\LibraryToTest.Tests\\LibraryToTest.Tests.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:03.0851465\r\n",
-    "update_error": "",
-    "restore_result": "success",
-    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryToTest.Tests.csproj (in 335 ms).\r\n",
-    "restore_error": "",
-    "build_result": "success",
-    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryTests.cs(24,25): warning NUnit2007: The actual value should not be a constant - perhaps the actual value and the expected value have switched places (https://github.com/nunit/nunit.analyzers/tree/master/documentation/NUnit2007.md) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryToTest.Tests.csproj]\r\n  LibraryToTest.Tests -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\bin\\Debug\\net10.0\\LibraryToTest.Tests.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryTests.cs(24,25): warning NUnit2007: The actual value should not be a constant - perhaps the actual value and the expected value have switched places (https://github.com/nunit/nunit.analyzers/tree/master/documentation/NUnit2007.md) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryToTest.Tests.csproj]\r\n    1 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.11\r\n",
-    "build_error": "",
-    "test_result": "success",
-    "test_output": "=== Issue1039\\LibraryToTest.Tests\\LibraryToTest.Tests.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryToTest.Tests.csproj (in 335 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryTests.cs(24,25): warning NUnit2007: The actual value should not be a constant - perhaps the actual value and the expected value have switched places (https://github.com/nunit/nunit.analyzers/tree/master/documentation/NUnit2007.md) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryToTest.Tests.csproj]\r\n  LibraryToTest.Tests -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\bin\\Debug\\net10.0\\LibraryToTest.Tests.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryTests.cs(24,25): warning NUnit2007: The actual value should not be a constant - perhaps the actual value and the expected value have switched places (https://github.com/nunit/nunit.analyzers/tree/master/documentation/NUnit2007.md) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryToTest.Tests.csproj]\r\n    1 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.11\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  LibraryToTest.Tests -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\bin\\Debug\\net10.0\\LibraryToTest.Tests.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\bin\\Debug\\net10.0\\LibraryToTest.Tests.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 229 ms - LibraryToTest.Tests.dll (net10.0)\r\n",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.0815916\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.1219218\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "fail",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryToTest.Tests.csproj (in 438 ms).\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryTests.cs(24,20): error CS0117: 'Assert' does not contain a definition for 'IsTrue' [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryToTest.Tests.csproj]\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryTests.cs(13,13): warning NUnit1033: The Write methods are wrappers on TestContext.Out (https://github.com/nunit/nunit.analyzers/tree/master/documentation/NUnit1033.md) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryToTest.Tests.csproj]\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryTests.cs(26,25): warning NUnit2007: The actual value should not be a constant - perhaps the actual value and the expected value have switched places (https://github.com/nunit/nunit.analyzers/tree/master/documentation/NUnit2007.md) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryToTest.Tests.csproj]\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryTests.cs(27,13): warning NUnit1033: The Write methods are wrappers on TestContext.Out (https://github.com/nunit/nunit.analyzers/tree/master/documentation/NUnit1033.md) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1039\\LibraryToTest.Tests\\LibraryToTest.Tests.csproj]\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure (1 test(s) passed)",
-    "runner_scripts": null,
-    "runsettings": null,
-    "feed": "Stable",
-    "runner_expectations": null,
-    "last_run": "2026-01-19T21:05:42Z"
+    "test_conclusion": "Failure: Regression failure."
   }
 ]

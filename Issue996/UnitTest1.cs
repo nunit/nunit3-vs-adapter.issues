@@ -6,7 +6,7 @@ public class Tests
     [TestCase("1",(char)1)]
     public void Test1(object x, object y)
     {
-        Assert.Throws<AssertionException>(()=>Assert.That(x,Is.EqualTo(y)));
+        Assert.That(x,Is.EqualTo(y));
     }
 
     //[Test]

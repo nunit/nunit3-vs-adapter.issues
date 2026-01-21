@@ -2,33 +2,22 @@
   {
     "number": 266,
     "project_path": "Issue266.csproj",
-    "project_style": "SDK-style",
+    "project_style": "sdk",
     "target_frameworks": [
       "net10.0"
     ],
     "packages": [
       "Microsoft.NET.Test.Sdk=18.0.1",
       "NUnit=4.4.0",
-      "NUnit3TestAdapter=6.1.0",
+      "NUnit3TestAdapter=6.0.0",
       "coverlet.collector=6.0.4"
     ],
     "update_result": "success",
-    "update_output": "[Issue266\\Issue266.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:04.1602594\r\n",
-    "update_error": "",
-    "restore_result": "success",
-    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue266\\Issue266.csproj (in 487 ms).\r\n",
-    "restore_error": "",
-    "build_result": "success",
-    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue266 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue266\\bin\\Debug\\net10.0\\Issue266.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.36\r\n",
-    "build_error": "",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.4532984\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.2763517\n",
+    "update_error": "[nunit]\n\n[other]\n",
     "test_result": "success",
-    "test_output": "=== Issue266\\Issue266.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue266\\Issue266.csproj (in 487 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue266 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue266\\bin\\Debug\\net10.0\\Issue266.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.36\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue266 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue266\\bin\\Debug\\net10.0\\Issue266.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue266\\bin\\Debug\\net10.0\\Issue266.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 7 ms - Issue266.dll (net10.0)\r\n",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue266\\Issue266.csproj (in 403 ms).\n  Issue266 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue266\\bin\\Debug\\net10.0\\Issue266.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue266\\bin\\Debug\\net10.0\\Issue266.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 4 ms - Issue266.dll (net10.0)\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure (1 test(s) passed)",
-    "runner_scripts": null,
-    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue266\\.runsettings",
-    "feed": "Stable",
-    "runner_expectations": null,
-    "last_run": "2026-01-19T21:25:55Z"
+    "test_conclusion": "Open issue, but test succeeds."
   }
 ]

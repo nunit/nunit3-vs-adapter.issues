@@ -1082,7 +1082,6 @@ public sealed class RunTestsCommand
 
     /// <summary>
     /// Creates IssueResult entries for skipped and not-compiling issues that were filtered out.
-    /// Preserves existing entries from results.json for issues with build/restore failures.
     /// </summary>
     private async Task<List<IssueResult>> CreateSkippedAndNotCompilingResultsAsync(
         Dictionary<int, string> allIssueFolders,
@@ -1104,65 +1103,24 @@ public sealed class RunTestsCommand
             return results;
         }
         
-        // Load existing results to preserve entries for issues with build/restore failures
-        var existingResults = await LoadPreviousResultsAsync(repositoryRoot, cancellationToken);
-        var existingResultsByIssue = existingResults
-            .GroupBy(r => r.Number)
-            .ToDictionary(g => g.Key, g => g.ToList());
-        
-        var now = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
+        // Get list of not-compiling issues
+        var failedBuilds = await LoadFailedBuildsAsync(repositoryRoot, cancellationToken);
         
         foreach (var (issueNumber, folderPath) in filteredOutIssues)
         {
-            // Skip if it's a skipped issue (those are handled in UpgradeFrameworks and should not be in results.json)
+            // Skip if it's a skipped issue (those are handled in UpgradeFrameworks)
             if (_markerService.ShouldSkipIssue(folderPath))
             {
                 continue;
             }
             
-            // Check if this issue has existing results with build or restore failures
-            if (existingResultsByIssue.TryGetValue(issueNumber, out var issueResults))
+            // Check if it's a not-compiling issue
+            if (failedBuilds.Contains(issueNumber))
             {
-                // Check if any result for this issue has build or restore failure
-                var hasBuildOrRestoreFailure = issueResults.Any(r => 
-                    (r.BuildResult != null && r.BuildResult == "fail") || 
-                    (r.RestoreResult != null && r.RestoreResult == "fail"));
-                
-                if (hasBuildOrRestoreFailure)
+                var notCompilingResult = CreateNotCompilingIssueResult(issueNumber, folderPath, metadataDict, options);
+                if (notCompilingResult != null)
                 {
-                    // Preserve existing entries (they will be kept in results.json via SaveResultsAsync merge)
-                    // Update LastRun timestamp and Feed to current run values
-                    foreach (var existingResult in issueResults)
-                    {
-                        // Create a copy with updated LastRun timestamp and Feed
-                        var preservedResult = new IssueResult
-                        {
-                            Number = existingResult.Number,
-                            ProjectPath = existingResult.ProjectPath,
-                            ProjectStyle = existingResult.ProjectStyle,
-                            TargetFrameworks = existingResult.TargetFrameworks,
-                            Packages = existingResult.Packages,
-                            UpdateResult = existingResult.UpdateResult,
-                            UpdateOutput = existingResult.UpdateOutput,
-                            UpdateError = existingResult.UpdateError,
-                            RestoreResult = existingResult.RestoreResult,
-                            RestoreOutput = existingResult.RestoreOutput,
-                            RestoreError = existingResult.RestoreError,
-                            BuildResult = existingResult.BuildResult,
-                            BuildOutput = existingResult.BuildOutput,
-                            BuildError = existingResult.BuildError,
-                            TestResult = existingResult.TestResult,
-                            TestOutput = existingResult.TestOutput,
-                            TestError = existingResult.TestError,
-                            TestConclusion = existingResult.TestConclusion,
-                            RunSettings = existingResult.RunSettings,
-                            RunnerScripts = existingResult.RunnerScripts,
-                            Feed = options.Feed.ToString(), // Update feed to current feed
-                            RunnerExpectations = existingResult.RunnerExpectations,
-                            LastRun = now // Update timestamp to indicate we checked this issue in this run
-                        };
-                        results.Add(preservedResult);
-                    }
+                    results.Add(notCompilingResult);
                 }
             }
         }

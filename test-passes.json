@@ -3,13 +3,7 @@
     {
       "issue": "Issue1",
       "project": "Issue0001.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
-      "test_result": "success"
-    },
-    {
-      "issue": "Issue1027",
-      "project": "NUnitVSAdapterRepro\\NUnitVSAdapterRepro.Test\\NUnitVSAdapterRepro.Test.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
@@ -21,49 +15,49 @@
     {
       "issue": "Issue1039",
       "project": "LibraryToTest.Tests\\LibraryToTest.Tests.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1040",
       "project": "NUnitAdapterBug.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1053",
       "project": "Issue1053.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1078",
       "project": "exp.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1083",
       "project": "Issue1083.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1089",
       "project": "Issue1089.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1097",
       "project": "Issue1097.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1111",
       "project": "Issue1111.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
@@ -73,195 +67,165 @@
       "test_result": "success"
     },
     {
-      "issue": "Issue1152",
-      "project": "2-nunit-runner-dotnet-test\\nunit-runner-dotnet-test.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
-      "test_result": "success"
-    },
-    {
       "issue": "Issue1166",
       "project": "Issue1166.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1182",
       "project": "Issue1182.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1183",
       "project": "Issue1183.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1186",
       "project": "Issue1186.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1224",
       "project": "Issue1224.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1225",
       "project": "Issue1225.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
-      "test_result": "success"
-    },
-    {
-      "issue": "Issue1227",
-      "project": "Issue1227.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1231",
       "project": "Issue1231.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1241",
       "project": "Repro1\\TestProject3.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1242",
       "project": "Issue1242.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1243",
       "project": "Issue1243.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1254",
       "project": "Issue1254.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1258",
       "project": "Issue1258.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1261",
       "project": "RetryRepro\\RetryRepro\\RetryRepro.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1264",
       "project": "Issue1264.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1332",
       "project": "Issue1332.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1336",
       "project": "Issue1336.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
-      "test_result": "success"
-    },
-    {
-      "issue": "Issue1347",
-      "project": "Issue1347.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1348",
       "project": "Issue1348.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1349",
       "project": "Issue1349.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1351",
       "project": "Issue1351.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1357",
       "project": "Issue1357.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1367",
       "project": "Issue1367.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
-      "test_result": "success"
-    },
-    {
-      "issue": "Issue1371",
-      "project": "App.Test\\App.Test.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1374",
       "project": "Issue1374.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1375",
       "project": "Issue1375.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T12:58:03Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1376",
       "project": "Issue1376.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
-      "test_result": "success"
-    },
-    {
-      "issue": "Issue1396",
-      "project": "Issue1396.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue1795",
       "project": "ClassLibrary\\ClassLibrary.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue228",
       "project": "Issue228.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue266",
       "project": "Issue266.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
@@ -271,279 +235,261 @@
       "test_result": "success"
     },
     {
-      "issue": "Issue364",
-      "project": "TestProject1\\TestProject1.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
-      "test_result": "success"
-    },
-    {
       "issue": "Issue425",
       "project": "Issue425.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue484",
       "project": "Issue484\\Issue484.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue497",
       "project": "Issue497_Filtering.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue516",
       "project": "Issue516.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue530",
       "project": "Issue530.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue618",
       "project": "Issue618.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue640",
       "project": "FQN.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
+      "test_result": "success"
+    },
+    {
+      "issue": "Issue667",
+      "project": "Issue\\Issue667.csproj",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue691",
       "project": "Issue691\\Issue691\\Issue691.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue711",
       "project": "ApplicationToTest\\ApplicationToTest.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue718",
       "project": "Issue718.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue729",
       "project": "NUnitAdapterIssue729TestProject.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue735",
       "project": "TestCaseSourceJumpToGivenLocation\\TestCaseSourceJumpToGivenLocation.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue740",
       "project": "Issue740.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue758",
       "project": "Issue758\\Issue758.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue760",
       "project": "Issue760.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue765",
       "project": "NSubstituteSkippedTestDemo\\NSubstituteSkippedTestDemo\\NSubstituteSkippedTestDemo.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue768",
       "project": "NRENUnitEventListner_v2\\NRENUnitEventListner_v2.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue770",
       "project": "TestLib\\TestLib.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue774",
       "project": "Issue774.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue775",
       "project": "NUnitTestProject1\\NUnitTestProject1\\NUnitTestProject1.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue779",
       "project": "Issue779.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue780",
       "project": "Issue780.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
-      "test_result": "success"
-    },
-    {
-      "issue": "Issue782",
-      "project": "UnitTestBugTests\\UnitTestBugTests.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue784",
       "project": "NUnitExplicitTest\\Tests\\Tests.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue824",
       "project": "Issue824.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue843",
       "project": "Issue843\\Issue843.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
-      "test_result": "success"
-    },
-    {
-      "issue": "Issue846",
-      "project": "Issue846\\Issue846.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue847",
       "project": "Issue847.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue854",
       "project": "Issue854.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue867",
       "project": "Issue867.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue873",
       "project": "Issue873.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue874",
       "project": "TestProject1\\TestProject1.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue878",
       "project": "TestOwner\\TestOwner.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue881",
       "project": "TestProject1\\TestProject1.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue891",
       "project": "Issue891.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue894",
       "project": "Issue894.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue909",
       "project": "Issue909.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue912",
       "project": "Issue912.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue914",
       "project": "Issue914.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue918",
       "project": "Issue918.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue919",
       "project": "Issue919.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue933",
       "project": "Issue933.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue954",
       "project": "NUnitDiscoveryNameChange\\NUnitDiscoveryNameChange.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     },
     {
       "issue": "Issue973",
       "project": "Issue973.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
-      "test_result": "success"
-    },
-    {
-      "issue": "Issue996",
-      "project": "Issue996.csproj",
-      "last_run": "2026-01-16T16:05:53Z",
+      "last_run": "2026-01-02T11:46:54Z",
       "test_result": "success"
     }
   ]

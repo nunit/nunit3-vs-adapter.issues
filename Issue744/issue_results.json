@@ -1,10 +1,10 @@
 [
   {
     "number": 744,
-    "project_path": "Issue744TestName\\Issue744TestName.csproj",
-    "project_style": "SDK-style",
+    "project_path": "Issue744TestName/Issue744TestName.csproj",
+    "project_style": "sdk",
     "target_frameworks": [
-      "net462"
+      "net461"
     ],
     "packages": [
       "NUnit=3.14.0",
@@ -12,22 +12,11 @@
       "Microsoft.NET.Test.Sdk=17.3.3"
     ],
     "update_result": "success",
-    "update_output": "[Issue744\\Issue744TestName\\Issue744TestName.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:04.0915551\r\n",
-    "update_error": "",
-    "restore_result": "success",
-    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue744\\Issue744TestName\\Issue744TestName.csproj (in 477 ms).\r\n",
-    "restore_error": "",
-    "build_result": "success",
-    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue744TestName -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue744\\Issue744TestName\\bin\\Debug\\net462\\Issue744TestName.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.02\r\n",
-    "build_error": "",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\n\u00c2\u00bb Issue744TestName\n  [.NETFramework,Version=v4.6.2]\n  NUnit  3.14.0 -> 4.4.0\n\nVersion color legend:\n<red>   : Major version update or pre-release version. Possible breaking changes.\n<yellow>: Minor version update. Backwards-compatible features added.\n<green> : Patch version update. Backwards-compatible bug fixes.\n\nUpgrading package NUnit...\nProject Issue744TestName [.NETFramework,Version=v4.6.2] upgraded successfully\n\nElapsed: 00:00:05.8352054\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\n\u00c2\u00bb Issue744TestName\n  [.NETFramework,Version=v4.6.2]\n  Microsoft.NET.Test.Sdk  17.3.3 -> 18.0.1\n\nVersion color legend:\n<red>   : Major version update or pre-release version. Possible breaking changes.\n<yellow>: Minor version update. Backwards-compatible features added.\n<green> : Patch version update. Backwards-compatible bug fixes.\n\nUpgrading package Microsoft.NET.Test.Sdk...\nProject Issue744TestName [.NETFramework,Version=v4.6.2] upgraded successfully\n\nElapsed: 00:00:06.4580738\n",
+    "update_error": "[nunit]\n\n[other]\n",
     "test_result": "success",
-    "test_output": "=== Issue744\\Issue744TestName\\Issue744TestName.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue744\\Issue744TestName\\Issue744TestName.csproj (in 477 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue744TestName -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue744\\Issue744TestName\\bin\\Debug\\net462\\Issue744TestName.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.02\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue744TestName -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue744\\Issue744TestName\\bin\\Debug\\net462\\Issue744TestName.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue744\\Issue744TestName\\bin\\Debug\\net462\\Issue744TestName.dll (.NETFramework,Version=v4.6.2)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 31 ms - Issue744TestName.dll (net462)\r\n",
+    "test_output": "  Determining projects to restore...\n  All projects are up-to-date for restore.\n  Issue744TestName -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue744\\Issue744TestName\\bin\\Debug\\net462\\Issue744TestName.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue744\\Issue744TestName\\bin\\Debug\\net462\\Issue744TestName.dll (.NETFramework,Version=v4.6.2)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 19 ms - Issue744TestName.dll (net462)\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure (3 test(s) passed)",
-    "runner_scripts": null,
-    "runsettings": null,
-    "feed": "Stable",
-    "runner_expectations": null,
-    "last_run": "2026-01-19T21:34:51Z"
+    "test_conclusion": "Success: No regression failure"
   }
 ]

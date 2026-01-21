@@ -1,5 +1,4 @@
 using Avalonia.Headless.NUnit;
-using IssueRunner.Gui.Services;
 using IssueRunner.Gui.ViewModels;
 using IssueRunner.Gui.Views;
 using IssueRunner.Models;
@@ -17,33 +16,6 @@ public class TitleDisplayIntegrationTests : HeadlessTestBase
     private IIssueDiscoveryService _issueDiscoveryService = null!;
     private string _testRepoPath = null!;
     private string _dataDir = null!;
-    private static string? _testSettingsPath = null;
-
-    [OneTimeSetUp]
-    public static void OneTimeSetUp()
-    {
-        // Use a test-specific settings file so we don't interfere with real user settings
-        _testSettingsPath = Path.Combine(Path.GetTempPath(), $"IssueRunnerIntegrationTestSettings_{Guid.NewGuid():N}.json");
-        AppSettings.SetTestSettingsPath(_testSettingsPath);
-    }
-
-    [OneTimeTearDown]
-    public static void OneTimeTearDown()
-    {
-        // Reset to default settings path and clean up test settings file
-        AppSettings.SetTestSettingsPath(null);
-        if (_testSettingsPath != null && File.Exists(_testSettingsPath))
-        {
-            try
-            {
-                File.Delete(_testSettingsPath);
-            }
-            catch
-            {
-                // Ignore deletion errors
-            }
-        }
-    }
 
     private IServiceProvider CreateTestServiceProviderWithRealDiscovery()
     {
@@ -67,13 +39,12 @@ public class TitleDisplayIntegrationTests : HeadlessTestBase
         File.WriteAllText(Path.Combine(_testRepoPath, "test-fails.json"), "{\"testResults\":[]}");
         
         // Initialize environment service
-        // Use an array to create a mutable reference for the closure
-        var rootRef = new[] { _testRepoPath };
+        var currentRoot = _testRepoPath;
         _environmentService = Substitute.For<IEnvironmentService>();
-        _environmentService.Root.Returns(_ => rootRef[0]);
+        _environmentService.Root.Returns(_ => currentRoot);
         _environmentService.When(x => x.AddRoot(Arg.Any<string>())).Do(callInfo =>
         {
-            rootRef[0] = callInfo.Arg<string>();
+            currentRoot = callInfo.Arg<string>();
         });
         _environmentService.RepositoryConfig.Returns(repoConfig);
         _environmentService.GetDataDirectory(Arg.Any<string>()).Returns(callInfo =>
@@ -82,17 +53,10 @@ public class TitleDisplayIntegrationTests : HeadlessTestBase
             return Path.Combine(repoRoot, ".nunit", "IssueRunner");
         });
         
-        // Ensure AppSettings points to this test repository so MainViewModel's
-        // asynchronous InitializeRepositoryAsync does not override RepositoryPath
-        // with a previously saved path from other tests.
-        AppSettings.SaveRepositoryPath(_testRepoPath);
-        
         // Create real issue discovery service
         var logger = Substitute.For<ILogger<IssueDiscoveryService>>();
         var markerService = Substitute.For<IMarkerService>();
-        markerService.ShouldSkipIssue(Arg.Any<string>()).Returns(false);
-        markerService.GetMarkerReason(Arg.Any<string>()).Returns("Ignored");
-        _issueDiscoveryService = new IssueDiscoveryService(_environmentService, logger, markerService);
+        _issueDiscoveryService = new IssueDiscoveryService(_environmentService, logger,markerService);
         
         var serviceCollection = new ServiceCollection();
         serviceCollection.AddLogging(builder => builder.AddConsole());
@@ -103,49 +67,20 @@ public class TitleDisplayIntegrationTests : HeadlessTestBase
         serviceCollection.AddSingleton(Substitute.For<IProcessExecutor>());
         serviceCollection.AddSingleton(Substitute.For<IPackageUpdateService>());
         serviceCollection.AddSingleton(Substitute.For<INuGetPackageVersionService>());
-        var testExecution = Substitute.For<ITestExecutionService>();
-        serviceCollection.AddSingleton<ITestExecutionService>(testExecution);
+        serviceCollection.AddSingleton(Substitute.For<ITestExecutionService>());
         serviceCollection.AddSingleton(Substitute.For<IGitHubApiService>());
-        var markerServiceForLoader = Substitute.For<IMarkerService>();
-        markerServiceForLoader.ShouldSkipIssue(Arg.Any<string>()).Returns(false);
-        markerServiceForLoader.GetMarkerReason(Arg.Any<string>()).Returns("Ignored");
-        serviceCollection.AddSingleton<IMarkerService>(markerServiceForLoader);
-        serviceCollection.AddSingleton<ITestResultAggregator, TestResultAggregator>();
+        serviceCollection.AddSingleton(Substitute.For<IMarkerService>());
         serviceCollection.AddSingleton<ReportGeneratorService>(sp =>
         {
             var log = sp.GetRequiredService<ILogger<ReportGeneratorService>>();
             var envService = sp.GetRequiredService<IEnvironmentService>();
             return new ReportGeneratorService(log, envService);
         });
+        serviceCollection.AddSingleton<IssueListViewModel>();
+        serviceCollection.AddSingleton<MainViewModel>();
         var diffService = Substitute.For<ITestResultDiffService>();
         diffService.CompareResultsAsync(Arg.Any<string>()).Returns(Task.FromResult(new List<TestResultDiff>()));
         serviceCollection.AddSingleton(diffService);
-        serviceCollection.AddSingleton<IIssueListLoader>(sp =>
-            new IssueListLoader(
-                _environmentService,
-                testExecution,
-                sp.GetRequiredService<IProjectAnalyzerService>(),
-                diffService,
-                markerServiceForLoader));
-        serviceCollection.AddSingleton<IRepositoryStatusService>(sp =>
-            new RepositoryStatusService(
-                _environmentService,
-                sp.GetRequiredService<IIssueDiscoveryService>(),
-                markerServiceForLoader,
-                sp.GetRequiredService<ITestResultAggregator>(),
-                sp.GetRequiredService<ILogger<RepositoryStatusService>>()));
-        serviceCollection.AddSingleton<ITestRunOrchestrator>(sp =>
-            new TestRunOrchestrator(
-                sp,
-                _environmentService,
-                sp.GetRequiredService<IIssueDiscoveryService>()));
-        serviceCollection.AddSingleton<ISyncCoordinator>(sp =>
-            new SyncCoordinator(
-                sp,
-                _environmentService,
-                sp.GetRequiredService<IIssueDiscoveryService>()));
-        serviceCollection.AddSingleton<IssueListViewModel>();
-        serviceCollection.AddSingleton<MainViewModel>();
 
         return serviceCollection.BuildServiceProvider();
     }
@@ -164,9 +99,6 @@ public class TitleDisplayIntegrationTests : HeadlessTestBase
     {
         // Arrange
         var services = CreateTestServiceProviderWithRealDiscovery();
-        
-        // Create folder AFTER service provider but BEFORE setting RepositoryPath
-        // This ensures the folder exists when DiscoverIssueFolders() is called
         var issue228Path = Path.Combine(_testRepoPath, "Issue228");
         Directory.CreateDirectory(issue228Path);
         
@@ -202,12 +134,7 @@ public class TitleDisplayIntegrationTests : HeadlessTestBase
         var issueListViewModel = (IssueListViewModel)issueListView!.DataContext!;
         
         // Act - wait for async operations
-        var timeout = DateTime.Now.AddSeconds(5);
-        while (issueListViewModel.AllIssues.Count == 0 && DateTime.Now < timeout)
-        {
-            await Task.Delay(100);
-        }
-        await Task.Delay(200); // Additional delay to ensure UI updates complete
+        await Task.Delay(1000); // Wait for LoadIssuesIntoViewAsync to complete
         
         // Assert
         Assert.That(issueListViewModel.AllIssues, Is.Not.Empty, "Issues should be loaded");
@@ -263,12 +190,7 @@ public class TitleDisplayIntegrationTests : HeadlessTestBase
         
         // Act - wait for async operations to complete
         // LoadIssuesIntoViewAsync is called via Task.Run, so we need to wait for it
-        var timeout = DateTime.Now.AddSeconds(5);
-        while (issueListViewModel.AllIssues.Count == 0 && DateTime.Now < timeout)
-        {
-            await Task.Delay(100);
-        }
-        await Task.Delay(200); // Additional delay to ensure UI updates complete
+        await Task.Delay(1000); // Wait for LoadIssuesIntoViewAsync to complete
         
         // Assert
         var issue999 = issueListViewModel.AllIssues.FirstOrDefault(i => i.Number == 999);
@@ -282,8 +204,6 @@ public class TitleDisplayIntegrationTests : HeadlessTestBase
     {
         // Arrange
         var services = CreateTestServiceProviderWithRealDiscovery();
-        
-        // Create folder AFTER service provider but BEFORE setting RepositoryPath
         var issue1Path = Path.Combine(_testRepoPath, "Issue1");
         Directory.CreateDirectory(issue1Path);
         
@@ -321,13 +241,8 @@ public class TitleDisplayIntegrationTests : HeadlessTestBase
         Assert.That(issueListView, Is.Not.Null);
         var issueListViewModel = (IssueListViewModel)issueListView!.DataContext!;
         
-        // Act - wait for async operations
-        var timeout = DateTime.Now.AddSeconds(5);
-        while (issueListViewModel.AllIssues.Count == 0 && DateTime.Now < timeout)
-        {
-            await Task.Delay(100);
-        }
-        await Task.Delay(200); // Additional delay to ensure UI updates complete
+        // Act
+        await Task.Delay(1000);
         
         // Assert - if title is loaded, path resolution worked
         var issue1 = issueListViewModel.AllIssues.FirstOrDefault(i => i.Number == 1);
@@ -341,8 +256,6 @@ public class TitleDisplayIntegrationTests : HeadlessTestBase
     {
         // Arrange
         var services = CreateTestServiceProviderWithRealDiscovery();
-        
-        // Create folder AFTER service provider but BEFORE setting RepositoryPath
         var issue228Path = Path.Combine(_testRepoPath, "Issue228");
         Directory.CreateDirectory(issue228Path);
         
@@ -385,13 +298,8 @@ public class TitleDisplayIntegrationTests : HeadlessTestBase
         Assert.That(issueListView, Is.Not.Null);
         var issueListViewModel = (IssueListViewModel)issueListView!.DataContext!;
         
-        // Act - wait for async operations
-        var timeout = DateTime.Now.AddSeconds(5);
-        while (issueListViewModel.AllIssues.Count == 0 && DateTime.Now < timeout)
-        {
-            await Task.Delay(100);
-        }
-        await Task.Delay(200); // Additional delay to ensure UI updates complete
+        // Act
+        await Task.Delay(1000);
         
         // Assert
         var issue228 = issueListViewModel.AllIssues.FirstOrDefault(i => i.Number == 228);
@@ -405,8 +313,6 @@ public class TitleDisplayIntegrationTests : HeadlessTestBase
     {
         // Arrange
         var services = CreateTestServiceProviderWithRealDiscovery();
-        
-        // Create folder AFTER service provider but BEFORE setting RepositoryPath
         var issue228Path = Path.Combine(_testRepoPath, "Issue228");
         Directory.CreateDirectory(issue228Path);
         
@@ -441,13 +347,8 @@ public class TitleDisplayIntegrationTests : HeadlessTestBase
         Assert.That(issueListView, Is.Not.Null);
         var issueListViewModel = (IssueListViewModel)issueListView!.DataContext!;
         
-        // Act - wait for async operations
-        var timeout = DateTime.Now.AddSeconds(5);
-        while (issueListViewModel.AllIssues.Count == 0 && DateTime.Now < timeout)
-        {
-            await Task.Delay(100);
-        }
-        await Task.Delay(200); // Additional delay to ensure UI updates complete
+        // Act
+        await Task.Delay(1000);
         
         // Assert
         var issue228 = issueListViewModel.AllIssues.FirstOrDefault(i => i.Number == 228);
@@ -461,10 +362,9 @@ public class TitleDisplayIntegrationTests : HeadlessTestBase
     [AvaloniaTest]
     public async Task FolderDiscovery_AndMetadataLookup_Integration_WithRealData()
     {
-        // Arrange
+        // Arrange - create multiple folders with different issue numbers
         var services = CreateTestServiceProviderWithRealDiscovery();
-        
-        // Create folders AFTER service provider but BEFORE setting RepositoryPath
+        // Create folders BEFORE setting repository path to ensure they exist when discovery runs
         var issue1Path = Path.Combine(_testRepoPath, "Issue1");
         var issue228Path = Path.Combine(_testRepoPath, "Issue228");
         var issue999Path = Path.Combine(_testRepoPath, "Issue999");

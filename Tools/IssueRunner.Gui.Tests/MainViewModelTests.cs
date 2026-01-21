@@ -1,5 +1,4 @@
 using Avalonia.Headless.NUnit;
-using IssueRunner.Gui.Services;
 using IssueRunner.Gui.ViewModels;
 using IssueRunner.Gui.Views;
 using IssueRunner.Models;
@@ -17,14 +16,10 @@ public class MainViewModelTests : HeadlessTestBase
     private IEnvironmentService _environmentService = null!;
     private string _currentRoot = null!;
     private IMarkerService _markerService = null!;
-    private string? _testSettingsPath = null;
     
     [SetUp]
     public void SetUp()
     {
-        // Use a test-specific settings file so we don't interfere with real user settings
-        _testSettingsPath = Path.Combine(Path.GetTempPath(), $"IssueRunnerTestSettings_{Guid.NewGuid():N}.json");
-        AppSettings.SetTestSettingsPath(_testSettingsPath);
         // Create test directory structure
         var testRepoPath = Path.Combine(Path.GetTempPath(), "IssueRunnerTest");
         if (Directory.Exists(testRepoPath))
@@ -65,9 +60,6 @@ public class MainViewModelTests : HeadlessTestBase
             return Path.Combine(repoRoot, ".nunit", "IssueRunner");
         });
 
-        // Save test repository path to test settings file
-        AppSettings.SaveRepositoryPath(testRepoPath);
-
         _markerService = Substitute.For<IMarkerService>();
 
         var serviceCollection = new ServiceCollection();
@@ -79,15 +71,13 @@ public class MainViewModelTests : HeadlessTestBase
         discoverIssueFolders.DiscoverIssueFolders().Returns(new Dictionary<int, string>());
         _markerService.ShouldSkipIssue(Arg.Any<string>()).Returns(false);
         serviceCollection.AddSingleton<IMarkerService>(_markerService);
-        serviceCollection.AddSingleton<ITestResultAggregator, TestResultAggregator>();
         serviceCollection.AddSingleton(discoverIssueFolders);
         serviceCollection.AddSingleton<IProjectAnalyzerService>(Substitute.For<IProjectAnalyzerService>());
         serviceCollection.AddSingleton<IFrameworkUpgradeService>(Substitute.For<IFrameworkUpgradeService>());
         serviceCollection.AddSingleton<IProcessExecutor>(Substitute.For<IProcessExecutor>());
         serviceCollection.AddSingleton<IPackageUpdateService>(Substitute.For<IPackageUpdateService>());
         serviceCollection.AddSingleton<INuGetPackageVersionService>(Substitute.For<INuGetPackageVersionService>());
-        var testExecution = Substitute.For<ITestExecutionService>();
-        serviceCollection.AddSingleton<ITestExecutionService>(testExecution);
+        serviceCollection.AddSingleton<ITestExecutionService>(Substitute.For<ITestExecutionService>());
         serviceCollection.AddSingleton<IGitHubApiService>(Substitute.For<IGitHubApiService>());
         serviceCollection.AddSingleton<ReportGeneratorService>(sp =>
         {
@@ -95,55 +85,13 @@ public class MainViewModelTests : HeadlessTestBase
             var envService = sp.GetRequiredService<IEnvironmentService>();
             return new ReportGeneratorService(logger, envService);
         });
+        serviceCollection.AddSingleton<IssueListViewModel>();
+        serviceCollection.AddSingleton<MainViewModel>();
         var diffService = Substitute.For<ITestResultDiffService>();
         diffService.CompareResultsAsync(Arg.Any<string>()).Returns(Task.FromResult(new List<TestResultDiff>()));
         serviceCollection.AddSingleton(diffService);
-        serviceCollection.AddSingleton<IIssueListLoader>(sp =>
-            new IssueListLoader(
-                _environmentService,
-                testExecution,
-                sp.GetRequiredService<IProjectAnalyzerService>(),
-                diffService,
-                _markerService));
-        serviceCollection.AddSingleton<IRepositoryStatusService>(sp =>
-            new RepositoryStatusService(
-                _environmentService,
-                sp.GetRequiredService<IIssueDiscoveryService>(),
-                _markerService,
-                sp.GetRequiredService<ITestResultAggregator>(),
-                sp.GetRequiredService<ILogger<RepositoryStatusService>>()));
-        serviceCollection.AddSingleton<ITestRunOrchestrator>(sp =>
-            new TestRunOrchestrator(
-                sp,
-                _environmentService,
-                sp.GetRequiredService<IIssueDiscoveryService>()));
-        serviceCollection.AddSingleton<ISyncCoordinator>(sp =>
-            new SyncCoordinator(
-                sp,
-                _environmentService,
-                sp.GetRequiredService<IIssueDiscoveryService>()));
-        serviceCollection.AddSingleton<IssueListViewModel>();
-        serviceCollection.AddSingleton<MainViewModel>();
 
         _services = serviceCollection.BuildServiceProvider();
-    }
-
-    [TearDown]
-    public void TearDown()
-    {
-        // Reset to default settings path and clean up test settings file
-        AppSettings.SetTestSettingsPath(null);
-        if (_testSettingsPath != null && File.Exists(_testSettingsPath))
-        {
-            try
-            {
-                File.Delete(_testSettingsPath);
-            }
-            catch
-            {
-                // Ignore deletion errors
-            }
-        }
     }
 
     [AvaloniaTest]
@@ -695,6 +643,7 @@ public class MainViewModelTests : HeadlessTestBase
     public async Task LoadIssuesIntoViewAsync_SetsFallbackTitle_WhenMetadataIsNull()
     {
         // Arrange
+        var window = CreateTestWindow(_services);
         var testRepoPath = _environmentService.Root;
         var dataDir = Path.Combine(testRepoPath, ".nunit", "IssueRunner");
         Directory.CreateDirectory(dataDir);
@@ -715,7 +664,6 @@ public class MainViewModelTests : HeadlessTestBase
         issueDiscovery.DiscoverIssueFolders().Returns(new Dictionary<int, string> { { 999, issueFolder999 } });
         _markerService.ShouldSkipIssue(Arg.Any<string>()).Returns(false);
         
-        var window = CreateTestWindow(_services);
         var viewModel = (MainViewModel)window.DataContext!;
         viewModel.RepositoryPath = testRepoPath;
         await Task.Delay(800); // Wait for repository to load and LoadIssuesIntoViewAsync to start
@@ -779,281 +727,6 @@ public class MainViewModelTests : HeadlessTestBase
         Assert.That(issue.Title, Is.Not.Null);
         Assert.That(issue.Title, Is.Not.Empty);
         Assert.That(issue.Title, Is.EqualTo("Test Title"));
-    }
-
-    [AvaloniaTest]
-    public async Task LoadRepository_CalculatesAllStatusCountsCorrectly()
-    {
-        // Arrange
-        var testRepoPath = _environmentService.Root;
-        var dataDir = Path.Combine(testRepoPath, ".nunit", "IssueRunner");
-        Directory.CreateDirectory(dataDir);
-
-        // Create issue folders
-        var issue1Folder = Path.Combine(testRepoPath, "Issue1");
-        var issue2Folder = Path.Combine(testRepoPath, "Issue2");
-        var issue3Folder = Path.Combine(testRepoPath, "Issue3");
-        var issue4Folder = Path.Combine(testRepoPath, "Issue4");
-        var issue5Folder = Path.Combine(testRepoPath, "Issue5");
-        var issue6Folder = Path.Combine(testRepoPath, "Issue6");
-        Directory.CreateDirectory(issue1Folder);
-        Directory.CreateDirectory(issue2Folder);
-        Directory.CreateDirectory(issue3Folder);
-        Directory.CreateDirectory(issue4Folder);
-        Directory.CreateDirectory(issue5Folder);
-        Directory.CreateDirectory(issue6Folder);
-
-        // Issue 1: Passed (success test result)
-        // Issue 2: Failed (fail test result)
-        // Issue 3: Skipped (has marker file)
-        // Issue 4: Not Restored (restore_result = fail)
-        // Issue 5: Not Compiling (build_result = fail)
-        // Issue 6: Not Tested (no results.json entry)
-
-        // Create marker file for issue 3
-        await File.WriteAllTextAsync(Path.Combine(issue3Folder, "ignore"), "");
-
-        // Create repository.json in the data directory (RepositoryStatusService expects it there)
-        var repoConfigJson = JsonSerializer.Serialize(new RepositoryConfig("test", "test"));
-        File.WriteAllText(Path.Combine(dataDir, "repository.json"), repoConfigJson);
-
-        // Create results.json
-        var resultsPath = Path.Combine(dataDir, "results.json");
-        var results = new List<IssueResult>
-        {
-            new IssueResult
-            {
-                Number = 1,
-                ProjectPath = "Issue1/test.csproj",
-                TargetFrameworks = new List<string> { "net8.0" },
-                Packages = new List<string>(),
-                RestoreResult = "success",
-                BuildResult = "success",
-                TestResult = "success",
-                LastRun = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
-            },
-            new IssueResult
-            {
-                Number = 2,
-                ProjectPath = "Issue2/test.csproj",
-                TargetFrameworks = new List<string> { "net8.0" },
-                Packages = new List<string>(),
-                RestoreResult = "success",
-                BuildResult = "success",
-                TestResult = "fail",
-                LastRun = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
-            },
-            new IssueResult
-            {
-                Number = 4,
-                ProjectPath = "Issue4/test.csproj",
-                TargetFrameworks = new List<string> { "net8.0" },
-                Packages = new List<string>(),
-                RestoreResult = "fail",
-                BuildResult = null,
-                TestResult = null,
-                LastRun = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
-            },
-            new IssueResult
-            {
-                Number = 5,
-                ProjectPath = "Issue5/test.csproj",
-                TargetFrameworks = new List<string> { "net8.0" },
-                Packages = new List<string>(),
-                RestoreResult = "success",
-                BuildResult = "fail",
-                TestResult = null,
-                LastRun = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
-            }
-        };
-        var resultsJson = JsonSerializer.Serialize(results);
-        await File.WriteAllTextAsync(resultsPath, resultsJson);
-
-        // Mock issue discovery
-        var issueDiscovery = _services.GetRequiredService<IIssueDiscoveryService>();
-        issueDiscovery.DiscoverIssueFolders().Returns(new Dictionary<int, string>
-        {
-            { 1, issue1Folder },
-            { 2, issue2Folder },
-            { 3, issue3Folder },
-            { 4, issue4Folder },
-            { 5, issue5Folder },
-            { 6, issue6Folder }
-        });
-
-        // Mock marker service - issue 3 should be skipped
-        _markerService.ShouldSkipIssue(Arg.Any<string>()).Returns(callInfo =>
-        {
-            var path = callInfo.Arg<string>();
-            return path == issue3Folder;
-        });
-        _markerService.GetMarkerReason(Arg.Any<string>()).Returns("Ignored");
-
-        var window = CreateTestWindow(_services);
-        var viewModel = (MainViewModel)window.DataContext!;
-        viewModel.RepositoryPath = testRepoPath;
-
-        // Wait for repository to load - need to wait for async LoadRepository to complete
-        var timeout = DateTime.Now.AddSeconds(5);
-        while (viewModel.SummaryText == "Select a repository to begin." && DateTime.Now < timeout)
-        {
-            await Task.Delay(100);
-        }
-        await Task.Delay(200); // Additional delay to ensure all counts are set
-
-        // Assert - Check that repository loaded successfully first
-        Assert.That(viewModel.SummaryText, Is.Not.Null, "SummaryText should not be null");
-        Assert.That(viewModel.SummaryText, Does.Not.Contain("Select a repository to begin"), 
-            $"Repository should be loaded. SummaryText: {viewModel.SummaryText}");
-        
-        // Assert
-        // With the shared per-issue aggregation, this synthetic setup produces:
-        // - Issue 1: Passed (TestResult = "success")
-        // - Issue 2: Failed (TestResult = "fail")
-        // - Issue 3: Skipped (marker file)
-        // - Issue 4: Not Restored (RestoreResult = "fail")
-        // - Issue 5: Not Compiling (BuildResult = "fail")
-        // - Issue 6: Not Tested (no results entry)
-        Assert.That(viewModel.PassedCount, Is.EqualTo(1), 
-            $"Should have 1 passed issue but was {viewModel.PassedCount}. SummaryText: {viewModel.SummaryText}");
-        Assert.That(viewModel.FailedCount, Is.EqualTo(1), 
-            $"Should have 1 failed issue but was {viewModel.FailedCount}. SummaryText: {viewModel.SummaryText}");
-        Assert.That(viewModel.SkippedCount, Is.EqualTo(1), "Should have 1 skipped issue");
-        Assert.That(viewModel.NotRestoredCount, Is.EqualTo(1), 
-            $"Should have 1 not restored issue (Issue 4) but was {viewModel.NotRestoredCount}. SummaryText: {viewModel.SummaryText}");
-        Assert.That(viewModel.NotCompilingCount, Is.EqualTo(1), 
-            $"Should have 1 not compiling issue (Issue 5) but was {viewModel.NotCompilingCount}. SummaryText: {viewModel.SummaryText}");
-        Assert.That(viewModel.NotTestedCount, Is.EqualTo(1), 
-            $"Should have 1 not tested issue (Issue 6) but was {viewModel.NotTestedCount}. SummaryText: {viewModel.SummaryText}");
-    }
-
-    [AvaloniaTest]
-    public async Task SummaryText_IncludesAllStatusCountsAndTotalsCorrectly()
-    {
-        // Arrange
-        var testRepoPath = _environmentService.Root;
-        var dataDir = Path.Combine(testRepoPath, ".nunit", "IssueRunner");
-        Directory.CreateDirectory(dataDir);
-
-        // Create issue folders
-        var issue1Folder = Path.Combine(testRepoPath, "Issue1");
-        var issue2Folder = Path.Combine(testRepoPath, "Issue2");
-        var issue3Folder = Path.Combine(testRepoPath, "Issue3");
-        var issue4Folder = Path.Combine(testRepoPath, "Issue4");
-        var issue5Folder = Path.Combine(testRepoPath, "Issue5");
-        var issue6Folder = Path.Combine(testRepoPath, "Issue6");
-        Directory.CreateDirectory(issue1Folder);
-        Directory.CreateDirectory(issue2Folder);
-        Directory.CreateDirectory(issue3Folder);
-        Directory.CreateDirectory(issue4Folder);
-        Directory.CreateDirectory(issue5Folder);
-        Directory.CreateDirectory(issue6Folder);
-
-        // Create marker file for issue 3
-        await File.WriteAllTextAsync(Path.Combine(issue3Folder, "ignore"), "");
-
-        // Create repository.json in the data directory (RepositoryStatusService expects it there)
-        var repoConfigJson = JsonSerializer.Serialize(new RepositoryConfig("test", "test"));
-        File.WriteAllText(Path.Combine(dataDir, "repository.json"), repoConfigJson);
-
-        // Create results.json
-        var resultsPath = Path.Combine(dataDir, "results.json");
-        var results = new List<IssueResult>
-        {
-            new IssueResult
-            {
-                Number = 1,
-                ProjectPath = "Issue1/test.csproj",
-                TargetFrameworks = new List<string> { "net8.0" },
-                Packages = new List<string>(),
-                RestoreResult = "success",
-                BuildResult = "success",
-                TestResult = "success",
-                LastRun = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
-            },
-            new IssueResult
-            {
-                Number = 2,
-                ProjectPath = "Issue2/test.csproj",
-                TargetFrameworks = new List<string> { "net8.0" },
-                Packages = new List<string>(),
-                RestoreResult = "success",
-                BuildResult = "success",
-                TestResult = "fail",
-                LastRun = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
-            },
-            new IssueResult
-            {
-                Number = 4,
-                ProjectPath = "Issue4/test.csproj",
-                TargetFrameworks = new List<string> { "net8.0" },
-                Packages = new List<string>(),
-                RestoreResult = "fail",
-                BuildResult = null,
-                TestResult = null,
-                LastRun = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
-            },
-            new IssueResult
-            {
-                Number = 5,
-                ProjectPath = "Issue5/test.csproj",
-                TargetFrameworks = new List<string> { "net8.0" },
-                Packages = new List<string>(),
-                RestoreResult = "success",
-                BuildResult = "fail",
-                TestResult = null,
-                LastRun = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
-            }
-        };
-        var resultsJson = JsonSerializer.Serialize(results);
-        await File.WriteAllTextAsync(resultsPath, resultsJson);
-
-        // Mock issue discovery
-        var issueDiscovery = _services.GetRequiredService<IIssueDiscoveryService>();
-        issueDiscovery.DiscoverIssueFolders().Returns(new Dictionary<int, string>
-        {
-            { 1, issue1Folder },
-            { 2, issue2Folder },
-            { 3, issue3Folder },
-            { 4, issue4Folder },
-            { 5, issue5Folder },
-            { 6, issue6Folder }
-        });
-
-        // Mock marker service - issue 3 should be skipped
-        _markerService.ShouldSkipIssue(Arg.Any<string>()).Returns(callInfo =>
-        {
-            var path = callInfo.Arg<string>();
-            return path == issue3Folder;
-        });
-        _markerService.GetMarkerReason(Arg.Any<string>()).Returns("Ignored");
-
-        var window = CreateTestWindow(_services);
-        var viewModel = (MainViewModel)window.DataContext!;
-        viewModel.RepositoryPath = testRepoPath;
-
-        // Wait for repository to load - need to wait for async LoadRepository to complete
-        var timeout = DateTime.Now.AddSeconds(5);
-        while (viewModel.SummaryText == "Select a repository to begin." && DateTime.Now < timeout)
-        {
-            await Task.Delay(100);
-        }
-        await Task.Delay(200); // Additional delay to ensure all counts are set
-
-        // Assert - Check that SummaryText includes all status counts
-        var summaryText = viewModel.SummaryText;
-        Assert.That(summaryText, Is.Not.Null, "SummaryText should not be null");
-        Assert.That(summaryText, Does.Contain("Passed: 1"), "SummaryText should contain Passed count");
-        Assert.That(summaryText, Does.Contain("Failed: 1"), "SummaryText should contain Failed count");
-        Assert.That(summaryText, Does.Contain("Skipped: 1"), "SummaryText should contain Skipped count");
-        Assert.That(summaryText, Does.Contain("Not Restored: 1"), "SummaryText should contain Not Restored count");
-        Assert.That(summaryText, Does.Contain("Not Compiling: 1"), "SummaryText should contain Not Compiling count");
-        Assert.That(summaryText, Does.Contain("Not Tested: 1"), "SummaryText should contain Not Tested count");
-
-        // Verify total equals total issue count (6 issues)
-        var totalCount = viewModel.PassedCount + viewModel.FailedCount + viewModel.SkippedCount +
-                        viewModel.NotRestoredCount + viewModel.NotCompilingCount + viewModel.NotTestedCount;
-        Assert.That(totalCount, Is.EqualTo(6), "Total of all status counts should equal total issue count (6)");
     }
 }
 

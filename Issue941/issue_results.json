@@ -1,8 +1,8 @@
 [
   {
     "number": 941,
-    "project_path": "filtertest2\\filtertest2.csproj",
-    "project_style": "SDK-style",
+    "project_path": "filtertest/filtertest.csproj",
+    "project_style": "sdk",
     "target_frameworks": [
       "net10.0"
     ],
@@ -12,22 +12,11 @@
       "coverlet.collector=6.0.4"
     ],
     "update_result": "success",
-    "update_output": "[Issue941\\filtertest2\\filtertest2.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\n\u00C2\u00BB filtertest2\r\n  [net10.0]\r\n  NUnit3TestAdapter  4.2.0 -\u003E 6.1.0\r\n\r\nVersion color legend:\r\n\u003Cred\u003E   : Major version update or pre-release version. Possible breaking changes.\r\n\u003Cyellow\u003E: Minor version update. Backwards-compatible features added.\r\n\u003Cgreen\u003E : Patch version update. Backwards-compatible bug fixes.\r\n\r\nUpgrading package NUnit3TestAdapter...\r\nProject filtertest2 [net10.0] upgraded successfully\r\n\r\nElapsed: 00:00:07.7815196\r\n\n\n[Issue941\\filtertest\\filtertest.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\n\u00C2\u00BB filtertest\r\n  [net10.0]\r\n  NUnit3TestAdapter  6.0.0 -\u003E 6.1.0\r\n\r\nVersion color legend:\r\n\u003Cred\u003E   : Major version update or pre-release version. Possible breaking changes.\r\n\u003Cyellow\u003E: Minor version update. Backwards-compatible features added.\r\n\u003Cgreen\u003E : Patch version update. Backwards-compatible bug fixes.\r\n\r\nUpgrading package NUnit3TestAdapter...\r\nProject filtertest [net10.0] upgraded successfully\r\n\r\nElapsed: 00:00:08.2722631\r\n",
-    "update_error": "",
-    "restore_result": "success",
-    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue941\\filtertest\\filtertest.csproj (in 435 ms).\r\n",
-    "restore_error": "",
-    "build_result": "success",
-    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  filtertest -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue941\\filtertest\\bin\\Debug\\net10.0\\filtertest.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.16\r\n",
-    "build_error": "",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.0520311\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.9086346\n",
+    "update_error": "[nunit]\n\n[other]\n",
     "test_result": "success",
-    "test_output": "=== Issue941\\filtertest2\\filtertest2.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue941\\filtertest2\\filtertest2.csproj (in 479 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  filtertest2 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue941\\filtertest2\\bin\\Debug\\net10.0\\filtertest2.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.20\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  filtertest2 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue941\\filtertest2\\bin\\Debug\\net10.0\\filtertest2.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue941\\filtertest2\\bin\\Debug\\net10.0\\filtertest2.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n  Skipped FooExplicit [\u003C 1 ms]\r\n\r\nPassed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 79 ms - filtertest2.dll (net10.0)\r\n\n\n=== Issue941\\filtertest\\filtertest.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue941\\filtertest\\filtertest.csproj (in 435 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  filtertest -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue941\\filtertest\\bin\\Debug\\net10.0\\filtertest.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.16\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  filtertest -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue941\\filtertest\\bin\\Debug\\net10.0\\filtertest.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue941\\filtertest\\bin\\Debug\\net10.0\\filtertest.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n  Skipped FooExplicit [\u003C 1 ms]\r\n\r\nPassed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 60 ms - filtertest.dll (net10.0)\r\n",
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue941\\filtertest\\filtertest.csproj (in 427 ms).\n  filtertest -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue941\\filtertest\\bin\\Debug\\net10.0\\filtertest.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue941\\filtertest\\bin\\Debug\\net10.0\\filtertest.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n  Skipped FooExplicit [< 1 ms]\n\nPassed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 62 ms - filtertest.dll (net10.0)\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure (6 test(s) passed)",
-    "runner_scripts": null,
-    "runsettings": null,
-    "feed": "Stable",
-    "runner_expectations": null,
-    "last_run": "2026-01-19T21:47:07Z"
+    "test_conclusion": "Success: No regression failure"
   }
 ]

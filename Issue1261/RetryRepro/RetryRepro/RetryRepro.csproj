@@ -1,22 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
+
   </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="NUnit" Version="4.4.0" />
-    <PackageReference Include="NUnit.Analyzers" Version="4.11.2">
+    <PackageReference Include="NUnit" Version="4.3.2" />
+    <PackageReference Include="NUnit.Analyzers" Version="4.7.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="NUnit3TestAdapter" Version="6.1.0" />
-    <!--<PackageReference Include="Microsoft.Testing.Extensions.Retry" Version="1.7.0" />-->
+    <PackageReference Include="NUnit3TestAdapter" Version="5.1.0-alpha.3-dbg" />
+	<!--<PackageReference Include="Microsoft.Testing.Extensions.Retry" Version="1.7.0" />-->
   </ItemGroup>
+
+
   <ItemGroup>
     <Using Include="NUnit.Framework" />
   </ItemGroup>
+
 </Project>

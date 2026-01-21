@@ -1,33 +1,22 @@
 [
   {
     "number": 1241,
-    "project_path": "Repro1\\TestProject3.csproj",
-    "project_style": "SDK-style",
+    "project_path": "Repro1/TestProject3.csproj",
+    "project_style": "sdk",
     "target_frameworks": [
       "net10.0"
     ],
     "packages": [
       "Microsoft.NET.Test.Sdk=18.0.1",
-      "NUnit3TestAdapter=6.1.0",
+      "NUnit3TestAdapter=6.0.0",
       "NUnit=4.4.0"
     ],
     "update_result": "success",
-    "update_output": "[Issue1241\\Repro1\\TestProject3.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:03.9189236\r\n\n\n[Issue1241\\Repro2\\Issue1241.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:03.9802106\r\n",
-    "update_error": "",
-    "restore_result": "success",
-    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro2\\Issue1241.csproj (in 493 ms).\r\n",
-    "restore_error": "",
-    "build_result": "success",
-    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue1241 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro2\\bin\\Debug\\net10.0\\Issue1241.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.31\r\n",
-    "build_error": "",
-    "test_result": "success",
-    "test_output": "=== Issue1241\\Repro1\\TestProject3.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro1\\TestProject3.csproj (in 450 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  TestProject3 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro1\\bin\\Debug\\net10.0\\TestProject3.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.35\r\n\n=== Test ===\nRunning tests from C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro1\\bin\\Debug\\net10.0\\TestProject3.dll (net10.0|x64)\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro1\\bin\\Debug\\net10.0\\TestProject3.dll (net10.0|x64) passed (1s 535ms)\r\n\r\nTest run summary: Passed!\r\n  total: 3\r\n  failed: 0\r\n  succeeded: 3\r\n  skipped: 0\r\n  duration: 2s 145ms\r\n\n\n=== Issue1241\\Repro2\\Issue1241.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro2\\Issue1241.csproj (in 493 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue1241 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro2\\bin\\Debug\\net10.0\\Issue1241.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.31\r\n\n=== Test ===\nRunning tests from C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro2\\bin\\Debug\\net10.0\\Issue1241.dll (net10.0|x64)\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro2\\bin\\Debug\\net10.0\\Issue1241.dll (net10.0|x64) passed (1s 493ms)\r\n\r\nTest run summary: Passed!\r\n  total: 1\r\n  failed: 0\r\n  succeeded: 1\r\n  skipped: 0\r\n  duration: 2s 118ms\r\n",
-    "test_error": "",
-    "test_conclusion": "Success: No regression failure (4 test(s) passed)",
-    "runner_scripts": null,
-    "runsettings": null,
-    "feed": "Stable",
-    "runner_expectations": null,
-    "last_run": "2026-01-19T21:17:04Z"
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.0258203\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:06.5525607\n",
+    "update_error": "[nunit]\n\n[other]\n",
+    "test_result": "fail",
+    "test_output": "",
+    "test_error": "Specifying a solution for 'dotnet test' should be via '--solution'.\n",
+    "test_conclusion": "Failure: Regression failure."
   }
 ]

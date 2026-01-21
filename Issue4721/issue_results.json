@@ -2,7 +2,7 @@
   {
     "number": 4721,
     "project_path": "Issue4721.csproj",
-    "project_style": "SDK-style",
+    "project_style": "sdk",
     "target_frameworks": [
       "net10.0"
     ],
@@ -11,25 +11,14 @@
       "Microsoft.NET.Test.Sdk=18.0.1",
       "NUnit=4.4.0",
       "NUnit.Analyzers=4.11.2",
-      "NUnit3TestAdapter=6.1.0"
+      "NUnit3TestAdapter=6.0.0"
     ],
     "update_result": "success",
-    "update_output": "[Issue4721\\Issue4721.csproj]\nDiscovering projects...\r\nAnalyzing project(s)...\r\nAnalyzing dependencies...\r\nNo outdated dependencies were detected\r\nElapsed: 00:00:04.3386251\r\n",
-    "update_error": "",
-    "restore_result": "success",
-    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\Issue4721.csproj (in 452 ms).\r\n",
-    "restore_error": "",
-    "build_result": "success",
-    "build_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue4721 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\bin\\Debug\\net10.0\\Issue4721.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.11\r\n",
-    "build_error": "",
+    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3528345\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.4213702\n",
+    "update_error": "[nunit]\n\n[other]\n",
     "test_result": "fail",
-    "test_output": "=== Issue4721\\Issue4721.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\Issue4721.csproj (in 452 ms).\r\n\n=== Build ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue4721 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\bin\\Debug\\net10.0\\Issue4721.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.11\r\n\n=== Test ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue4721 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\bin\\Debug\\net10.0\\Issue4721.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\bin\\Debug\\net10.0\\Issue4721.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n  Failed DummySuccessTest [64 ms]\r\n  Error Message:\r\n   OneTimeSetUp: I am in one time setup\r\n  Stack Trace:\r\n     at Issue4721.Tests.OneTimeSetUp() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\UnitTest1.cs:line 9\r\n\r\n\r\n  Failed FailedTest [67 ms]\r\n  Error Message:\r\n   OneTimeSetUp: I am in one time setup\r\n  Stack Trace:\r\n     at Issue4721.Tests.OneTimeSetUp() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\UnitTest1.cs:line 9\r\n\r\n\r\n  Failed SuccessTest [67 ms]\r\n  Error Message:\r\n   OneTimeSetUp: I am in one time setup\r\n  Stack Trace:\r\n     at Issue4721.Tests.OneTimeSetUp() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\UnitTest1.cs:line 9\r\n\r\n\r\n\r\nFailed!  - Failed:     3, Passed:     0, Skipped:     0, Total:     3, Duration: 67 ms - Issue4721.dll (net10.0)\r\n",
-    "test_error": "=== Issue4721\\Issue4721.csproj ===\n=== Test Error ===\nTearDown failed for test fixture Issue4721.Tests\r\nMultiple failures or warnings in test:\r\n  1) I am in one time setup\r\n     at Issue4721.Tests.OneTimeSetUp() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\UnitTest1.cs:line 9\r\n\r\n  2) I am in one time teardown\r\n     at Issue4721.Tests.Teardown() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\UnitTest1.cs:line 15\r\n\r\n\r\nStackTrace:    at Issue4721.Tests.Teardown() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\UnitTest1.cs:line 15\r\n\r\n",
-    "test_conclusion": "Failure: Test assertions failed (0 passed, 3 failed)",
-    "runner_scripts": null,
-    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue4721\\.runsettings",
-    "feed": "Stable",
-    "runner_expectations": null,
-    "last_run": "2026-01-19T21:27:51Z"
+    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\Issue4721.csproj (in 537 ms).\n  Issue4721 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\bin\\Debug\\net10.0\\Issue4721.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\bin\\Debug\\net10.0\\Issue4721.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n  Failed DummySuccessTest [65 ms]\n  Error Message:\n   OneTimeSetUp: I am in one time setup\n  Stack Trace:\n     at Issue4721.Tests.OneTimeSetUp() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\UnitTest1.cs:line 9\n\n\n  Failed FailedTest [66 ms]\n  Error Message:\n   OneTimeSetUp: I am in one time setup\n  Stack Trace:\n     at Issue4721.Tests.OneTimeSetUp() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\UnitTest1.cs:line 9\n\n\n  Failed SuccessTest [66 ms]\n  Error Message:\n   OneTimeSetUp: I am in one time setup\n  Stack Trace:\n     at Issue4721.Tests.OneTimeSetUp() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\UnitTest1.cs:line 9\n\n\n\nFailed!  - Failed:     3, Passed:     0, Skipped:     0, Total:     3, Duration: 66 ms - Issue4721.dll (net10.0)\n",
+    "test_error": "TearDown failed for test fixture Issue4721.Tests\nMultiple failures or warnings in test:\n  1) I am in one time setup\n     at Issue4721.Tests.OneTimeSetUp() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\UnitTest1.cs:line 9\n\n  2) I am in one time teardown\n     at Issue4721.Tests.Teardown() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\UnitTest1.cs:line 15\n\n\nStackTrace:    at Issue4721.Tests.Teardown() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue4721\\UnitTest1.cs:line 15\n\n",
+    "test_conclusion": "Failure: Test failed."
   }
 ]

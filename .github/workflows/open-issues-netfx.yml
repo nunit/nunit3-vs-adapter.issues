@@ -46,15 +46,15 @@ jobs:
         continue-on-error: true
         shell: pwsh
         run: |
-          cd Tools\IssueRunner.Cli\bin\Release\net10.0
-          .\IssueRunner.Cli.exe run --scope OpenOnly --only-netfx --timeout 900 --nunit-only --root $env:GITHUB_WORKSPACE
+          cd Tools\IssueRunner\bin\Release\net10.0
+          .\IssueRunner.exe run --scope OpenOnly --only-netfx --timeout 900 --nunit-only --root $env:GITHUB_WORKSPACE
 
       - name: Generate test report
         if: always()
         shell: pwsh
         run: |
-          cd Tools\IssueRunner.Cli\bin\Release\net10.0
-          .\IssueRunner.Cli.exe report generate --root $env:GITHUB_WORKSPACE
+          cd Tools\IssueRunner\bin\Release\net10.0
+          .\IssueRunner.exe report generate --root $env:GITHUB_WORKSPACE
 
       - name: Publish summary
         if: always()
