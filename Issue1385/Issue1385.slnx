@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../../nunit/src/NUnitFramework/framework/nunit.framework.csproj" />
+  <Project Path="Issue1385.csproj" />
+</Solution>
