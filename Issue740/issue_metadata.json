@@ -2,30 +2,12 @@
   {
     "number": 740,
     "title": "Allow Warnings to be mapped to any outcome",
-    "state": "closed",
+    "state": 1,
     "milestone": "3.17",
     "labels": [
       "closed:done",
       "is:feature"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/740",
-    "project_path": "Issue740.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "nunit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
-      },
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/740"
   }
 ]

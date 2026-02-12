@@ -2,83 +2,34 @@
   {
     "number": 782,
     "title": "Test not run with IEnumerable tuple arguments from TestCaseSource",
-    "state": "open",
+    "state": 0,
     "milestone": "No milestone",
     "labels": [
       "is:bug",
       "is:FQNIssue"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/782",
-    "project_path": "UnitTestBugTests\\UnitTestBugTests.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      },
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.1"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/782"
   },
   {
     "number": 782,
     "title": "Test not run with IEnumerable tuple arguments from TestCaseSource",
-    "state": "open",
+    "state": 0,
     "milestone": "No milestone",
     "labels": [
       "is:bug",
       "is:FQNIssue"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/782",
-    "project_path": "UnitTestBug\\UnitTestBug.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": []
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/782"
   },
   {
     "number": 782,
     "title": "Test not run with IEnumerable tuple arguments from TestCaseSource",
-    "state": "open",
+    "state": 0,
     "milestone": "No milestone",
     "labels": [
       "is:bug",
       "is:FQNIssue"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/782",
-    "project_path": "ZhaparoffTest\\ZhaparoffTest.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "coverlet.collector",
-        "version": "6.0.4"
-      },
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      },
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit.Analyzers",
-        "version": "4.11.2"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.1"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/782"
   }
 ]

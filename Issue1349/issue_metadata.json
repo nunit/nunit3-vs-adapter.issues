@@ -2,26 +2,12 @@
   {
     "number": 1349,
     "title": "[MTP] Filter string includes unrecognized escape sequence",
-    "state": "open",
+    "state": 0,
     "milestone": "No milestone",
     "labels": [
       "Investigate",
       "MTP"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1349",
-    "project_path": "Issue1349.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1349"
   }
 ]

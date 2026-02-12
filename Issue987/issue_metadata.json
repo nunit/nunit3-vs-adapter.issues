@@ -2,87 +2,34 @@
   {
     "number": 987,
     "title": "System.ArgumentException: Unknown framework version 7.0",
-    "state": "closed",
+    "state": 1,
     "milestone": "4.3",
     "labels": [
       "is:enhancement",
       "closed:done"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/987",
-    "project_path": "MyProject.Test\\MyProject.Test\\MyProject.Test.csproj",
-    "target_frameworks": [
-      "net45"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "17.2.0"
-      },
-      {
-        "name": "nunit",
-        "version": "3.13.3"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "4.3.1-alpha.109-dbg"
-      },
-      {
-        "name": "FluentAssertions",
-        "version": "5.10.3"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/987"
   },
   {
     "number": 987,
     "title": "System.ArgumentException: Unknown framework version 7.0",
-    "state": "closed",
+    "state": 1,
     "milestone": "4.3",
     "labels": [
       "is:enhancement",
       "closed:done"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/987",
-    "project_path": "MyProject.Test\\SecondTest\\SecondTest.csproj",
-    "target_frameworks": [
-      "net462"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "17.2.0"
-      },
-      {
-        "name": "NUnit",
-        "version": "3.13.3"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "4.3.1-alpha.109-dbg"
-      },
-      {
-        "name": "NUnit.Analyzers",
-        "version": "3.3.0"
-      },
-      {
-        "name": "coverlet.collector",
-        "version": "3.1.2"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/987"
   },
   {
     "number": 987,
     "title": "System.ArgumentException: Unknown framework version 7.0",
-    "state": "closed",
+    "state": 1,
     "milestone": "4.3",
     "labels": [
       "is:enhancement",
       "closed:done"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/987",
-    "project_path": "MyProject.Test\\ClassLibrary1\\ClassLibrary1.csproj",
-    "target_frameworks": [
-      "net45"
-    ],
-    "packages": []
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/987"
   }
 ]

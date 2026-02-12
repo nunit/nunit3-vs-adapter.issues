@@ -1,0 +1,30 @@
+{
+  "number": 891,
+  "projects": [
+    {
+      "project_path": "Issue891.csproj",
+      "target_frameworks": [
+        "net5.0"
+      ],
+      "packages": [
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "16.10.0"
+        },
+        {
+          "name": "NUnit",
+          "version": "3.13.2"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "4.0.0"
+        },
+        {
+          "name": "coverlet.collector",
+          "version": "3.0.3"
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-01-29T16:04:50Z"
+}

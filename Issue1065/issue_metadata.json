@@ -2,108 +2,34 @@
   {
     "number": 1065,
     "title": "WebHostBuilder.ConfigureServices method not found when using nunit3testadapter 4.4.0 ",
-    "state": "closed",
+    "state": 1,
     "milestone": "4.4.1",
     "labels": [
       "is:bug",
       "closed:done"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1065",
-    "project_path": "gheylar\\tests\\tests_tests.csproj",
-    "target_frameworks": [
-      "net6.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.Extensions.DependencyInjection",
-        "version": "6.0.0"
-      },
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "17.5.0"
-      },
-      {
-        "name": "Moq",
-        "version": "4.18.4"
-      },
-      {
-        "name": "NUnit",
-        "version": "3.13.3"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "4.4.0"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1065"
   },
   {
     "number": 1065,
     "title": "WebHostBuilder.ConfigureServices method not found when using nunit3testadapter 4.4.0 ",
-    "state": "closed",
+    "state": 1,
     "milestone": "4.4.1",
     "labels": [
       "is:bug",
       "closed:done"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1065",
-    "project_path": "wiremocktests\\wiremocktests.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      },
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
-      },
-      {
-        "name": "NUnit.Analyzers",
-        "version": "4.11.2"
-      },
-      {
-        "name": "coverlet.collector",
-        "version": "6.0.4"
-      },
-      {
-        "name": "wiremock.net",
-        "version": "1.19.0"
-      },
-      {
-        "name": "NFluent",
-        "version": "3.1.0"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1065"
   },
   {
     "number": 1065,
     "title": "WebHostBuilder.ConfigureServices method not found when using nunit3testadapter 4.4.0 ",
-    "state": "closed",
+    "state": 1,
     "milestone": "4.4.1",
     "labels": [
       "is:bug",
       "closed:done"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1065",
-    "project_path": "gheylar\\lib\\lib_lib.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
-        "version": "6.0.0"
-      },
-      {
-        "name": "Microsoft.Extensions.Diagnostics.HealthChecks",
-        "version": "6.0.14"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1065"
   }
 ]

@@ -2,37 +2,11 @@
   {
     "number": 1375,
     "title": ":test_tube: New failures in dynamic code evaluation in v6",
-    "state": "closed",
+    "state": 1,
     "milestone": "6.1",
     "labels": [
       "is:bug"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1375",
-    "project_path": "Issue1375.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "coverlet.collector",
-        "version": "6.0.4"
-      },
-      {
-        "name": "CS-Script",
-        "version": "4.13.0"
-      },
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      },
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit.Analyzers",
-        "version": "4.11.2"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1375"
   }
 ]

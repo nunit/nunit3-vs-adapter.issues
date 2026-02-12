@@ -2,74 +2,11 @@
   {
     "number": 1132,
     "title": "VS22 seems to be ignoring settings defined in the settings file",
-    "state": "closed",
+    "state": 1,
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1132",
-    "project_path": "NUnitAdapterIssue.csproj",
-    "target_frameworks": [
-      "net10.0",
-      "10.0.22621.0"
-    ],
-    "packages": [
-      {
-        "name": "Autofac",
-        "version": "7.0.1"
-      },
-      {
-        "name": "FakeItEasy",
-        "version": "7.4.0"
-      },
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "17.7.2"
-      },
-      {
-        "name": "NUnit",
-        "version": "3.13.3"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "4.5.0"
-      },
-      {
-        "name": "NUnitLite",
-        "version": "3.13.3"
-      },
-      {
-        "name": "System.Configuration.ConfigurationManager",
-        "version": "7.0.0"
-      },
-      {
-        "name": "System.Resources.Extensions",
-        "version": "7.0.0"
-      },
-      {
-        "name": "System.ServiceModel.Http",
-        "version": "6.0.0"
-      },
-      {
-        "name": "System.ServiceModel.NetNamedPipe",
-        "version": "6.0.0"
-      },
-      {
-        "name": "System.ServiceModel.NetTcp",
-        "version": "6.0.0"
-      },
-      {
-        "name": "System.ServiceModel.Primitives",
-        "version": "6.0.0"
-      },
-      {
-        "name": "coverlet.collector",
-        "version": "3.2.0"
-      },
-      {
-        "name": "NUnit.Analyzers",
-        "version": "3.5.0"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1132"
   }
 ]

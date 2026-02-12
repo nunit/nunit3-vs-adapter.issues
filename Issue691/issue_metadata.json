@@ -2,7 +2,7 @@
   {
     "number": 691,
     "title": "Incorrect format for TestCaseFilter Error: Missing \u0027(\u0027",
-    "state": "closed",
+    "state": 1,
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -11,24 +11,6 @@
       "is:FQNIssue",
       "closed:fixedinnewversion"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/691",
-    "project_path": "Issue691\\Issue691\\Issue691.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "nunit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
-      },
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/691"
   }
 ]

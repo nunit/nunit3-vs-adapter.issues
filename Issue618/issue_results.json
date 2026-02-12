@@ -2,21 +2,34 @@
   {
     "number": 618,
     "project_path": "Issue618.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net472"
     ],
     "packages": [
-      "NUnit=4.4.0",
-      "NUnit3TestAdapter=6.0.0",
-      "Microsoft.NET.Test.Sdk=18.0.1"
+      "NUnit=3.14.0",
+      "NUnit3TestAdapter=4.5.0",
+      "Microsoft.NET.Test.Sdk=17.7.2"
     ],
-    "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.8716572\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.0156663\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "success",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue618\\Issue618.csproj (in 472 ms).\n  Issue618 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue618\\bin\\Debug\\net472\\Issue618.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue618\\bin\\Debug\\net472\\Issue618.dll (.NETFramework,Version=v4.7.2)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 20 ms - Issue618.dll (net472)\n",
+    "update_result": "Success",
+    "update_output": "[Issue618\\Issue618.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue618\\Issue618.csproj (in 443 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Issue618 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue618\\bin\\Debug\\net472\\Issue618.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.44\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue618\\Issue618.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue618\\Issue618.csproj (in 443 ms).\r\n\n=== Build ===\n  Issue618 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue618\\bin\\Debug\\net472\\Issue618.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.44\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue618\\bin\\Debug\\net472\\Issue618.dll (.NETFramework,Version=v4.7.2)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 11 ms - Issue618.dll (net472)\r\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure"
+    "test_conclusion": "Success: No regression failure (1 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:47:47Z",
+    "run_result": "Run",
+    "reason": ""
   }
 ]

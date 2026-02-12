@@ -2,31 +2,13 @@
   {
     "number": 822,
     "title": "dotnet test not working for net35",
-    "state": "closed",
+    "state": 1,
     "milestone": "No milestone",
     "labels": [
       "is:bug",
       "VS Issue",
       "External"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/822",
-    "project_path": "CSharpNet35\\CSharpNet35.csproj",
-    "target_frameworks": [
-      "net35"
-    ],
-    "packages": [
-      {
-        "name": "NUnit",
-        "version": "3.12.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "3.16.1"
-      },
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "16.9.3"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/822"
   }
 ]

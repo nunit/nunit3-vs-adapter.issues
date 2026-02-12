@@ -2,21 +2,34 @@
   {
     "number": 671,
     "project_path": "Issue671.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
     "packages": [
-      "NUnit=4.4.0",
-      "NUnit3TestAdapter=6.0.0",
-      "Microsoft.NET.Test.Sdk=18.0.1"
+      "NUnit=3.13.2",
+      "NUnit3TestAdapter=4.0.0-dev.751",
+      "Microsoft.NET.Test.Sdk=16.9.4"
     ],
-    "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.9862643\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.1318702\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "fail",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj (in 396 ms).\n  Issue671 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\bin\\Debug\\net10.0\\Issue671.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\bin\\Debug\\net10.0\\Issue671.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n  Failed Test1 [33 ms]\n  Error Message:\n   OneTimeSetUp: SetUp : System.Exception : oops Deep Down\n  Stack Trace:\n  --SetUp\n   at Issue671.SomeWhereDeepDown.WhatDoWeDoHere() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 44\n   at Issue671.Tests.OneTimeSetup() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 12\n   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)\n\n  Failed Test2 [34 ms]\n  Error Message:\n   OneTimeSetUp: SetUp : System.Exception : oops Deep Down\n  Stack Trace:\n  --SetUp\n   at Issue671.SomeWhereDeepDown.WhatDoWeDoHere() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 44\n   at Issue671.Tests.OneTimeSetup() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 12\n   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)\n\n\nFailed!  - Failed:     2, Passed:     0, Skipped:     0, Total:     2, Duration: 34 ms - Issue671.dll (net10.0)\n",
-    "test_error": "Setup failed for test fixture Issue671.Tests\nSetUp : System.Exception : oops Deep Down\nStackTrace: --SetUp\n   at Issue671.SomeWhereDeepDown.WhatDoWeDoHere() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 44\n   at Issue671.Tests.OneTimeSetup() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\UnitTest1.cs:line 12\n   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)\n",
-    "test_conclusion": "Failure: Regression failure."
+    "update_result": "Success",
+    "update_output": "[Issue671\\Issue671.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj : warning NU1603: Issue671 depends on NUnit3TestAdapter (\u003E= 4.0.0-dev.751) but NUnit3TestAdapter 4.0.0-dev.751 was not found. NUnit3TestAdapter 4.0.0 was resolved instead. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj (in 664 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj : warning NU1603: Issue671 depends on NUnit3TestAdapter (\u003E= 4.0.0-dev.751) but NUnit3TestAdapter 4.0.0-dev.751 was not found. NUnit3TestAdapter 4.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue671 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\bin\\Debug\\net10.0\\Issue671.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj : warning NU1603: Issue671 depends on NUnit3TestAdapter (\u003E= 4.0.0-dev.751) but NUnit3TestAdapter 4.0.0-dev.751 was not found. NUnit3TestAdapter 4.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.76\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue671\\Issue671.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj : warning NU1603: Issue671 depends on NUnit3TestAdapter (\u003E= 4.0.0-dev.751) but NUnit3TestAdapter 4.0.0-dev.751 was not found. NUnit3TestAdapter 4.0.0 was resolved instead. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj (in 664 ms).\r\n\n=== Build ===\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj : warning NU1603: Issue671 depends on NUnit3TestAdapter (\u003E= 4.0.0-dev.751) but NUnit3TestAdapter 4.0.0-dev.751 was not found. NUnit3TestAdapter 4.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue671 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\bin\\Debug\\net10.0\\Issue671.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj : warning NU1603: Issue671 depends on NUnit3TestAdapter (\u003E= 4.0.0-dev.751) but NUnit3TestAdapter 4.0.0-dev.751 was not found. NUnit3TestAdapter 4.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\Issue671.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.76\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\bin\\Debug\\net10.0\\Issue671.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nNo test is available in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue671\\bin\\Debug\\net10.0\\Issue671.dll. Make sure that test discoverer \u0026 executors are registered and platform \u0026 framework version settings are appropriate and try again.\r\n\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue671\\.runsettings",
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:48:31Z",
+    "run_result": "Run",
+    "reason": ""
   }
 ]

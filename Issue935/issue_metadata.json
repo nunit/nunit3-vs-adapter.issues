@@ -2,61 +2,25 @@
   {
     "number": 935,
     "title": "An exception occurred while invoking executor \u0027executor://nunit3testexecutor/\u0027: Incorrect format for TestCaseFilter Error when using Real Time Discovery",
-    "state": "open",
+    "state": 0,
     "milestone": "No milestone",
     "labels": [
       "is:bug",
       "VS Issue",
       "External"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/935",
-    "project_path": "NunitFSharpTestCaseSource\\CSharpTest\\CSharpTest.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
-      },
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/935"
   },
   {
     "number": 935,
     "title": "An exception occurred while invoking executor \u0027executor://nunit3testexecutor/\u0027: Incorrect format for TestCaseFilter Error when using Real Time Discovery",
-    "state": "open",
+    "state": 0,
     "milestone": "No milestone",
     "labels": [
       "is:bug",
       "VS Issue",
       "External"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/935",
-    "project_path": "NunitFSharpTestCaseSource\\TestProject1\\TestProject1.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "16.11.0"
-      },
-      {
-        "name": "NUnit",
-        "version": "3.13.2"
-      },
-      {
-        "name": "coverlet.collector",
-        "version": "3.1.0"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/935"
   }
 ]

@@ -1,21 +1,32 @@
 [
   {
     "number": 817,
-    "project_path": "NunitTestReRunProblem/TestNunit/TestNunit.csproj",
+    "project_path": "NunitTestReRunProblem\\TestNunit\\TestNunit.csproj",
     "project_style": "classic",
-    "target_frameworks": [
-      "net48"
-    ],
+    "target_frameworks": [],
     "packages": [
       "NUnit=3.13.1",
       "NUnit3TestAdapter=4.0.0-beta.1"
     ],
-    "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:01.2170225\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:01.1262067\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "success",
-    "test_output": "  Determining projects to restore...\n  Nothing to do. None of the projects specified contain packages to restore.\n",
+    "update_result": "Success",
+    "update_output": "[Issue817\\NunitTestReRunProblem\\TestNunit\\TestNunit.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Nothing to do. None of the projects specified contain packages to restore.\r\n",
+    "restore_error": "",
+    "build_result": "Failed",
+    "build_output": "C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue817\\NunitTestReRunProblem\\TestNunit\\TestNunit.csproj(62,5): error : This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is packages\\NUnit.3.13.1\\build\\NUnit.props.\r\n\r\nBuild FAILED.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue817\\NunitTestReRunProblem\\TestNunit\\TestNunit.csproj(62,5): error : This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is packages\\NUnit.3.13.1\\build\\NUnit.props.\r\n    0 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:00.39\r\n",
+    "build_error": "",
+    "test_result": "NotRun",
+    "test_output": "=== Issue817\\NunitTestReRunProblem\\TestNunit\\TestNunit.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Nothing to do. None of the projects specified contain packages to restore.\r\n\n=== Build ===\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue817\\NunitTestReRunProblem\\TestNunit\\TestNunit.csproj(62,5): error : This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is packages\\NUnit.3.13.1\\build\\NUnit.props.\r\n\r\nBuild FAILED.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue817\\NunitTestReRunProblem\\TestNunit\\TestNunit.csproj(62,5): error : This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is packages\\NUnit.3.13.1\\build\\NUnit.props.\r\n    0 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:00.39\r\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure"
+    "test_conclusion": "Failure: Build failed",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:51:56Z",
+    "run_result": "Run",
+    "reason": ""
   }
 ]

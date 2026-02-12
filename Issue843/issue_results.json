@@ -1,23 +1,36 @@
 [
   {
     "number": 843,
-    "project_path": "Issue843/Issue843.csproj",
-    "project_style": "sdk",
+    "project_path": "Issue843\\Issue843.csproj",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
     "packages": [
-      "NUnit=4.4.0",
-      "NUnit3TestAdapter=6.0.0",
-      "Microsoft.NET.Test.Sdk=18.0.1",
-      "NunitXml.TestLogger=7.0.2"
+      "NUnit=3.13.1",
+      "NUnit3TestAdapter=4.0.0-dev.600",
+      "Microsoft.NET.Test.Sdk=16.9.4",
+      "NunitXml.TestLogger=3.0.97"
     ],
-    "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\n\u00c2\u00bb Issue843\n  [net10.0]\n  NunitXml.TestLogger  7.0.2 -> 7.1.0\n\nVersion color legend:\n<red>   : Major version update or pre-release version. Possible breaking changes.\n<yellow>: Minor version update. Backwards-compatible features added.\n<green> : Patch version update. Backwards-compatible bug fixes.\n\nUpgrading package NunitXml.TestLogger...\nProject Issue843 [net10.0] upgraded successfully\n\nElapsed: 00:00:07.1446919\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.8682954\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "success",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.csproj (in 526 ms).\n  Issue843 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\bin\\Debug\\net10.0\\Issue843.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\bin\\Debug\\net10.0\\Issue843.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 14 ms - Issue843.dll (net10.0)\n",
+    "update_result": "Success",
+    "update_output": "[Issue843\\Issue843\\Issue843.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.csproj : warning NU1603: Issue843 depends on NUnit3TestAdapter (\u003E= 4.0.0-dev.600) but NUnit3TestAdapter 4.0.0-dev.600 was not found. NUnit3TestAdapter 4.0.0 was resolved instead. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.csproj (in 584 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.csproj : warning NU1603: Issue843 depends on NUnit3TestAdapter (\u003E= 4.0.0-dev.600) but NUnit3TestAdapter 4.0.0-dev.600 was not found. NUnit3TestAdapter 4.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue843 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\bin\\Debug\\net10.0\\Issue843.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.csproj : warning NU1603: Issue843 depends on NUnit3TestAdapter (\u003E= 4.0.0-dev.600) but NUnit3TestAdapter 4.0.0-dev.600 was not found. NUnit3TestAdapter 4.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.80\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue843\\Issue843\\Issue843.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.csproj : warning NU1603: Issue843 depends on NUnit3TestAdapter (\u003E= 4.0.0-dev.600) but NUnit3TestAdapter 4.0.0-dev.600 was not found. NUnit3TestAdapter 4.0.0 was resolved instead. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.csproj (in 584 ms).\r\n\n=== Build ===\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.csproj : warning NU1603: Issue843 depends on NUnit3TestAdapter (\u003E= 4.0.0-dev.600) but NUnit3TestAdapter 4.0.0-dev.600 was not found. NUnit3TestAdapter 4.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue843 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\bin\\Debug\\net10.0\\Issue843.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.csproj : warning NU1603: Issue843 depends on NUnit3TestAdapter (\u003E= 4.0.0-dev.600) but NUnit3TestAdapter 4.0.0-dev.600 was not found. NUnit3TestAdapter 4.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\Issue843.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.80\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\bin\\Debug\\net10.0\\Issue843.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nNo test is available in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue843\\Issue843\\bin\\Debug\\net10.0\\Issue843.dll. Make sure that test discoverer \u0026 executors are registered and platform \u0026 framework version settings are appropriate and try again.\r\n\r\nAdditionally, path to test adapters can be specified using /TestAdapterPath command. Example  /TestAdapterPath:\u003CpathToCustomAdapters\u003E.\r\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure"
+    "test_conclusion": "Success: No regression failure",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:52:11Z",
+    "run_result": "Run",
+    "reason": ""
   }
 ]

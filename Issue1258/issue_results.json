@@ -2,23 +2,36 @@
   {
     "number": 1258,
     "project_path": "Issue1258.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
     "packages": [
       "coverlet.collector=6.0.4",
-      "Microsoft.NET.Test.Sdk=18.0.1",
-      "NUnit=4.4.0",
-      "NUnit.Analyzers=4.11.2",
-      "NUnit3TestAdapter=6.0.0"
+      "Microsoft.NET.Test.Sdk=17.13.0",
+      "NUnit=4.3.2",
+      "NUnit.Analyzers=4.6.0",
+      "NUnit3TestAdapter=5.1.0-alpha.3"
     ],
-    "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.4177585\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.5425387\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "fail",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1258\\Issue1258.csproj (in 473 ms).\nC:\\Users\\TerjeSandstrom\\.nuget\\packages\\microsoft.testing.platform.msbuild\\2.0.2\\buildMultiTargeting\\Microsoft.Testing.Platform.MSBuild.targets(263,5): error : Testing with VSTest target is no longer supported by Microsoft.Testing.Platform on .NET 10 SDK and later. If you use dotnet test, you should opt-in to the new dotnet test experience. For more information, see https://aka.ms/dotnet-test-mtp-error [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1258\\Issue1258.csproj]\n",
+    "update_result": "Success",
+    "update_output": "[Issue1258\\Issue1258.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1258\\Issue1258.csproj (in 495 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Issue1258 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1258\\bin\\Debug\\net10.0\\Issue1258.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.91\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue1258\\Issue1258.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1258\\Issue1258.csproj (in 495 ms).\r\n\n=== Build ===\n  Issue1258 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1258\\bin\\Debug\\net10.0\\Issue1258.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.91\r\n\n=== Test ===\nRunning tests from C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1258\\bin\\Debug\\net10.0\\Issue1258.dll (net10.0|x64)\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1258\\bin\\Debug\\net10.0\\Issue1258.dll (net10.0|x64) passed (542ms)\r\n\r\nTest run summary: Passed!\r\n  total: 2\r\n  failed: 0\r\n  succeeded: 2\r\n  skipped: 0\r\n  duration: 933ms\r\n",
     "test_error": "",
-    "test_conclusion": "Failure: Regression failure."
+    "test_conclusion": "Success: No regression failure (2 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue1258\\.runsettings",
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:41:15Z",
+    "run_result": "Run",
+    "reason": ""
   }
 ]

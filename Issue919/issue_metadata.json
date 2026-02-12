@@ -2,30 +2,12 @@
   {
     "number": 919,
     "title": "VSTest test case filter does not work with parenthesis",
-    "state": "closed",
+    "state": 1,
     "milestone": "4.2",
     "labels": [
       "is:bug",
       "closed:done"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/919",
-    "project_path": "Issue919.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      },
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "coverlet.collector",
-        "version": "6.0.4"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/919"
   }
 ]

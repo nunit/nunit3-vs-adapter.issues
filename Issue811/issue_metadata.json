@@ -2,30 +2,12 @@
   {
     "number": 811,
     "title": "\u0022System.FormatException: The UTC representation of the date falls outside the year range 1-9999\u0022 from skipped test in Eastern European time zone",
-    "state": "closed",
+    "state": 1,
     "milestone": "4.0.0-beta.2",
     "labels": [
       "is:bug",
       "closed:done"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/811",
-    "project_path": "Issue811.csproj",
-    "target_frameworks": [
-      "net4.5"
-    ],
-    "packages": [
-      {
-        "name": "NUnit",
-        "version": "3.14.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "3.17.0"
-      },
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "17.3.3"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/811"
   }
 ]

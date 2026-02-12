@@ -2,30 +2,12 @@
   {
     "number": 780,
     "title": "NUnit3TestAdapter 3.17.0 empty output file regression?",
-    "state": "closed",
+    "state": 1,
     "milestone": "4.0.0-beta.1",
     "labels": [
       "is:bug",
       "closed:done"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/780",
-    "project_path": "Issue780.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
-      },
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/780"
   }
 ]

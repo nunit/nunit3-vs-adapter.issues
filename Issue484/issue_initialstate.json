@@ -1,0 +1,26 @@
+{
+  "number": 484,
+  "projects": [
+    {
+      "project_path": "Issue484/Issue484.csproj",
+      "target_frameworks": [
+        "net472"
+      ],
+      "packages": [
+        {
+          "name": "nunit",
+          "version": "3.13.2"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "4.0.0"
+        },
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "16.10.0"
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-01-29T16:04:45Z"
+}

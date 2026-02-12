@@ -1,0 +1,26 @@
+{
+  "number": 718,
+  "projects": [
+    {
+      "project_path": "Issue718.csproj",
+      "target_frameworks": [
+        "net8.0"
+      ],
+      "packages": [
+        {
+          "name": "NUnit",
+          "version": "4.1.0"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "4.6.0-beta.2-dbg"
+        },
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "17.9.0"
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-01-29T16:04:47Z"
+}

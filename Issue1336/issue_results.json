@@ -2,23 +2,36 @@
   {
     "number": 1336,
     "project_path": "Issue1336.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
     "packages": [
       "coverlet.collector=6.0.4",
-      "Microsoft.NET.Test.Sdk=18.0.1",
+      "Microsoft.NET.Test.Sdk=18.0.0",
       "NUnit=4.4.0",
-      "NUnit.Analyzers=4.11.2",
-      "NUnit3TestAdapter=6.0.0"
+      "NUnit.Analyzers=4.10.0",
+      "NUnit3TestAdapter=5.2.0"
     ],
-    "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3833647\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.2370368\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "fail",
-    "test_output": "",
-    "test_error": "Specifying a solution for 'dotnet test' should be via '--solution'.\n",
-    "test_conclusion": "Failure: Open issue, repro fails."
+    "update_result": "Success",
+    "update_output": "[Issue1336\\Issue1336.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1336\\Issue1336.csproj (in 479 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Issue1336 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1336\\bin\\Debug\\net10.0\\Issue1336.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.54\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue1336\\Issue1336.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1336\\Issue1336.csproj (in 479 ms).\r\n\n=== Build ===\n  Issue1336 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1336\\bin\\Debug\\net10.0\\Issue1336.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.54\r\n\n=== Test ===\nRunning tests from C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1336\\bin\\Debug\\net10.0\\Issue1336.dll (net10.0|x64)\r\n[\u002B0/x0/?0] Issue1336.dll (net10.0|x64)(2s)\r\n\r\n[\u002B0/x0/?0] Issue1336.dll (net10.0|x64)(5s)\r\n\r\n[\u002B0/x0/?0] Issue1336.dll (net10.0|x64)(8s)\r\n\r\n[\u002B0/x0/?0] Issue1336.dll (net10.0|x64)(11s)\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1336\\bin\\Debug\\net10.0\\Issue1336.dll (net10.0|x64) passed (12s 630ms)\r\n\r\nTest run summary: Passed!\r\n  total: 1\r\n  failed: 0\r\n  succeeded: 1\r\n  skipped: 0\r\n  duration: 13s 037ms\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (1 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue1336\\.runsettings",
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:43:53Z",
+    "run_result": "Run",
+    "reason": ""
   }
 ]

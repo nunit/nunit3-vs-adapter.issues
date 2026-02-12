@@ -2,39 +2,13 @@
   {
     "number": 909,
     "title": "Tests marked as \u0022Explicit\u0022 are reported as \u0022Inconclusive\u0022",
-    "state": "closed",
+    "state": 1,
     "milestone": "No milestone",
     "labels": [
       "VS Issue",
       "External",
       "closed:SomebodyElsesProblem"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/909",
-    "project_path": "Issue909.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      },
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
-      },
-      {
-        "name": "coverlet.collector",
-        "version": "6.0.4"
-      },
-      {
-        "name": "NunitXml.TestLogger",
-        "version": "7.0.2"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/909"
   }
 ]

@@ -1,0 +1,26 @@
+{
+  "number": 854,
+  "projects": [
+    {
+      "project_path": "Issue854.csproj",
+      "target_frameworks": [
+        "net5.0"
+      ],
+      "packages": [
+        {
+          "name": "NUnit",
+          "version": "3.13.2"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "4.0.0"
+        },
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "16.10.0"
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-01-29T16:04:49Z"
+}

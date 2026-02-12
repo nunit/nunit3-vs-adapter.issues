@@ -2,37 +2,11 @@
   {
     "number": 765,
     "title": "TestCaseSource \u002B NSubstitute \u002B Async = Skipped Tests in VS 2019",
-    "state": "closed",
+    "state": 1,
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/765",
-    "project_path": "NSubstituteSkippedTestDemo\\NSubstituteSkippedTestDemo\\NSubstituteSkippedTestDemo.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "NSubstitute",
-        "version": "5.3.0"
-      },
-      {
-        "name": "NSubstitute.Analyzers.CSharp",
-        "version": "1.0.17"
-      },
-      {
-        "name": "nunit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
-      },
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/765"
   }
 ]

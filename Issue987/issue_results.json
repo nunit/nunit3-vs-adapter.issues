@@ -1,0 +1,36 @@
+[
+  {
+    "number": 987,
+    "project_path": "MyProject.Test\\MyProject.Test\\MyProject.Test.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net462"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=17.2.0",
+      "nunit=3.13.3",
+      "NUnit3TestAdapter=4.3.1-alpha.109-dbg",
+      "FluentAssertions=5.10.3"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue987\\MyProject.Test\\MyProject.Test\\MyProject.Test.csproj]\nRestored to initial state\n\n[Issue987\\MyProject.Test\\SecondTest\\SecondTest.csproj]\nRestored to initial state\n\n[Issue987\\MyProject.Test\\ClassLibrary1\\ClassLibrary1.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  ClassLibrary1 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\ClassLibrary1\\bin\\Debug\\net462\\ClassLibrary1.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.04\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue987\\MyProject.Test\\MyProject.Test\\MyProject.Test.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\MyProject.Test\\MyProject.Test.csproj : warning NU1603: MyProject.Test depends on NUnit3TestAdapter (\u003E= 4.3.1-alpha.109-dbg) but NUnit3TestAdapter 4.3.1-alpha.109-dbg was not found. NUnit3TestAdapter 4.3.1 was resolved instead.\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\MyProject.Test\\MyProject.Test.csproj (in 588 ms).\r\n\n=== Build ===\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\MyProject.Test\\MyProject.Test.csproj : warning NU1603: MyProject.Test depends on NUnit3TestAdapter (\u003E= 4.3.1-alpha.109-dbg) but NUnit3TestAdapter 4.3.1-alpha.109-dbg was not found. NUnit3TestAdapter 4.3.1 was resolved instead. [TargetFramework=net462]\r\n  MyProject.Test -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\MyProject.Test\\bin\\Debug\\net462\\MyProject.Test.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\MyProject.Test\\MyProject.Test.csproj : warning NU1603: MyProject.Test depends on NUnit3TestAdapter (\u003E= 4.3.1-alpha.109-dbg) but NUnit3TestAdapter 4.3.1-alpha.109-dbg was not found. NUnit3TestAdapter 4.3.1 was resolved instead. [TargetFramework=net462]\r\n    1 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.46\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\MyProject.Test\\bin\\Debug\\net462\\MyProject.Test.dll (.NETFramework,Version=v4.6.2)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 213 ms - MyProject.Test.dll (net462)\r\n\n\n=== Issue987\\MyProject.Test\\SecondTest\\SecondTest.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\SecondTest\\SecondTest.csproj : warning NU1603: SecondTest depends on NUnit3TestAdapter (\u003E= 4.3.1-alpha.109-dbg) but NUnit3TestAdapter 4.3.1-alpha.109-dbg was not found. NUnit3TestAdapter 4.3.1 was resolved instead.\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\SecondTest\\SecondTest.csproj (in 539 ms).\r\n\n=== Build ===\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\SecondTest\\SecondTest.csproj : warning NU1603: SecondTest depends on NUnit3TestAdapter (\u003E= 4.3.1-alpha.109-dbg) but NUnit3TestAdapter 4.3.1-alpha.109-dbg was not found. NUnit3TestAdapter 4.3.1 was resolved instead.\r\n  SecondTest -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\SecondTest\\bin\\Debug\\net462\\SecondTest.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\SecondTest\\SecondTest.csproj : warning NU1603: SecondTest depends on NUnit3TestAdapter (\u003E= 4.3.1-alpha.109-dbg) but NUnit3TestAdapter 4.3.1-alpha.109-dbg was not found. NUnit3TestAdapter 4.3.1 was resolved instead.\r\n    1 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.31\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\SecondTest\\bin\\Debug\\net462\\SecondTest.dll (.NETFramework,Version=v4.6.2)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 213 ms - SecondTest.dll (net462)\r\n\n\n=== Issue987\\MyProject.Test\\ClassLibrary1\\ClassLibrary1.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n\n=== Build ===\n  ClassLibrary1 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue987\\MyProject.Test\\ClassLibrary1\\bin\\Debug\\net462\\ClassLibrary1.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.04\r\n\n=== Test ===\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (2 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:55:41Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

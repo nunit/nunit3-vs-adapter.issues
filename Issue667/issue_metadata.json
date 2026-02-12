@@ -2,53 +2,21 @@
   {
     "number": 667,
     "title": "Add a way to specify a custom resultwriter in .runsettings w/ TestOutputXml",
-    "state": "open",
+    "state": 0,
     "milestone": "No milestone",
     "labels": [
       "is:enhancement"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/667",
-    "project_path": "Issue\\Issue667.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "nunit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit.Engine",
-        "version": "3.21.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
-      },
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/667"
   },
   {
     "number": 667,
     "title": "Add a way to specify a custom resultwriter in .runsettings w/ TestOutputXml",
-    "state": "open",
+    "state": 0,
     "milestone": "No milestone",
     "labels": [
       "is:enhancement"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/667",
-    "project_path": "ReportExt\\ReportExt.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "NUnit.Engine",
-        "version": "3.21.1"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/667"
   }
 ]

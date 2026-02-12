@@ -2,97 +2,31 @@
   {
     "number": 972,
     "title": "Nunit won\u0027t discover working non explicit tests Visual studio 2022",
-    "state": "closed",
+    "state": 1,
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/972",
-    "project_path": "Issue_972\\Issue_972.API\\Issue_972.API.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.EntityFrameworkCore.SqlServer",
-        "version": "6.0.4"
-      },
-      {
-        "name": "Microsoft.EntityFrameworkCore.Tools",
-        "version": "6.0.4"
-      },
-      {
-        "name": "Microsoft.VisualStudio.Web.CodeGeneration.Design",
-        "version": "6.0.3"
-      },
-      {
-        "name": "Swashbuckle.AspNetCore",
-        "version": "6.3.0"
-      },
-      {
-        "name": "System.Collections",
-        "version": "4.3.0"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/972"
   },
   {
     "number": 972,
     "title": "Nunit won\u0027t discover working non explicit tests Visual studio 2022",
-    "state": "closed",
+    "state": 1,
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/972",
-    "project_path": "Issue_972\\Issue_972.common\\Issue_972.common.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.EntityFrameworkCore.Design",
-        "version": "10.0.1"
-      },
-      {
-        "name": "Microsoft.EntityFrameworkCore.SqlServer",
-        "version": "10.0.1"
-      },
-      {
-        "name": "Microsoft.EntityFrameworkCore.Tools",
-        "version": "10.0.1"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/972"
   },
   {
     "number": 972,
     "title": "Nunit won\u0027t discover working non explicit tests Visual studio 2022",
-    "state": "closed",
+    "state": 1,
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/972",
-    "project_path": "Issue_972\\Issue_972\\Issue_972.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      },
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
-      },
-      {
-        "name": "coverlet.collector",
-        "version": "6.0.4"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/972"
   }
 ]

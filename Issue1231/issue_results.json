@@ -2,23 +2,36 @@
   {
     "number": 1231,
     "project_path": "Issue1231.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
     "packages": [
-      "coverlet.collector=6.0.4",
-      "Microsoft.NET.Test.Sdk=18.0.1",
-      "NUnit=4.4.0",
-      "NUnit.Analyzers=4.11.2",
-      "NUnit3TestAdapter=6.0.0"
+      "coverlet.collector=6.0.2",
+      "Microsoft.NET.Test.Sdk=17.11.1",
+      "NUnit=4.2.2",
+      "NUnit.Analyzers=4.3.0",
+      "NUnit3TestAdapter=4.6.0"
     ],
-    "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.2497218\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.4205555\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "success",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1231\\Issue1231.csproj (in 538 ms).\n  Issue1231 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1231\\bin\\Debug\\net10.0\\Issue1231.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1231\\bin\\Debug\\net10.0\\Issue1231.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     4, Skipped:     0, Total:     4, Duration: 54 ms - Issue1231.dll (net10.0)\n",
+    "update_result": "Success",
+    "update_output": "[Issue1231\\Issue1231.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1231\\Issue1231.csproj (in 373 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Issue1231 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1231\\bin\\Debug\\net10.0\\Issue1231.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.37\r\n",
+    "build_error": "",
+    "test_result": "Failed",
+    "test_output": "=== Issue1231\\Issue1231.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1231\\Issue1231.csproj (in 373 ms).\r\n\n=== Build ===\n  Issue1231 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1231\\bin\\Debug\\net10.0\\Issue1231.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.37\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1231\\bin\\Debug\\net10.0\\Issue1231.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nException NUnit.Engine.NUnitEngineException,    Exception thrown executing tests in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1231\\bin\\Debug\\net10.0\\Issue1231.dll\r\nFailed to load the test assembly C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1231\\bin\\Debug\\net10.0\\Issue1231.dll\r\n   at NUnit.Engine.Drivers.NUnitNetCore31Driver.Load(String assemblyPath, IDictionary\u00602 settings)\r\n   at NUnit.Engine.Runners.DirectTestRunner.LoadDriver(IFrameworkDriver driver, String testFile, TestPackage subPackage)\r\n   at NUnit.Engine.Runners.DirectTestRunner.LoadPackage()\r\n   at NUnit.Engine.Runners.DirectTestRunner.EnsurePackageIsLoaded()\r\n   at NUnit.Engine.Runners.DirectTestRunner.Explore(TestFilter filter)\r\n   at NUnit.Engine.Runners.MasterTestRunner.Explore(TestFilter filter)\r\n   at NUnit.VisualStudio.TestAdapter.NUnitEngine.NUnitEngineAdapter.Explore(TestFilter filter) in C:\\repos\\nunit\\nunit3-vs-adapter\\src\\NUnitTestAdapter\\NUnitEngine\\NUnitEngineAdapter.cs:line 95\r\n   at NUnit.VisualStudio.TestAdapter.NUnit3TestExecutor.RunAssembly(String assemblyPath, IGrouping\u00602 testCases, TestFilter filter, String assemblyName) in C:\\repos\\nunit\\nunit3-vs-adapter\\src\\NUnitTestAdapter\\NUnit3TestExecutor.cs:line 315\r\nInnerException: System.IO.FileNotFoundException: Could not load file or assembly \u0027Microsoft.Extensions.DependencyModel, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60\u0027. The system cannot find the file specified.\r\nFile name: \u0027Microsoft.Extensions.DependencyModel, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60\u0027\r\n   at NUnit.Engine.Internal.RuntimeLibrariesStrategy..ctor(AssemblyLoadContext loadContext, String testAssemblyPath)\r\n   at NUnit.Engine.Internal.RuntimeLibrariesStrategy..ctor(AssemblyLoadContext loadContext, String testAssemblyPath)\r\n   at NUnit.Engine.Internal.TestAssemblyResolver.InitializeResolutionStrategies(AssemblyLoadContext loadContext, String testAssemblyPath)\r\n   at NUnit.Engine.Internal.TestAssemblyResolver..ctor(AssemblyLoadContext loadContext, String testAssemblyPath)\r\n   at NUnit.Engine.Drivers.NUnitNetCore31Driver.Load(String assemblyPath, IDictionary\u00602 settings)\r\n  Failed C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1231\\bin\\Debug\\net10.0\\Issue1231.dll\r\n  Error Message:\r\n   NUnit.Engine.NUnitEngineException: Failed to load the test assembly C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1231\\bin\\Debug\\net10.0\\Issue1231.dll\r\n ---\u003E System.IO.FileNotFoundException: Could not load file or assembly \u0027Microsoft.Extensions.DependencyModel, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60\u0027. The system cannot find the file specified.\r\nFile name: \u0027Microsoft.Extensions.DependencyModel, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60\u0027\r\n   at NUnit.Engine.Internal.RuntimeLibrariesStrategy..ctor(AssemblyLoadContext loadContext, String testAssemblyPath)\r\n   at NUnit.Engine.Internal.RuntimeLibrariesStrategy..ctor(AssemblyLoadContext loadContext, String testAssemblyPath)\r\n   at NUnit.Engine.Internal.TestAssemblyResolver.InitializeResolutionStrategies(AssemblyLoadContext loadContext, String testAssemblyPath)\r\n   at NUnit.Engine.Internal.TestAssemblyResolver..ctor(AssemblyLoadContext loadContext, String testAssemblyPath)\r\n   at NUnit.Engine.Drivers.NUnitNetCore31Driver.Load(String assemblyPath, IDictionary\u00602 settings)\r\n   --- End of inner exception stack trace ---\r\n   at NUnit.Engine.Drivers.NUnitNetCore31Driver.Load(String assemblyPath, IDictionary\u00602 settings)\r\n   at NUnit.Engine.Runners.DirectTestRunner.LoadDriver(IFrameworkDriver driver, String testFile, TestPackage subPackage)\r\n   at NUnit.Engine.Runners.DirectTestRunner.LoadPackage()\r\n   at NUnit.Engine.Runners.DirectTestRunner.EnsurePackageIsLoaded()\r\n   at NUnit.Engine.Runners.DirectTestRunner.Explore(TestFilter filter)\r\n   at NUnit.Engine.Runners.MasterTestRunner.Explore(TestFilter filter)\r\n   at NUnit.VisualStudio.TestAdapter.NUnitEngine.NUnitEngineAdapter.Explore(TestFilter filter) in C:\\repos\\nunit\\nunit3-vs-adapter\\src\\NUnitTestAdapter\\NUnitEngine\\NUnitEngineAdapter.cs:line 95\r\n   at NUnit.VisualStudio.TestAdapter.NUnit3TestExecutor.RunAssembly(String assemblyPath, IGrouping\u00602 testCases, TestFilter filter, String assemblyName) in C:\\repos\\nunit\\nunit3-vs-adapter\\src\\NUnitTestAdapter\\NUnit3TestExecutor.cs:line 315\r\n  Stack Trace:\r\n     at NUnit.Engine.Drivers.NUnitNetCore31Driver.Load(String assemblyPath, IDictionary\u00602 settings)\r\n   at NUnit.Engine.Runners.DirectTestRunner.LoadDriver(IFrameworkDriver driver, String testFile, TestPackage subPackage)\r\n   at NUnit.Engine.Runners.DirectTestRunner.LoadPackage()\r\n   at NUnit.Engine.Runners.DirectTestRunner.EnsurePackageIsLoaded()\r\n   at NUnit.Engine.Runners.DirectTestRunner.Explore(TestFilter filter)\r\n   at NUnit.Engine.Runners.MasterTestRunner.Explore(TestFilter filter)\r\n   at NUnit.VisualStudio.TestAdapter.NUnitEngine.NUnitEngineAdapter.Explore(TestFilter filter) in C:\\repos\\nunit\\nunit3-vs-adapter\\src\\NUnitTestAdapter\\NUnitEngine\\NUnitEngineAdapter.cs:line 95\r\n   at NUnit.VisualStudio.TestAdapter.NUnit3TestExecutor.RunAssembly(String assemblyPath, IGrouping\u00602 testCases, TestFilter filter, String assemblyName) in C:\\repos\\nunit\\nunit3-vs-adapter\\src\\NUnitTestAdapter\\NUnit3TestExecutor.cs:line 315\r\n\r\nFailed!  - Failed:     1, Passed:     0, Skipped:     0, Total:     1, Duration: \u003C 1 ms - Issue1231.dll (net10.0)\r\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure"
+    "test_conclusion": "Failure: Test assertions failed (0 passed, 1 failed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:40:40Z",
+    "run_result": "Run",
+    "reason": ""
   }
 ]

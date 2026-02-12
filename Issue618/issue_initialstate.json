@@ -1,0 +1,26 @@
+{
+  "number": 618,
+  "projects": [
+    {
+      "project_path": "Issue618.csproj",
+      "target_frameworks": [
+        "net472"
+      ],
+      "packages": [
+        {
+          "name": "NUnit",
+          "version": "3.14.0"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "4.5.0"
+        },
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "17.7.2"
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-01-29T16:04:45Z"
+}

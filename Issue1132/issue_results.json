@@ -2,9 +2,9 @@
   {
     "number": 1132,
     "project_path": "NUnitAdapterIssue.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
-      "net10.0;10.0.22621.0"
+      "net7.0-windows10.0.22621.0"
     ],
     "packages": [
       "Autofac=7.0.1",
@@ -22,12 +22,25 @@
       "coverlet.collector=3.2.0",
       "NUnit.Analyzers=3.5.0"
     ],
-    "update_result": "fail",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\n",
-    "update_error": "[nunit]\nUnable to process the project `C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln. Are you sure this is a valid .NET Core or .NET Standard project type?\n\nHere is the full error message returned from the Microsoft Build Engine:\n\nMSBuild version 18.0.2+b0f34d51f for .NET\n  Determining projects to restore...\nC:\\Program Files\\dotnet\\sdk\\10.0.100\\NuGet.targets(196,5): error : Operation is not valid due to the current state of the object. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln]\n -  - exit code: 1\n\n[other]\nUnable to process the project `C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln. Are you sure this is a valid .NET Core or .NET Standard project type?\n\nHere is the full error message returned from the Microsoft Build Engine:\n\nMSBuild version 18.0.2+b0f34d51f for .NET\n  Determining projects to restore...\nC:\\Program Files\\dotnet\\sdk\\10.0.100\\NuGet.targets(196,5): error : Operation is not valid due to the current state of the object. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln]\n -  - exit code: 1\n",
-    "test_result": "fail",
-    "test_output": "  Determining projects to restore...\nC:\\Program Files\\dotnet\\sdk\\10.0.100\\NuGet.targets(196,5): error : Operation is not valid due to the current state of the object. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.sln]\n",
-    "test_error": "",
-    "test_conclusion": "Failure: Regression failure."
+    "update_result": "Success",
+    "update_output": "[Issue1132\\NUnitAdapterIssue.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\nC:\\Program Files\\dotnet\\sdk\\10.0.102\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework \u0027net7.0-windows10.0.22621.0\u0027 is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.csproj]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.csproj (in 958 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "C:\\Program Files\\dotnet\\sdk\\10.0.102\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework \u0027net7.0-windows10.0.22621.0\u0027 is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.csproj]\r\n  NUnitAdapterIssue -\u003E c:\\temp\\bin\\NUnitAdapterIssue.dll\r\n  A subdirectory or file C:\\Temp\\bin\\ already exists.\r\n  \u0022Copying pdb files to C:\\Temp\\bin\\\u0022\r\n  c:\\temp\\bin\\\r\n  NUnitAdapterIssue\r\n  C:\\Temp\\bin\\\r\n\r\nBuild succeeded.\r\n\r\nC:\\Program Files\\dotnet\\sdk\\10.0.102\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework \u0027net7.0-windows10.0.22621.0\u0027 is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.csproj]\r\n    1 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.89\r\n",
+    "build_error": "",
+    "test_result": "Failed",
+    "test_output": "=== Issue1132\\NUnitAdapterIssue.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\Program Files\\dotnet\\sdk\\10.0.102\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework \u0027net7.0-windows10.0.22621.0\u0027 is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.csproj]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.csproj (in 958 ms).\r\n\n=== Build ===\nC:\\Program Files\\dotnet\\sdk\\10.0.102\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework \u0027net7.0-windows10.0.22621.0\u0027 is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.csproj]\r\n  NUnitAdapterIssue -\u003E c:\\temp\\bin\\NUnitAdapterIssue.dll\r\n  A subdirectory or file C:\\Temp\\bin\\ already exists.\r\n  \u0022Copying pdb files to C:\\Temp\\bin\\\u0022\r\n  c:\\temp\\bin\\\r\n  NUnitAdapterIssue\r\n  C:\\Temp\\bin\\\r\n\r\nBuild succeeded.\r\n\r\nC:\\Program Files\\dotnet\\sdk\\10.0.102\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework \u0027net7.0-windows10.0.22621.0\u0027 is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1132\\NUnitAdapterIssue.csproj]\r\n    1 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.89\r\n\n=== Test ===\nTest run for c:\\temp\\bin\\NUnitAdapterIssue.dll (.NETCoreApp,Version=v7.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\n",
+    "test_error": "=== Issue1132\\NUnitAdapterIssue.csproj ===\n=== Test Error ===\nTesthost process for source(s) \u0027c:\\temp\\bin\\NUnitAdapterIssue.dll\u0027 exited with error: You must install or update .NET to run this application.\r\nApp: c:\\temp\\bin\\testhost.exe\r\nArchitecture: x64\r\nFramework: \u0027Microsoft.NETCore.App\u0027, version \u00277.0.0\u0027 (x64)\r\n.NET location: C:\\Program Files\\dotnet\r\nThe following frameworks were found:\r\n  3.1.32 at [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  6.0.36 at [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  8.0.22 at [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  8.0.23 at [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  9.0.11 at [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  9.0.12 at [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  10.0.2 at [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\nThe following frameworks for other architectures were found:\r\n  x86\r\n    3.1.32 at [C:\\Program Files (x86)\\dotnet\\shared\\Microsoft.NETCore.App]\r\n    6.0.36 at [C:\\Program Files (x86)\\dotnet\\shared\\Microsoft.NETCore.App]\r\n    8.0.22 at [C:\\Program Files (x86)\\dotnet\\shared\\Microsoft.NETCore.App]\r\n    8.0.23 at [C:\\Program Files (x86)\\dotnet\\shared\\Microsoft.NETCore.App]\r\n    9.0.11 at [C:\\Program Files (x86)\\dotnet\\shared\\Microsoft.NETCore.App]\r\n    9.0.12 at [C:\\Program Files (x86)\\dotnet\\shared\\Microsoft.NETCore.App]\r\n    10.0.2 at [C:\\Program Files (x86)\\dotnet\\shared\\Microsoft.NETCore.App]\r\nLearn more:\r\nhttps://aka.ms/dotnet/app-launch-failed\r\nTo install missing framework, download:\r\nhttps://aka.ms/dotnet-core-applaunch?framework=Microsoft.NETCore.App\u0026framework_version=7.0.0\u0026arch=x64\u0026rid=win-x64\u0026os=win10\r\n. Please check the diagnostic logs for more information.\r\nTest Run Aborted.\r\n",
+    "test_conclusion": "Failure: No tests found",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:38:11Z",
+    "run_result": "Run",
+    "reason": ""
   }
 ]

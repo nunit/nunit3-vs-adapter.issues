@@ -2,25 +2,13 @@
   {
     "number": 817,
     "title": "[Azure Devops Pipeline]: Error re-running test with TestCase Attribute",
-    "state": "closed",
+    "state": 1,
     "milestone": "No milestone",
     "labels": [
       "Investigate",
       "is:FQNIssue",
       "closed:fixedinnewversion"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/817",
-    "project_path": "NunitTestReRunProblem\\TestNunit\\TestNunit.csproj",
-    "target_frameworks": [],
-    "packages": [
-      {
-        "name": "NUnit",
-        "version": "3.13.1"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "4.0.0-beta.1"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/817"
   }
 ]

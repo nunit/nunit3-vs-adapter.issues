@@ -2,59 +2,23 @@
   {
     "number": 758,
     "title": "Feature Request: Adapter to support NonTestAssemblyAttribute",
-    "state": "closed",
+    "state": 1,
     "milestone": "3.17",
     "labels": [
       "closed:done",
       "is:idea"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/758",
-    "project_path": "Issue758\\Issue758.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "nunit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
-      },
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/758"
   },
   {
     "number": 758,
     "title": "Feature Request: Adapter to support NonTestAssemblyAttribute",
-    "state": "closed",
+    "state": 1,
     "milestone": "3.17",
     "labels": [
       "closed:done",
       "is:idea"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/758",
-    "project_path": "SkipThisAssembly\\SkipThisAssembly.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "nunit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.1"
-      },
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/758"
   }
 ]

@@ -2,61 +2,25 @@
   {
     "number": 941,
     "title": "When running dotnet test with filter, all tests are run and all console output is logged.",
-    "state": "closed",
+    "state": 1,
     "milestone": "4.2.1",
     "labels": [
       "is:bug",
       "closed:done",
       "pri:critical"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/941",
-    "project_path": "filtertest2\\filtertest2.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      },
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "coverlet.collector",
-        "version": "6.0.4"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/941"
   },
   {
     "number": 941,
     "title": "When running dotnet test with filter, all tests are run and all console output is logged.",
-    "state": "closed",
+    "state": 1,
     "milestone": "4.2.1",
     "labels": [
       "is:bug",
       "closed:done",
       "pri:critical"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/941",
-    "project_path": "filtertest\\filtertest.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      },
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "coverlet.collector",
-        "version": "6.0.4"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/941"
   }
 ]

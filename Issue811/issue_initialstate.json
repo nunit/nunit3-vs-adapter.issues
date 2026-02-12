@@ -1,0 +1,26 @@
+{
+  "number": 811,
+  "projects": [
+    {
+      "project_path": "Issue811.csproj",
+      "target_frameworks": [
+        "net4.5"
+      ],
+      "packages": [
+        {
+          "name": "NUnit",
+          "version": "3.13.0"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "3.17.0"
+        },
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "15.9.2"
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-01-29T16:04:49Z"
+}

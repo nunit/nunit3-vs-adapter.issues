@@ -2,22 +2,35 @@
   {
     "number": 228,
     "project_path": "Issue228.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
     "packages": [
       "Microsoft.NET.Test.Sdk=18.0.1",
       "NUnit=4.4.0",
-      "NUnit3TestAdapter=6.0.0",
+      "NUnit3TestAdapter=6.0.0-beta.3",
       "coverlet.collector=6.0.4"
     ],
-    "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.0774738\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:02.5490093\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "success",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue228\\Issue228.csproj (in 345 ms).\n  Issue228 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue228\\bin\\Debug\\net10.0\\Issue228.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue228\\bin\\Debug\\net10.0\\Issue228.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     2, Skipped:     0, Total:     2, Duration: 43 ms - Issue228.dll (net10.0)\n",
+    "update_result": "Success",
+    "update_output": "[Issue228\\Issue228.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue228\\Issue228.csproj (in 508 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Issue228 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue228\\bin\\Debug\\net10.0\\Issue228.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.76\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue228\\Issue228.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue228\\Issue228.csproj (in 508 ms).\r\n\n=== Build ===\n  Issue228 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue228\\bin\\Debug\\net10.0\\Issue228.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.76\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue228\\bin\\Debug\\net10.0\\Issue228.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     2, Skipped:     0, Total:     2, Duration: 41 ms - Issue228.dll (net10.0)\r\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure"
+    "test_conclusion": "Success: No regression failure (2 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:45:42Z",
+    "run_result": "Run",
+    "reason": ""
   }
 ]

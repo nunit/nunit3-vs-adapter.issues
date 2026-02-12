@@ -2,23 +2,36 @@
   {
     "number": 1096,
     "project_path": "NUnitParseIssue.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
-      "net10.0"
+      "net6.0-windows"
     ],
     "packages": [
-      "Moq=4.20.72",
-      "NUnit=4.4.0",
-      "NUnit3TestAdapter=6.0.0",
-      "Microsoft.NET.Test.Sdk=18.0.1",
-      "NunitXml.TestLogger=7.0.2"
+      "Moq=4.18.2",
+      "NUnit=3.13.3",
+      "NUnit3TestAdapter=4.3.0",
+      "Microsoft.NET.Test.Sdk=17.3.2",
+      "NunitXml.TestLogger=3.0.127"
     ],
-    "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\n\u00c2\u00bb NUnitParseIssue\n  [net10.0]\n  NunitXml.TestLogger  7.0.2 -> 7.1.0\n\nVersion color legend:\n<red>   : Major version update or pre-release version. Possible breaking changes.\n<yellow>: Minor version update. Backwards-compatible features added.\n<green> : Patch version update. Backwards-compatible bug fixes.\n\nUpgrading package NunitXml.TestLogger...\nProject NUnitParseIssue [net10.0] upgraded successfully\n\nElapsed: 00:00:06.3476428\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.4266692\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "fail",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\NUnitParseIssue.csproj (in 403 ms).\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\S0\\Issue.cs(11,20): error CS0117: 'Assert' does not contain a definition for 'AreEqual' [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\NUnitParseIssue.csproj]\n",
+    "update_result": "Success",
+    "update_output": "[Issue1096\\NUnitParseIssue.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\NUnitParseIssue.csproj (in 1.3 sec).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  NUnitParseIssue -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\bin\\Debug\\net6.0-windows\\NUnitParseIssue.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.95\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue1096\\NUnitParseIssue.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\NUnitParseIssue.csproj (in 1.3 sec).\r\n\n=== Build ===\n  NUnitParseIssue -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\bin\\Debug\\net6.0-windows\\NUnitParseIssue.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.95\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1096\\bin\\Debug\\net6.0-windows\\NUnitParseIssue.dll (.NETCoreApp,Version=v6.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 19 ms - NUnitParseIssue.dll (net6.0)\r\n",
     "test_error": "",
-    "test_conclusion": "Failure: Regression failure."
+    "test_conclusion": "Success: No regression failure (1 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:37:25Z",
+    "run_result": "Run",
+    "reason": ""
   }
 ]

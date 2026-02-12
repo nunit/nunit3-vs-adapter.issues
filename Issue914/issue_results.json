@@ -2,21 +2,34 @@
   {
     "number": 914,
     "project_path": "Issue914.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net10.0"
     ],
     "packages": [
-      "Microsoft.NET.Test.Sdk=18.0.1",
-      "NUnit=4.4.0",
-      "coverlet.collector=6.0.4"
+      "Microsoft.NET.Test.Sdk=16.11.0",
+      "NUnit=3.13.2",
+      "coverlet.collector=3.1.0"
     ],
-    "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.0915449\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.0041352\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "success",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.csproj (in 455 ms).\n  Issue914 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\bin\\Debug\\net10.0\\Issue914.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\bin\\Debug\\net10.0\\Issue914.dll (.NETCoreApp,Version=v10.0)\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 6 ms - Issue914.dll (net10.0)\n",
+    "update_result": "Success",
+    "update_output": "[Issue914\\Issue914.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.csproj : warning NU1603: Issue914 depends on NUnit3TestAdapter (\u003E= 4.2.0-alpha.201-dbg) but NUnit3TestAdapter 4.2.0-alpha.201-dbg was not found. NUnit3TestAdapter 4.2.0-beta.1 was resolved instead. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.csproj (in 613 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.csproj : warning NU1603: Issue914 depends on NUnit3TestAdapter (\u003E= 4.2.0-alpha.201-dbg) but NUnit3TestAdapter 4.2.0-alpha.201-dbg was not found. NUnit3TestAdapter 4.2.0-beta.1 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue914 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\bin\\Debug\\net10.0\\Issue914.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.csproj : warning NU1603: Issue914 depends on NUnit3TestAdapter (\u003E= 4.2.0-alpha.201-dbg) but NUnit3TestAdapter 4.2.0-alpha.201-dbg was not found. NUnit3TestAdapter 4.2.0-beta.1 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.82\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue914\\Issue914.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.csproj : warning NU1603: Issue914 depends on NUnit3TestAdapter (\u003E= 4.2.0-alpha.201-dbg) but NUnit3TestAdapter 4.2.0-alpha.201-dbg was not found. NUnit3TestAdapter 4.2.0-beta.1 was resolved instead. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.csproj (in 613 ms).\r\n\n=== Build ===\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.csproj : warning NU1603: Issue914 depends on NUnit3TestAdapter (\u003E= 4.2.0-alpha.201-dbg) but NUnit3TestAdapter 4.2.0-alpha.201-dbg was not found. NUnit3TestAdapter 4.2.0-beta.1 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue914 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\bin\\Debug\\net10.0\\Issue914.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.csproj : warning NU1603: Issue914 depends on NUnit3TestAdapter (\u003E= 4.2.0-alpha.201-dbg) but NUnit3TestAdapter 4.2.0-alpha.201-dbg was not found. NUnit3TestAdapter 4.2.0-beta.1 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\Issue914.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.82\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\bin\\Debug\\net10.0\\Issue914.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nNo test is available in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue914\\bin\\Debug\\net10.0\\Issue914.dll. Make sure that test discoverer \u0026 executors are registered and platform \u0026 framework version settings are appropriate and try again.\r\n\r\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure"
+    "test_conclusion": "Success: No regression failure",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue914\\.runsettings",
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:53:50Z",
+    "run_result": "Run",
+    "reason": ""
   }
 ]

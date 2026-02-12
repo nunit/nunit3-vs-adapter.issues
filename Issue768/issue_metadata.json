@@ -2,29 +2,11 @@
   {
     "number": 768,
     "title": "NRE at NUnit.VisualStudio.TestAdapter.NUnitEventListener.TestFinished(INUnitTestEventTestCase resultNode) When Referencing NUnit 3.11",
-    "state": "closed",
+    "state": 1,
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/768",
-    "project_path": "NRENUnitEventListner_v2\\NRENUnitEventListner_v2.csproj",
-    "target_frameworks": [
-      "net472"
-    ],
-    "packages": [
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.0.0"
-      },
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/768"
   }
 ]

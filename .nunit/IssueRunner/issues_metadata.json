@@ -2,7 +2,7 @@
   {
     "number": 1,
     "title": "Upgrade vsix file to the 2.0 format",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "3.5.1",
     "labels": [
       "closed:done",
@@ -14,7 +14,7 @@
   {
     "number": 228,
     "title": "Tests inherited from Generic test fixture",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -26,7 +26,7 @@
   {
     "number": 241,
     "title": "Nunit test runner picking up ignored tests (ish) in tfs",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "confirm",
@@ -37,7 +37,7 @@
   {
     "number": 261,
     "title": "NUnit3TestDiscoverer unable to load nunit.engine",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:done"
@@ -47,7 +47,7 @@
   {
     "number": 266,
     "title": "Console.WriteLine statements in \u0022OneTimeSetUp\u0022 and \u0022OneTimeTearDown\u0022 is not captured",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -58,7 +58,7 @@
   {
     "number": 343,
     "title": "Console.WriteLine() does not write to console when running\u0060dotnet test\u0060",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "3.17",
     "labels": [
       "is:bug",
@@ -70,7 +70,7 @@
   {
     "number": 364,
     "title": "Inherited Testcase does not open source file on double click",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -81,7 +81,7 @@
   {
     "number": 425,
     "title": "Run only specific tests when using dotnet test?",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "3.16",
     "labels": [
       "closed:done"
@@ -91,7 +91,7 @@
   {
     "number": 484,
     "title": "Cannot run an individual test whose TestCase parameter contains characters from the range [U\u002B0001..U\u002B001F]",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "3.16",
     "labels": [
       "is:bug",
@@ -103,7 +103,7 @@
   {
     "number": 497,
     "title": "dotnet test with category filter is slow with a lot of tests",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.0",
     "labels": [
       "is:bug",
@@ -115,7 +115,7 @@
   {
     "number": 516,
     "title": "ArgumentException when whitespace sent to logger",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.1",
     "labels": [
       "is:bug",
@@ -126,7 +126,7 @@
   {
     "number": 530,
     "title": "Adapter discovers explicit TestCase without skip details",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:fixedinnewversion"
@@ -136,7 +136,7 @@
   {
     "number": 535,
     "title": "Test list not refreshing if test project is not rebuilt",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -151,7 +151,7 @@
   {
     "number": 545,
     "title": "Setting [TestCaseSource] to [Explicit] makes other tests in fixture explicit.",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.0",
     "labels": [
       "is:bug",
@@ -163,7 +163,7 @@
   {
     "number": 618,
     "title": "Description from TestContext.AddTestAttachment does not displays in TEst Output window",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "VS Issue",
@@ -175,7 +175,7 @@
   {
     "number": 640,
     "title": "Allow use of FullName as the DisplayName for Converted Tests",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "3.17",
     "labels": [
       "is:enhancement",
@@ -186,7 +186,7 @@
   {
     "number": 658,
     "title": "Explicit tests are automatically run in Visual Studio 2019",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.0",
     "labels": [
       "is:bug",
@@ -199,7 +199,7 @@
   {
     "number": 667,
     "title": "Add a way to specify a custom resultwriter in .runsettings w/ TestOutputXml",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "is:enhancement"
@@ -209,7 +209,7 @@
   {
     "number": 671,
     "title": "Exception in OneTimeSetUp has no stack trace",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.0",
     "labels": [
       "is:enhancement",
@@ -220,7 +220,7 @@
   {
     "number": 687,
     "title": "Test discovery fails when using TestCaseSource in RIDER and VS2017 with Resharper Unit Tests",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "3.16.1",
     "labels": [
       "is:bug",
@@ -232,7 +232,7 @@
   {
     "number": 691,
     "title": "Incorrect format for TestCaseFilter Error: Missing \u0027(\u0027",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -246,7 +246,7 @@
   {
     "number": 709,
     "title": "TestCases not grouped using TestCaseSource \u0022SetName\u0022 property in v3.16.1",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -258,7 +258,7 @@
   {
     "number": 711,
     "title": "Incorrect format for TestCaseFilter Error: Invalid Condition - Using = in SetName",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -271,7 +271,7 @@
   {
     "number": 718,
     "title": "Trace and Debug output is not displayed",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "is:docs"
@@ -281,7 +281,7 @@
   {
     "number": 729,
     "title": "TestFixture with TestName displayed twice in TestExplorer",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -293,7 +293,7 @@
   {
     "number": 735,
     "title": "TestCaseData: Missing Feature \u0022Jump to File\u0022",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "3.17",
     "labels": [
       "closed:done",
@@ -304,7 +304,7 @@
   {
     "number": 740,
     "title": "Allow Warnings to be mapped to any outcome",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "3.17",
     "labels": [
       "closed:done",
@@ -315,7 +315,7 @@
   {
     "number": 744,
     "title": "Setting TestCaseAttribute.TestName in .NET Core project causes not running tests",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:norepro",
@@ -326,7 +326,7 @@
   {
     "number": 758,
     "title": "Feature Request: Adapter to support NonTestAssemblyAttribute",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "3.17",
     "labels": [
       "closed:done",
@@ -337,7 +337,7 @@
   {
     "number": 760,
     "title": "Syntax for auto-removable test suffix",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:feature",
@@ -350,7 +350,7 @@
   {
     "number": 765,
     "title": "TestCaseSource \u002B NSubstitute \u002B Async = Skipped Tests in VS 2019",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
@@ -360,7 +360,7 @@
   {
     "number": 768,
     "title": "NRE at NUnit.VisualStudio.TestAdapter.NUnitEventListener.TestFinished(INUnitTestEventTestCase resultNode) When Referencing NUnit 3.11",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
@@ -370,7 +370,7 @@
   {
     "number": 770,
     "title": "\u0022Not a TestFixture, but TestSuite\u0022 error when using un-namespaced SetupFixture",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.0.0-beta.1",
     "labels": [
       "is:bug",
@@ -381,7 +381,7 @@
   {
     "number": 774,
     "title": "Tests not executed if Console.WriteLine() is used",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.0.0-beta.1",
     "labels": [
       "is:bug",
@@ -392,7 +392,7 @@
   {
     "number": 775,
     "title": "When group of tests contains sub-group, VS 2019 Test Explorer shows Not Run, while all tests pass separately",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -404,7 +404,7 @@
   {
     "number": 779,
     "title": "Filtering tests with any \u0022PropertyAttribute\u0022",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.0",
     "labels": [
       "is:bug",
@@ -415,7 +415,7 @@
   {
     "number": 780,
     "title": "NUnit3TestAdapter 3.17.0 empty output file regression?",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.0.0-beta.1",
     "labels": [
       "is:bug",
@@ -426,7 +426,7 @@
   {
     "number": 781,
     "title": "An exception occurred while test discoverer \u0027NUnit3TestDiscoverer\u0027 was loading tests. Exception: Object reference not set to an instance of an object, with VS2015",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.0.0-beta.1",
     "labels": [
       "closed:done"
@@ -436,7 +436,7 @@
   {
     "number": 782,
     "title": "Test not run with IEnumerable tuple arguments from TestCaseSource",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -447,7 +447,7 @@
   {
     "number": 784,
     "title": "Explicit tests are automatically run in Visual Studio 2019 after upgrading from 3.17.0 to 4.0.0-alpha.1",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:fixedinnewversion"
@@ -457,7 +457,7 @@
   {
     "number": 786,
     "title": "When using TRX logger, should warn about incompatible test adapter across .NET Framework and .NET Core and/or log where an adapter is located",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.0.0-beta.1",
     "labels": [
       "is:enhancement",
@@ -468,7 +468,7 @@
   {
     "number": 811,
     "title": "\u0022System.FormatException: The UTC representation of the date falls outside the year range 1-9999\u0022 from skipped test in Eastern European time zone",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.0.0-beta.2",
     "labels": [
       "is:bug",
@@ -479,7 +479,7 @@
   {
     "number": 817,
     "title": "[Azure Devops Pipeline]: Error re-running test with TestCase Attribute",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "Investigate",
@@ -491,7 +491,7 @@
   {
     "number": 822,
     "title": "dotnet test not working for net35",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -503,7 +503,7 @@
   {
     "number": 824,
     "title": "\u0022Not a TestFixture or TestSuite, but SetUpFixture\u0022 exception is being thrown in case of more than one [SetUpFixture]",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.0.0-beta.2",
     "labels": [
       "is:bug",
@@ -514,7 +514,7 @@
   {
     "number": 833,
     "title": "NuGet library Shouldly will cause \u0022No source available\u0022, so that double click on test fails.",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "External",
@@ -525,7 +525,7 @@
   {
     "number": 843,
     "title": "Reporting random seed for a test case",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.0",
     "labels": [
       "is:enhancement",
@@ -536,7 +536,7 @@
   {
     "number": 846,
     "title": "NUnit3TestAdapter 4.0.0-beta.2 fails with Resharper",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "External",
@@ -548,7 +548,7 @@
   {
     "number": 847,
     "title": "Adapter doesn\u0027t report TestCase properties",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:notabug",
@@ -559,7 +559,7 @@
   {
     "number": 854,
     "title": "[BUG] incorrect grouping of ValueTuple\u003C\u003E array TestCase parameters",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "External",
@@ -570,7 +570,7 @@
   {
     "number": 3957,
     "title": "Duplicated message when in TearDown when Assert.Fail is called.",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [],
     "url": "https://github.com/nunit/nunit/issues/3957"
@@ -578,7 +578,7 @@
   {
     "number": 873,
     "title": "Parametrized test not run from TestCaseSource when one argument is an array of tuple",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -590,7 +590,7 @@
   {
     "number": 874,
     "title": "Explicit tests executed when running with dotnet test and a filter",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
@@ -600,7 +600,7 @@
   {
     "number": 878,
     "title": "NUnit3TestAdapter 4.0.0: test owner no longer is written to .trx file",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -613,7 +613,7 @@
   {
     "number": 881,
     "title": "Cannot run tests where test name gets changed by code. Test run is just skipped",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "VS Issue",
@@ -624,7 +624,7 @@
   {
     "number": 891,
     "title": "The same object instance is used when running tests in parallel",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
@@ -634,7 +634,7 @@
   {
     "number": 3979,
     "title": "Tests marked with ExplicitAttribute don\u0027t always run with category filter",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "is:bug"
@@ -644,7 +644,7 @@
   {
     "number": 909,
     "title": "Tests marked as \u0022Explicit\u0022 are reported as \u0022Inconclusive\u0022",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "VS Issue",
@@ -656,7 +656,7 @@
   {
     "number": 912,
     "title": "Explicit runs when using NUnit-filters \u0027cat!=FOO\u0027",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.2",
     "labels": [
       "is:bug",
@@ -668,7 +668,7 @@
   {
     "number": 914,
     "title": "AddTestAttachment does not work anymore in VS2022",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.2",
     "labels": [
       "is:bug",
@@ -679,7 +679,7 @@
   {
     "number": 918,
     "title": "New DiscoveryMode doesn\u0027t play nicely with \u0060TestFixtureSource\u0060 - Missing GenericFixture",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.2",
     "labels": [
       "is:bug",
@@ -691,7 +691,7 @@
   {
     "number": 919,
     "title": "VSTest test case filter does not work with parenthesis",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.2",
     "labels": [
       "is:bug",
@@ -702,7 +702,7 @@
   {
     "number": 935,
     "title": "An exception occurred while invoking executor \u0027executor://nunit3testexecutor/\u0027: Incorrect format for TestCaseFilter Error when using Real Time Discovery",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -714,7 +714,7 @@
   {
     "number": 941,
     "title": "When running dotnet test with filter, all tests are run and all console output is logged.",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.2.1",
     "labels": [
       "is:bug",
@@ -726,7 +726,7 @@
   {
     "number": 954,
     "title": "Test generated by IFixtureBuilder is skipped the first time when its name changes",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "is:experimental"
@@ -736,7 +736,7 @@
   {
     "number": 972,
     "title": "Nunit won\u0027t discover working non explicit tests Visual studio 2022",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
@@ -746,7 +746,7 @@
   {
     "number": 973,
     "title": "Unable to cast transparent proxy to type System.Web.UI.ICallbackEventHandler",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
@@ -756,7 +756,7 @@
   {
     "number": 987,
     "title": "System.ArgumentException: Unknown framework version 7.0",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.3",
     "labels": [
       "is:enhancement",
@@ -767,7 +767,7 @@
   {
     "number": 4226,
     "title": "F# Range Attribute causes tests to be skipped",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "is:bug"
@@ -777,7 +777,7 @@
   {
     "number": 1027,
     "title": "Test Explorer is finding tests, but not running them after upgrading to NUnit3TestAdapter v4.3.0",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.3.1",
     "labels": [
       "is:bug",
@@ -788,7 +788,7 @@
   {
     "number": 1039,
     "title": "Exception while loading tests; tests don\u0027t run. Since 4.3.1",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
@@ -798,7 +798,7 @@
   {
     "number": 1040,
     "title": "net461 tests don\u0027t run with Nunit3TestAdapter 4.3.x",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:notabug",
@@ -809,7 +809,7 @@
   {
     "number": 1041,
     "title": "How to append date_timestamp in the test result file name?",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:question",
@@ -820,7 +820,7 @@
   {
     "number": 1044,
     "title": "Explicit tests executed when TestName is set on TestCaseData",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
@@ -830,7 +830,7 @@
   {
     "number": 1053,
     "title": "First unit test console entry causes VS Test Explorer Warning",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:discussion"
@@ -840,7 +840,7 @@
   {
     "number": 1065,
     "title": "WebHostBuilder.ConfigureServices method not found when using nunit3testadapter 4.4.0 ",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.4.1",
     "labels": [
       "is:bug",
@@ -851,7 +851,7 @@
   {
     "number": 1078,
     "title": "Tests with the Explicit attribute are run when all test case filters are using the operator !~",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:idea",
@@ -863,7 +863,7 @@
   {
     "number": 1083,
     "title": "Abstract Fixture with Tests and Derived Fixture without Tests",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:norepro",
@@ -875,7 +875,7 @@
   {
     "number": 1089,
     "title": "TextContext.Progress.Writeline does not work in 4.4.2 when running dotnet test",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:notabug",
@@ -886,7 +886,7 @@
   {
     "number": 1096,
     "title": "Parsing error when namespace contains 0",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:SomebodyElsesProblem"
@@ -896,7 +896,7 @@
   {
     "number": 1097,
     "title": "NUnit test adapter does not detect test cases that contain \u0022).\u0022 in a string",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -907,7 +907,7 @@
   {
     "number": 1102,
     "title": "Console output from application is logged as warnings",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:question"
@@ -917,7 +917,7 @@
   {
     "number": 1111,
     "title": "New Mode that completely excludes explicit tests",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "5.2",
     "labels": [
       "is:enhancement"
@@ -927,7 +927,7 @@
   {
     "number": 1127,
     "title": "Unable to work with Test Driven tests after latest Visual Studio Preview.",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -939,7 +939,7 @@
   {
     "number": 1132,
     "title": "VS22 seems to be ignoring settings defined in the settings file",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:notabug"
@@ -949,7 +949,7 @@
   {
     "number": 1144,
     "title": "dotnet test with .NET 8 SDK installed",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -961,7 +961,7 @@
   {
     "number": 4589,
     "title": "Exception when using test filters from .runsettings or --filter argument from dotnet test",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.2",
     "labels": [
       "is:bug",
@@ -972,7 +972,7 @@
   {
     "number": 1152,
     "title": "Microsoft Testing Platform for NUnit",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "5.0",
     "labels": [
       "is:enhancement",
@@ -983,7 +983,7 @@
   {
     "number": 1166,
     "title": "TestAdapter and overloaded parametrized test methods creates warnings and marks wrong status",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:SomebodyElsesProblem"
@@ -993,7 +993,7 @@
   {
     "number": 1167,
     "title": "Console output handling reimagined",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "is:idea"
@@ -1003,7 +1003,7 @@
   {
     "number": 1182,
     "title": "Category (Traits) should differentiate test cases even when they have same data name",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:wontfix",
@@ -1014,7 +1014,7 @@
   {
     "number": 1183,
     "title": "dotnet test -- NUnit.Where works but dotnet test --list-tests -- NUnit.Where does not",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:bydesign"
@@ -1024,7 +1024,7 @@
   {
     "number": 1186,
     "title": "Failure during unit test discovery doesn\u0027t cause entire test suite to fail",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.6",
     "labels": [
       "is:bug"
@@ -1034,7 +1034,7 @@
   {
     "number": 1213,
     "title": "Test discovery fails with exception when test project uses .NET 6\u002B but references a project using .NET Standard",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:docs"
@@ -1044,7 +1044,7 @@
   {
     "number": 1224,
     "title": "TestCaseSource generates incorrect tests when used with tuples within tuples in Visual Studio Test Explorer",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:question"
@@ -1054,7 +1054,7 @@
   {
     "number": 1225,
     "title": "Wish: Ability to get the test cases selected for execution",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:question"
@@ -1064,7 +1064,7 @@
   {
     "number": 1227,
     "title": " Listing the discovered tests doesn\u0027t respect the filter",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "Investigate"
@@ -1074,7 +1074,7 @@
   {
     "number": 1231,
     "title": "/TestCaseFilter does not support ClassName property",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:question"
@@ -1084,7 +1084,7 @@
   {
     "number": 1240,
     "title": "NUnit3TestAdapter v5 launches executables in the background",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:question"
@@ -1094,7 +1094,7 @@
   {
     "number": 1241,
     "title": "VS Test Explorer NUnit error: \u0022TestPlatformFormatException: Filter string ... includes unrecognized escape sequence\u0022",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "6.0",
     "labels": [
       "is:bug",
@@ -1106,7 +1106,7 @@
   {
     "number": 1242,
     "title": "Visual Studio Test Explorer doesnt show all tests",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:question"
@@ -1116,7 +1116,7 @@
   {
     "number": 1243,
     "title": "NUnit3TestAdapter v5 Does Not Display Console.WriteLine in Azure Pipelines",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "closed:wontfix"
@@ -1126,7 +1126,7 @@
   {
     "number": 1254,
     "title": "Apparent test duplication when renaming tests",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "VS Issue",
@@ -1137,7 +1137,7 @@
   {
     "number": 1258,
     "title": "Categories aren\u0027t shown in Visual Studio when MTP is on",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "5.1",
     "labels": [
       "is:bug",
@@ -1151,7 +1151,7 @@
   {
     "number": 1261,
     "title": "Retry extension - no tests discovered with NUnit runner",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "5.1",
     "labels": [
       "is:bug",
@@ -1162,7 +1162,7 @@
   {
     "number": 1264,
     "title": "Tests are not discovered in VS when the NUnit version is 3.11 or less",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "is:bug"
@@ -1172,7 +1172,7 @@
   {
     "number": 1265,
     "title": "In Microsoft.Testing.Platform  , using dotnet test, the testResults folder is not created, but it is created when run test from the  TestExplorer of vs 2022",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:question",
@@ -1183,7 +1183,7 @@
   {
     "number": 1290,
     "title": "OneTimeTeardown failures don\u0027t show up in results   (formerly: Include TearDown errors on stdout)",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -1195,7 +1195,7 @@
   {
     "number": 1332,
     "title": "[MTP] OutOfMemoryException in VS Test Explorer from TestFilterConverter.Tokenizer",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "6.0",
     "labels": [
       "is:bug",
@@ -1207,7 +1207,7 @@
   {
     "number": 1336,
     "title": "[MTP] No output from \u0060TestContext.Progress\u0060",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "Investigate",
@@ -1218,7 +1218,7 @@
   {
     "number": 1347,
     "title": "Test Cases With Strings That Contain Escaped Double-Quotes are Not Run",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "6.0",
     "labels": [
       "is:bug",
@@ -1229,7 +1229,7 @@
   {
     "number": 1348,
     "title": "\uD83E\uDDEA [MTP] AwesomeAssertions throws different NUnit.Framework.AssertionException than expected at runtime",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "6.1",
     "labels": [
       "is:bug",
@@ -1242,7 +1242,7 @@
   {
     "number": 1349,
     "title": "[MTP] Filter string includes unrecognized escape sequence",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "Investigate",
@@ -1253,7 +1253,7 @@
   {
     "number": 1351,
     "title": "Test class name missing in TRX report for parametrized fixture when running through MTP",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "Investigate",
@@ -1264,7 +1264,7 @@
   {
     "number": 1357,
     "title": "Test cases with ArgDisplayNames containing closing braces \u0060)\u0060 are recognized as a different test and names are truncated after first closing brace",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:question"
@@ -1274,7 +1274,7 @@
   {
     "number": 1360,
     "title": "Cannot run (and debug) NUnit tests in Visual Studio 2022 after upgrade NUnit3TestAdapter to version 5.0.0 when using .NET 4.7.2 Framework",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:question"
@@ -1284,7 +1284,7 @@
   {
     "number": 1367,
     "title": "\uD83E\uDDEA  v10 of Microsoft.* nugets makes it more difficult to support older nugets and runtime",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "6.0.1",
     "labels": [
       "is:bug",
@@ -1295,7 +1295,7 @@
   {
     "number": 1371,
     "title": ":test_tube: V6 - assembly loading issue",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "6.0.1",
     "labels": [
       "is:bug",
@@ -1306,7 +1306,7 @@
   {
     "number": 1374,
     "title": ":test_tube: System.Diagnostics.Trace.Assert crashes the test process after updating to NUnit3TestAdapter 6.0.0",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "6.0.1",
     "labels": [
       "is:bug",
@@ -1317,7 +1317,7 @@
   {
     "number": 1375,
     "title": ":test_tube: New failures in dynamic code evaluation in v6",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "6.1",
     "labels": [
       "is:bug"
@@ -1327,7 +1327,7 @@
   {
     "number": 1376,
     "title": "Parent: Assemblyloading failures in Version 6.0",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -1338,7 +1338,7 @@
   {
     "number": 1377,
     "title": "failed to run tests after migration to MTP and newset nunit",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -1349,7 +1349,7 @@
   {
     "number": 5106,
     "title": "Test execution never ends when Ctrl\u002BC key hit in MTP mode",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "4.5",
     "labels": [
       "is:bug"
@@ -1359,7 +1359,7 @@
   {
     "number": 1391,
     "title": "NUnit3TestAdapter V6.0.1 doesn\u0027t work with Resharpers Unit Tests explorer",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "6.1",
     "labels": [
       "is:bug",
@@ -1370,7 +1370,7 @@
   {
     "number": 1396,
     "title": "Resharper test runner fails with NUnit3TestAdapter 6.0.1",
-    "state": "closed",
+    "state": "Closed",
     "milestone": "6.2",
     "labels": [
       "is:bug"
@@ -1380,7 +1380,7 @@
   {
     "number": 1405,
     "title": "Test Cases With Strings That Contain the Pipe Character are Not Run",
-    "state": "open",
+    "state": "Open",
     "milestone": "No milestone",
     "labels": [
       "is:bug"

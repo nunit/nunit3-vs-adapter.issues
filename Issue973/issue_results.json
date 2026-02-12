@@ -2,23 +2,36 @@
   {
     "number": 973,
     "project_path": "Issue973.csproj",
-    "project_style": "sdk",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net48",
       "net10.0"
     ],
     "packages": [
-      "Microsoft.NET.Test.Sdk=18.0.1",
-      "NUnit=4.4.0",
-      "NUnit3TestAdapter=6.0.0",
-      "coverlet.collector=6.0.4"
+      "Microsoft.NET.Test.Sdk=17.0.0",
+      "NUnit=3.12.0",
+      "NUnit3TestAdapter=4.2.1",
+      "coverlet.collector=3.0.2"
     ],
-    "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.3934915\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:03.1924607\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "success",
-    "test_output": "  Determining projects to restore...\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj (in 488 ms).\n  Issue973 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net48\\Issue973.dll\n  Issue973 -> C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net10.0\\Issue973.dll\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net10.0\\Issue973.dll (.NETCoreApp,Version=v10.0)\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net48\\Issue973.dll (.NETFramework,Version=v4.8)\nVSTest version 18.0.1 (x64)\n\nVSTest version 18.0.1 (x64)\n\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\nStarting test execution, please wait...\nA total of 1 test files matched the specified pattern.\n\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 46 ms - Issue973.dll (net10.0)\n\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 228 ms - Issue973.dll (net48)\n",
+    "update_result": "Success",
+    "update_output": "[Issue973\\Issue973.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj (in 478 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [TargetFramework=net10.0]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [TargetFramework=net48]\r\n  Issue973 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net10.0\\Issue973.dll\r\n  Issue973 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net48\\Issue973.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [TargetFramework=net10.0]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [TargetFramework=net48]\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.41\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue973\\Issue973.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj (in 478 ms).\r\n\n=== Build ===\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [TargetFramework=net10.0]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [TargetFramework=net48]\r\n  Issue973 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net10.0\\Issue973.dll\r\n  Issue973 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net48\\Issue973.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [TargetFramework=net10.0]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\Issue973.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [TargetFramework=net48]\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.41\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net48\\Issue973.dll (.NETFramework,Version=v4.8)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net10.0\\Issue973.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nNo test is available in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue973\\bin\\Debug\\net10.0\\Issue973.dll. Make sure that test discoverer \u0026 executors are registered and platform \u0026 framework version settings are appropriate and try again.\r\n\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 1 s - Issue973.dll (net48)\r\n",
     "test_error": "",
-    "test_conclusion": "Success: No regression failure"
+    "test_conclusion": "Success: No regression failure (1 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:55:20Z",
+    "run_result": "Run",
+    "reason": ""
   }
 ]

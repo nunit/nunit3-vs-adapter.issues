@@ -2,29 +2,33 @@
   {
     "number": 261,
     "project_path": "Issue261.csproj",
-    "project_style": "classic",
+    "project_style": "SDK-style",
     "target_frameworks": [
       "net472"
     ],
     "packages": [
-      "NUnit=3.13.3",
-      "NUnit3TestAdapter=4.3.0"
+      "NUnit=4.4.0",
+      "NUnit3TestAdapter=6.1.0"
     ],
-    "update_result": "success",
-    "update_output": "[nunit]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:00.9798621\n\n[other]\nDiscovering projects...\nAnalyzing project(s)...\nAnalyzing dependencies...\nNo outdated dependencies were detected\nElapsed: 00:00:00.9772883\n",
-    "update_error": "[nunit]\n\n[other]\n",
-    "test_result": "success",
-    "test_output": "  Determining projects to restore...\n  Nothing to do. None of the projects specified contain packages to restore.\n",
+    "update_result": "Success",
+    "update_output": "[Issue261\\Issue261.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue261\\Issue261.csproj (in 473 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Issue261 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue261\\bin\\Debug\\net472\\UnitTestProject1.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.49\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue261\\Issue261.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue261\\Issue261.csproj (in 473 ms).\r\n\n=== Build ===\n  Issue261 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue261\\bin\\Debug\\net472\\UnitTestProject1.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.49\r\n\n=== Test ===\n",
     "test_error": "",
-<<<<<<< HEAD
-    "test_conclusion": "Failure: Build failed",
+    "test_conclusion": "Success: No regression failure",
     "runner_scripts": null,
     "runsettings": null,
-    "feed": "Stable",
+    "feed": "Initial",
     "runner_expectations": null,
-    "last_run": "2026-01-20T19:29:21Z"
-=======
-    "test_conclusion": "Success: No regression failure"
->>>>>>> parent of e2790f7 (Committing pending changes before starting .NET upgrade to 10.0)
+    "last_run": "2026-01-29T16:46:01Z",
+    "run_result": "Run",
+    "reason": ""
   }
 ]

@@ -1,0 +1,46 @@
+{
+  "number": 758,
+  "projects": [
+    {
+      "project_path": "Issue758/Issue758.csproj",
+      "target_frameworks": [
+        "netcoreapp3.1"
+      ],
+      "packages": [
+        {
+          "name": "nunit",
+          "version": "3.12.0"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "3.17.0-b100"
+        },
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "16.4.0"
+        }
+      ]
+    },
+    {
+      "project_path": "SkipThisAssembly/SkipThisAssembly.csproj",
+      "target_frameworks": [
+        "netcoreapp3.1"
+      ],
+      "packages": [
+        {
+          "name": "nunit",
+          "version": "3.12.0"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "3.17.0-b100"
+        },
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "16.4.0"
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-01-29T16:04:47Z"
+}

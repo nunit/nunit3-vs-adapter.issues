@@ -1,0 +1,11 @@
+{
+  "number": 545,
+  "projects": [
+    {
+      "project_path": "Issue545/Issue545.csproj",
+      "target_frameworks": [],
+      "packages": []
+    }
+  ],
+  "created_at": "2026-01-29T16:04:45Z"
+}

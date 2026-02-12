@@ -2,7 +2,7 @@
   {
     "number": 535,
     "title": "Test list not refreshing if test project is not rebuilt",
-    "state": "closed",
+    "state": 1,
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -12,15 +12,12 @@
       "ReportedToMS",
       "closed:fixedinnewversion"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/535",
-    "project_path": "Repro_535_2\\Tests2\\Tests2.csproj",
-    "target_frameworks": [],
-    "packages": []
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/535"
   },
   {
     "number": 535,
     "title": "Test list not refreshing if test project is not rebuilt",
-    "state": "closed",
+    "state": 1,
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -30,30 +27,12 @@
       "ReportedToMS",
       "closed:fixedinnewversion"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/535",
-    "project_path": "Repro_535_2\\Tests\\Issue535_Tests.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "16.10.0"
-      },
-      {
-        "name": "NUnit",
-        "version": "3.13.2"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "4.0.0"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/535"
   },
   {
     "number": 535,
     "title": "Test list not refreshing if test project is not rebuilt",
-    "state": "closed",
+    "state": 1,
     "milestone": "No milestone",
     "labels": [
       "is:bug",
@@ -63,11 +42,6 @@
       "ReportedToMS",
       "closed:fixedinnewversion"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/535",
-    "project_path": "Repro_535_2\\Project\\Project.csproj",
-    "target_frameworks": [
-      "net10.0"
-    ],
-    "packages": []
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/535"
   }
 ]

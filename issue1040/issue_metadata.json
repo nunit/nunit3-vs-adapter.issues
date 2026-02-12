@@ -2,30 +2,12 @@
   {
     "number": 1040,
     "title": "net461 tests don\u0027t run with Nunit3TestAdapter 4.3.x",
-    "state": "closed",
+    "state": 1,
     "milestone": "No milestone",
     "labels": [
       "closed:notabug",
       "is:question"
     ],
-    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1040",
-    "project_path": "NUnitAdapterBug.csproj",
-    "target_frameworks": [
-      "net462"
-    ],
-    "packages": [
-      {
-        "name": "Microsoft.NET.Test.Sdk",
-        "version": "18.0.1"
-      },
-      {
-        "name": "NUnit",
-        "version": "4.4.0"
-      },
-      {
-        "name": "NUnit3TestAdapter",
-        "version": "6.1.0"
-      }
-    ]
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1040"
   }
 ]
