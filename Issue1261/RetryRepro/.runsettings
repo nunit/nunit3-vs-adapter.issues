@@ -116,11 +116,10 @@
     <!--<ShadowCopyFiles>false</ShadowCopyFiles>-->
     <!--<DefaultTestNamePattern>{m}{a}</DefaultTestNamePattern>-->
     <!--<DomainUsage>Single</DomainUsage>-->
-    <DumpXmlTestDiscovery>false</DumpXmlTestDiscovery>
+    <DumpXmlTestDiscovery>true</DumpXmlTestDiscovery>
     <DumpXmlTestResults>true</DumpXmlTestResults>
     <ShowInternalProperties>true</ShowInternalProperties>
-    <TestOutputXml>TestOutputXml</TestOutputXml>
-    <OutputXmlFolderMode>UseResultDirectory</OutputXmlFolderMode>
+    <!--<TestOutputXml>TestOutputXml</TestOutputXml>-->
     <!--<Where></Where>-->
     <!-- NUnit filter expression, see https://docs.nunit.org/articles/nunit/running-tests/Test-Selection-Language.html  -->
     <ConsoleOut>1</ConsoleOut>
@@ -139,7 +138,7 @@
     <IncludeStackTraceForSuites>true</IncludeStackTraceForSuites>
     <ExplicitMode>Strict</ExplicitMode>
     <SkipExecutionWhenNoTests>false</SkipExecutionWhenNoTests>
-
+      <DebugExecution>true</DebugExecution>
   </NUnit>
 </RunSettings>
 
