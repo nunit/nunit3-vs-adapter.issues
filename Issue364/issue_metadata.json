@@ -1,0 +1,24 @@
+[
+  {
+    "number": 364,
+    "title": "Inherited Testcase does not open source file on double click",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/364"
+  },
+  {
+    "number": 364,
+    "title": "Inherited Testcase does not open source file on double click",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/364"
+  }
+]

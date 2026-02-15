@@ -3,6 +3,8 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using Assert = NUnit.Framework.Legacy.ClassicAssert;
+
 namespace NSubstituteSkippedTestDemo
 {
     public abstract class TestsBase

@@ -1,0 +1,12 @@
+[
+  {
+    "number": 1405,
+    "title": "Test Cases With Strings That Contain the Pipe Character are Not Run",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1405"
+  }
+]

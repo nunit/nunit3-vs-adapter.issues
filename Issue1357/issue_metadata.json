@@ -1,0 +1,12 @@
+[
+  {
+    "number": 1357,
+    "title": "Test cases with ArgDisplayNames containing closing braces \u0060)\u0060 are recognized as a different test and names are truncated after first closing brace",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1357"
+  }
+]

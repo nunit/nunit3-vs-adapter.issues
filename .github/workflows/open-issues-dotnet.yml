@@ -1,0 +1,71 @@
+name: Open Issues Tests - .NET Core
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+      - report
+  pull_request:
+    branches:
+      - main
+      - master
+  schedule:
+    - cron: '0 2 * * 1' # Weekly on Monday at 2 AM UTC
+
+jobs:
+  run-open-issues-dotnet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDKs
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            10.0.x
+            8.0.x
+            6.0.x
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/global.json', '**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Build IssueRunner
+        run: |
+          cd Tools
+          dotnet build -c Release
+
+      - name: Run open issues tests (.NET Core)
+        continue-on-error: true
+        run: |
+          cd Tools/IssueRunner/bin/Release/net10.0
+          ./IssueRunner run --scope OpenOnly --skip-netfx --timeout 900 --nunit-only --root $GITHUB_WORKSPACE
+
+      - name: Generate test report
+        if: always()
+        run: |
+          cd Tools/IssueRunner/bin/Release/net10.0
+          ./IssueRunner report generate --root $GITHUB_WORKSPACE
+
+      - name: Publish summary
+        if: always()
+        run: |
+          cat TestReport.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dotnet-open-results
+          path: |
+            results.json
+            TestResults-consolelog.md
+            TestReport.md
+          if-no-files-found: error

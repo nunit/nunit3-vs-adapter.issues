@@ -1,0 +1,35 @@
+[
+  {
+    "number": 497,
+    "project_path": "Issue497_Filtering.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=16.11.0",
+      "NUnit=3.13.2",
+      "NUnit3TestAdapter=4.2.0-beta.5"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue497\\Issue497_Filtering.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Issue497_Filtering.csproj : warning NU1603: Issue497_Filtering depends on NUnit3TestAdapter (\u003E= 4.2.0-beta.5) but NUnit3TestAdapter 4.2.0-beta.5 was not found. NUnit3TestAdapter 4.2.0 was resolved instead. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Filtering.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Issue497_Filtering.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Filtering.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Issue497_Filtering.csproj (in 969 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Issue497_Filtering.csproj : warning NU1603: Issue497_Filtering depends on NUnit3TestAdapter (\u003E= 4.2.0-beta.5) but NUnit3TestAdapter 4.2.0-beta.5 was not found. NUnit3TestAdapter 4.2.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Issue497_Filtering.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue497_Filtering -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\bin\\Debug\\net10.0\\Issue497_Filtering.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Issue497_Filtering.csproj : warning NU1603: Issue497_Filtering depends on NUnit3TestAdapter (\u003E= 4.2.0-beta.5) but NUnit3TestAdapter 4.2.0-beta.5 was not found. NUnit3TestAdapter 4.2.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Issue497_Filtering.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:04.17\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue497\\Issue497_Filtering.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Issue497_Filtering.csproj : warning NU1603: Issue497_Filtering depends on NUnit3TestAdapter (\u003E= 4.2.0-beta.5) but NUnit3TestAdapter 4.2.0-beta.5 was not found. NUnit3TestAdapter 4.2.0 was resolved instead. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Filtering.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Issue497_Filtering.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Filtering.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Issue497_Filtering.csproj (in 969 ms).\r\n\n=== Build ===\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Issue497_Filtering.csproj : warning NU1603: Issue497_Filtering depends on NUnit3TestAdapter (\u003E= 4.2.0-beta.5) but NUnit3TestAdapter 4.2.0-beta.5 was not found. NUnit3TestAdapter 4.2.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Issue497_Filtering.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue497_Filtering -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\bin\\Debug\\net10.0\\Issue497_Filtering.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Issue497_Filtering.csproj : warning NU1603: Issue497_Filtering depends on NUnit3TestAdapter (\u003E= 4.2.0-beta.5) but NUnit3TestAdapter 4.2.0-beta.5 was not found. NUnit3TestAdapter 4.2.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\Issue497_Filtering.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:04.17\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\bin\\Debug\\net10.0\\Issue497_Filtering.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nNo test is available in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue497\\bin\\Debug\\net10.0\\Issue497_Filtering.dll. Make sure that test discoverer \u0026 executors are registered and platform \u0026 framework version settings are appropriate and try again.\r\n\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue497\\.runsettings",
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:47:08Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

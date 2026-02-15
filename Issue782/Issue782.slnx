@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="UnitTestBug/UnitTestBug.csproj" />
+  <Project Path="UnitTestBugTests/UnitTestBugTests.csproj" />
+  <Project Path="ZhaparoffTest/ZhaparoffTest.csproj" />
+</Solution>

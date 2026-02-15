@@ -1,0 +1,37 @@
+[
+  {
+    "number": 343,
+    "project_path": "TestConsoleTests\\NUnitTests\\Issue343B_NUnitTests.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "NUnit=4.4.0",
+      "NUnit3TestAdapter=6.1.0",
+      "Microsoft.NET.Test.Sdk=18.0.1"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue343\\TestConsoleTests\\NUnitTests\\Issue343B_NUnitTests.csproj]\nRestored to initial state\n\n[Issue343\\TestConsoleTests\\XUnitTests\\XUnitTests.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== run_tests_0.cmd ===\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\u003Edotnet test TestConsoleTests\\NUnitTests\\Issue343B_NunitTests.csproj \r\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Issue343B_NunitTests -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\bin\\Debug\\net10.0\\Issue343B_NunitTests.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue343\\TestConsoleTests\\NUnitTests\\bin\\Debug\\net10.0\\Issue343B_NunitTests.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 4 ms - Issue343B_NunitTests.dll (net10.0)\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (1 test(s) passed)",
+    "runner_scripts": [
+      "run_tests_0.cmd"
+    ],
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:46:14Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

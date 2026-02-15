@@ -1,0 +1,13 @@
+[
+  {
+    "number": 1040,
+    "title": "net461 tests don\u0027t run with Nunit3TestAdapter 4.3.x",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug",
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1040"
+  }
+]

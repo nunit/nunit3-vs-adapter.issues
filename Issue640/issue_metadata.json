@@ -1,0 +1,13 @@
+[
+  {
+    "number": 640,
+    "title": "Allow use of FullName as the DisplayName for Converted Tests",
+    "state": 1,
+    "milestone": "3.17",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/640"
+  }
+]

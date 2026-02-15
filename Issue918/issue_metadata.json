@@ -1,0 +1,14 @@
+[
+  {
+    "number": 918,
+    "title": "New DiscoveryMode doesn\u0027t play nicely with \u0060TestFixtureSource\u0060 - Missing GenericFixture",
+    "state": 1,
+    "milestone": "4.2",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:high"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/918"
+  }
+]

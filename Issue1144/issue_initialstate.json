@@ -1,0 +1,76 @@
+{
+  "number": 1144,
+  "projects": [
+    {
+      "project_path": "TestFW/TestFW.csproj",
+      "target_frameworks": [
+        "net48"
+      ],
+      "packages": [
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "17.3.0"
+        },
+        {
+          "name": "NUnit",
+          "version": "3.13.3"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "4.3.2"
+        },
+        {
+          "name": "NUnit.Analyzers",
+          "version": "3.6.1"
+        },
+        {
+          "name": "coverlet.collector",
+          "version": "6.0.0"
+        }
+      ]
+    },
+    {
+      "project_path": "TestNC31/TestNC31.csproj",
+      "target_frameworks": [
+        "netcoreapp2.1"
+      ],
+      "packages": [
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "17.3.0"
+        },
+        {
+          "name": "NUnit",
+          "version": "3.13.3"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "4.2.1"
+        },
+        {
+          "name": "NUnit.Analyzers",
+          "version": "3.5.0"
+        },
+        {
+          "name": "coverlet.collector",
+          "version": "3.1.2"
+        }
+      ]
+    },
+    {
+      "project_path": "ClassLibFW45/ClassLibFW45.csproj",
+      "target_frameworks": [
+        "net45"
+      ],
+      "packages": []
+    },
+    {
+      "project_path": "ClassLibNetC21/ClassLibNetC21.csproj",
+      "target_frameworks": [
+        "netcoreapp2.1"
+      ],
+      "packages": []
+    }
+  ],
+  "created_at": "2026-01-29T16:04:53Z"
+}

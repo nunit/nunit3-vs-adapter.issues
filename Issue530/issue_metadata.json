@@ -1,0 +1,12 @@
+[
+  {
+    "number": 530,
+    "title": "Adapter discovers explicit TestCase without skip details",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/530"
+  }
+]

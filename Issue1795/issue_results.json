@@ -1,0 +1,33 @@
+[
+  {
+    "number": 1795,
+    "project_path": "ClassLibrary\\ClassLibrary.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [],
+    "update_result": "Failed",
+    "update_output": "",
+    "update_error": "[Issue1795\\ClassLibrary\\ClassLibrary.csproj]\nissue_initialstate.json not found\n\n[Issue1795\\V5_2\\V5_2.csproj]\nissue_initialstate.json not found\n\n[Issue1795\\V6.0.1\\V6.0.1.csproj]\nissue_initialstate.json not found\n\n[Issue1795\\V6.0.2\\V6.0.2.csproj]\nissue_initialstate.json not found\n\n[Issue1795\\V6\\V6.csproj]\nissue_initialstate.json not found",
+    "restore_result": "Success",
+    "restore_output": "",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== run_test_0.cmd ===\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1795\u003Edotnet test V6.0.2\\V6.0.2.csproj \r\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1795\\ClassLibrary\\ClassLibrary.csproj (in 249 ms).\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1795\\V6.0.2\\V6.0.2.csproj (in 494 ms).\r\n  ClassLibrary -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1795\\ClassLibrary\\bin\\Debug\\net10.0\\ClassLibrary.dll\r\n  V6.0.2 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1795\\V6.0.2\\bin\\Debug\\net10.0\\V6.0.2.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1795\\V6.0.2\\bin\\Debug\\net10.0\\V6.0.2.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     4, Skipped:     0, Total:     4, Duration: 16 ms - V6.0.2.dll (net10.0)\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (4 test(s) passed)",
+    "runner_scripts": [
+      "run_test_0.cmd"
+    ],
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:45:35Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

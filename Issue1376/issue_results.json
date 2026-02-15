@@ -1,0 +1,37 @@
+[
+  {
+    "number": 1376,
+    "project_path": "Issue1376.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net472"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=18.0.1",
+      "NUnit=4.4.0",
+      "NUnit3TestAdapter=6.0.1-alpha.6",
+      "System.ValueTuple=4.5.0",
+      "Microsoft.Extensions.DependencyModel=6.0.2"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue1376\\Issue1376.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1376\\Issue1376.csproj (in 632 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Issue1376 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1376\\bin\\Debug\\net472\\Issue1376.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.77\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue1376\\Issue1376.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1376\\Issue1376.csproj (in 632 ms).\r\n\n=== Build ===\n  Issue1376 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1376\\bin\\Debug\\net472\\Issue1376.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.77\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1376\\bin\\Debug\\net472\\Issue1376.dll (.NETFramework,Version=v4.7.2)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nPassed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 219 ms - Issue1376.dll (net472)\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (1 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:45:13Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

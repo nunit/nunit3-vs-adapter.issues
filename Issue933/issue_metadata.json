@@ -1,0 +1,32 @@
+[
+  {
+    "number": 933,
+    "title": null,
+    "state": null,
+    "milestone": null,
+    "labels": null,
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/933",
+    "project_path": "Issue933.csproj",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "18.0.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "<no version found>"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.4"
+      }
+    ]
+  }
+]

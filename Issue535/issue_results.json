@@ -1,0 +1,29 @@
+[
+  {
+    "number": 535,
+    "project_path": "Repro_535_2\\Tests2\\Tests2.csproj",
+    "project_style": "classic",
+    "target_frameworks": [],
+    "packages": [],
+    "update_result": "Success",
+    "update_output": "[Issue535\\Repro_535_2\\Tests2\\Tests2.csproj]\nRestored to initial state\n\n[Issue535\\Repro_535_2\\Tests\\Issue535_Tests.csproj]\nRestored to initial state\n\n[Issue535\\Repro_535_2\\Project\\Project.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Project -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Project\\bin\\Debug\\net10.0\\Project.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.03\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue535\\Repro_535_2\\Tests2\\Tests2.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests2\\Tests2.csproj (in 345 ms).\r\n\n=== Build ===\nC:\\Program Files\\dotnet\\sdk\\10.0.102\\Microsoft.Common.CurrentVersion.targets(1259,5): error MSB3644: The reference assemblies for .NETFramework,Version=v4.6.1 were not found. To resolve this, install the Developer Pack (SDK/Targeting Pack) for this framework version or retarget your application. You can download .NET Framework Developer Packs at https://aka.ms/msbuild/developerpacks [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests2\\Tests2.csproj]\r\n\r\nBuild FAILED.\r\n\r\nC:\\Program Files\\dotnet\\sdk\\10.0.102\\Microsoft.Common.CurrentVersion.targets(1259,5): error MSB3644: The reference assemblies for .NETFramework,Version=v4.6.1 were not found. To resolve this, install the Developer Pack (SDK/Targeting Pack) for this framework version or retarget your application. You can download .NET Framework Developer Packs at https://aka.ms/msbuild/developerpacks [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests2\\Tests2.csproj]\r\n    0 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:00.31\r\n\n\n=== Issue535\\Repro_535_2\\Tests\\Issue535_Tests.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Project\\Project.csproj (in 268 ms).\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\Issue535_Tests.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\Issue535_Tests.csproj (in 565 ms).\r\n\n=== Build ===\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\Issue535_Tests.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Project -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Project\\bin\\Debug\\net10.0\\Project.dll\r\n  Issue535_Tests -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\bin\\Debug\\net10.0\\Issue535_Tests.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\Issue535_Tests.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    1 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.41\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\bin\\Debug\\net10.0\\Issue535_Tests.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nNo test is available in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Tests\\bin\\Debug\\net10.0\\Issue535_Tests.dll. Make sure that test discoverer \u0026 executors are registered and platform \u0026 framework version settings are appropriate and try again.\r\n\r\nAdditionally, path to test adapters can be specified using /TestAdapterPath command. Example  /TestAdapterPath:\u003CpathToCustomAdapters\u003E.\r\n\n\n=== Issue535\\Repro_535_2\\Project\\Project.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n\n=== Build ===\n  Project -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue535\\Repro_535_2\\Project\\bin\\Debug\\net10.0\\Project.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.03\r\n\n=== Test ===\n",
+    "test_error": "",
+    "test_conclusion": "Failure: Build failed",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:47:37Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

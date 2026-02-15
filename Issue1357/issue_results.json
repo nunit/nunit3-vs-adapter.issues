@@ -1,0 +1,37 @@
+[
+  {
+    "number": 1357,
+    "project_path": "Issue1357.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "coverlet.collector=6.0.4",
+      "Microsoft.NET.Test.Sdk=14.0.0",
+      "NUnit=4.4.0",
+      "NUnit.Analyzers=4.11.2",
+      "NUnit3TestAdapter=5.2.0"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue1357\\Issue1357.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.csproj : warning NU1603: Issue1357 depends on Microsoft.NET.Test.Sdk (\u003E= 14.0.0) but Microsoft.NET.Test.Sdk 14.0.0 was not found. Microsoft.NET.Test.Sdk 15.0.0 was resolved instead. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.csproj (in 800 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.csproj : warning NU1603: Issue1357 depends on Microsoft.NET.Test.Sdk (\u003E= 14.0.0) but Microsoft.NET.Test.Sdk 14.0.0 was not found. Microsoft.NET.Test.Sdk 15.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue1357 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\bin\\Debug\\net10.0\\Issue1357.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.csproj : warning NU1603: Issue1357 depends on Microsoft.NET.Test.Sdk (\u003E= 14.0.0) but Microsoft.NET.Test.Sdk 14.0.0 was not found. Microsoft.NET.Test.Sdk 15.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.69\r\n",
+    "build_error": "",
+    "test_result": "Failed",
+    "test_output": "=== Issue1357\\Issue1357.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.csproj : warning NU1603: Issue1357 depends on Microsoft.NET.Test.Sdk (\u003E= 14.0.0) but Microsoft.NET.Test.Sdk 14.0.0 was not found. Microsoft.NET.Test.Sdk 15.0.0 was resolved instead. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.csproj (in 800 ms).\r\n\n=== Build ===\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.csproj : warning NU1603: Issue1357 depends on Microsoft.NET.Test.Sdk (\u003E= 14.0.0) but Microsoft.NET.Test.Sdk 14.0.0 was not found. Microsoft.NET.Test.Sdk 15.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue1357 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\bin\\Debug\\net10.0\\Issue1357.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.csproj : warning NU1603: Issue1357 depends on Microsoft.NET.Test.Sdk (\u003E= 14.0.0) but Microsoft.NET.Test.Sdk 14.0.0 was not found. Microsoft.NET.Test.Sdk 15.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\Issue1357.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.69\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\bin\\Debug\\net10.0\\Issue1357.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\n",
+    "test_error": "=== Issue1357\\Issue1357.csproj ===\n=== Test Error ===\nTesthost process for source(s) \u0027C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1357\\bin\\Debug\\net10.0\\Issue1357.dll\u0027 exited with error: . Please check the diagnostic logs for more information.\r\nTest Run Aborted.\r\n",
+    "test_conclusion": "Failure: No tests found",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue1357\\.runsettings",
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:44:16Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

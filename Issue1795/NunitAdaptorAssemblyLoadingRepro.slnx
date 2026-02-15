@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ClassLibrary/ClassLibrary.csproj" />
+  <Project Path="V5_2/V5_2.csproj" />
+  <Project Path="V6/V6.csproj" />
+</Solution>

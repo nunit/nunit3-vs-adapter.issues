@@ -1,0 +1,14 @@
+[
+  {
+    "number": 775,
+    "title": "When group of tests contains sub-group, VS 2019 Test Explorer shows Not Run, while all tests pass separately",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "closed:norepro",
+      "closed:noresponse"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/775"
+  }
+]

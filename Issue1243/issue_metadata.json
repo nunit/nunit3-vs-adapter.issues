@@ -1,0 +1,12 @@
+[
+  {
+    "number": 1243,
+    "title": "NUnit3TestAdapter v5 Does Not Display Console.WriteLine in Azure Pipelines",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "closed:wontfix"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1243"
+  }
+]

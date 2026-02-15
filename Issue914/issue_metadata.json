@@ -1,0 +1,13 @@
+[
+  {
+    "number": 914,
+    "title": "AddTestAttachment does not work anymore in VS2022",
+    "state": 1,
+    "milestone": "4.2",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/914"
+  }
+]

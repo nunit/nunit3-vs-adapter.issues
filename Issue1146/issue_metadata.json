@@ -1,0 +1,39 @@
+[
+  {
+    "number": 1146,
+    "title": "Exception when using test filters from .runsettings or --filter argument from dotnet test",
+    "state": "closed",
+    "milestone": "4.2",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1146",
+    "project_path": "NUnitFilterSample/src/NUnitFilterSample.csproj",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      {
+        "name": "Microsoft.NET.Test.Sdk",
+        "version": "18.0.1"
+      },
+      {
+        "name": "NUnit",
+        "version": "4.4.0"
+      },
+      {
+        "name": "NUnit3TestAdapter",
+        "version": "6.0.0"
+      },
+      {
+        "name": "NUnit.Analyzers",
+        "version": "4.11.2"
+      },
+      {
+        "name": "coverlet.collector",
+        "version": "6.0.4"
+      }
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "number": 497,
+    "title": "dotnet test with category filter is slow with a lot of tests",
+    "state": 1,
+    "milestone": "4.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:normal"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/497"
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "number": 919,
+    "title": "VSTest test case filter does not work with parenthesis",
+    "state": 1,
+    "milestone": "4.2",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/919"
+  }
+]

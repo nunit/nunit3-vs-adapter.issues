@@ -1,0 +1,35 @@
+[
+  {
+    "number": 1348,
+    "project_path": "Issue1348.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "AwesomeAssertions=9.2.1",
+      "NUnit=4.4.0",
+      "NUnit3TestAdapter=6.0.0"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue1348\\Issue1348.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1348\\Issue1348.csproj (in 415 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Issue1348 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1348\\bin\\Debug\\net10.0\\Issue1348.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.48\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue1348\\Issue1348.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1348\\Issue1348.csproj (in 415 ms).\r\n\n=== Build ===\n  Issue1348 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1348\\bin\\Debug\\net10.0\\Issue1348.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.48\r\n\n=== Test ===\nRunning tests from C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1348\\bin\\Debug\\net10.0\\Issue1348.dll (net10.0|x64)\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1348\\bin\\Debug\\net10.0\\Issue1348.dll (net10.0|x64) passed (857ms)\r\n\r\nTest run summary: Passed!\r\n  total: 3\r\n  failed: 0\r\n  succeeded: 3\r\n  skipped: 0\r\n  duration: 1s 289ms\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (3 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue1348\\.runsettings",
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:43:59Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

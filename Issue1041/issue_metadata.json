@@ -1,0 +1,13 @@
+[
+  {
+    "number": 1041,
+    "title": "How to append date_timestamp in the test result file name?",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:question",
+      "closed:wontfix"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1041"
+  }
+]

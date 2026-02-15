@@ -1,0 +1,31 @@
+[
+  {
+    "number": 1127,
+    "project_path": "Issue1127.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net48"
+    ],
+    "packages": [],
+    "update_result": "NotRun",
+    "update_output": null,
+    "update_error": null,
+    "restore_result": "NotRun",
+    "restore_output": null,
+    "restore_error": null,
+    "build_result": "NotRun",
+    "build_output": null,
+    "build_error": null,
+    "test_result": "NotRun",
+    "test_output": null,
+    "test_error": null,
+    "test_conclusion": null,
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:38:02Z",
+    "run_result": "Skipped",
+    "reason": "Explicit"
+  }
+]

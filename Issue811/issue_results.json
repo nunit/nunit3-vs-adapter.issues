@@ -1,0 +1,35 @@
+[
+  {
+    "number": 811,
+    "project_path": "Issue811.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net462"
+    ],
+    "packages": [
+      "NUnit=3.13.0",
+      "NUnit3TestAdapter=3.17.0",
+      "Microsoft.NET.Test.Sdk=15.9.2"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue811\\Issue811.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj (in 448 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Issue811 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\bin\\Debug\\net462\\Issue811.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.47\r\n",
+    "build_error": "",
+    "test_result": "Failed",
+    "test_output": "=== Issue811\\Issue811.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\Issue811.csproj (in 448 ms).\r\n\n=== Build ===\n  Issue811 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\bin\\Debug\\net462\\Issue811.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.47\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\bin\\Debug\\net462\\Issue811.dll (.NETFramework,Version=v4.6.2)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nData collection : Unable to find a datacollector with friendly name \u0027Screen and Voice Recorder\u0027.\r\nData collection : Could not find data collector \u0027Screen and Voice Recorder\u0027\r\n   Dependent Assembly testcentric.engine.metadata, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6fe0a02d2036aa1d of C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\bin\\Debug\\net462\\Issue811.dll not found. Can be ignored if not an NUnit project.\r\nNo test is available in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue811\\bin\\Debug\\net462\\Issue811.dll. Make sure that test discoverer \u0026 executors are registered and platform \u0026 framework version settings are appropriate and try again.\r\n\r\n",
+    "test_error": "=== Issue811\\Issue811.csproj ===\n=== Test Error ===\nData collector \u0027Code Coverage\u0027 message: Data collector caught an exception of type \u0027Microsoft.VisualStudio.Coverage.VanguardException\u0027: \u0027Running event not received from CodeCoverage.exe. Check eventlogs for failure reason.\u0027. More details: ..\r\n",
+    "test_conclusion": "Failure: No tests found",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue811\\.runsettings",
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:51:54Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

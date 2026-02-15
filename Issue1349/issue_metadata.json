@@ -1,0 +1,13 @@
+[
+  {
+    "number": 1349,
+    "title": "[MTP] Filter string includes unrecognized escape sequence",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "Investigate",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1349"
+  }
+]

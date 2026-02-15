@@ -1,0 +1,22 @@
+[
+  {
+    "number": 1213,
+    "title": "Test discovery fails with exception when test project uses .NET 6\u002B but references a project using .NET Standard",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:docs"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1213"
+  },
+  {
+    "number": 1213,
+    "title": "Test discovery fails with exception when test project uses .NET 6\u002B but references a project using .NET Standard",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:docs"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1213"
+  }
+]

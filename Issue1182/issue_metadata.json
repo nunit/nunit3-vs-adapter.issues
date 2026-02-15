@@ -1,0 +1,13 @@
+[
+  {
+    "number": 1182,
+    "title": "Category (Traits) should differentiate test cases even when they have same data name",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "closed:wontfix",
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1182"
+  }
+]

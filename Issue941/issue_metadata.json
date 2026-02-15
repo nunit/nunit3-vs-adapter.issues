@@ -1,0 +1,26 @@
+[
+  {
+    "number": 941,
+    "title": "When running dotnet test with filter, all tests are run and all console output is logged.",
+    "state": 1,
+    "milestone": "4.2.1",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:critical"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/941"
+  },
+  {
+    "number": 941,
+    "title": "When running dotnet test with filter, all tests are run and all console output is logged.",
+    "state": 1,
+    "milestone": "4.2.1",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:critical"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/941"
+  }
+]

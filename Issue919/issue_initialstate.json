@@ -1,0 +1,26 @@
+{
+  "number": 919,
+  "projects": [
+    {
+      "project_path": "Issue919.csproj",
+      "target_frameworks": [
+        "netcoreapp3.1"
+      ],
+      "packages": [
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "17.0.0"
+        },
+        {
+          "name": "NUnit",
+          "version": "3.13.2"
+        },
+        {
+          "name": "coverlet.collector",
+          "version": "3.1.0"
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-01-29T16:04:50Z"
+}

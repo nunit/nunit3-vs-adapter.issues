@@ -1,0 +1,12 @@
+[
+  {
+    "number": 891,
+    "title": "The same object instance is used when running tests in parallel",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/891"
+  }
+]

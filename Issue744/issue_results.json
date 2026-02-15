@@ -1,0 +1,35 @@
+[
+  {
+    "number": 744,
+    "project_path": "Issue744TestName\\Issue744TestName.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net462"
+    ],
+    "packages": [
+      "NUnit=3.12.0",
+      "NUnit3TestAdapter=3.16.1",
+      "Microsoft.NET.Test.Sdk=15.8.0"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue744\\Issue744TestName\\Issue744TestName.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue744\\Issue744TestName\\Issue744TestName.csproj (in 410 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Issue744TestName -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue744\\Issue744TestName\\bin\\Debug\\net462\\Issue744TestName.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.53\r\n",
+    "build_error": "",
+    "test_result": "Failed",
+    "test_output": "=== Issue744\\Issue744TestName\\Issue744TestName.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue744\\Issue744TestName\\Issue744TestName.csproj (in 410 ms).\r\n\n=== Build ===\n  Issue744TestName -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue744\\Issue744TestName\\bin\\Debug\\net462\\Issue744TestName.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.53\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue744\\Issue744TestName\\bin\\Debug\\net462\\Issue744TestName.dll (.NETFramework,Version=v4.6.2)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\nAdditionally, path to test adapters can be specified using /TestAdapterPath command. Example  /TestAdapterPath:\u003CpathToCustomAdapters\u003E.\r\n",
+    "test_error": "=== Issue744\\Issue744TestName\\Issue744TestName.csproj ===\n=== Test Error ===\nAn exception occurred while invoking executor \u0027executor://nunit3testexecutor/\u0027: Could not load file or assembly \u0027nunit.engine.core, Version=3.22.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb\u0027 or one of its dependencies. The system cannot find the file specified.\r\nStack trace:\r\n   at NUnit.VisualStudio.TestAdapter.NUnitEngine.NUnitEngineAdapter.Initialize(IAdapterSettings adapterSettings)\r\n   at NUnit.VisualStudio.TestAdapter.NUnitTestAdapter.Initialize(IDiscoveryContext context, IMessageLogger messageLogger) in C:\\repos\\nunit\\nunit3-vs-adapter\\src\\NUnitTestAdapter\\NUnitTestAdapter.cs:line 140\r\n   at NUnit.VisualStudio.TestAdapter.NUnit3TestExecutor.RunTests(IEnumerable\u00601 sources, IRunContext runContext, IFrameworkHandle frameworkHandle) in C:\\repos\\nunit\\nunit3-vs-adapter\\src\\NUnitTestAdapter\\NUnit3TestExecutor.cs:line 118\r\n   at Microsoft.VisualStudio.TestPlatform.Common.ExtensionDecorators.SerialTestRunDecorator.RunTests(IEnumerable\u00601 sources, IRunContext runContext, IFrameworkHandle frameworkHandle) in /_/src/vstest/src/Microsoft.TestPlatform.Common/ExtensionDecorators/SerialTestRunDecorator.cs:line 59\r\n   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.RunTestsWithSources.InvokeExecutor(LazyExtension\u00602 executor, Tuple\u00602 executorUriExtensionTuple, RunContext runContext, IFrameworkHandle frameworkHandle) in /_/src/vstest/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/RunTestsWithSources.cs:line 115\r\n   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.BaseRunTests.\u003C\u003Ec__DisplayClass46_0.\u003CRunTestInternalWithExecutors\u003Eb__0() in /_/src/vstest/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/BaseRunTests.cs:line 464\r\n   at Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformThread.\u003C\u003Ec__DisplayClass0_0.\u003CRun\u003Eb__0() in /_/src/vstest/src/Microsoft.TestPlatform.PlatformAbstractions/net462/System/PlatformThread.cs:line 29\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.PlatformThread.Run(Action action, PlatformApartmentState apartmentState, Boolean waitForCompletion) in /_/src/vstest/src/Microsoft.TestPlatform.PlatformAbstractions/net462/System/PlatformThread.cs:line 47\r\n   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.BaseRunTests.TryToRunInStaThread(Action action, Boolean waitForCompletion) in /_/src/vstest/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/BaseRunTests.cs:line 680\r\n   at Microsoft.VisualStudio.TestPlatform.CrossPlatEngine.Execution.BaseRunTests.RunTestInternalWithExecutors(IEnumerable\u00601 executorUriExtensionMap, Int64 totalTests) in /_/src/vstest/src/Microsoft.TestPlatform.CrossPlatEngine/Execution/BaseRunTests.cs:line 464\r\n\r\n",
+    "test_conclusion": "Failure: Tests threw exception",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:49:52Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

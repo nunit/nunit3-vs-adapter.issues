@@ -1,0 +1,42 @@
+[
+  {
+    "number": 1351,
+    "project_path": "Issue1351.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "coverlet.collector=6.0.0",
+      "Microsoft.NET.Test.Sdk=17.13.0",
+      "NUnit=3.12.0",
+      "NUnit.Analyzers=3.8.0",
+      "NUnit3TestAdapter=6.0.0-beta.1",
+      "Microsoft.Testing.Extensions.Telemetry=2.0.1",
+      "Microsoft.Testing.Extensions.TrxReport=2.0.1",
+      "Microsoft.Testing.Extensions.VSTestBridge=2.0.1",
+      "Microsoft.Testing.Platform=2.0.1",
+      "Microsoft.Testing.Platform.MSBuild=2.0.1"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue1351\\Issue1351.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1351\\Issue1351.csproj (in 405 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Issue1351 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1351\\bin\\Debug\\net10.0\\Issue1351.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.81\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue1351\\Issue1351.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1351\\Issue1351.csproj (in 405 ms).\r\n\n=== Build ===\n  Issue1351 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1351\\bin\\Debug\\net10.0\\Issue1351.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.81\r\n\n=== Test ===\nRunning tests from C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1351\\bin\\Debug\\net10.0\\Issue1351.dll (net10.0|x64)\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1351\\bin\\Debug\\net10.0\\Issue1351.dll (net10.0|x64) passed (634ms)\r\n\r\nTest run summary: Passed!\r\n  total: 2\r\n  failed: 0\r\n  succeeded: 2\r\n  skipped: 0\r\n  duration: 971ms\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (2 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:44:10Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

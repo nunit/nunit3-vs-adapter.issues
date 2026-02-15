@@ -1,0 +1,12 @@
+[
+  {
+    "number": 1186,
+    "title": "Failure during unit test discovery doesn\u0027t cause entire test suite to fail",
+    "state": 1,
+    "milestone": "4.6",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1186"
+  }
+]

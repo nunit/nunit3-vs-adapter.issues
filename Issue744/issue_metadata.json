@@ -1,0 +1,13 @@
+[
+  {
+    "number": 744,
+    "title": "Setting TestCaseAttribute.TestName in .NET Core project causes not running tests",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "closed:norepro",
+      "closed:noresponse"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/744"
+  }
+]

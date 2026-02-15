@@ -1,0 +1,12 @@
+[
+  {
+    "number": 1111,
+    "title": "New Mode that completely excludes explicit tests",
+    "state": 1,
+    "milestone": "5.2",
+    "labels": [
+      "is:enhancement"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1111"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "number": 919,
+    "project_path": "Issue919.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=17.0.0",
+      "NUnit=3.13.2",
+      "coverlet.collector=3.1.0"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue919\\Issue919.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== run_test_0.cmd ===\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\u003EREM EXPECT_TESTS=0 \r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\u003Edotnet test --filter \u0022FullyQualifiedName~Bar\\(1\\)\u0022 \r\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\Issue919.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\Issue919.slnx]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\Issue919.csproj (in 521 ms).\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\Issue919.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue919 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\bin\\Debug\\net10.0\\Issue919.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\bin\\Debug\\net10.0\\Issue919.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nNo test is available in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\bin\\Debug\\net10.0\\Issue919.dll. Make sure that test discoverer \u0026 executors are registered and platform \u0026 framework version settings are appropriate and try again.\r\n\r\n\r\n=== run_test_1.cmd ===\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\u003EREM EXPECT_TESTS=1 \r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\u003Edotnet test --filter \u0022FullyQualifiedName~Baz\\(1\\)\u0022 \r\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\Issue919.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\Issue919.slnx]\r\n  All projects are up-to-date for restore.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\Issue919.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue919 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\bin\\Debug\\net10.0\\Issue919.dll\r\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\bin\\Debug\\net10.0\\Issue919.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nNo test is available in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue919\\bin\\Debug\\net10.0\\Issue919.dll. Make sure that test discoverer \u0026 executors are registered and platform \u0026 framework version settings are appropriate and try again.\r\n\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure",
+    "runner_scripts": [
+      "run_test_0.cmd",
+      "run_test_1.cmd"
+    ],
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:54:05Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

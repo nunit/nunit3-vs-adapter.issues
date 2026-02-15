@@ -1,0 +1,13 @@
+[
+  {
+    "number": 740,
+    "title": "Allow Warnings to be mapped to any outcome",
+    "state": 1,
+    "milestone": "3.17",
+    "labels": [
+      "closed:done",
+      "is:feature"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/740"
+  }
+]

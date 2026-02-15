@@ -1,0 +1,16 @@
+[
+  {
+    "number": 691,
+    "title": "Incorrect format for TestCaseFilter Error: Missing \u0027(\u0027",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "External",
+      "is:FQNIssue",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/691"
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "number": 1351,
+    "title": "Test class name missing in TRX report for parametrized fixture when running through MTP",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "Investigate",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1351"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "number": 1242,
+    "title": "Visual Studio Test Explorer doesnt show all tests",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1242"
+  }
+]

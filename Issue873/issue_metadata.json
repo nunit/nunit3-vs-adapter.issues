@@ -1,0 +1,14 @@
+[
+  {
+    "number": 873,
+    "title": "Parametrized test not run from TestCaseSource when one argument is an array of tuple",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "is:FQNIssue",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/873"
+  }
+]

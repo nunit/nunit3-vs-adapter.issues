@@ -1,0 +1,14 @@
+[
+  {
+    "number": 729,
+    "title": "TestFixture with TestName displayed twice in TestExplorer",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "is:FQNIssue"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/729"
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "number": 516,
+    "project_path": "Issue516.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=16.10.0",
+      "NUnit=3.13.2",
+      "NUnit3TestAdapter=4.1.0-alpha02",
+      "coverlet.collector=3.0.3"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue516\\Issue516.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.csproj : warning NU1603: Issue516 depends on NUnit3TestAdapter (\u003E= 4.1.0-alpha02) but NUnit3TestAdapter 4.1.0-alpha02 was not found. NUnit3TestAdapter 4.1.0 was resolved instead. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.csproj (in 567 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.csproj : warning NU1603: Issue516 depends on NUnit3TestAdapter (\u003E= 4.1.0-alpha02) but NUnit3TestAdapter 4.1.0-alpha02 was not found. NUnit3TestAdapter 4.1.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue516 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\bin\\Debug\\net10.0\\Issue516.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.csproj : warning NU1603: Issue516 depends on NUnit3TestAdapter (\u003E= 4.1.0-alpha02) but NUnit3TestAdapter 4.1.0-alpha02 was not found. NUnit3TestAdapter 4.1.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.83\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue516\\Issue516.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.csproj : warning NU1603: Issue516 depends on NUnit3TestAdapter (\u003E= 4.1.0-alpha02) but NUnit3TestAdapter 4.1.0-alpha02 was not found. NUnit3TestAdapter 4.1.0 was resolved instead. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.csproj (in 567 ms).\r\n\n=== Build ===\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.csproj : warning NU1603: Issue516 depends on NUnit3TestAdapter (\u003E= 4.1.0-alpha02) but NUnit3TestAdapter 4.1.0-alpha02 was not found. NUnit3TestAdapter 4.1.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue516 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\bin\\Debug\\net10.0\\Issue516.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.csproj : warning NU1603: Issue516 depends on NUnit3TestAdapter (\u003E= 4.1.0-alpha02) but NUnit3TestAdapter 4.1.0-alpha02 was not found. NUnit3TestAdapter 4.1.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\Issue516.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.83\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\bin\\Debug\\net10.0\\Issue516.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nNo test is available in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue516\\bin\\Debug\\net10.0\\Issue516.dll. Make sure that test discoverer \u0026 executors are registered and platform \u0026 framework version settings are appropriate and try again.\r\n\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue516\\.runsettings",
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:47:15Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

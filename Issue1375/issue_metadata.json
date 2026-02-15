@@ -1,0 +1,12 @@
+[
+  {
+    "number": 1375,
+    "title": ":test_tube: New failures in dynamic code evaluation in v6",
+    "state": 1,
+    "milestone": "6.1",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1375"
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "number": 784,
+    "project_path": "NUnitExplicitTest\\Tests\\Tests.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=16.7.1",
+      "NUnit=3.12.0",
+      "NUnit3TestAdapter=4.0.0-alpha.1"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue784\\NUnitExplicitTest\\Tests\\Tests.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue784\\NUnitExplicitTest\\Tests\\Tests.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue784\\NUnitExplicitTest\\Tests\\Tests.csproj (in 508 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue784\\NUnitExplicitTest\\Tests\\Tests.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Tests -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue784\\NUnitExplicitTest\\Tests\\bin\\Debug\\net10.0\\Tests.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue784\\NUnitExplicitTest\\Tests\\Tests.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    1 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.61\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue784\\NUnitExplicitTest\\Tests\\Tests.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue784\\NUnitExplicitTest\\Tests\\Tests.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue784\\NUnitExplicitTest\\Tests\\Tests.csproj (in 508 ms).\r\n\n=== Build ===\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue784\\NUnitExplicitTest\\Tests\\Tests.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Tests -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue784\\NUnitExplicitTest\\Tests\\bin\\Debug\\net10.0\\Tests.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue784\\NUnitExplicitTest\\Tests\\Tests.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    1 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.61\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue784\\NUnitExplicitTest\\Tests\\bin\\Debug\\net10.0\\Tests.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nNo test is available in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue784\\NUnitExplicitTest\\Tests\\bin\\Debug\\net10.0\\Tests.dll. Make sure that test discoverer \u0026 executors are registered and platform \u0026 framework version settings are appropriate and try again.\r\n\r\nAdditionally, path to test adapters can be specified using /TestAdapterPath command. Example  /TestAdapterPath:\u003CpathToCustomAdapters\u003E.\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:51:32Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

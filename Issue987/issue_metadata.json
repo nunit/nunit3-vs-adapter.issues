@@ -1,0 +1,35 @@
+[
+  {
+    "number": 987,
+    "title": "System.ArgumentException: Unknown framework version 7.0",
+    "state": 1,
+    "milestone": "4.3",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/987"
+  },
+  {
+    "number": 987,
+    "title": "System.ArgumentException: Unknown framework version 7.0",
+    "state": 1,
+    "milestone": "4.3",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/987"
+  },
+  {
+    "number": 987,
+    "title": "System.ArgumentException: Unknown framework version 7.0",
+    "state": 1,
+    "milestone": "4.3",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/987"
+  }
+]

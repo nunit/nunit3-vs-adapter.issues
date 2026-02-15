@@ -1,0 +1,14 @@
+[
+  {
+    "number": 228,
+    "title": "Tests inherited from Generic test fixture",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "pri:normal",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/228"
+  }
+]

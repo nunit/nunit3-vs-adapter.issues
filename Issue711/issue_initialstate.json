@@ -1,0 +1,33 @@
+{
+  "number": 711,
+  "projects": [
+    {
+      "project_path": "ApplicationToTest/ApplicationToTest.csproj",
+      "target_frameworks": [
+        "netcoreapp3.1"
+      ],
+      "packages": []
+    },
+    {
+      "project_path": "UnitTests/UnitTests.csproj",
+      "target_frameworks": [
+        "netcoreapp3.1"
+      ],
+      "packages": [
+        {
+          "name": "nunit",
+          "version": "3.13.2"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "4.2.0-dbg"
+        },
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "17.0.0"
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-01-29T16:04:46Z"
+}

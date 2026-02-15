@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using NUnit.Framework.Legacy;
 
 namespace UnitTestProject1
 {
@@ -11,7 +12,7 @@ namespace UnitTestProject1
         {
             var d = Environment.CurrentDirectory;
             TestContext.WriteLine($"Current directory : {d}");
-            Assert.AreEqual(1, 1);
+            ClassicAssert.AreEqual(1, 1);
         }
     }
 }

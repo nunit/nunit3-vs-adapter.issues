@@ -1,0 +1,1 @@
+dotnet test V6.0.2\V6.0.2.csproj

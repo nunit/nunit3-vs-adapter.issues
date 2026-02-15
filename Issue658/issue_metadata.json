@@ -1,0 +1,41 @@
+[
+  {
+    "number": 658,
+    "title": "Explicit tests are automatically run in Visual Studio 2019",
+    "state": 1,
+    "milestone": "4.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:high",
+      "VS Issue"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/658"
+  },
+  {
+    "number": 658,
+    "title": "Explicit tests are automatically run in Visual Studio 2019",
+    "state": 1,
+    "milestone": "4.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:high",
+      "VS Issue"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/658"
+  },
+  {
+    "number": 658,
+    "title": "Explicit tests are automatically run in Visual Studio 2019",
+    "state": 1,
+    "milestone": "4.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:high",
+      "VS Issue"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/658"
+  }
+]

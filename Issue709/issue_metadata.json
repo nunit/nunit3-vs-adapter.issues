@@ -1,0 +1,26 @@
+[
+  {
+    "number": 709,
+    "title": "TestCases not grouped using TestCaseSource \u0022SetName\u0022 property in v3.16.1",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "External"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/709"
+  },
+  {
+    "number": 709,
+    "title": "TestCases not grouped using TestCaseSource \u0022SetName\u0022 property in v3.16.1",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "External"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/709"
+  }
+]

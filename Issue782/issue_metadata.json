@@ -1,0 +1,35 @@
+[
+  {
+    "number": 782,
+    "title": "Test not run with IEnumerable tuple arguments from TestCaseSource",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "is:FQNIssue"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/782"
+  },
+  {
+    "number": 782,
+    "title": "Test not run with IEnumerable tuple arguments from TestCaseSource",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "is:FQNIssue"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/782"
+  },
+  {
+    "number": 782,
+    "title": "Test not run with IEnumerable tuple arguments from TestCaseSource",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "is:FQNIssue"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/782"
+  }
+]

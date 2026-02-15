@@ -1,0 +1,46 @@
+{
+  "number": 941,
+  "projects": [
+    {
+      "project_path": "filtertest2/filtertest2.csproj",
+      "target_frameworks": [
+        "net6.0"
+      ],
+      "packages": [
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "17.0.0"
+        },
+        {
+          "name": "NUnit",
+          "version": "3.13.2"
+        },
+        {
+          "name": "coverlet.collector",
+          "version": "3.1.0"
+        }
+      ]
+    },
+    {
+      "project_path": "filtertest/filtertest.csproj",
+      "target_frameworks": [
+        "net6.0"
+      ],
+      "packages": [
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "17.0.0"
+        },
+        {
+          "name": "NUnit",
+          "version": "3.13.2"
+        },
+        {
+          "name": "coverlet.collector",
+          "version": "3.1.0"
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-01-29T16:04:50Z"
+}

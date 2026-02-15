@@ -1,0 +1,35 @@
+[
+  {
+    "number": 780,
+    "project_path": "Issue780.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "NUnit=3.12.0",
+      "NUnit3TestAdapter=4.0.0-dbg201",
+      "Microsoft.NET.Test.Sdk=16.5.0"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue780\\Issue780.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.csproj : warning NU1603: Issue780 depends on NUnit3TestAdapter (\u003E= 4.0.0-dbg201) but NUnit3TestAdapter 4.0.0-dbg201 was not found. NUnit3TestAdapter 4.0.0 was resolved instead. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.csproj (in 548 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.csproj : warning NU1603: Issue780 depends on NUnit3TestAdapter (\u003E= 4.0.0-dbg201) but NUnit3TestAdapter 4.0.0-dbg201 was not found. NUnit3TestAdapter 4.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue780 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\bin\\Debug\\net10.0\\Issue780.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.csproj : warning NU1603: Issue780 depends on NUnit3TestAdapter (\u003E= 4.0.0-dbg201) but NUnit3TestAdapter 4.0.0-dbg201 was not found. NUnit3TestAdapter 4.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.75\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue780\\Issue780.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.csproj : warning NU1603: Issue780 depends on NUnit3TestAdapter (\u003E= 4.0.0-dbg201) but NUnit3TestAdapter 4.0.0-dbg201 was not found. NUnit3TestAdapter 4.0.0 was resolved instead. [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.sln]\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.csproj (in 548 ms).\r\n\n=== Build ===\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.csproj : warning NU1603: Issue780 depends on NUnit3TestAdapter (\u003E= 4.0.0-dbg201) but NUnit3TestAdapter 4.0.0-dbg201 was not found. NUnit3TestAdapter 4.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue780 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\bin\\Debug\\net10.0\\Issue780.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.csproj : warning NU1603: Issue780 depends on NUnit3TestAdapter (\u003E= 4.0.0-dbg201) but NUnit3TestAdapter 4.0.0-dbg201 was not found. NUnit3TestAdapter 4.0.0 was resolved instead.\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\Issue780.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    2 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.75\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\bin\\Debug\\net10.0\\Issue780.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\nNo test is available in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue780\\bin\\Debug\\net10.0\\Issue780.dll. Make sure that test discoverer \u0026 executors are registered and platform \u0026 framework version settings are appropriate and try again.\r\n\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue780\\.runsettings",
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:51:01Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

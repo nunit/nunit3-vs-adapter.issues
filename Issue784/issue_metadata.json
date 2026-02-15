@@ -1,0 +1,12 @@
+[
+  {
+    "number": 784,
+    "title": "Explicit tests are automatically run in Visual Studio 2019 after upgrading from 3.17.0 to 4.0.0-alpha.1",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/784"
+  }
+]

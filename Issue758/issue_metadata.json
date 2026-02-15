@@ -1,0 +1,24 @@
+[
+  {
+    "number": 758,
+    "title": "Feature Request: Adapter to support NonTestAssemblyAttribute",
+    "state": 1,
+    "milestone": "3.17",
+    "labels": [
+      "closed:done",
+      "is:idea"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/758"
+  },
+  {
+    "number": 758,
+    "title": "Feature Request: Adapter to support NonTestAssemblyAttribute",
+    "state": 1,
+    "milestone": "3.17",
+    "labels": [
+      "closed:done",
+      "is:idea"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/758"
+  }
+]

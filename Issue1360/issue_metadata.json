@@ -1,0 +1,12 @@
+[
+  {
+    "number": 1360,
+    "title": "Cannot run (and debug) NUnit tests in Visual Studio 2022 after upgrade NUnit3TestAdapter to version 5.0.0 when using .NET 4.7.2 Framework",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1360"
+  }
+]

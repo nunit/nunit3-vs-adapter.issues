@@ -1,0 +1,35 @@
+[
+  {
+    "number": 1332,
+    "project_path": "Issue1332.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=18.0.0",
+      "NUnit=4.4.0",
+      "NUnit3TestAdapter=6.0.0-alpha.101-dbg"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue1332\\Issue1332.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1332\\Issue1332.csproj (in 404 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Issue1332 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1332\\bin\\Debug\\net10.0\\Issue1332.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.52\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue1332\\Issue1332.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1332\\Issue1332.csproj (in 404 ms).\r\n\n=== Build ===\n  Issue1332 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1332\\bin\\Debug\\net10.0\\Issue1332.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.52\r\n\n=== Test ===\nRunning tests from C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1332\\bin\\Debug\\net10.0\\Issue1332.dll (net10.0|x64)\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(2s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(5s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(8s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(11s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(14s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(17s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(20s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(23s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(26s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(29s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(32s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(35s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(38s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(41s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(44s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(47s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(50s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(53s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(56s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(59s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 02s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 05s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 08s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 11s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 14s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 17s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 20s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 23s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 26s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 29s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 32s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 35s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 38s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 41s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 44s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 47s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 50s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 53s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 56s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(1m 59s)\r\n\r\n[\u002B0/x0/?0] Issue1332.dll (net10.0|x64)(2m 02s)\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1332\\bin\\Debug\\net10.0\\Issue1332.dll (net10.0|x64) passed (2m 05s 697ms)\r\n\r\nTest run summary: Passed!\r\n  total: 17\r\n  failed: 0\r\n  succeeded: 17\r\n  skipped: 0\r\n  duration: 2m 06s 104ms\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (17 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue1332\\.runsettings",
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:43:36Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "number": 735,
+    "title": "TestCaseData: Missing Feature \u0022Jump to File\u0022",
+    "state": 1,
+    "milestone": "3.17",
+    "labels": [
+      "closed:done",
+      "is:idea"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/735"
+  }
+]

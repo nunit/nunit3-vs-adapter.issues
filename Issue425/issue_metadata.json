@@ -1,0 +1,12 @@
+[
+  {
+    "number": 425,
+    "title": "Run only specific tests when using dotnet test?",
+    "state": 1,
+    "milestone": "3.16",
+    "labels": [
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/425"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "number": 935,
+    "title": "An exception occurred while invoking executor \u0027executor://nunit3testexecutor/\u0027: Incorrect format for TestCaseFilter Error when using Real Time Discovery",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "External"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/935"
+  },
+  {
+    "number": 935,
+    "title": "An exception occurred while invoking executor \u0027executor://nunit3testexecutor/\u0027: Incorrect format for TestCaseFilter Error when using Real Time Discovery",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "External"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/935"
+  }
+]

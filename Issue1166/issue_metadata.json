@@ -1,0 +1,12 @@
+[
+  {
+    "number": 1166,
+    "title": "TestAdapter and overloaded parametrized test methods creates warnings and marks wrong status",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1166"
+  }
+]

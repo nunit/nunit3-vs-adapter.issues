@@ -1,0 +1,35 @@
+[
+  {
+    "number": 691,
+    "project_path": "Issue691\\Issue691\\Issue691.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "nunit=3.12.0",
+      "NUnit3TestAdapter=3.16.0",
+      "Microsoft.NET.Test.Sdk=16.2.0"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue691\\Issue691\\Issue691\\Issue691.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\Issue691.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\Issue691.csproj (in 522 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Failed",
+    "build_output": "C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\Issue691.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\UnitTest1.cs(2,23): error CS0234: The type or namespace name \u0027Legacy\u0027 does not exist in the namespace \u0027NUnit.Framework\u0027 (are you missing an assembly reference?) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\Issue691.csproj]\r\n\r\nBuild FAILED.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\Issue691.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\UnitTest1.cs(2,23): error CS0234: The type or namespace name \u0027Legacy\u0027 does not exist in the namespace \u0027NUnit.Framework\u0027 (are you missing an assembly reference?) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\Issue691.csproj]\r\n    1 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:01.29\r\n",
+    "build_error": "",
+    "test_result": "NotRun",
+    "test_output": "=== Issue691\\Issue691\\Issue691\\Issue691.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\Issue691.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\Issue691.csproj (in 522 ms).\r\n\n=== Build ===\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\Issue691.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\UnitTest1.cs(2,23): error CS0234: The type or namespace name \u0027Legacy\u0027 does not exist in the namespace \u0027NUnit.Framework\u0027 (are you missing an assembly reference?) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\Issue691.csproj]\r\n\r\nBuild FAILED.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\Issue691.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\UnitTest1.cs(2,23): error CS0234: The type or namespace name \u0027Legacy\u0027 does not exist in the namespace \u0027NUnit.Framework\u0027 (are you missing an assembly reference?) [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue691\\Issue691\\Issue691\\Issue691.csproj]\r\n    1 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:01.29\r\n",
+    "test_error": "",
+    "test_conclusion": "Failure: Build failed",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:48:49Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

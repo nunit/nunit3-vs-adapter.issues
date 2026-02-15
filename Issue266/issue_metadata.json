@@ -1,0 +1,13 @@
+[
+  {
+    "number": 266,
+    "title": "Console.WriteLine statements in \u0022OneTimeSetUp\u0022 and \u0022OneTimeTearDown\u0022 is not captured",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "pri:normal"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/266"
+  }
+]

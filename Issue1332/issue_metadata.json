@@ -1,0 +1,14 @@
+[
+  {
+    "number": 1332,
+    "title": "[MTP] OutOfMemoryException in VS Test Explorer from TestFilterConverter.Tokenizer",
+    "state": 1,
+    "milestone": "6.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1332"
+  }
+]

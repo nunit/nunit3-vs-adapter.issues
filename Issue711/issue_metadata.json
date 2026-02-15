@@ -1,0 +1,28 @@
+[
+  {
+    "number": 711,
+    "title": "Incorrect format for TestCaseFilter Error: Invalid Condition - Using = in SetName",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "closed:fixedinnewversion",
+      "FailsWithRealTimeTestDiscovery"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/711"
+  },
+  {
+    "number": 711,
+    "title": "Incorrect format for TestCaseFilter Error: Invalid Condition - Using = in SetName",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "closed:fixedinnewversion",
+      "FailsWithRealTimeTestDiscovery"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/711"
+  }
+]

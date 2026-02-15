@@ -1,0 +1,14 @@
+[
+  {
+    "number": 822,
+    "title": "dotnet test not working for net35",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "External"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/822"
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "number": 1044,
+    "project_path": "Issue1044.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=17.3.2",
+      "NUnit=3.13.3",
+      "NUnit3TestAdapter=4.5.0-alpha.3",
+      "NUnit.Analyzers=3.3.0",
+      "coverlet.collector=3.1.2"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue1044\\Issue1044.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1044\\Issue1044.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1044\\Issue1044.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1044\\Issue1044.csproj (in 373 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1044\\Issue1044.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue1044 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1044\\bin\\Debug\\net10.0\\Issue1044.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1044\\Issue1044.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    1 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.31\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue1044\\Issue1044.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1044\\Issue1044.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1044\\Issue1044.sln]\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1044\\Issue1044.csproj (in 373 ms).\r\n\n=== Build ===\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1044\\Issue1044.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n  Issue1044 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1044\\bin\\Debug\\net10.0\\Issue1044.dll\r\n\r\nBuild succeeded.\r\n\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1044\\Issue1044.csproj : warning NU1903: Package \u0027Newtonsoft.Json\u0027 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr\r\n    1 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.31\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1044\\bin\\Debug\\net10.0\\Issue1044.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n  Skipped The test number 1. [6 ms]\r\n  Skipped The test number 2. [8 ms]\r\n\r\nPassed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 36 ms - Issue1044.dll (net10.0)\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (3 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue1044\\.runsettings",
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:36:26Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

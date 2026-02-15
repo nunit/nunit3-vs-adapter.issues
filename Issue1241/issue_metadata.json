@@ -1,0 +1,26 @@
+[
+  {
+    "number": 1241,
+    "title": "VS Test Explorer NUnit error: \u0022TestPlatformFormatException: Filter string ... includes unrecognized escape sequence\u0022",
+    "state": 1,
+    "milestone": "6.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1241"
+  },
+  {
+    "number": 1241,
+    "title": "VS Test Explorer NUnit error: \u0022TestPlatformFormatException: Filter string ... includes unrecognized escape sequence\u0022",
+    "state": 1,
+    "milestone": "6.0",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1241"
+  }
+]

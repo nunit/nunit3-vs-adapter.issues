@@ -1,0 +1,12 @@
+[
+  {
+    "number": 1039,
+    "title": "Exception while loading tests; tests don\u0027t run. Since 4.3.1",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1039"
+  }
+]

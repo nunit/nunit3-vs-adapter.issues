@@ -1,0 +1,24 @@
+[
+  {
+    "number": 786,
+    "title": "When using TRX logger, should warn about incompatible test adapter across .NET Framework and .NET Core and/or log where an adapter is located",
+    "state": 1,
+    "milestone": "4.0.0-beta.1",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/786"
+  },
+  {
+    "number": 786,
+    "title": "When using TRX logger, should warn about incompatible test adapter across .NET Framework and .NET Core and/or log where an adapter is located",
+    "state": 1,
+    "milestone": "4.0.0-beta.1",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/786"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "number": 687,
+    "title": "Test discovery fails when using TestCaseSource in RIDER and VS2017 with Resharper Unit Tests",
+    "state": 1,
+    "milestone": "3.16.1",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "External"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/687"
+  },
+  {
+    "number": 687,
+    "title": "Test discovery fails when using TestCaseSource in RIDER and VS2017 with Resharper Unit Tests",
+    "state": 1,
+    "milestone": "3.16.1",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "External"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/687"
+  }
+]

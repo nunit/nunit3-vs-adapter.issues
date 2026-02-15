@@ -1,0 +1,15 @@
+[
+  {
+    "number": 1348,
+    "title": "\uD83E\uDDEA [MTP] AwesomeAssertions throws different NUnit.Framework.AssertionException than expected at runtime",
+    "state": 1,
+    "milestone": "6.1",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:high",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1348"
+  }
+]

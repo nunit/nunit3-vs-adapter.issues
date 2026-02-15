@@ -1,0 +1,22 @@
+[
+  {
+    "number": 667,
+    "title": "Add a way to specify a custom resultwriter in .runsettings w/ TestOutputXml",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "is:enhancement"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/667"
+  },
+  {
+    "number": 667,
+    "title": "Add a way to specify a custom resultwriter in .runsettings w/ TestOutputXml",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "is:enhancement"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/667"
+  }
+]

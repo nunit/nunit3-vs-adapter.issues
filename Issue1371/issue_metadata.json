@@ -1,0 +1,24 @@
+[
+  {
+    "number": 1371,
+    "title": ":test_tube: V6 - assembly loading issue",
+    "state": 1,
+    "milestone": "6.0.1",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1371"
+  },
+  {
+    "number": 1371,
+    "title": ":test_tube: V6 - assembly loading issue",
+    "state": 1,
+    "milestone": "6.0.1",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1371"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "number": 1053,
+    "title": "First unit test console entry causes VS Test Explorer Warning",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:discussion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1053"
+  }
+]

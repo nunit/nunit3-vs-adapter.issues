@@ -1,0 +1,61 @@
+{
+  "number": 782,
+  "projects": [
+    {
+      "project_path": "UnitTestBugTests/UnitTestBugTests.csproj",
+      "target_frameworks": [
+        "netcoreapp3.1"
+      ],
+      "packages": [
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "16.7.1"
+        },
+        {
+          "name": "NUnit",
+          "version": "3.12.0"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "3.17.0"
+        }
+      ]
+    },
+    {
+      "project_path": "UnitTestBug/UnitTestBug.csproj",
+      "target_frameworks": [
+        "netcoreapp3.1"
+      ],
+      "packages": []
+    },
+    {
+      "project_path": "ZhaparoffTest/ZhaparoffTest.csproj",
+      "target_frameworks": [
+        "net10.0"
+      ],
+      "packages": [
+        {
+          "name": "coverlet.collector",
+          "version": "6.0.4"
+        },
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "17.14.0"
+        },
+        {
+          "name": "NUnit",
+          "version": "4.3.2"
+        },
+        {
+          "name": "NUnit.Analyzers",
+          "version": "4.7.0"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "5.0.0"
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-01-29T16:04:48Z"
+}

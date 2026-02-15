@@ -1,0 +1,15 @@
+[
+  {
+    "number": 760,
+    "title": "Syntax for auto-removable test suffix",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:feature",
+      "soon:closing",
+      "closed:noresponse",
+      "is:discussion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/760"
+  }
+]

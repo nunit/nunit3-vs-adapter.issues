@@ -1,0 +1,13 @@
+[
+  {
+    "number": 1089,
+    "title": "TextContext.Progress.Writeline does not work in 4.4.2 when running dotnet test",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug",
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1089"
+  }
+]

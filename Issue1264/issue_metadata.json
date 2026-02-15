@@ -1,0 +1,12 @@
+[
+  {
+    "number": 1264,
+    "title": "Tests are not discovered in VS when the NUnit version is 3.11 or less",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1264"
+  }
+]

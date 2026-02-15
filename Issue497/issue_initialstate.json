@@ -1,0 +1,26 @@
+{
+  "number": 497,
+  "projects": [
+    {
+      "project_path": "Issue497_Filtering.csproj",
+      "target_frameworks": [
+        "netcoreapp3.1"
+      ],
+      "packages": [
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "16.11.0"
+        },
+        {
+          "name": "NUnit",
+          "version": "3.13.2"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "4.2.0-beta.5"
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-01-29T16:04:45Z"
+}

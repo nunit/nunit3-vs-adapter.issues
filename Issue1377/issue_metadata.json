@@ -1,0 +1,13 @@
+[
+  {
+    "number": 1377,
+    "title": "failed to run tests after migration to MTP and newset nunit",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1377"
+  }
+]

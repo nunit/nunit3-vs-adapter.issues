@@ -1,0 +1,12 @@
+[
+  {
+    "number": 765,
+    "title": "TestCaseSource \u002B NSubstitute \u002B Async = Skipped Tests in VS 2019",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/765"
+  }
+]

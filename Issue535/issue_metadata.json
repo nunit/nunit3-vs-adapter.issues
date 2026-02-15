@@ -1,0 +1,47 @@
+[
+  {
+    "number": 535,
+    "title": "Test list not refreshing if test project is not rebuilt",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "External",
+      "closed:SomebodyElsesProblem",
+      "ReportedToMS",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/535"
+  },
+  {
+    "number": 535,
+    "title": "Test list not refreshing if test project is not rebuilt",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "External",
+      "closed:SomebodyElsesProblem",
+      "ReportedToMS",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/535"
+  },
+  {
+    "number": 535,
+    "title": "Test list not refreshing if test project is not rebuilt",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "External",
+      "closed:SomebodyElsesProblem",
+      "ReportedToMS",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/535"
+  }
+]

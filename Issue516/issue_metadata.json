@@ -1,0 +1,13 @@
+[
+  {
+    "number": 516,
+    "title": "ArgumentException when whitespace sent to logger",
+    "state": 1,
+    "milestone": "4.1",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/516"
+  }
+]

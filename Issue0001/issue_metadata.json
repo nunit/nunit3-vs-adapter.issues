@@ -1,0 +1,14 @@
+[
+  {
+    "number": 1,
+    "title": "Upgrade vsix file to the 2.0 format",
+    "state": 1,
+    "milestone": "3.5.1",
+    "labels": [
+      "closed:done",
+      "pri:normal",
+      "is:build"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1"
+  }
+]

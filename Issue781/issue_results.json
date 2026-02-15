@@ -1,0 +1,32 @@
+[
+  {
+    "number": 781,
+    "project_path": "nUnittest\\nUnittest.csproj",
+    "project_style": "classic",
+    "target_frameworks": [],
+    "packages": [
+      "NUnit=3.12.0",
+      "NUnit3TestAdapter=4.0.2"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue781\\nUnittest\\nUnittest.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Nothing to do. None of the projects specified contain packages to restore.\r\n",
+    "restore_error": "",
+    "build_result": "Failed",
+    "build_output": "C:\\Program Files\\dotnet\\sdk\\10.0.102\\Microsoft.Common.CurrentVersion.targets(1259,5): error MSB3644: The reference assemblies for .NETFramework,Version=v4.6.1 were not found. To resolve this, install the Developer Pack (SDK/Targeting Pack) for this framework version or retarget your application. You can download .NET Framework Developer Packs at https://aka.ms/msbuild/developerpacks [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue781\\nUnittest\\nUnittest.csproj]\r\n\r\nBuild FAILED.\r\n\r\nC:\\Program Files\\dotnet\\sdk\\10.0.102\\Microsoft.Common.CurrentVersion.targets(1259,5): error MSB3644: The reference assemblies for .NETFramework,Version=v4.6.1 were not found. To resolve this, install the Developer Pack (SDK/Targeting Pack) for this framework version or retarget your application. You can download .NET Framework Developer Packs at https://aka.ms/msbuild/developerpacks [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue781\\nUnittest\\nUnittest.csproj]\r\n    0 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:00.32\r\n",
+    "build_error": "",
+    "test_result": "NotRun",
+    "test_output": "=== Issue781\\nUnittest\\nUnittest.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Nothing to do. None of the projects specified contain packages to restore.\r\n\n=== Build ===\nC:\\Program Files\\dotnet\\sdk\\10.0.102\\Microsoft.Common.CurrentVersion.targets(1259,5): error MSB3644: The reference assemblies for .NETFramework,Version=v4.6.1 were not found. To resolve this, install the Developer Pack (SDK/Targeting Pack) for this framework version or retarget your application. You can download .NET Framework Developer Packs at https://aka.ms/msbuild/developerpacks [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue781\\nUnittest\\nUnittest.csproj]\r\n\r\nBuild FAILED.\r\n\r\nC:\\Program Files\\dotnet\\sdk\\10.0.102\\Microsoft.Common.CurrentVersion.targets(1259,5): error MSB3644: The reference assemblies for .NETFramework,Version=v4.6.1 were not found. To resolve this, install the Developer Pack (SDK/Targeting Pack) for this framework version or retarget your application. You can download .NET Framework Developer Packs at https://aka.ms/msbuild/developerpacks [C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue781\\nUnittest\\nUnittest.csproj]\r\n    0 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:00.32\r\n",
+    "test_error": "",
+    "test_conclusion": "Failure: Build failed",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue781\\.runsettings",
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:51:03Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

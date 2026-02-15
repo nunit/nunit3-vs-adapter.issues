@@ -1,0 +1,26 @@
+[
+  {
+    "number": 343,
+    "title": "Console.WriteLine() does not write to console when running\u0060dotnet test\u0060",
+    "state": 1,
+    "milestone": "3.17",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:normal"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/343"
+  },
+  {
+    "number": 343,
+    "title": "Console.WriteLine() does not write to console when running\u0060dotnet test\u0060",
+    "state": 1,
+    "milestone": "3.17",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:normal"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/343"
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "number": 261,
+  "projects": [
+    {
+      "project_path": "Issue261.csproj",
+      "target_frameworks": [
+        "net472"
+      ],
+      "packages": [
+        {
+          "name": "NUnit",
+          "version": "4.4.0"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "6.1.0"
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-01-29T16:04:44Z"
+}

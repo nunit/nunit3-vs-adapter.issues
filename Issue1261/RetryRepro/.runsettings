@@ -111,12 +111,12 @@
     <InternalTraceLevel>Off</InternalTraceLevel>
     <!--<RandomSeed>1234567</RandomSeed>-->
     <NumberOfTestWorkers>-1</NumberOfTestWorkers>
-    <Verbosity>5</Verbosity>
+    <Verbosity>0</Verbosity>
     <!--<UseVsKeepEngineRunning>false</UseVsKeepEngineRunning>-->
     <!--<ShadowCopyFiles>false</ShadowCopyFiles>-->
     <!--<DefaultTestNamePattern>{m}{a}</DefaultTestNamePattern>-->
     <!--<DomainUsage>Single</DomainUsage>-->
-    <DumpXmlTestDiscovery>true</DumpXmlTestDiscovery>
+    <DumpXmlTestDiscovery>false</DumpXmlTestDiscovery>
     <DumpXmlTestResults>true</DumpXmlTestResults>
     <ShowInternalProperties>true</ShowInternalProperties>
     <!--<TestOutputXml>TestOutputXml</TestOutputXml>-->
@@ -138,7 +138,8 @@
     <IncludeStackTraceForSuites>true</IncludeStackTraceForSuites>
     <ExplicitMode>Strict</ExplicitMode>
     <SkipExecutionWhenNoTests>false</SkipExecutionWhenNoTests>
-      <DebugExecution>true</DebugExecution>
+    <DebugExecution>false</DebugExecution>
+
   </NUnit>
 </RunSettings>
 

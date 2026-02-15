@@ -1,0 +1,14 @@
+[
+  {
+    "number": 1290,
+    "title": "OneTimeTeardown failures don\u0027t show up in results   (formerly: Include TearDown errors on stdout)",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "closed:SomebodyElsesProblem"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1290"
+  }
+]

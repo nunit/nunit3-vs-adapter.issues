@@ -1,0 +1,13 @@
+[
+  {
+    "number": 1336,
+    "title": "[MTP] No output from \u0060TestContext.Progress\u0060",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "Investigate",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1336"
+  }
+]

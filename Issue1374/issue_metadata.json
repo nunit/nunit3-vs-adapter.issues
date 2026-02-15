@@ -1,0 +1,13 @@
+[
+  {
+    "number": 1374,
+    "title": ":test_tube: System.Diagnostics.Trace.Assert crashes the test process after updating to NUnit3TestAdapter 6.0.0",
+    "state": 1,
+    "milestone": "6.0.1",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1374"
+  }
+]

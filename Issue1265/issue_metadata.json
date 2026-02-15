@@ -1,0 +1,24 @@
+[
+  {
+    "number": 1265,
+    "title": "In Microsoft.Testing.Platform  , using dotnet test, the testResults folder is not created, but it is created when run test from the  TestExplorer of vs 2022",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:question",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1265"
+  },
+  {
+    "number": 1265,
+    "title": "In Microsoft.Testing.Platform  , using dotnet test, the testResults folder is not created, but it is created when run test from the  TestExplorer of vs 2022",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:question",
+      "MTP"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1265"
+  }
+]

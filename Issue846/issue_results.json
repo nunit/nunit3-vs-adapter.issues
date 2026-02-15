@@ -1,0 +1,38 @@
+[
+  {
+    "number": 846,
+    "project_path": "Issue846\\Issue846.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "AutoFixture=4.18.1",
+      "AutoFixture.AutoNSubstitute=4.18.1",
+      "NUnit=4.4.0",
+      "NUnit.Analyzers=4.11.2",
+      "NUnit3TestAdapter=6.1.0",
+      "Microsoft.NET.Test.Sdk=18.0.1"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue846\\Issue846\\Issue846.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\Issue846.csproj (in 498 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Issue846 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\bin\\Debug\\net10.0\\Issue846.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.78\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue846\\Issue846\\Issue846.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\Issue846.csproj (in 498 ms).\r\n\n=== Build ===\n  Issue846 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\bin\\Debug\\net10.0\\Issue846.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.78\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue846\\Issue846\\bin\\Debug\\net10.0\\Issue846.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n  Skipped TestCulture(\u0022nn-NO\u0022) [\u003C 1 ms]\r\n\r\nPassed!  - Failed:     0, Passed:     5, Skipped:     0, Total:     5, Duration: 165 ms - Issue846.dll (net10.0)\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (5 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:52:19Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "number": 847,
+    "title": "Adapter doesn\u0027t report TestCase properties",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "closed:notabug",
+      "is:question"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/847"
+  }
+]

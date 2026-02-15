@@ -14,7 +14,7 @@ namespace UnitTests
         {
             var unit = new UnitToTest();
             var output = unit.TestMe(input);
-            Assert.AreEqual(input, output);
+            Assert.That(output, Is.EqualTo(input));
         }
 
         [Test]
@@ -24,7 +24,7 @@ namespace UnitTests
 
             var unit = new UnitToTest();
             var output = unit.TestMe(Input);
-            Assert.AreEqual(Input, output);
+            Assert.That(output, Is.EqualTo(Input));
         }
 
 
@@ -37,7 +37,7 @@ namespace UnitTests
         [TestCase(TestName = "Invalid = TestNameEquals")]
         public void ReservedNames()
         {
-            Assert.True(true);
+            Assert.That(true, Is.True);
         }
     }
 

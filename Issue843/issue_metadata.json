@@ -1,0 +1,13 @@
+[
+  {
+    "number": 843,
+    "title": "Reporting random seed for a test case",
+    "state": 1,
+    "milestone": "4.0",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/843"
+  }
+]

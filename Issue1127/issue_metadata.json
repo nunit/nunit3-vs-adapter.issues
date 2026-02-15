@@ -1,0 +1,14 @@
+[
+  {
+    "number": 1127,
+    "title": "Unable to work with Test Driven tests after latest Visual Studio Preview.",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "VS Issue",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1127"
+  }
+]

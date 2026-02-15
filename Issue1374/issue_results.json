@@ -1,0 +1,37 @@
+[
+  {
+    "number": 1374,
+    "project_path": "Issue1374.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "coverlet.collector=6.0.4",
+      "Microsoft.NET.Test.Sdk=18.0.1",
+      "NUnit=4.4.0",
+      "NUnit.Analyzers=4.11.2",
+      "NUnit3TestAdapter=6.0.0"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue1374\\Issue1374.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\Issue1374.csproj (in 456 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Issue1374 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\bin\\Debug\\net10.0\\Issue1374.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.83\r\n",
+    "build_error": "",
+    "test_result": "Failed",
+    "test_output": "=== Issue1374\\Issue1374.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\Issue1374.csproj (in 456 ms).\r\n\n=== Build ===\n  Issue1374 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\bin\\Debug\\net10.0\\Issue1374.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.83\r\n\n=== Test ===\nTest run for C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\bin\\Debug\\net10.0\\Issue1374.dll (.NETCoreApp,Version=v10.0)\r\nVSTest version 18.0.1 (x64)\r\n\r\nStarting test execution, please wait...\r\nA total of 1 test files matched the specified pattern.\r\n\r\n",
+    "test_error": "=== Issue1374\\Issue1374.csproj ===\n=== Test Error ===\nThe active test run was aborted. Reason: Test host process crashed : Process terminated.\r\nAssertion Failed\r\nfalse\r\n   at Issue1374.UnitTest1.\u003C\u003Ec.\u003CTraceAssert_WithFalseCondition_ShouldThrowException\u003Eb__1_0() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\UnitTest1.cs:line 21\r\n   at NUnit.Framework.Assert.Throws(IResolveConstraint expression, TestDelegate code, String message, Object[] args)\r\n   at NUnit.Framework.Assert.Throws(IResolveConstraint expression, TestDelegate code)\r\n   at NUnit.Framework.Assert.Catch(TestDelegate code)\r\n   at Issue1374.UnitTest1.TraceAssert_WithFalseCondition_ShouldThrowException() in C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1374\\UnitTest1.cs:line 21\r\n   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)\r\n   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)\r\n   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)\r\n   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)\r\n   at NUnit.Framework.Internal.Reflect.InvokeMethod(MethodInfo method, Object fixture, Object[] args)\r\n   at NUnit.Framework.Internal.MethodWrapper.Invoke(Object fixture, Object[] args)\r\n   at NUnit.Framework.Internal.Commands.TestMethodCommand.InvokeTestMethod(TestExecutionContext context, Boolean lastParameterAcceptsCancellationToken)\r\n   at NUnit.Framework.Internal.Commands.TestMethodCommand.RunTestMethod(TestExecutionContext context)\r\n   at NUnit.Framework.Internal.Commands.TestMethodCommand.Execute(TestExecutionContext context)\r\n   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.\u003C\u003Ec__DisplayClass1_0.\u003CExecute\u003Eb__0()\r\n   at NUnit.Framework.Internal.Commands.DelegatingTestCommand.RunTestMethodInThreadAbortSafeZone(TestExecutionContext context, Action action)\r\n   at NUnit.Framework.Internal.Commands.BeforeAndAfterTestCommand.Execute(TestExecutionContext context)\r\n   at NUnit.Framework.Internal.Execution.SimpleWorkItem.\u003C\u003Ec__DisplayClass3_0.\u003CPerformWork\u003Eb__0()\r\n   at NUnit.Framework.Internal.ContextUtils.\u003C\u003Ec__DisplayClass1_0\u00601.\u003CDoIsolated\u003Eb__0(Object _)\r\n   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)\r\n   at NUnit.Framework.Internal.ContextUtils.DoIsolated(ContextCallback callback, Object state)\r\n   at NUnit.Framework.Internal.ContextUtils.DoIsolated[T](Func\u00601 func)\r\n   at NUnit.Framework.Internal.Execution.SimpleWorkItem.PerformWork()\r\n   at NUnit.Framework.Internal.Execution.WorkItem.RunOnCurrentThread()\r\n   at NUnit.Framework.Internal.Execution.WorkItem.Execute()\r\n   at NUnit.Framework.Internal.Execution.ParallelWorkItemDispatcher.Dispatch(WorkItem work, ParallelExecutionStrategy strategy)\r\n   at NUnit.Framework.Internal.Execution.ParallelWorkItemDispatcher.Dispatch(WorkItem work)\r\n   at NUnit.Framework.Internal.Execution.CompositeWorkItem.RunChildren()\r\n   at NUnit.Framework.Internal.Execution.CompositeWorkItem.PerformWork()\r\n   at NUnit.Framework.Internal.Execution.WorkItem.RunOnCurrentThread()\r\n   at NUnit.Framework.Internal.Execution.WorkItem.Execute()\r\n   at NUnit.Framework.Internal.Execution.TestWorker.TestWorkerThreadProc()\r\n   at System.Threading.Thread.StartHelper.Callback(Object state)\r\n   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)\r\n\r\nTest Run Aborted.\r\n",
+    "test_conclusion": "Failure: No tests found",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:44:53Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

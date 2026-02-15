@@ -1,0 +1,14 @@
+[
+  {
+    "number": 912,
+    "title": "Explicit runs when using NUnit-filters \u0027cat!=FOO\u0027",
+    "state": 1,
+    "milestone": "4.2",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:high"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/912"
+  }
+]

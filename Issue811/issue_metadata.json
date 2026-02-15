@@ -1,0 +1,13 @@
+[
+  {
+    "number": 811,
+    "title": "\u0022System.FormatException: The UTC representation of the date falls outside the year range 1-9999\u0022 from skipped test in Eastern European time zone",
+    "state": 1,
+    "milestone": "4.0.0-beta.2",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/811"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "number": 1083,
+    "title": "Abstract Fixture with Tests and Derived Fixture without Tests",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "closed:norepro",
+      "Investigate",
+      "reproNeeded"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1083"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "number": 817,
+    "title": "[Azure Devops Pipeline]: Error re-running test with TestCase Attribute",
+    "state": 1,
+    "milestone": "No milestone",
+    "labels": [
+      "Investigate",
+      "is:FQNIssue",
+      "closed:fixedinnewversion"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/817"
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "number": 779,
+    "title": "Filtering tests with any \u0022PropertyAttribute\u0022",
+    "state": 1,
+    "milestone": "4.0",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/779"
+  }
+]

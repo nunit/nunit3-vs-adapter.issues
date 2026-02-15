@@ -1,0 +1,102 @@
+{
+  "number": 1371,
+  "projects": [
+    {
+      "project_path": "App.Test/App.Test.csproj",
+      "target_frameworks": [
+        "net10.0"
+      ],
+      "packages": [
+        {
+          "name": "coverlet.collector",
+          "version": "6.0.4"
+        },
+        {
+          "name": "Microsoft.AspNetCore.Http.Extensions",
+          "version": "2.3.0"
+        },
+        {
+          "name": "Microsoft.NET.Test.Sdk",
+          "version": "18.0.1"
+        },
+        {
+          "name": "NUnit",
+          "version": "4.5.0-alpha.0.20"
+        },
+        {
+          "name": "NUnit.Analyzers",
+          "version": "4.11.2"
+        },
+        {
+          "name": "NUnit3TestAdapter",
+          "version": "6.0.0"
+        },
+        {
+          "name": "Microsoft.AspNetCore.Mvc.Testing",
+          "version": "10.0.1"
+        },
+        {
+          "name": "Microsoft.Extensions.TimeProvider.Testing",
+          "version": "10.1.0"
+        },
+        {
+          "name": "NSubstitute",
+          "version": "5.3.0"
+        }
+      ]
+    },
+    {
+      "project_path": "App/App.csproj",
+      "target_frameworks": [
+        "net10.0"
+      ],
+      "packages": [
+        {
+          "name": "Microsoft.AspNetCore.OpenApi",
+          "version": "10.0.1"
+        },
+        {
+          "name": "Swashbuckle.AspNetCore",
+          "version": "10.1.0"
+        },
+        {
+          "name": "Swashbuckle.AspNetCore.Annotations",
+          "version": "10.1.0"
+        },
+        {
+          "name": "Swashbuckle.AspNetCore.Filters",
+          "version": "10.0.1"
+        },
+        {
+          "name": "Swashbuckle.AspNetCore.Newtonsoft",
+          "version": "10.1.0"
+        },
+        {
+          "name": "Azure.Extensions.AspNetCore.Configuration.Secrets",
+          "version": "1.4.0"
+        },
+        {
+          "name": "Microsoft.ApplicationInsights.AspNetCore",
+          "version": "3.0.0-beta1"
+        },
+        {
+          "name": "Microsoft.AspNetCore.AzureAppServices.HostingStartup",
+          "version": "10.0.1"
+        },
+        {
+          "name": "Microsoft.AspNetCore.HeaderPropagation",
+          "version": "10.0.1"
+        },
+        {
+          "name": "Microsoft.AspNetCore.SpaProxy",
+          "version": "10.0.1"
+        },
+        {
+          "name": "Serilog.AspNetCore",
+          "version": "10.0.0"
+        }
+      ]
+    }
+  ],
+  "created_at": "2026-01-29T16:04:57Z"
+}

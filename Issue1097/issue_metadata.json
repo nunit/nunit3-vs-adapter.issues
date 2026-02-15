@@ -1,0 +1,13 @@
+[
+  {
+    "number": 1097,
+    "title": "NUnit test adapter does not detect test cases that contain \u0022).\u0022 in a string",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "is:bug",
+      "Investigate"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/1097"
+  }
+]

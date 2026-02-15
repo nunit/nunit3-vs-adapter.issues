@@ -1,0 +1,13 @@
+[
+  {
+    "number": 671,
+    "title": "Exception in OneTimeSetUp has no stack trace",
+    "state": 1,
+    "milestone": "4.0",
+    "labels": [
+      "is:enhancement",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/671"
+  }
+]

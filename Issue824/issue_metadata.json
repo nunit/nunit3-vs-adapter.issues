@@ -1,0 +1,13 @@
+[
+  {
+    "number": 824,
+    "title": "\u0022Not a TestFixture or TestSuite, but SetUpFixture\u0022 exception is being thrown in case of more than one [SetUpFixture]",
+    "state": 1,
+    "milestone": "4.0.0-beta.2",
+    "labels": [
+      "is:bug",
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/824"
+  }
+]

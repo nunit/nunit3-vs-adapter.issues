@@ -1,0 +1,14 @@
+[
+  {
+    "number": 484,
+    "title": "Cannot run an individual test whose TestCase parameter contains characters from the range [U\u002B0001..U\u002B001F]",
+    "state": 1,
+    "milestone": "3.16",
+    "labels": [
+      "is:bug",
+      "closed:done",
+      "pri:normal"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/484"
+  }
+]

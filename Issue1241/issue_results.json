@@ -1,0 +1,35 @@
+[
+  {
+    "number": 1241,
+    "project_path": "Repro1\\TestProject3.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=18.0.1",
+      "NUnit3TestAdapter=6.0.0-beta.3",
+      "NUnit=4.4.0"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue1241\\Repro1\\TestProject3.csproj]\nRestored to initial state\n\n[Issue1241\\Repro2\\Issue1241.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro2\\Issue1241.csproj (in 356 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  Issue1241 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro2\\bin\\Debug\\net10.0\\Issue1241.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.43\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue1241\\Repro1\\TestProject3.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro1\\TestProject3.csproj (in 341 ms).\r\n\n=== Build ===\n  TestProject3 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro1\\bin\\Debug\\net10.0\\TestProject3.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.52\r\n\n=== Test ===\nRunning tests from C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro1\\bin\\Debug\\net10.0\\TestProject3.dll (net10.0|x64)\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro1\\bin\\Debug\\net10.0\\TestProject3.dll (net10.0|x64) passed (680ms)\r\n\r\nTest run summary: Passed!\r\n  total: 3\r\n  failed: 0\r\n  succeeded: 3\r\n  skipped: 0\r\n  duration: 1s 045ms\r\n\n\n=== Issue1241\\Repro2\\Issue1241.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro2\\Issue1241.csproj (in 356 ms).\r\n\n=== Build ===\n  Issue1241 -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro2\\bin\\Debug\\net10.0\\Issue1241.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.43\r\n\n=== Test ===\nRunning tests from C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro2\\bin\\Debug\\net10.0\\Issue1241.dll (net10.0|x64)\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1241\\Repro2\\bin\\Debug\\net10.0\\Issue1241.dll (net10.0|x64) passed (642ms)\r\n\r\nTest run summary: Passed!\r\n  total: 1\r\n  failed: 0\r\n  succeeded: 1\r\n  skipped: 0\r\n  duration: 1s 007ms\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (4 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": null,
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:40:51Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

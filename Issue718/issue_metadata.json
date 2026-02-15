@@ -1,0 +1,12 @@
+[
+  {
+    "number": 718,
+    "title": "Trace and Debug output is not displayed",
+    "state": 0,
+    "milestone": "No milestone",
+    "labels": [
+      "is:docs"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/718"
+  }
+]

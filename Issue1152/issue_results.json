@@ -1,0 +1,36 @@
+[
+  {
+    "number": 1152,
+    "project_path": "2-nunit-runner-dotnet-test\\nunit-runner-dotnet-test.csproj",
+    "project_style": "SDK-style",
+    "target_frameworks": [
+      "net10.0"
+    ],
+    "packages": [
+      "Microsoft.NET.Test.Sdk=18.0.1",
+      "NUnit=4.4.0",
+      "NUnit.Analyzers=4.11.2",
+      "NUnit3TestAdapter=6.0.1-alpha.6"
+    ],
+    "update_result": "Success",
+    "update_output": "[Issue1152\\2-nunit-runner-dotnet-test\\nunit-runner-dotnet-test.csproj]\nRestored to initial state\n\n[Issue1152\\1-nunit-runner\\nunit-runner.csproj]\nRestored to initial state\n\n[Issue1152\\3-nunit-runner-jason\\nunit-runner-jason.csproj]\nRestored to initial state",
+    "update_error": "",
+    "restore_result": "Success",
+    "restore_output": "  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1152\\3-nunit-runner-jason\\nunit-runner-jason.csproj (in 433 ms).\r\n",
+    "restore_error": "",
+    "build_result": "Success",
+    "build_output": "  nunit-runner-jason -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1152\\3-nunit-runner-jason\\bin\\Debug\\net10.0\\nunit-runner-jason.dll\r\n  EnableNUnitRunner is set to: true\r\n  EnableNUnitRunner is set to: true\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.94\r\n",
+    "build_error": "",
+    "test_result": "Success",
+    "test_output": "=== Issue1152\\2-nunit-runner-dotnet-test\\nunit-runner-dotnet-test.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1152\\2-nunit-runner-dotnet-test\\nunit-runner-dotnet-test.csproj (in 425 ms).\r\n\n=== Build ===\n  nunit-runner-dotnet-test -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1152\\2-nunit-runner-dotnet-test\\bin\\Debug\\net10.0\\nunit-runner-dotnet-test.dll\r\n  EnableNUnitRunner is set to: true\r\n  EnableNUnitRunner is set to: true\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.90\r\n\n=== Test ===\nRunning tests from C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1152\\2-nunit-runner-dotnet-test\\bin\\Debug\\net10.0\\nunit-runner-dotnet-test.dll (net10.0|x64)\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1152\\2-nunit-runner-dotnet-test\\bin\\Debug\\net10.0\\nunit-runner-dotnet-test.dll (net10.0|x64) passed (823ms)\r\n\r\nTest run summary: Passed!\r\n  total: 3\r\n  failed: 0\r\n  succeeded: 3\r\n  skipped: 0\r\n  duration: 1s 338ms\r\n\n\n=== Issue1152\\1-nunit-runner\\nunit-runner.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1152\\1-nunit-runner\\nunit-runner.csproj (in 436 ms).\r\n\n=== Build ===\n  nunit-runner -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1152\\1-nunit-runner\\bin\\Debug\\net10.0\\nunit-runner.dll\r\n  EnableNUnitRunner is set to: true\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.92\r\n\n=== Test ===\nRunning tests from C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1152\\1-nunit-runner\\bin\\Debug\\net10.0\\nunit-runner.dll (net10.0|x64)\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1152\\1-nunit-runner\\bin\\Debug\\net10.0\\nunit-runner.dll (net10.0|x64) passed (858ms)\r\n\r\nTest run summary: Passed!\r\n  total: 6\r\n  failed: 0\r\n  succeeded: 6\r\n  skipped: 0\r\n  duration: 1s 406ms\r\n\n\n=== Issue1152\\3-nunit-runner-jason\\nunit-runner-jason.csproj ===\n=== Restore ===\n  Determining projects to restore...\r\n  Restored C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1152\\3-nunit-runner-jason\\nunit-runner-jason.csproj (in 433 ms).\r\n\n=== Build ===\n  nunit-runner-jason -\u003E C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1152\\3-nunit-runner-jason\\bin\\Debug\\net10.0\\nunit-runner-jason.dll\r\n  EnableNUnitRunner is set to: true\r\n  EnableNUnitRunner is set to: true\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.94\r\n\n=== Test ===\nRunning tests from C:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1152\\3-nunit-runner-jason\\bin\\Debug\\net10.0\\nunit-runner-jason.dll (net10.0|x64)\r\nC:\\repos\\nunit\\nunit3-vs-adapter.issues\\Issue1152\\3-nunit-runner-jason\\bin\\Debug\\net10.0\\nunit-runner-jason.dll (net10.0|x64) passed (865ms)\r\n\r\nTest run summary: Passed!\r\n  total: 6\r\n  failed: 0\r\n  succeeded: 6\r\n  skipped: 0\r\n  duration: 1s 374ms\r\n",
+    "test_error": "",
+    "test_conclusion": "Success: No regression failure (15 test(s) passed)",
+    "runner_scripts": null,
+    "runsettings": "C:/repos/nunit/nunit3-vs-adapter.issues\\Issue1152\\.runsettings",
+    "feed": "Initial",
+    "runner_expectations": null,
+    "last_run": "2026-01-29T16:39:09Z",
+    "run_result": "Run",
+    "reason": ""
+  }
+]

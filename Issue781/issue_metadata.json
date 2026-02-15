@@ -1,0 +1,12 @@
+[
+  {
+    "number": 781,
+    "title": "An exception occurred while test discoverer \u0027NUnit3TestDiscoverer\u0027 was loading tests. Exception: Object reference not set to an instance of an object, with VS2015",
+    "state": 1,
+    "milestone": "4.0.0-beta.1",
+    "labels": [
+      "closed:done"
+    ],
+    "url": "https://github.com/nunit/nunit3-vs-adapter/issues/781"
+  }
+]
