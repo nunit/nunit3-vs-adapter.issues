@@ -1,0 +1,28 @@
+﻿namespace nunit;
+
+public class Tests
+{
+    [SetUp]
+    public void Setup()
+    {
+    }
+
+    [Test]
+    public void Test1()
+    {
+        Assert.Pass();
+    }
+
+    [Test]
+    public void Test2()
+    {
+        Assert.Pass();
+    }
+
+    [Test]
+    [Category("Slow")]
+    public void SlowTest()
+    {
+        Assert.Pass();
+    }
+}
