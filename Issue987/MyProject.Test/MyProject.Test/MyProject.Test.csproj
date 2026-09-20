@@ -1,11 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net45</TargetFrameworks>
+    <TargetFramework>net45</TargetFramework>
     <IsPackable>false</IsPackable>
-
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
     <PackageReference Include="nunit" Version="3.13.3" />
@@ -15,5 +13,4 @@
     <PackageReference Include="NUnit3TestAdapter" Version="4.3.1-alpha.109-dbg" />
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
   </ItemGroup>
-
 </Project>
