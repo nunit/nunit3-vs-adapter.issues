@@ -27,6 +27,6 @@ Results 2026-10-25, adapter 6.3.1, VS 18 (the dump XML-escapes <MsFilter> once; 
 |------------------------------|------------------------------------------------|----------------------------------|-----|
 | Name with & and &amp;        | `...Name with \& and \&amp;`                   | `...Name with & and &`           | no  |
 | StringArgument("say \"hi\"") | `...StringArgument\("say \\"hi\\""\)`          | `...StringArgument("say \"hi\"")`| yes |
-| StringArgument("a\nb")       | `...StringArgument\("a\nb"\)`                 | `...StringArgument("a\nb")`      | yes |
+| StringArgument("a\nb")       | `...StringArgument\("a\\nb"\)`                | `...StringArgument("a\nb")`      | yes |
 
 Test Explorer sends only VSTest escaping. HtmlDecode broke the first case. Fixed in nunit3-vs-adapter PR 1518 (main) and 1519 (tokenizer).
