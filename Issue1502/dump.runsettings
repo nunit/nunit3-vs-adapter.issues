@@ -2,5 +2,7 @@
 <RunSettings>
   <NUnit>
     <DumpXmlTestResults>true</DumpXmlTestResults>
+    <!-- Adapter 6.4+ (PR 1520): keep one dump per run, E_Issue1502.dll(1).dump and up -->
+    <DumpNumberedFiles>true</DumpNumberedFiles>
   </NUnit>
 </RunSettings>

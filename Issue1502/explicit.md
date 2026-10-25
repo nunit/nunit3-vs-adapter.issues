@@ -8,7 +8,7 @@ Steps:
 
 1. Open Issue1502.csproj in Visual Studio. dump.runsettings is set as the run settings and turns on DumpXmlTestResults.
 2. In Test Explorer, run each StringArgument and CustomName case on its own (select one, Run).
-3. Open bin\Debug\net10.0\Dump\E_Issue1502.dll.dump. Each run overwrites it, so read it after every run.
+3. Open bin\Debug\net10.0\Dump\E_Issue1502.dll.dump. With adapter 6.3.x each run overwrites it, so read it after every run. From the version with PR 1520, DumpNumberedFiles in dump.runsettings keeps one file per run: E_Issue1502.dll(1).dump and up.
 4. Compare <MsFilter> (the raw filter from Test Explorer) with <ParsedTestCases> (what the adapter made of it) and with the test name.
    <MsFilter> is only written on the Test Explorer path. If it is missing, Test Explorer did not use the MTP filter path.
 
