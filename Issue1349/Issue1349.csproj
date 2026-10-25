@@ -4,10 +4,11 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <EnableNUnitRunner>true</EnableNUnitRunner>
         <OutputType>Exe</OutputType>
+        <RunSettingsFilePath>$(MSBuildProjectDirectory)\dump.runsettings</RunSettingsFilePath>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="NUnit" Version="4.4.0" />
-        <PackageReference Include="NUnit3TestAdapter" Version="6.0.0-alpha.100" />
+        <PackageReference Include="NUnit" Version="5.0.0" />
+        <PackageReference Include="NUnit3TestAdapter" Version="6.3.1" />
     </ItemGroup>
 </Project>

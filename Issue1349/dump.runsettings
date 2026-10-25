@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <NUnit>
+    <DumpXmlTestResults>true</DumpXmlTestResults>
+    <!-- Adapter versions with nunit3-vs-adapter PR 1520: keep one dump per run, E_Issue1349.dll(1).dump and up -->
+    <DumpNumberedFiles>true</DumpNumberedFiles>
+  </NUnit>
+</RunSettings>
