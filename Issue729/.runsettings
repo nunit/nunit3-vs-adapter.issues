@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- For more information, see https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2019  -->
 
 <RunSettings>
@@ -54,7 +54,8 @@
       <!--<ShadowCopyFiles>false</ShadowCopyFiles>-->
       <!--<DefaultTestNamePattern>{m}{a}</DefaultTestNamePattern>-->
       <!--<DomainUsage>Single</DomainUsage>-->
-      <DumpXmlTestDiscovery>false</DumpXmlTestDiscovery>
+      <UseHierarchyProperty>true</UseHierarchyProperty>
+      <DumpXmlTestDiscovery>true</DumpXmlTestDiscovery>
       <DumpXmlTestResults>true</DumpXmlTestResults>
       <ShowInternalProperties>false</ShowInternalProperties>
       <TestOutputXml>false</TestOutputXml>
