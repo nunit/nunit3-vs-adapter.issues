@@ -3,5 +3,6 @@
     <UseHierarchyProperty>true</UseHierarchyProperty>
     <DumpXmlTestDiscovery>true</DumpXmlTestDiscovery>
     <DumpXmlTestResults>true</DumpXmlTestResults>
+    <DumpNumberedFiles>true</DumpNumberedFiles>
   </NUnit>
 </RunSettings>

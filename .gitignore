@@ -366,3 +366,6 @@ MigrationBackup/
 ScaffoldingReadMe.txt
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Test Explorer dumps from te-dump
+te-dump/
