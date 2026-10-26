@@ -11,7 +11,8 @@ https://docs.nunit.org/articles/developer-info/Developing-NUnit.html for the who
 ## Working with a repro
 
 - Run a repro on its own: `dotnet test` in its folder, or its `run_*.cmd` / `run_*.sh` scripts.
-- Test an unreleased adapter: copy the package to `C:\nuget`, add that feed to the folder's `NuGet.config`, update with
+- Test an unreleased adapter: copy the package to `C:\nuget`, add that feed to the folder's `NuGet.config` with
+  `nugetc add local` (dotnet tool `nugetc`), update with
   `dotnet outdated -u -pre Always -inc NUnit3TestAdapter`. Never hand-edit package versions.
 - Every test project references `Microsoft.NET.Test.Sdk` and `coverlet.collector`.
 - Turn on `DumpXmlTestDiscovery` and `DumpXmlTestResults` in the folder's `.runsettings` to see what the adapter

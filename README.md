@@ -21,8 +21,9 @@ dotnet test
   dump the tree before and after a run, also for single tests. Delete `.vs`, `bin` and `obj` first.
 - **Adapter dumps:** set `DumpXmlTestDiscovery` and `DumpXmlTestResults` in the `.runsettings`; the dumps are written
   to `bin\<configuration>\<target framework>\Dump`.
-- **An unreleased adapter:** copy the package to `C:\nuget`, add that feed to the folder's `NuGet.config`, and update
-  with `dotnet outdated -u -pre Always -inc NUnit3TestAdapter`.
+- **An unreleased adapter:** copy the package to `C:\nuget`, add that feed to the folder's `NuGet.config` with
+  `nugetc add local` ([nugetc](https://github.com/HermitOS/nugetconfigcreator), `dotnet tool install -g nugetc`), and
+  update with `dotnet outdated -u -pre Always -inc NUnit3TestAdapter`. `nugetc add myget` adds the NUnit MyGet feed.
 
 ## Adding a repro
 
