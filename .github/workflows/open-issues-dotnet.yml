@@ -21,6 +21,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Checkout IssueRunner
+        uses: actions/checkout@v4
+        with:
+          repository: nunit/nunit.tools.issuerunner
+          path: _tools/issuerunner
+
       - name: Setup .NET SDKs
         uses: actions/setup-dotnet@v4
         with:
@@ -39,20 +45,19 @@ jobs:
 
       - name: Build IssueRunner
         run: |
-          cd Tools
-          dotnet build -c Release
+          dotnet build _tools/issuerunner/IssueRunner.Cli/IssueRunner.Cli.csproj -c Release
 
       - name: Run open issues tests (.NET Core)
         continue-on-error: true
         run: |
-          cd Tools/IssueRunner/bin/Release/net10.0
-          ./IssueRunner run --scope OpenOnly --skip-netfx --timeout 900 --nunit-only --root $GITHUB_WORKSPACE
+          cd _tools/issuerunner/IssueRunner.Cli/bin/Release/net10.0
+          ./IssueRunner.Cli run --scope OpenOnly --skip-netfx --timeout 900 --nunit-only --root $GITHUB_WORKSPACE
 
       - name: Generate test report
         if: always()
         run: |
-          cd Tools/IssueRunner/bin/Release/net10.0
-          ./IssueRunner report generate --root $GITHUB_WORKSPACE
+          cd _tools/issuerunner/IssueRunner.Cli/bin/Release/net10.0
+          ./IssueRunner.Cli report generate --root $GITHUB_WORKSPACE
 
       - name: Publish summary
         if: always()
