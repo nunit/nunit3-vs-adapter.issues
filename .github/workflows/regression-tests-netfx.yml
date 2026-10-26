@@ -50,7 +50,7 @@ jobs:
         shell: pwsh
         run: |
           cd _tools\issuerunner\IssueRunner.Cli\bin\Release\net10.0
-          .\IssueRunner.Cli.exe run --scope RegressionOnly --only-netfx --timeout 900 --nunit-only --verbosity Verbose --root $env:GITHUB_WORKSPACE | Tee-Object -FilePath $env:GITHUB_WORKSPACE\TestResults-consolelog.md
+          .\IssueRunner.Cli.exe run --scope Regression --only-netfx --timeout 900 --nunit-only --verbosity Verbose --root $env:GITHUB_WORKSPACE | Tee-Object -FilePath $env:GITHUB_WORKSPACE\TestResults-consolelog.md
 
       - name: Generate test report
         if: always()

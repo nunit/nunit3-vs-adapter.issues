@@ -49,7 +49,7 @@ jobs:
         continue-on-error: true
         run: |
           cd _tools/issuerunner/IssueRunner.Cli/bin/Release/net10.0
-          ./IssueRunner.Cli run --scope RegressionOnly --skip-netfx --timeout 900 --nunit-only --verbosity Verbose --root $GITHUB_WORKSPACE | tee $GITHUB_WORKSPACE/TestResults-consolelog.md
+          ./IssueRunner.Cli run --scope Regression --skip-netfx --timeout 900 --nunit-only --verbosity Verbose --root $GITHUB_WORKSPACE | tee $GITHUB_WORKSPACE/TestResults-consolelog.md
 
       - name: Generate test report
         if: always()

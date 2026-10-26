@@ -51,7 +51,7 @@ jobs:
         continue-on-error: true
         run: |
           cd _tools/issuerunner/IssueRunner.Cli/bin/Release/net10.0
-          ./IssueRunner.Cli run --scope OpenOnly --skip-netfx --timeout 900 --nunit-only --root $GITHUB_WORKSPACE
+          ./IssueRunner.Cli run --scope Open --skip-netfx --timeout 900 --nunit-only --root $GITHUB_WORKSPACE
 
       - name: Generate test report
         if: always()

@@ -53,10 +53,10 @@ repository, build it, and run it from this repository's root:
 ```cmd
 ..\nunit.tools.issuerunner\build.cmd
 ..\nunit.tools.issuerunner\run-tests.cmd --issues 1097,782 --feed Local
-..\nunit.tools.issuerunner\run-tests.cmd --scope RegressionOnly
+..\nunit.tools.issuerunner\run-tests.cmd --scope Regression
 ```
 
-- `--feed Local` adds `C:\nuget`, `--scope RegressionOnly` runs the closed issues, `--scope OpenOnly` the open ones.
+- `--feed Local` adds `C:\nuget`, `--scope Regression` runs the closed issues, `--scope Open` the open ones.
 - IssueRunner skips folders with an `ignore`, `explicit`, `wip`, `gui` or `closedasnotplanned` marker, also when you
   ask for them by number; `windows` folders are skipped with `--skip-netfx`.
 - `EXPECT_TESTS=N` and similar comments in run scripts are not checked; IssueRunner only looks at the script's exit

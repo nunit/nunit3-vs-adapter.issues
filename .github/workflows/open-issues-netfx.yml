@@ -52,7 +52,7 @@ jobs:
         shell: pwsh
         run: |
           cd _tools\issuerunner\IssueRunner.Cli\bin\Release\net10.0
-          .\IssueRunner.Cli.exe run --scope OpenOnly --only-netfx --timeout 900 --nunit-only --root $env:GITHUB_WORKSPACE
+          .\IssueRunner.Cli.exe run --scope Open --only-netfx --timeout 900 --nunit-only --root $env:GITHUB_WORKSPACE
 
       - name: Generate test report
         if: always()
