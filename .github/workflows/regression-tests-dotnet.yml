@@ -25,6 +25,15 @@ jobs:
           repository: nunit/nunit.tools.issuerunner
           path: _tools/issuerunner
 
+      - name: Create the local feed folders
+        # Many repros list c:\nuget as a package source for unreleased adapters. Restore fails when the
+        # folder is missing, so create it empty. On Linux NuGet reads it as a folder next to the NuGet.config.
+        run: |
+          grep -rilE --include='[Nn]u[Gg]et.config' 'value="c:\\nuget"' . | while IFS= read -r f; do
+            v=$(grep -ioE 'value="c:\\nuget"' "$f" | head -1 | cut -d'"' -f2)
+            mkdir -p "$(dirname "$f")/$v"
+          done
+
       - name: Setup .NET SDKs
         uses: actions/setup-dotnet@v4
         with:

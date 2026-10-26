@@ -27,6 +27,11 @@ jobs:
           repository: nunit/nunit.tools.issuerunner
           path: _tools/issuerunner
 
+      - name: Create the local feed folder
+        # Many repros list C:\nuget as a package source for unreleased adapters. Restore fails when the
+        # folder is missing, so create it empty.
+        run: New-Item -ItemType Directory -Force C:\nuget | Out-Null
+
       - name: Setup .NET SDKs
         uses: actions/setup-dotnet@v4
         with:
