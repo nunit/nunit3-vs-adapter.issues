@@ -16,7 +16,7 @@ public class Tests
     [TestCase("I am a good test case (the best, even).")]
     public void Test1097(string s)
     {
-        TestContext.WriteLine(s);
+        TestContext.Out.WriteLine(s);
         Assert.Pass();
     }
 }

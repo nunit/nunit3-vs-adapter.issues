@@ -1,0 +1,7 @@
+<RunSettings>
+  <NUnit>
+    <UseHierarchyProperty>true</UseHierarchyProperty>
+    <DumpXmlTestDiscovery>true</DumpXmlTestDiscovery>
+    <DumpXmlTestResults>true</DumpXmlTestResults>
+  </NUnit>
+</RunSettings>
